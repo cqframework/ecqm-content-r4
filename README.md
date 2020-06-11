@@ -11,8 +11,9 @@ structure will be as follows:
       |-- _genonce.sh
       |-- _updatePublisher.bat
       |-- _updatePublisher.sh
-      |.. ig.ini
+      |-- ig.ini
       |-- input
+          |-- ecqm-content.xml
           |-- pagecontent
               |-- cql
                   |-- EXM124-9.0.000.cql
