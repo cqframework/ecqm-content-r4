@@ -10,7 +10,7 @@ This repository contains the measure artifacts for all FHIR based eCQMs. It is s
    |-- _updatePublisher.sh
    |-- ig.ini
    |-- input
-       |-- ecqm-content.xml
+       |-- ecqm-content-r4.xml
        |-- pagecontent
            |-- cql
                |-- EXM124-9.0.000.cql
