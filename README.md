@@ -13,14 +13,14 @@ This repository contains the measure artifacts for all FHIR based eCQMs. It is s
        |-- ecqm-content-r4.xml
        |-- pagecontent
            |-- cql
-               |-- EXM124-9.0.000.cql
+               |-- EXM124.cql
        |-- resources
            |-- library
-               |-- library-EXM124-9.0.000.json
+               |-- library-EXM124.json
            |-- measure
-               |-- measure-EXM124-9.0.000.json
+               |-- measure-EXM124.json
        |-- tests
-           |-- EXM124-9.0.000
+           |-- EXM124
        |-- vocabulary
            |-- valueset
 ```
