@@ -52,11 +52,11 @@
   "relatedArtifact": [
     {
       "type": "depends-on",
-      "resource": "http://fhir.org/guides/dbcg/connectathon/Library/library-MATGlobalCommonFunctions|5.0.000"
+      "resource": "http://fhir.org/guides/dbcg/connectathon/Library/library-MATGlobalCommonFunctions"
     },
     {
       "type": "depends-on",
-      "resource": "http://fhir.org/guides/dbcg/connectathon/Library/library-FHIRHelpers|4.0.1"
+      "resource": "http://fhir.org/guides/dbcg/connectathon/Library/library-FHIRHelpers"
     }
   ],
   "dataRequirement": [
