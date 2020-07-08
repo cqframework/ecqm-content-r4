@@ -1,4 +1,4 @@
-library EXM124_FHIR401 version '9.0.000'
+library EXM124 version '9.0.000'
 
 
 /*
