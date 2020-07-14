@@ -5,4 +5,4 @@ This implementation guide is a collection of electronic Clinical Quality Measure
 ### Scope
 
 This implementation guide includes support for the following guideline recommendations:
-* [Measure - EXM124](EXM124.html)
+* [Measure - EXM124v9](EXM124v9.html)
