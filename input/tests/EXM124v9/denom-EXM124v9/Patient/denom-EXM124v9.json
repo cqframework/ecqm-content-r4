@@ -1,6 +1,6 @@
 {
   "resourceType": "Patient",
-  "id": "numer-EXM124",
+  "id": "denom-EXM124v9",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -52,9 +52,9 @@
   ],
   "name": [
     {
-      "family": "Brigand",
+      "family": "Bertha",
       "given": [
-        "Melanie"
+        "Betty"
       ]
     }
   ],
