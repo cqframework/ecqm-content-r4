@@ -1,0 +1,25 @@
+{
+  "resourceType": "MedicationDispense",
+  "id": "dispense-Testing-1",
+  "status" : "completed",
+  "medicationReference" : {
+    "reference" : "Medication/dispense-Testing-2"
+  },
+  "subject": {
+    "reference": "Patient/dispense-Testing"
+  },
+  "quantity" : {
+    "value" : 100,
+    "unit" : "ml",
+    "system" : "http://unitsofmeasure.org",
+    "code" : "ml"
+  },
+  "daysSupply" : {
+    "value" : 30,
+    "unit" : "Day",
+    "system" : "http://unitsofmeasure.org",
+    "code" : "d"
+  },
+  "whenPrepared" : "2019-08-30T16:20:00+00:00",
+  "whenHandedOver" : "2019-08-31T10:20:00+00:00"
+}
