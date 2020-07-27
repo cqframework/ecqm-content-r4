@@ -6,21 +6,25 @@ This repository contains the measure artifacts for all FHIR based eCQMs. It is s
 ```
    |-- _genonce.bat
    |-- _genonce.sh
+   |-- _refresh.bat
+   |-- _refresh.sh
    |-- _updatePublisher.bat
    |-- _updatePublisher.sh
+   |-- _updateRefreshIG.bat
+   |-- _updateRefreshIG.sh
    |-- ig.ini
    |-- input
        |-- ecqm-content-r4.xml
        |-- pagecontent
            |-- cql
-               |-- EXM124.cql
+               |-- EXM124v9.cql
        |-- resources
            |-- library
-               |-- library-EXM124.json
+               |-- EXM124v9.json
            |-- measure
-               |-- measure-EXM124.json
+               |-- EXM124v9.json
        |-- tests
-           |-- EXM124
+           |-- EXM124v9
        |-- vocabulary
            |-- valueset
 ```

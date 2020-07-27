@@ -1,6 +1,6 @@
 {
   "resourceType": "Measure",
-  "id": "measure-EXM124v9",
+  "id": "EXM124v9",
   "meta": {
     "lastUpdated": "2020-01-29T22:38:35.548-07:00",
     "profile": [
@@ -30,7 +30,7 @@
       },
       "version": [
         {
-          "value": "1.1.0-SNAPSHOT"
+          "value": "1.1.1-SNAPSHOT"
         }
       ]
     }
