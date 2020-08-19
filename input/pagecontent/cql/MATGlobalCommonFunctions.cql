@@ -1,8 +1,8 @@
-library MATGlobalCommonFunctions version '5.0.000'
+library MATGlobalCommonFunctions version '4.0.000'
 
-using FHIR version '4.0.1'
+using FHIR version '4.0.0'
 
-include FHIRHelpers version '4.0.1' called FHIRHelpers
+include FHIRHelpers version '4.0.0' called FHIRHelpers
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
@@ -66,7 +66,7 @@ define "Inpatient Encounter":
 			and EncounterInpatient.period ends during "Measurement Period"
 
 define function "ToDate"(Value DateTime):
-	DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezoneoffset from Value)
+	DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezone from Value)
 
 define function "CalendarAgeInDaysAt"(BirthDateTime DateTime, AsOf DateTime):
 	days between ToDate(BirthDateTime)and ToDate(AsOf)
@@ -168,6 +168,41 @@ define function "First Inpatient Intensive Care Unit"(TheEncounter FHIR.Encounte
 *
 */
 
+define function "Normalize Onset"(onset Choice<FHIR.dateTime, FHIR.Age, FHIR.Period, FHIR.Range, FHIR.string>):
+  if onset is FHIR.dateTime then
+	  Interval[FHIRHelpers.ToDateTime(onset as FHIR.dateTime), FHIRHelpers.ToDateTime(onset as FHIR.dateTime)]
+	else if onset is FHIR.Period then
+	  FHIRHelpers.ToInterval(onset as FHIR.Period)
+	else if onset is FHIR.string then
+    Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')
+	else if onset is FHIR.Age then
+	  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(onset as FHIR.Age),
+		  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(onset as FHIR.Age) + 1 year)
+	else if onset is FHIR.Range then
+	  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((onset as FHIR.Range).low),
+		  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((onset as FHIR.Range).high) + 1 year)
+	else null
+
+define function "Normalize Abatement"(condition Condition):
+	if condition.abatement is FHIR.dateTime then
+	  Interval[FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime), FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime)]
+	else if condition.abatement is FHIR.Period then
+	  FHIRHelpers.ToInterval(condition.abatement as FHIR.Period)
+	else if condition.abatement is FHIR.string then
+    Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')
+	else if condition.abatement is FHIR.Age then
+		Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age),
+			FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age) + 1 year)
+	else if condition.abatement is FHIR.Range then
+	  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).low),
+		  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).high) + 1 year)
+	else if condition.abatement is FHIR.boolean then
+	  Interval[end of "Normalize Onset"(condition.onset), condition.recordedDate)
+	else null
+
+define function "Prevalence Period"(condition Condition):
+  Interval[start of "Normalize Onset"(condition.onset), end of "Normalize Abatement"(condition))
+
 define function "Normalize Interval"(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>):
   case
 	  when choice is FHIR.dateTime then
@@ -189,26 +224,6 @@ define function "Normalize Interval"(choice Choice<FHIR.dateTime, FHIR.Period, F
 		else
 			null as Interval<DateTime>
 	end
-
-define function "Normalize Abatement"(condition Condition):
-	if condition.abatement is FHIR.dateTime then
-	  Interval[FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime), FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime)]
-	else if condition.abatement is FHIR.Period then
-	  FHIRHelpers.ToInterval(condition.abatement as FHIR.Period)
-	else if condition.abatement is FHIR.string then
-    Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')
-	else if condition.abatement is FHIR.Age then
-		Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age),
-			FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age) + 1 year)
-	else if condition.abatement is FHIR.Range then
-	  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).low),
-		  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).high) + 1 year)
-	else if condition.abatement is FHIR.boolean then
-	  Interval[end of "Normalize Interval"(condition.onset), condition.recordedDate)
-	else null
-
-define function "Prevalence Period"(condition Condition):
-  Interval[start of "Normalize Interval"(condition.onset), end of "Normalize Abatement"(condition))
 
 define function "GetId"(uri String):
 	Last(Split(uri, '/'))

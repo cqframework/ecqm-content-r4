@@ -1,4 +1,4 @@
-library Hospice version '2.0.000'
+library Hospice version '1.0.000'
 
 /*
 This example is a work in progress and should not be considered a final specification
@@ -7,17 +7,10 @@ of finding conventions and usage patterns that meet the needs of the various sta
 in the measure development community.
 */
 
-/*
-@update: @@BTR 2020-03-31 ->
-Incremented version to 2.0.000
-Updated FHIR version to 4.0.1
-@@@
-*/
+using FHIR version '4.0.0'
 
-using FHIR version '4.0.1'
-
-include MATGlobalCommonFunctions version '5.0.000' called Global
-include FHIRHelpers version '4.0.1' called FHIRHelpers
+include MATGlobalCommonFunctions version '4.0.000' called Global
+include FHIRHelpers version '4.0.0' called FHIRHelpers
 
 codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108' version 'http://snomed.info/sct/731000124108/version/201709'
 
@@ -27,28 +20,25 @@ valueset "Hospice care ambulatory": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.8
 code "Discharge to healthcare facility for hospice care (procedure)": '428371000124100' from "SNOMEDCT:2017-09" display 'Discharge to healthcare facility for hospice care (procedure)'
 code "Discharge to home for hospice care (procedure)": '428361000124107' from "SNOMEDCT:2017-09" display 'Discharge to home for hospice care (procedure)'
 
-parameter "Measurement Period" Interval<DateTime>
-  default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
-
 context Patient
 
-define "Has Hospice":
+define function "Has Hospice"(MeasurementPeriod Interval<DateTime>):
 	exists (
-    [Encounter: "Encounter Inpatient"] DischargeHospice
+	    [Encounter: "Encounter Inpatient"] DischargeHospice
 			where DischargeHospice.status = 'finished'
-		    and (
-	        DischargeHospice.hospitalization.dischargeDisposition ~ "Discharge to home for hospice care (procedure)"
-				    or DischargeHospice.hospitalization.dischargeDisposition ~ "Discharge to healthcare facility for hospice care (procedure)"
-	    	)
-				and DischargeHospice.period ends during "Measurement Period"
+			    and (
+			        FHIRHelpers.ToConcept(DischargeHospice.hospitalization.dischargeDisposition).codes[0] ~ "Discharge to home for hospice care (procedure)"
+					    or FHIRHelpers.ToConcept(DischargeHospice.hospitalization.dischargeDisposition).codes[0] ~ "Discharge to healthcare facility for hospice care (procedure)"
+			    )
+				and DischargeHospice.period ends during day of MeasurementPeriod
 	)
     or exists (
-      [ServiceRequest: "Hospice care ambulatory"] HospiceOrder
-        where HospiceOrder.intent = 'order'
-            and HospiceOrder.authoredOn in "Measurement Period"
+        [ServiceRequest: "Hospice care ambulatory"] HospiceOrder
+            where HospiceOrder.intent = 'order'
+                and FHIRHelpers.ToDateTime(HospiceOrder.authoredOn) in day of MeasurementPeriod
     )
     or exists (
-      [Procedure: "Hospice care ambulatory"] HospicePerformed
-        where HospicePerformed.status = 'completed'
-          and Global."Normalize Interval"(HospicePerformed.performed) overlaps "Measurement Period"
+        [Procedure: "Hospice care ambulatory"] HospicePerformed
+            where HospicePerformed.status = 'completed'
+                and Global."Normalize Interval"(HospicePerformed.performed) overlaps MeasurementPeriod
     )

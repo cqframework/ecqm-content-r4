@@ -1,12 +1,12 @@
 {
   "resourceType": "Bundle",
-  "id": "tests-denom-EXM124v9-bundle",
+  "id": "tests-numer-EXM124-bundle",
   "type": "transaction",
   "entry": [
     {
       "resource": {
         "resourceType": "Encounter",
-        "id": "denom-EXM124v9-2",
+        "id": "numer-EXM124-2",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
@@ -30,22 +30,22 @@
           }
         ],
         "subject": {
-          "reference": "Patient/denom-EXM124v9"
+          "reference": "Patient/numer-EXM124"
         },
         "period": {
-          "start": "2019-01-01T01:00:00.0",
-          "end": "2019-01-02T01:00:00.0"
+          "start": "2019-01-01T00:00:00.0",
+          "end": "2019-01-02T00:00:00.0"
         }
       },
       "request": {
         "method": "PUT",
-        "url": "Encounter/denom-EXM124v9-2"
+        "url": "Encounter/numer-EXM124-2"
       }
     },
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "denom-EXM124v9",
+        "id": "numer-EXM124",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -97,9 +97,9 @@
         ],
         "name": [
           {
-            "family": "Bertha",
+            "family": "Brigand",
             "given": [
-              "Betty"
+              "Melanie"
             ]
           }
         ],
@@ -108,13 +108,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "Patient/denom-EXM124v9"
+        "url": "Patient/numer-EXM124"
       }
     },
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "denom-EXM124v9-3",
+        "id": "numer-EXM124-3",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/observation"
@@ -131,13 +131,14 @@
           ]
         },
         "subject": {
-          "reference": "Patient/denom-EXM124v9"
+          "reference": "Patient/numer-EXM124"
         },
-        "effectiveDateTime": "2019-11-01T00:00:00"
+        "effectiveDateTime": "2019-11-01T00:00:00",
+        "valueBoolean": true
       },
       "request": {
         "method": "PUT",
-        "url": "Observation/denom-EXM124v9-3"
+        "url": "Observation/numer-EXM124-3"
       }
     }
   ]
