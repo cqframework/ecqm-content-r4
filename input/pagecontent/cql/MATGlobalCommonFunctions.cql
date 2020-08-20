@@ -65,8 +65,8 @@ define "Inpatient Encounter":
 		    and "LengthInDays"(EncounterInpatient.period) <= 120
 			and EncounterInpatient.period ends during "Measurement Period"
 
-define function "ToDate"(Value DateTime):
-	DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezone from Value)
+//define function "ToDate"(Value DateTime):
+//	DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezone from Value)
 
 define function "CalendarAgeInDaysAt"(BirthDateTime DateTime, AsOf DateTime):
 	days between ToDate(BirthDateTime)and ToDate(AsOf)
