@@ -1,6 +1,6 @@
 {
   "resourceType": "Measure",
-  "id": "EXM124",
+  "id": "EXM124-8.2.000",
   "meta": {
     "lastUpdated": "2020-01-29T22:38:35.548-07:00",
     "profile": [
@@ -27,12 +27,7 @@
             "code": "tooling"
           }
         ]
-      },
-      "version": [
-        {
-          "value": "1.1.1-SNAPSHOT"
-        }
-      ]
+      }
     }
   ],
   "extension": [
@@ -47,7 +42,7 @@
       }
     }
   ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm124-FHIR4",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM124-8.2.000",
   "identifier": [
     {
       "use": "official",
@@ -131,27 +126,27 @@
     },
     {
       "type": "depends-on",
-      "resource": "Library/FHIRHelpers"
+      "resource": "Library/FHIRHelpers-4.0.0"
     },
     {
       "type": "depends-on",
-      "resource": "Library/Hospice"
+      "resource": "Library/Hospice-1.0.000"
     },
     {
       "type": "depends-on",
-      "resource": "Library/AdultOutpatientEncounters"
+      "resource": "Library/AdultOutpatientEncounters-1.1.000"
     },
     {
       "type": "depends-on",
-      "resource": "Library/MATGlobalCommonFunctions"
+      "resource": "Library/MATGlobalCommonFunctions-4.0.000"
     },
     {
       "type": "depends-on",
-      "resource": "Library/SupplementalDataElements"
+      "resource": "Library/SupplementalDataElements-1.0.0"
     }
   ],
   "library": [
-    "Library/EXM124"
+    "Library/EXM124-8.2.000"
   ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
