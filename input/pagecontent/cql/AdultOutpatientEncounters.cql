@@ -1,4 +1,4 @@
-library AdultOutpatientEncounters version '1.1.000'
+library AdultOutpatientEncounters version '2.0.000'
 
 /*
 This example is a work in progress and should not be considered a final specification
@@ -7,9 +7,16 @@ of finding conventions and usage patterns that meet the needs of the various sta
 in the measure development community.
 */
 
-using FHIR version '4.0.0'
+/*
+@update: @@BTR 2020-03-31 ->
+Incremented version to 2.0.000
+Updated FHIR version to 4.0.1
+@@@
+*/
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
+using FHIR version '4.0.1'
+
+include FHIRHelpers version '4.0.1' called FHIRHelpers
 
 valueset "Office Visit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001'
 valueset "Annual Wellness Visit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240'
@@ -22,13 +29,13 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define function "Qualifying Encounters"(MeasurementPeriod Interval<DateTime>):
+define "Qualifying Encounters":
 	(
-	    [Encounter: "Office Visit"]
-		union [Encounter: "Annual Wellness Visit"]
-		union [Encounter: "Preventive Care Services - Established Office Visit, 18 and Up"]
-		union [Encounter: "Preventive Care Services-Initial Office Visit, 18 and Up"]
-		union [Encounter: "Home Healthcare Services"]
-    ) ValidEncounter
-		where ValidEncounter.period during day of MeasurementPeriod
-		and ValidEncounter.status  = 'finished'
+    [Encounter: "Office Visit"]
+  		union [Encounter: "Annual Wellness Visit"]
+  		union [Encounter: "Preventive Care Services - Established Office Visit, 18 and Up"]
+  		union [Encounter: "Preventive Care Services-Initial Office Visit, 18 and Up"]
+  		union [Encounter: "Home Healthcare Services"]
+  ) ValidEncounter
+		where ValidEncounter.period during "Measurement Period"
+  		and ValidEncounter.status  = 'finished'

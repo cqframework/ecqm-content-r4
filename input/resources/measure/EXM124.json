@@ -1,6 +1,6 @@
 {
   "resourceType": "Measure",
-  "id": "EXM124-8.2.000",
+  "id": "EXM124-9.0.000",
   "meta": {
     "lastUpdated": "2020-01-29T22:38:35.548-07:00",
     "profile": [
@@ -42,7 +42,7 @@
       }
     }
   ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM124-8.2.000",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM124-9.0.000",
   "identifier": [
     {
       "use": "official",
@@ -50,7 +50,7 @@
       "value": "124"
     }
   ],
-  "version": "8.2.000",
+  "version": "9.0.000",
   "name": "EXM124",
   "title": "Cervical Cancer Screening",
   "status": "active",
@@ -126,27 +126,27 @@
     },
     {
       "type": "depends-on",
-      "resource": "Library/FHIRHelpers-4.0.0"
+      "resource": "Library/FHIRHelpers-4.0.1"
     },
     {
       "type": "depends-on",
-      "resource": "Library/Hospice-1.0.000"
+      "resource": "Library/Hospice-2.0.000"
     },
     {
       "type": "depends-on",
-      "resource": "Library/AdultOutpatientEncounters-1.1.000"
+      "resource": "Library/AdultOutpatientEncounters-2.0.000"
     },
     {
       "type": "depends-on",
-      "resource": "Library/MATGlobalCommonFunctions-4.0.000"
+      "resource": "Library/MATGlobalCommonFunctions-5.0.000"
     },
     {
       "type": "depends-on",
-      "resource": "Library/SupplementalDataElements-1.0.0"
+      "resource": "Library/SupplementalDataElements-2.0.0"
     }
   ],
   "library": [
-    "Library/EXM124-8.2.000"
+    "Library/EXM124-9.0.000"
   ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
