@@ -1,0 +1,32 @@
+{
+  "resourceType": "Bundle",
+  "id": "tests-Medication-bundle",
+  "type": "transaction",
+  "entry": [ {
+    "resource": {
+      "resourceType": "Medication",
+      "id": "dispense-Testing-2",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication" ]
+      },
+      "code": {
+        "coding": [ {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "1014599",
+          "display": "acetaminophen 300 MG / oxycodone hydrochloride 10 MG Oral Tablet"
+        } ]
+      },
+      "form": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "385055001",
+          "display": "Tablet dose form (qualifier value)"
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Medication/dispense-Testing-2"
+    }
+  } ]
+}
