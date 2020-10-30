@@ -1,4 +1,4 @@
-library EXM124 version '8.2.000'
+library EXM124v8 version '8.2.000'
 
 /*
 Based on CMS124v7 - Cervical Cancer Screening
