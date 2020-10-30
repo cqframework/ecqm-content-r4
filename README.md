@@ -25,7 +25,7 @@ This repository contains the measure artifacts for all FHIR based eCQMs. It is s
                |-- EXM124v8.json
        |-- tests
            |-- measure
-               |-- EXM124v9
+               |-- EXM124v8
        |-- vocabulary
            |-- valueset
 ```
