@@ -13,6 +13,9 @@ This repository contains the measure artifacts for all FHIR based eCQMs. It is s
    |-- _updateRefreshIG.bat
    |-- _updateRefreshIG.sh
    |-- ig.ini
+   |-- bundles
+       |-- measure
+           |--EXM124v8
    |-- input
        |-- ecqm-content-r4.xml
        |-- pagecontent
