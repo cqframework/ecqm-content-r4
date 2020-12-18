@@ -54,7 +54,7 @@ fi
 read -r -p "$message" response
 if [[ "$response" =~ ^([yY])$ ]]; then
 	echo "Downloading most recent tooling to $jarlocationname - it's ~170 MB, so this may take a bit"
-#	wget "https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.1.1-SNAPSHOT/tooling-1.1.1-20200706.232516-7-jar-with-dependencies.jar" -O "$jarlocation"
+#	wget "https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200107.163002-6-jar-with-dependencies.jar" -O "$jarlocation"
 	curl $dlurl -L -o "$jarlocation" --create-dirs
 	echo "Download complete."
 else

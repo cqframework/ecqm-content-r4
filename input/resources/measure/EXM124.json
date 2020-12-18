@@ -1,6 +1,6 @@
 {
   "resourceType": "Measure",
-  "id": "EXM124-8.2.000",
+  "id": "EXM124",
   "meta": {
     "lastUpdated": "2020-01-29T22:38:35.548-07:00",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm" ]
@@ -30,8 +30,13 @@
     "valueReference": {
       "reference": "#cqf-tooling"
     }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "cqf-tooling"
+    }
   } ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM124-8.2.000",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM124",
   "identifier": [ {
     "use": "official",
     "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms",
@@ -50,7 +55,7 @@
       "value": "http://www.ncqa.org/"
     } ]
   } ],
-  "description": "Percentage of women 21-64 years of age who were screened for cervical cancer using either of the following criteria: <br> *  Women age 21-64 who had cervical cytology performed every 3 years <br.*  Women age 30-64 who had cervical cytology/human papillomavirus (HPV) co-testing performed every 5 years ",
+  "description": "Percentage of women 21-64 years of age who were screened for cervical cancer using either of the following criteria: <br/> *  Women age 21-64 who had cervical cytology performed every 3 years <br/>.*  Women age 30-64 who had cervical cytology/human papillomavirus (HPV) co-testing performed every 5 years ",
   "useContext": [ {
     "code": {
       "code": "program"

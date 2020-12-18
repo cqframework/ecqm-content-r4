@@ -10,8 +10,8 @@ This repository contains the measure artifacts for all FHIR based eCQMs. It is s
    |-- _refresh.sh
    |-- _updatePublisher.bat
    |-- _updatePublisher.sh
-   |-- _updateRefreshIG.bat
-   |-- _updateRefreshIG.sh
+   |-- _updateCQFTooling.bat
+   |-- _updateCQFTooling.sh
    |-- ig.ini
    |-- bundles
        |-- measure
@@ -32,4 +32,3 @@ This repository contains the measure artifacts for all FHIR based eCQMs. It is s
        |-- vocabulary
            |-- valueset
 ```
-

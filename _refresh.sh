@@ -26,8 +26,8 @@ else
 	tooling=../$tooling_jar
 	echo $tooling
 	if test -f "$tooling"; then
-		java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -t -d -p $fsoption
+		java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -t -d -p $fsoption -rp input/cql
 	else
-		echo IG Refresh NOT FOUND in input-cache or parent folder.  Please run _updateRefreshIG.  Aborting...
+		echo IG Refresh NOT FOUND in input-cache or parent folder.  Please run _updateCQFTooling.  Aborting...
 	fi
 fi
