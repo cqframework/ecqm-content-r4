@@ -1,0 +1,52 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.600.1518",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1518",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.600.1518"
+  } ],
+  "version": "20190313",
+  "name": "RecommendationtoIncreasePhysicalActivity",
+  "title": "Recommendation to Increase Physical Activity",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "urn:oid:2.16.840.1.113883.6.285",
+      "version": "2020",
+      "concept": [ {
+        "code": "S9451",
+        "display": "Exercise classes, non-physician provider, per session"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2019-09",
+      "concept": [ {
+        "code": "281090004",
+        "display": "Recommendation to exercise (procedure)"
+      }, {
+        "code": "304507003",
+        "display": "Exercise education (procedure)"
+      }, {
+        "code": "304549008",
+        "display": "Giving encouragement to exercise (procedure)"
+      }, {
+        "code": "386291006",
+        "display": "Exercise promotion: strength training (procedure)"
+      }, {
+        "code": "386292004",
+        "display": "Exercise promotion: stretching (procedure)"
+      }, {
+        "code": "386373004",
+        "display": "Nutrition therapy (regime/therapy)"
+      }, {
+        "code": "386463000",
+        "display": "Prescribed activity/exercise education (procedure)"
+      }, {
+        "code": "410289001",
+        "display": "Exercises education, guidance, and counseling (procedure)"
+      } ]
+    } ]
+  }
+}

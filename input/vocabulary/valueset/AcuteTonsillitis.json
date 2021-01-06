@@ -1,0 +1,82 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.464.1003.102.12.1012",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.464.1003.102.12.1012"
+  } ],
+  "version": "20170504",
+  "name": "AcuteTonsillitis",
+  "title": "Acute Tonsillitis",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://hl7.org/fhir/sid/icd-10-cm",
+      "version": "2020",
+      "concept": [ {
+        "code": "J03.00",
+        "display": "Acute streptococcal tonsillitis, unspecified"
+      }, {
+        "code": "J03.01",
+        "display": "Acute recurrent streptococcal tonsillitis"
+      }, {
+        "code": "J03.80",
+        "display": "Acute tonsillitis due to other specified organisms"
+      }, {
+        "code": "J03.81",
+        "display": "Acute recurrent tonsillitis due to other specified organisms"
+      }, {
+        "code": "J03.90",
+        "display": "Acute tonsillitis, unspecified"
+      }, {
+        "code": "J03.91",
+        "display": "Acute recurrent tonsillitis, unspecified"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2019-09",
+      "concept": [ {
+        "code": "10629231000119109",
+        "display": "Recurrent acute streptococcal tonsillitis (disorder)"
+      }, {
+        "code": "10629271000119107",
+        "display": "Acute tonsillitis caused by Streptococcus (disorder)"
+      }, {
+        "code": "17741008",
+        "display": "Acute tonsillitis (disorder)"
+      }, {
+        "code": "195666007",
+        "display": "Acute erythematous tonsillitis (disorder)"
+      }, {
+        "code": "195668008",
+        "display": "Acute ulcerative tonsillitis (disorder)"
+      }, {
+        "code": "195669000",
+        "display": "Acute catarrhal tonsillitis (disorder)"
+      }, {
+        "code": "195670004",
+        "display": "Acute gangrenous tonsillitis (disorder)"
+      }, {
+        "code": "195671000",
+        "display": "Acute bacterial tonsillitis (disorder)"
+      }, {
+        "code": "195672007",
+        "display": "Acute pneumococcal tonsillitis (disorder)"
+      }, {
+        "code": "195673002",
+        "display": "Acute staphylococcal tonsillitis (disorder)"
+      }, {
+        "code": "195676005",
+        "display": "Acute viral tonsillitis (disorder)"
+      }, {
+        "code": "195677001",
+        "display": "Recurrent acute tonsillitis (disorder)"
+      }, {
+        "code": "302911003",
+        "display": "Acute lingual tonsillitis (disorder)"
+      } ]
+    } ]
+  }
+}

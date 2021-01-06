@@ -1,0 +1,36 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.464.1003.196.12.1402",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1402",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.464.1003.196.12.1402"
+  } ],
+  "version": "20170504",
+  "name": "Butabarbital",
+  "title": "Butabarbital",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "version": "2020-01",
+      "concept": [ {
+        "code": "1047805",
+        "display": "butabarbital 15 MG / Hyoscyamine hydrobromide 0.3 MG / Phenazopyridine hydrochloride 150 MG Oral Tablet"
+      }, {
+        "code": "1251600",
+        "display": "Butabarbital sodium 100 MG Oral Tablet"
+      }, {
+        "code": "1251610",
+        "display": "Butabarbital sodium 15 MG Oral Tablet"
+      }, {
+        "code": "1251614",
+        "display": "Butabarbital sodium 30 MG Oral Tablet"
+      }, {
+        "code": "1251625",
+        "display": "Butabarbital sodium 6 MG/ML Oral Solution"
+      } ]
+    } ]
+  }
+}

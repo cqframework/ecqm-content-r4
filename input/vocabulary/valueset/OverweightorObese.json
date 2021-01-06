@@ -1,0 +1,73 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113762.1.4.1047.502",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.502",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113762.1.4.1047.502"
+  } ],
+  "version": "20180309",
+  "name": "OverweightorObese",
+  "title": "Overweight or Obese",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://hl7.org/fhir/sid/icd-10-cm",
+      "version": "2020",
+      "concept": [ {
+        "code": "E66.01",
+        "display": "Morbid (severe) obesity due to excess calories"
+      }, {
+        "code": "E66.09",
+        "display": "Other obesity due to excess calories"
+      }, {
+        "code": "E66.1",
+        "display": "Drug-induced obesity"
+      }, {
+        "code": "E66.2",
+        "display": "Morbid (severe) obesity with alveolar hypoventilation"
+      }, {
+        "code": "E66.3",
+        "display": "Overweight"
+      }, {
+        "code": "E66.8",
+        "display": "Other obesity"
+      }, {
+        "code": "E66.9",
+        "display": "Obesity, unspecified"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2019-09",
+      "concept": [ {
+        "code": "162863004",
+        "display": "Body mass index 25-29 - overweight (finding)"
+      }, {
+        "code": "162864005",
+        "display": "Body mass index 30+ - obesity (finding)"
+      }, {
+        "code": "238131007",
+        "display": "Overweight (finding)"
+      }, {
+        "code": "238136002",
+        "display": "Morbid obesity (disorder)"
+      }, {
+        "code": "408512008",
+        "display": "Body mass index 40+ - severely obese (finding)"
+      }, {
+        "code": "414915002",
+        "display": "Obese (finding)"
+      }, {
+        "code": "414916001",
+        "display": "Obesity (disorder)"
+      }, {
+        "code": "415530009",
+        "display": "Simple obesity (disorder)"
+      }, {
+        "code": "83911000119104",
+        "display": "Severe obesity (disorder)"
+      } ]
+    } ]
+  }
+}

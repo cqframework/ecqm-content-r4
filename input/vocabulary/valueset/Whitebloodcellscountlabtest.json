@@ -1,0 +1,36 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113762.1.4.1045.129",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.129",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113762.1.4.1045.129"
+  } ],
+  "version": "20200307",
+  "name": "Whitebloodcellscountlabtest",
+  "title": "White blood cells count lab test",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://loinc.org",
+      "version": "2.67",
+      "concept": [ {
+        "code": "26464-8",
+        "display": "Leukocytes [#/volume] in Blood"
+      }, {
+        "code": "33256-9",
+        "display": "Leukocytes [#/volume] corrected for nucleated erythrocytes in Blood by Automated count"
+      }, {
+        "code": "49498-9",
+        "display": "Leukocytes [#/volume] in Blood by Estimate"
+      }, {
+        "code": "6690-2",
+        "display": "Leukocytes [#/volume] in Blood by Automated count"
+      }, {
+        "code": "804-5",
+        "display": "Leukocytes [#/volume] in Blood by Manual count"
+      } ]
+    } ]
+  }
+}

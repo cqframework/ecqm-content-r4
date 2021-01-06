@@ -1,0 +1,36 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.526.3.1193",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1193",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.526.3.1193"
+  } ],
+  "version": "20170504",
+  "name": "CardiacPacer",
+  "title": "Cardiac Pacer",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://snomed.info/sct",
+      "version": "2019-09",
+      "concept": [ {
+        "code": "14106009",
+        "display": "Cardiac pacemaker, device (physical object)"
+      }, {
+        "code": "360127006",
+        "display": "Intravenous cardiac pacemaker system (physical object)"
+      }, {
+        "code": "360128001",
+        "display": "Intravenous triggered cardiac pacemaker system (physical object)"
+      }, {
+        "code": "424921004",
+        "display": "Permanent cardiac pacemaker, device (physical object)"
+      }, {
+        "code": "56961003",
+        "display": "Cardiac transvenous pacemaker, device (physical object)"
+      } ]
+    } ]
+  }
+}
