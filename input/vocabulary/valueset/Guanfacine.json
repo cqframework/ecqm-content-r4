@@ -1,0 +1,42 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.464.1003.196.12.1341",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1341",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.464.1003.196.12.1341"
+  } ],
+  "version": "20170504",
+  "name": "Guanfacine",
+  "title": "Guanfacine",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "version": "2020-01",
+      "concept": [ {
+        "code": "1092566",
+        "display": "{7 (24 HR Guanfacine 1 MG Extended Release Oral Tablet) / 7 (24 HR Guanfacine 2 MG Extended Release Oral Tablet) } Pack"
+      }, {
+        "code": "197745",
+        "display": "Guanfacine 1 MG Oral Tablet"
+      }, {
+        "code": "197746",
+        "display": "Guanfacine 2 MG Oral Tablet"
+      }, {
+        "code": "862006",
+        "display": "24 HR Guanfacine 1 MG Extended Release Oral Tablet"
+      }, {
+        "code": "862013",
+        "display": "24 HR Guanfacine 2 MG Extended Release Oral Tablet"
+      }, {
+        "code": "862019",
+        "display": "24 HR Guanfacine 3 MG Extended Release Oral Tablet"
+      }, {
+        "code": "862025",
+        "display": "24 HR Guanfacine 4 MG Extended Release Oral Tablet"
+      } ]
+    } ]
+  }
+}

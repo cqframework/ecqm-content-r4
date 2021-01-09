@@ -1,0 +1,40 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.117.1.7.1.26",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.26",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.117.1.7.1.26"
+  } ],
+  "version": "20180201",
+  "name": "SingleLiveBornNewbornBorninHospital",
+  "title": "Single Live Born Newborn Born in Hospital",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://hl7.org/fhir/sid/icd-10-cm",
+      "version": "2020",
+      "concept": [ {
+        "code": "Z38.00",
+        "display": "Single liveborn infant, delivered vaginally"
+      }, {
+        "code": "Z38.01",
+        "display": "Single liveborn infant, delivered by cesarean"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2019-09",
+      "concept": [ {
+        "code": "17561000119102",
+        "display": "Single liveborn born in hospital by vaginal delivery (situation)"
+      }, {
+        "code": "442423001",
+        "display": "Single liveborn born in hospital by cesarean section (situation)"
+      }, {
+        "code": "717803002",
+        "display": "Singleton liveborn born in hospital (situation)"
+      } ]
+    } ]
+  }
+}

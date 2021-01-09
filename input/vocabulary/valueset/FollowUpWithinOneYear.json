@@ -1,0 +1,60 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.526.3.1579",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1579",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.526.3.1579"
+  } ],
+  "version": "20200307",
+  "name": "FollowUpWithinOneYear",
+  "title": "Follow Up Within One Year",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://snomed.info/sct",
+      "version": "2019-09",
+      "concept": [ {
+        "code": "183617005",
+        "display": "Follow-up 1 day (finding)"
+      }, {
+        "code": "183618000",
+        "display": "Follow-up 2-3 days (finding)"
+      }, {
+        "code": "183619008",
+        "display": "Follow-up 4-6 days (finding)"
+      }, {
+        "code": "183620002",
+        "display": "Follow-up 1 week (finding)"
+      }, {
+        "code": "183621003",
+        "display": "Follow-up 2 weeks (finding)"
+      }, {
+        "code": "183622005",
+        "display": "Follow-up 3 weeks (finding)"
+      }, {
+        "code": "183623000",
+        "display": "Follow-up 1 month (finding)"
+      }, {
+        "code": "183624006",
+        "display": "Follow-up 2-3 months (finding)"
+      }, {
+        "code": "183625007",
+        "display": "Follow-up 4-6 months (finding)"
+      }, {
+        "code": "183626008",
+        "display": "Follow-up 7-11 months (finding)"
+      }, {
+        "code": "183627004",
+        "display": "Follow-up 1 year (finding)"
+      }, {
+        "code": "183628009",
+        "display": "Follow-up 6 weeks (finding)"
+      }, {
+        "code": "300042001",
+        "display": "Follow-up 6 months (finding)"
+      } ]
+    } ]
+  }
+}

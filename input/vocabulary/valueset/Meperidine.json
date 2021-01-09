@@ -1,0 +1,36 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.464.1003.196.12.1351",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1351",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.464.1003.196.12.1351"
+  } ],
+  "version": "20170504",
+  "name": "Meperidine",
+  "title": "Meperidine",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "version": "2020-01",
+      "concept": [ {
+        "code": "1655058",
+        "display": "Meperidine Hydrochloride 150 MG Oral Tablet"
+      }, {
+        "code": "1655060",
+        "display": "Meperidine Hydrochloride 75 MG Oral Tablet"
+      }, {
+        "code": "861455",
+        "display": "Meperidine Hydrochloride 100 MG Oral Tablet"
+      }, {
+        "code": "861467",
+        "display": "Meperidine Hydrochloride 50 MG Oral Tablet"
+      }, {
+        "code": "861479",
+        "display": "Meperidine Hydrochloride 10 MG/ML Oral Solution"
+      } ]
+    } ]
+  }
+}

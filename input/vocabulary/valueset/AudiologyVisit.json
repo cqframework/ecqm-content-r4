@@ -1,0 +1,33 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.464.1003.101.12.1066",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1066",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.464.1003.101.12.1066"
+  } ],
+  "version": "20170504",
+  "name": "AudiologyVisit",
+  "title": "Audiology Visit",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://www.ama-assn.org/go/cpt",
+      "version": "2020",
+      "concept": [ {
+        "code": "92540",
+        "display": "Basic vestibular evaluation, includes spontaneous nystagmus test with eccentric gaze fixation nystagmus, with recording, positional nystagmus test, minimum of 4 positions, with recording, optokinetic nystagmus test, bidirectional foveal and peripheral stimulation, with recording, and oscillating tracking test, with recording"
+      }, {
+        "code": "92541",
+        "display": "Spontaneous nystagmus test, including gaze and fixation nystagmus, with recording"
+      }, {
+        "code": "92542",
+        "display": "Positional nystagmus test, minimum of 4 positions, with recording"
+      }, {
+        "code": "92548",
+        "display": "Computerized dynamic posturography sensory organization test (CDP-SOT), 6 conditions (ie, eyes open, eyes closed, visual sway, platform sway, eyes closed platform sway, platform and visual sway), including interpretation and report"
+      } ]
+    } ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.464.1003.196.12.1285",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1285",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.464.1003.196.12.1285"
+  } ],
+  "version": "20170504",
+  "name": "Trimipramine",
+  "title": "Trimipramine",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "version": "2020-01",
+      "concept": [ {
+        "code": "199820",
+        "display": "Trimipramine 25 MG Oral Tablet"
+      }, {
+        "code": "245372",
+        "display": "Trimipramine 12.5 MG Oral Tablet"
+      }, {
+        "code": "245373",
+        "display": "Trimipramine 50 MG Oral Tablet"
+      }, {
+        "code": "245374",
+        "display": "Trimipramine 75 MG Oral Capsule"
+      }, {
+        "code": "250033",
+        "display": "Trimipramine 10 MG Oral Tablet"
+      }, {
+        "code": "313496",
+        "display": "Trimipramine 100 MG Oral Capsule"
+      }, {
+        "code": "313497",
+        "display": "Trimipramine 100 MG Oral Tablet"
+      }, {
+        "code": "313498",
+        "display": "Trimipramine 25 MG Oral Capsule"
+      }, {
+        "code": "313499",
+        "display": "Trimipramine 50 MG Oral Capsule"
+      } ]
+    } ]
+  }
+}

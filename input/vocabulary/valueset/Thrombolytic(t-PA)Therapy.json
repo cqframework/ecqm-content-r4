@@ -1,0 +1,27 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.117.1.7.1.226",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.226",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.117.1.7.1.226"
+  } ],
+  "version": "20170727",
+  "name": "Thrombolytic(t-PA)Therapy",
+  "title": "Thrombolytic (t-PA) Therapy",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "version": "2020-01",
+      "concept": [ {
+        "code": "1804799",
+        "display": "alteplase 100 MG Injection"
+      }, {
+        "code": "1804804",
+        "display": "alteplase 50 MG Injection"
+      } ]
+    } ]
+  }
+}

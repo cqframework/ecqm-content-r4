@@ -1,0 +1,94 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.526.3.1462",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1462",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.526.3.1462"
+  } ],
+  "version": "20200307",
+  "name": "HereditaryChoroidalDystrophies",
+  "title": "Hereditary Choroidal Dystrophies",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://hl7.org/fhir/sid/icd-10-cm",
+      "version": "2020",
+      "concept": [ {
+        "code": "H31.20",
+        "display": "Hereditary choroidal dystrophy, unspecified"
+      }, {
+        "code": "H31.21",
+        "display": "Choroideremia"
+      }, {
+        "code": "H31.22",
+        "display": "Choroidal dystrophy (central areolar) (generalized) (peripapillary)"
+      }, {
+        "code": "H31.23",
+        "display": "Gyrate atrophy, choroid"
+      }, {
+        "code": "H31.29",
+        "display": "Other hereditary choroidal dystrophy"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2019-09",
+      "concept": [ {
+        "code": "193466003",
+        "display": "Partial circumpapillary choroid dystrophy (disorder)"
+      }, {
+        "code": "19871000",
+        "display": "Total generalized choroidal dystrophy (disorder)"
+      }, {
+        "code": "231996009",
+        "display": "Central areolar choroidal sclerosis (disorder)"
+      }, {
+        "code": "231997000",
+        "display": "Peripapillary choroidal sclerosis (disorder)"
+      }, {
+        "code": "247200005",
+        "display": "Choroidal atrophy (finding)"
+      }, {
+        "code": "24950005",
+        "display": "Partial generalized choroidal dystrophy (disorder)"
+      }, {
+        "code": "312918002",
+        "display": "Choroidal dystrophy (disorder)"
+      }, {
+        "code": "314467007",
+        "display": "Gyrate atrophy (disorder)"
+      }, {
+        "code": "41250005",
+        "display": "Diffuse choroidal sclerosis (disorder)"
+      }, {
+        "code": "59753003",
+        "display": "Total circumpapillary dystrophy of choroid (disorder)"
+      }, {
+        "code": "715417002",
+        "display": "Choroideremia co-occurrent with hypopituitarism (disorder)"
+      }, {
+        "code": "715984007",
+        "display": "Cerebellar ataxia with hypogonadism and choroidal dystrophy syndrome (disorder)"
+      }, {
+        "code": "717761005",
+        "display": "Choroideremia with deafness and obesity syndrome (disorder)"
+      }, {
+        "code": "720850008",
+        "display": "Choroidal atrophy and alopecia syndrome (disorder)"
+      }, {
+        "code": "733110004",
+        "display": "Van den Bosch syndrome (disorder)"
+      }, {
+        "code": "74469006",
+        "display": "Hereditary choroidal dystrophy (disorder)"
+      }, {
+        "code": "75241009",
+        "display": "Choroideremia (disorder)"
+      }, {
+        "code": "92820007",
+        "display": "Circumpapillary dystrophy of choroid (disorder)"
+      } ]
+    } ]
+  }
+}

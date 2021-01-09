@@ -1,0 +1,45 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.464.1003.121.12.1015",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.121.12.1015",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.464.1003.121.12.1015"
+  } ],
+  "version": "20170504",
+  "name": "Weight",
+  "title": "Weight",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://loinc.org",
+      "version": "2.67",
+      "concept": [ {
+        "code": "18833-4",
+        "display": "First Body weight"
+      }, {
+        "code": "29463-7",
+        "display": "Body weight"
+      }, {
+        "code": "3141-9",
+        "display": "Body weight Measured"
+      }, {
+        "code": "3142-7",
+        "display": "Body weight Stated"
+      }, {
+        "code": "8341-0",
+        "display": "Dry body weight Measured"
+      }, {
+        "code": "8349-3",
+        "display": "Body weight Measured --preoperative"
+      }, {
+        "code": "8350-1",
+        "display": "Body weight Measured --with clothes"
+      }, {
+        "code": "8351-9",
+        "display": "Body weight Measured --without clothes"
+      } ]
+    } ]
+  }
+}

@@ -1,0 +1,1534 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>EXM506 0.0.002</title>
+<style type="text/css">
+    body {
+        color: rgb(0,0,0);
+        background-color: rgb(255, 255, 255);
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 11px;
+        overflow-y: auto;
+    }
+    h1 {
+        font-size: 12pt;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 11pt;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 10pt;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: 8pt;
+        font-weight: bold;
+    }
+
+    tr {
+        background-color: #ccc;
+    }
+
+    td {
+        padding: 0.1cm 0.2cm;
+        vertical-align: top;
+    }
+
+    a {
+        /*color: rgb(0, 0, 255);
+      background-color: rgb(255,255,255);*/
+    }
+
+    table {
+        line-height: 10pt;
+        width: 80%;
+        font-size: 11px;
+    }
+
+    /*div {
+    width: 80%;
+}*/
+
+    .list-unstyled {
+        list-style-type: none;
+    }
+
+    .list-unstyled li {
+        padding-top: 5px;
+    }
+
+    .list-header {
+        font-size: 12px;
+        color: rgb(0, 0, 238);
+    }
+
+    .list-header:hover {
+        text-decoration: underline;
+    }
+
+    .code {
+        font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;
+        color: black;
+        font-size: 12px;
+    }
+
+    .p-l-10 {
+        padding-left: 10px;
+    }
+
+    .section {
+        font-size: 10pt;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-right: 0.5em;
+        font-weight: 700;
+    }
+
+    .cql-keyword-new {
+        color: rgb(0, 0, 255);
+        font-weight: 700;
+    }
+
+    .cql-class,
+    .cql-object {
+        color: rgb(25, 127, 157);
+    }
+
+    .cql_keyword {
+        color: rgb(127, 0, 85);
+        font-weight: 700;
+    }
+
+    .cql_function {
+        color: rgb(127, 0, 85);
+        font-weight: 700;
+    }
+
+    .cql_attribute {
+        color: rgb(127, 0, 85);
+        font-weight: 700;
+    }
+
+    .cql_string {
+        color: rgb(42, 0, 255);
+    }
+
+    .cql_identifier .cql_function {
+        color: rgb(60, 76, 114);
+    }
+
+    hr.style13 {
+        height: 10px;
+        border: 0;
+        box-shadow: 0 10px 10px -10px #8c8b8b inset;
+    }
+
+    .treeview:hover input~label:before,
+    .treeview.hover input~label:before {
+        opacity: 1.0;
+        -webkit-transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -ms-transition-duration: 0.5s;
+        -o-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+    }
+
+    .treeview ul {
+        -webkit-transition-duration: 1s;
+        -moz-transition-duration: 1s;
+        -ms-transition-duration: 1s;
+        -o-transition-duration: 1s;
+        transition-duration: 1s;
+        -webkit-transition-timing-function: ease;
+        -moz-transition-timing-function: ease;
+        -ms-transition-timing-function: ease;
+        -o-transition-timing-function: ease;
+        transition-timing-function: ease;
+        list-style: none;
+        padding-left: 1em;
+    }
+
+    .treeview ul li span {
+        -webkit-transition-property: color;
+        -moz-transition-property: color;
+        -ms-transition-property: color;
+        -o-transition-property: color;
+        transition-property: color;
+        -webkit-transition-duration: 1s;
+        -moz-transition-duration: 1s;
+        -ms-transition-duration: 1s;
+        -o-transition-duration: 1s;
+        transition-duration: 1s;
+
+    }
+
+    .treeview input {
+        display: none;
+    }
+
+    .treeview input[type=checkbox]:checked~ul {
+        display: none;
+    }
+
+    .treeview input[type=checkbox]~ul {
+        margin-right: 20%;
+        opacity: 1;
+    }
+
+    .treeview input~label {
+        cursor: pointer;
+    }
+
+    .treeview input~label:before {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        margin-left: -1em;
+        margin-top: 0.25em;
+        border-width: 4px;
+        border-style: solid;
+        border-top-color: transparent;
+        border-right-color: rgb(0, 0, 238);
+        border-bottom-color: rgb(0, 0, 238);
+        border-left-color: transparent;
+        opacity: 0.0;
+        -webkit-transition-property: opacity;
+        -moz-transition-property: opacity;
+        -ms-transition-property: opacity;
+        -o-transition-property: opacity;
+        transition-property: opacity;
+        -webkit-transition-duration: 1s;
+        -moz-transition-duration: 1s;
+        -ms-transition-duration: 1s;
+        -o-transition-duration: 1s;
+        transition-duration: 1s;
+    }
+
+    .treeview input:checked~label:before {
+        margin-left: -0.8em;
+        border-width: 5px;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: rgb(0, 0, 238);
+    }
+
+    .h1center {
+        font-size: 12pt;
+        font-weight: bold;
+        text-align: center;
+        width: 80%;
+    }
+
+    .header_table {
+        border: 1pt inset rgb(0, 0, 0);
+    }
+
+    .narr_table {
+        width: 100%;
+    }
+
+    .narr_tr {
+        background-color: rgb(225, 225, 225);
+    }
+
+    pre {
+        /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+        white-space: pre-wrap;
+        /* css-3 */
+        white-space: -moz-pre-wrap !important;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        /* Internet Explorer 5.5+ */
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 11px;
+        text-align: left;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+
+    .narr_th {
+        background-color: rgb(201, 201, 201);
+    }
+
+    .td_label {
+        font-weight: bold;
+        color: white;
+    }
+
+    .hll {
+        background-color: #ffffcc
+    }
+
+    .c {
+        color: #408080;
+        font-style: italic
+    }
+
+    /* Comment */
+    .err {
+        border: 1px solid #FF0000
+    }
+
+    /* Error */
+    .k {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword */
+    .o {
+        color: #666666
+    }
+
+    /* Operator */
+    .cm {
+        color: #408080;
+        font-style: italic
+    }
+
+    /* Comment.Multiline */
+    .cp {
+        color: #BC7A00
+    }
+
+    /* Comment.Preproc */
+    .c1 {
+        color: #408080;
+        font-style: italic
+    }
+
+    /* Comment.Single */
+    .cs {
+        color: #408080;
+        font-style: italic
+    }
+
+    /* Comment.Special */
+    .gd {
+        color: #A00000
+    }
+
+    /* Generic.Deleted */
+    .ge {
+        font-style: italic
+    }
+
+    /* Generic.Emph */
+    .gr {
+        color: #FF0000
+    }
+
+    /* Generic.Error */
+    .gh {
+        color: #000080;
+        font-weight: bold
+    }
+
+    /* Generic.Heading */
+    .gi {
+        color: #00A000
+    }
+
+    /* Generic.Inserted */
+    .go {
+        color: #888888
+    }
+
+    /* Generic.Output */
+    .gp {
+        color: #000080;
+        font-weight: bold
+    }
+
+    /* Generic.Prompt */
+    .gs {
+        font-weight: bold
+    }
+
+    /* Generic.Strong */
+    .gu {
+        color: #800080;
+        font-weight: bold
+    }
+
+    /* Generic.Subheading */
+    .gt {
+        color: #0044DD
+    }
+
+    /* Generic.Traceback */
+    .kc {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword.Constant */
+    .kd {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword.Declaration */
+    .kn {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword.Namespace */
+    .kp {
+        color: #008000
+    }
+
+    /* Keyword.Pseudo */
+    .kr {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword.Reserved */
+    .kt {
+        color: #B00040
+    }
+
+    /* Keyword.Type */
+    .m {
+        color: #666666
+    }
+
+    /* Literal.Number */
+    .s {
+        color: #BA2121
+    }
+
+    /* Literal.String */
+    .na {
+        color: #7D9029
+    }
+
+    /* Name.Attribute */
+    .nb {
+        color: #008000
+    }
+
+    /* Name.Builtin */
+    .nc {
+        color: #0000FF;
+        font-weight: bold
+    }
+
+    /* Name.Class */
+    .no {
+        color: #880000
+    }
+
+    /* Name.Constant */
+    .nd {
+        color: #AA22FF
+    }
+
+    /* Name.Decorator */
+    .ni {
+        color: #999999;
+        font-weight: bold
+    }
+
+    /* Name.Entity */
+    .ne {
+        color: #D2413A;
+        font-weight: bold
+    }
+
+    /* Name.Exception */
+    .nf {
+        color: #0000FF
+    }
+
+    /* Name.Function */
+    .nl {
+        color: #A0A000
+    }
+
+    /* Name.Label */
+    .nn {
+        color: #0000FF;
+        font-weight: bold
+    }
+
+    /* Name.Namespace */
+    .nt {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Name.Tag */
+    .nv {
+        color: #19177C
+    }
+
+    /* Name.Variable */
+    .ow {
+        color: #AA22FF;
+        font-weight: bold
+    }
+
+    /* Operator.Word */
+    .w {
+        color: #bbbbbb
+    }
+
+    /* Text.Whitespace */
+    .mf {
+        color: #666666
+    }
+
+    /* Literal.Number.Float */
+    .mh {
+        color: #666666
+    }
+
+    /* Literal.Number.Hex */
+    .mi {
+        color: #666666
+    }
+
+    /* Literal.Number.Integer */
+    .mo {
+        color: #666666
+    }
+
+    /* Literal.Number.Oct */
+    .sb {
+        color: #BA2121
+    }
+
+    /* Literal.String.Backtick */
+    .sc {
+        color: #BA2121
+    }
+
+    /* Literal.String.Char */
+    .sd {
+        color: #BA2121;
+        font-style: italic
+    }
+
+    /* Literal.String.Doc */
+    .s2 {
+        color: #BA2121
+    }
+
+    /* Literal.String.Double */
+    .se {
+        color: #BB6622;
+        font-weight: bold
+    }
+
+    /* Literal.String.Escape */
+    .sh {
+        color: #BA2121
+    }
+
+    /* Literal.String.Heredoc */
+    .si {
+        color: #BB6688;
+        font-weight: bold
+    }
+
+    /* Literal.String.Interpol */
+    .sx {
+        color: #008000
+    }
+
+    /* Literal.String.Other */
+    .sr {
+        color: #BB6688
+    }
+
+    /* Literal.String.Regex */
+    .s1 {
+        color: #BA2121
+    }
+
+    /* Literal.String.Single */
+    .ss {
+        color: #19177C
+    }
+
+    /* Literal.String.Symbol */
+    .bp {
+        color: #008000
+    }
+
+    /* Name.Builtin.Pseudo */
+    .vc {
+        color: #19177C
+    }
+
+    /* Name.Variable.Class */
+    .vg {
+        color: #19177C
+    }
+
+    /* Name.Variable.Global */
+    .vi {
+        color: #19177C
+    }
+
+    /* Name.Variable.Instance */
+    .il {
+    color: #666666
+    }
+
+    /* Literal.Number.Integer.Long */
+
+    #nn-text {
+        text-align: center;
+        text-align: center;
+        color: lightgrey;
+        font-size: 40px;
+    }
+
+    .cql-definition-body {
+        width: 950px;
+        display: block;
+        word-wrap: break-word;
+    }
+
+    li {
+        padding-left: 15px;
+    }
+    .row-header {
+        background-color:#656565;
+        width:20%;
+        padding: 0.1cm 0.2cm;
+        text-align: left;
+    }
+</style>    </head>
+    <body>
+<table class="header_table" role="presentation">
+    <tbody>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">eCQM Title</span></th>
+            <td style="width:80%" colspan="3"><h1 style="font-size:10px">EXM506</h1></td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">eCQM Identifier (Measure Authoring Tool)</span></th>
+            <td style="width:30%"></td>
+
+            <th scope="row" class="row-header"><span class="td_label">eCQM Version Number</span></th>
+            <td style="width:30%">0.0.002</td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">NQF Number</span></th>
+            <td style="width:30%">Not Applicable</td>
+
+            <th scope="row" class="row-header"><span class="td_label">GUID</span></th>
+            <td style="width:30%">e65e276d-7888-469a-b7e2-ffb595390641</td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Measurement Period</span></th>
+            <td style="width:80%" colspan="3">January 1, 2021 through December 31, 2021</td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Measure Steward</span></th>
+            <td style="width:80%" colspan="3">Centers for Medicare &amp; Medicaid Services (CMS)</td>
+        </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Population Basis</span></th>
+                <td style="width:80%" colspan="3">Encounter</td>
+            </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Experimental</span></th>
+                <td style="width:80%" colspan="3">No</td>
+            </tr>
+                <tr>
+                    <th scope="row" class="row-header"><span class="td_label">Measure Developer</span></th>
+                    <td style="width:80%" colspan="3">Mathematica</td>
+                </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Endorsed By</span></th>
+            <td style="width:80%" colspan="3">None</td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Description</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Proportion of inpatient hospitalizations for patients 18 years of age and older prescribed, or continued on, two or more opioids or an opioid and benzodiazepine concurrently at discharge</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Copyright</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. Mathematica disclaims all liability for use or accuracy of any third party codes contained in the specifications.
+
+CPT(R) contained in the measure specifications is copyright 2004-2019 American Medical Association. LOINC(R) copyright 2004-2019 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2019 International Health Terminology Standards Development Organisation. ICD-10 copyright 2019 World Health Organization. All Rights Reserved.</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Disclaimer</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>These performance measures are not clinical guidelines, do not establish a standard of medical care, and have not been tested for all potential applications. 
+
+THE MEASURES AND SPECIFICATION ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND. 
+
+Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Measure Scoring</span></th>
+            <td style="width:80%" colspan="3">Proportion</td>
+        </tr>
+                <tr>
+                    <th scope="row" class="row-header"><span class="td_label">Measure Type</span></th>
+                    <td style="width:80%" colspan="3">Process</td>
+                </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Stratification</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre>None</pre>
+                    </div>
+                </td>
+            </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Risk Adjustment</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>None</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Rate Aggregation</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>None</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Rationale</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Unintentional opioid overdose fatalities have become a major public health concern in the United States (Rudd et al., 2016). Reducing the number of unintentional overdoses has become a priority for numerous federal organizations including, but not limited to, the Centers for Disease Control and Prevention (CDC), the Federal Interagency Workgroup for Opioid Adverse Drug Events, and the Substance Abuse and Mental Health Services Administration. 
+
+Concurrent prescriptions of opioids or opioids and benzodiazepines places patients at a greater risk of unintentional overdose due to the increased risk of respiratory depression (Dowell, Haegerich, &amp; Chou, 2016). An analysis of national prescribing patterns shows that more than half of patients who received an opioid prescription in 2009 had filled another opioid prescription within the previous 30 days (National Institute on Drug Abuse, 2011). Studies of multiple claims and prescription databases have shown that between 5%-15% of patients receive concurrent opioid prescriptions and 5%-20% of patients receive concurrent opioid and benzodiazepine prescriptions across various settings (Liu et al., 2013; Mack et al., 2015, Park et al., 2015). Patients who have multiple opioid prescriptions have an increased risk for overdose (Jena et al., 2014). Rates of fatal overdose are ten times higher in patients who are co-dispensed opioid analgesics and benzodiazepines than opioids alone (Dasgupta et al., 2015). The number of opioid overdose deaths involving benzodiazepines increased 14% on average each year from 2006 to 2011, while the number of opioid analgesic overdose deaths not involving benzodiazepines did not change significantly (Jones &amp; McAninch, 2015). Furthermore, concurrent use of benzodiazepines with opioids was prevalent in 31%-51% of fatal overdoses (Dowell, Haegerich, &amp; Chou, 2016). One study found that eliminating concurrent use of opioids and benzodiazepines could reduce the risk of opioid overdose-related ED and inpatient visits by 15% and potentially could have prevented an estimated 2,630 deaths related to opioid painkiller overdoses in 2015 (Sun et al., 2017). 
+
+A study on The Opioid Safety Initiative in the Veterans Health Administration (VHA), which includes an opioid and benzodiazepine concurrent prescribing measure that this measure is based on, was associated with a decrease of 20.67% overall and 0.86% patients per month (781 patients per month) receiving concurrent benzodiazepine with an opioid among all adult VHA patients who filled outpatient opioid prescriptions from October 2012 to September 2014 (Lin et al., 2017).
+
+Adopting a measure that calculates the proportion of patients with two or more opioids or opioids and benzodiazepines concurrently has the potential to reduce preventable mortality and reduce the costs associated with adverse events related to opioid use by (1) encouraging providers to identify patients with concurrent prescriptions of opioids or opioids and benzodiazepines and (2) discouraging providers from prescribing two or more opioids or opioids and benzodiazepines concurrently.</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Clinical Recommendation Statement</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>The 2016 CDC Guideline for Prescribing Opioids for Chronic Pain also recommends that:
+-  &quot;Clinicians should avoid prescribing opioids and benzodiazepines concurrently whenever possible. Clinicians should communicate with others managing the patient to discuss the patient&#39;s needs, prioritize patient goals, weigh risks of concurrent benzodiazepine and opioid exposure, and coordinate care.&quot;
+-  &quot;Clinicians should check the PDMP for concurrent controlled medications prescribed by other clinicians and should consider involving pharmacists and pain specialists as part of the management team when opioids are co-prescribed with other central nervous system depressants.&quot;
+-  &quot;Experts emphasized that clinicians should communicate with mental health professionals managing the patient to discuss the patient&#39;s needs, prioritize patient goals, weigh risks of concurrent benzodiazepine and opioid exposure, and coordinate care.&quot;
+
+In addition to the 2016 CDC Guideline for Prescribing Opioids for Chronic Pain, opioid prescribing guidelines issued by various state agencies and professional societies for various settings agree with the recommendation to avoid concurrently prescribing opioids (AAEM, WAMDG) and opioids and benzodiazepines (WAMDG, ASIPP, NYC DOHMH) whenever possible as the combination of these medications may potentiate opioid-induced respiratory depression.
+
+The CDC Guideline for Prescribing Opioids for Chronic Pain (Dowell, 2016) also recommends that for patients found to have multiple opioid prescriptions clinicians should:
+-  &quot;Discuss information from the PDMP with their patient and confirm that the patient is aware of the additional prescriptions.&quot;
+-  &quot;Discuss safety concerns, including increased risk for respiratory depression and overdose, with patients found to be receiving opioids from more than one prescriber or receiving medications that increase risk when combined with opioids and consider offering naloxone.&quot;
+-  &quot;Discuss safety concerns with other clinicians who are prescribing controlled substances for their patient. Ideally clinicians should first discuss concerns with their patient and inform him or her that they plan to coordinate care with the patient&#39;s other prescribers to improve the patient&#39;s safety.&quot;</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Improvement Notation</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Decreased score indicates improvement</pre>
+                </div>
+            </td>
+        </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Reference</span></th>
+                <td style="width:80%" colspan="3"></td>
+            </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Definition</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>For the purpose of this measure, the following are defined as:
+
+-Opioid: Any Schedule II or Schedule III opioid medication
+
+-Benzodiazepine: Any Schedule IV benzodiazepine medication
+
+-Prescribed: The intent of the measure is to capture opioid and/or benzodiazepine medications continued or ordered at discharge
+
+-Numerator criteria: Two or more unique orders for opioids, or an opioid and benzodiazepine at discharge</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Guidance</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Clinician judgement, clinical appropriateness, or both may indicate concurrent prescribing of two unique opioids or an opioid and benzodiazepine is medically necessary, thus the measure is not expected to have a zero rate. 
+
+Inpatient hospitalizations with discharge medications of a new or continuing opioid or a new or continuing benzodiazepine prescription should be included in the initial population. 
+
+Inpatient hospitalizations with discharge medications of two or more new or continuing opioids or new or continuing opioid and benzodiazepine resulting in concurrent therapy at discharge should be included in the numerator.
+
+This eCQM is an episode-based measure.
+
+This version of the eCQM uses QDM version 5.5. Please refer to the eCQI Resource Center (https://ecqi.healthit.gov/qdm) for more information on the QDM.</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Transmission Format</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>TBD</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Initial Population</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Inpatient hospitalizations (inpatient stay less than or equal to 120 days) that end during the measurement period, where the patient is 18 years of age and older at the start of the encounter and prescribed a new or continuing opioid or benzodiazepine at discharge</pre>
+                </div>
+            </td>
+        </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Denominator</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre>Initial Population</pre>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Denominator Exclusions</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre>Inpatient hospitalizations where patients have cancer that overlaps the encounter or are receiving palliative or hospice care (including comfort measures, terminal care, and dying care) during the encounter</pre>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Numerator</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre>Inpatient hospitalizations where the patient is prescribed or continuing to take two or more opioids or an opioid and benzodiazepine at discharge</pre>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Numerator Exclusions</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre></pre>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Denominator Exceptions</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre>None</pre>
+                    </div>
+                </td>
+            </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Supplemental Data Elements</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>For every patient evaluated by this measure also identify payer, race, ethnicity and sex</pre>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>
+    <a name="toc">Table of Contents</a>
+</h2>
+<ul style="padding-left: 50px;">
+    <li><a href="#d1e405">Population Criteria</a></li>
+    <li><a href="#d1e649">Definitions</a></li>
+    <li><a href="#d1e650">Functions</a></li>
+    <li><a href="#d1e555">Terminology</a></li>
+            <li><a href="#d1e647">Data Criteria (FHIR Data Requirements)</a></li>
+
+    <li><a href="#d1e767">Supplemental Data Elements</a></li>
+    <li><a href="#d1e879">Risk Adjustment Variables</a></li>
+</ul><div style="float:left; background:teal; height:3px; width:80%"></div>
+<pre><br/></pre><h3><a name="d1e405" href="#toc">Population Criteria</a></h3>
+<div>
+	            <ul>
+<li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Initial_Population_478872696"/>
+                <label for="Initial_Population_478872696" class="list-header"><strong>Initial Population</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">&quot;Encounter with an Opioid or Benzodiazepine at Discharge&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li>            </ul>
+            <ul>
+<li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_1024579657"/>
+                <label for="Denominator_1024579657" class="list-header"><strong>Denominator</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">&quot;Initial Population&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li>            </ul>
+            <ul>
+<li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exclusions_39287559"/>
+                <label for="Denominator_Exclusions_39287559" class="list-header"><strong>Denominator Exclusions</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">(&quot;Inpatient Encounter with Age Greater than or Equal to 18&quot; InpatientEncounter
+   with [Condition: &quot;All Primary and Secondary Cancer&quot;]Cancer
+        such that Global.&quot;Prevalence Period&quot;(Cancer) overlaps InpatientEncounter.period)
+  
+         union (&quot;Inpatient Encounter with Age Greater than or Equal to 18&quot; InpatientEncounter
+       with ([&quot;ServiceRequest&quot;: &quot;Palliative Care&quot;]
+       union [&quot;ServiceRequest&quot;: &quot;Hospice Care&quot;] ) PalliativeOrHospiceCareOrder
+       such that  PalliativeOrHospiceCareOrder.intent = &#39;order&#39;
+       and FHIRHelpers.ToDateTime(PalliativeOrHospiceCareOrder.authoredOn) during InpatientEncounter.period)
+  
+     union (&quot;Inpatient Encounter with Age Greater than or Equal to 18&quot; InpatientEncounter
+   with  ([&quot;Procedure&quot;: &quot;Palliative Care&quot;]
+       union [&quot;Procedure&quot;: &quot;Hospice Care&quot;] ) PalliativeOrHospiceCarePerformed
+               such that Global.&quot;Normalize Interval&quot;(PalliativeOrHospiceCarePerformed.performed)
+                overlaps InpatientEncounter.period)</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li>            </ul>
+            <ul>
+<li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_2062879354"/>
+                <label for="Numerator_2062879354" class="list-header"><strong>Numerator</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">&quot;Encounter with Two or More Concurrent Opioids at Discharge&quot;
+   union &quot;Encounter with a Concurrent Opioid and Benzodiazepine at Discharge&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li>            </ul>
+            <ul>
+<li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_Exclusions_1315573312"/>
+                <label for="Numerator_Exclusions_1315573312" class="list-header"><strong>Numerator Exclusions</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body cql-class">None</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li>            </ul>
+            <ul>
+<li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exceptions_35442907"/>
+                <label for="Denominator_Exceptions_35442907" class="list-header"><strong>Denominator Exceptions</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body cql-class">None</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li>            </ul>
+            <ul>
+<li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Stratification_1089896775"/>
+                <label for="Stratification_1089896775" class="list-header"><strong>Stratification</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body cql-class">None</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li>            </ul>
+</div><h3><a name="d1e649" href="#toc">Definitions</a></h3>
+<div>
+    <ul style="list-style:none;padding-left: 10px;">
+        <li class="list-unstyled" style="list-style:none;">
+            <div>
+                <ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Benzodiazepine_at_Discharge273718275" />
+            <label for="Benzodiazepine_at_Discharge273718275" class="list-header"><strong>Benzodiazepine at Discharge</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">[&quot;MedicationRequest&quot;: &quot;Schedule IV Benzodiazepines&quot;] BenzodiazepineDischarge
+        where exists (BenzodiazepineDischarge.category C where FHIRHelpers.&quot;ToConcept&quot;(C) ~ Global.&quot;Discharge&quot;)
+            and BenzodiazepineDischarge.intent = &#39;plan&#39;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Denominator818761520" />
+            <label for="Denominator818761520" class="list-header"><strong>Denominator</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Initial Population&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Denominator_Exclusion1082100059" />
+            <label for="Denominator_Exclusion1082100059" class="list-header"><strong>Denominator Exclusion</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">(&quot;Inpatient Encounter with Age Greater than or Equal to 18&quot; InpatientEncounter
+   with [Condition: &quot;All Primary and Secondary Cancer&quot;]Cancer
+        such that Global.&quot;Prevalence Period&quot;(Cancer) overlaps InpatientEncounter.period)
+  
+         union (&quot;Inpatient Encounter with Age Greater than or Equal to 18&quot; InpatientEncounter
+       with ([&quot;ServiceRequest&quot;: &quot;Palliative Care&quot;]
+       union [&quot;ServiceRequest&quot;: &quot;Hospice Care&quot;] ) PalliativeOrHospiceCareOrder
+       such that  PalliativeOrHospiceCareOrder.intent = &#39;order&#39;
+       and FHIRHelpers.ToDateTime(PalliativeOrHospiceCareOrder.authoredOn) during InpatientEncounter.period)
+  
+     union (&quot;Inpatient Encounter with Age Greater than or Equal to 18&quot; InpatientEncounter
+   with  ([&quot;Procedure&quot;: &quot;Palliative Care&quot;]
+       union [&quot;Procedure&quot;: &quot;Hospice Care&quot;] ) PalliativeOrHospiceCarePerformed
+               such that Global.&quot;Normalize Interval&quot;(PalliativeOrHospiceCarePerformed.performed)
+                overlaps InpatientEncounter.period)</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Encounter_with_a_Concurrent_Opioid_and_Benzodiazepine_at_Discharge508999621" />
+            <label for="Encounter_with_a_Concurrent_Opioid_and_Benzodiazepine_at_Discharge508999621" class="list-header"><strong>Encounter with a Concurrent Opioid and Benzodiazepine at Discharge</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Inpatient Encounter with Age Greater than or Equal to 18&quot; InpatientEncounter
+     with (&quot;Opioid at Discharge&quot;) OpioidDischarge
+     such that FHIRHelpers.ToDateTime(OpioidDischarge.authoredOn) during (InpatientEncounter.period)
+     with (&quot;Benzodiazepine at Discharge&quot;) BenzodiazepineDischarge
+     such that FHIRHelpers.ToDateTime(BenzodiazepineDischarge.authoredOn) during (InpatientEncounter.period)</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Encounter_with_an_Opioid_or_Benzodiazepine_at_Discharge1076525580" />
+            <label for="Encounter_with_an_Opioid_or_Benzodiazepine_at_Discharge1076525580" class="list-header"><strong>Encounter with an Opioid or Benzodiazepine at Discharge</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Inpatient Encounter with Age Greater than or Equal to 18&quot; InpatientEncounter
+      with (&quot;Opioid at Discharge&quot; union &quot;Benzodiazepine at Discharge&quot;) OpioidBenzodiazepine
+        such that FHIRHelpers.ToDateTime(OpioidBenzodiazepine.authoredOn) during (InpatientEncounter.period)</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Encounter_with_Two_or_More_Concurrent_Opioids_at_Discharge675407755" />
+            <label for="Encounter_with_Two_or_More_Concurrent_Opioids_at_Discharge675407755" class="list-header"><strong>Encounter with Two or More Concurrent Opioids at Discharge</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Inpatient Encounter with Age Greater than or Equal to 18&quot; InpatientEncounter
+  		where Count(
+  			[MedicationRequest: &quot;Schedule II and Schedule III Opioids&quot;] Opioids
+  				where FHIRHelpers.ToDateTime (Opioids.authoredOn) during (InpatientEncounter.period)
+  		) &gt;= 2</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Initial_Population75836967" />
+            <label for="Initial_Population75836967" class="list-header"><strong>Initial Population</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Encounter with an Opioid or Benzodiazepine at Discharge&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Inpatient_Encounter_with_Age_Greater_than_or_Equal_to_18877028665" />
+            <label for="Inpatient_Encounter_with_Age_Greater_than_or_Equal_to_18877028665" class="list-header"><strong>Inpatient Encounter with Age Greater than or Equal to 18</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">Global.&quot;Inpatient Encounter&quot; EncounterInpatient
+       with [&quot;Patient&quot;] BirthDate
+         such that Global.CalendarAgeInYearsAt(FHIRHelpers.ToDate(Patient.birthDate), start of FHIRHelpers.ToInterval(EncounterInpatient.period)) &gt;= 18</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Numerator1293308413" />
+            <label for="Numerator1293308413" class="list-header"><strong>Numerator</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Encounter with Two or More Concurrent Opioids at Discharge&quot;
+   union &quot;Encounter with a Concurrent Opioid and Benzodiazepine at Discharge&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Opioid_at_Discharge386596616" />
+            <label for="Opioid_at_Discharge386596616" class="list-header"><strong>Opioid at Discharge</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">[&quot;MedicationRequest&quot;: &quot;Schedule II and Schedule III Opioids&quot;] OpioidsDischarge
+        where exists (OpioidsDischarge.category C where FHIRHelpers.ToConcept(C) ~ Global.&quot;Discharge&quot;)
+            and OpioidsDischarge.intent = &#39;plan&#39;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="SDE_Ethnicity1654699356" />
+            <label for="SDE_Ethnicity1654699356" class="list-header"><strong>SDE Ethnicity</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">SDE.&quot;SDE Ethnicity&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="SDE_Payer551957748" />
+            <label for="SDE_Payer551957748" class="list-header"><strong>SDE Payer</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">SDE.&quot;SDE Payer&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="SDE_Race816478341" />
+            <label for="SDE_Race816478341" class="list-header"><strong>SDE Race</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">SDE.&quot;SDE Race&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="SDE_Sex810445712" />
+            <label for="SDE_Sex810445712" class="list-header"><strong>SDE Sex</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">SDE.&quot;SDE Sex&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>            </div>
+        </li>
+    </ul>
+</div><h3><a name="d1e650" href="#toc">Functions</a></h3>
+<div>
+    <ul style="list-style:none;padding-left: 10px;">
+        <li class="list-unstyled" style="list-style:none;">
+            <div>
+                                    None
+            </div>
+        </li>
+    </ul>
+</div><h3><a name="d1e555" href="#toc">Terminology</a></h3>
+<div>
+            <ul style="padding-left: 50px;">
+                <li style="width:80%">code &quot;active&quot; (&quot;ConditionClinicalStatusCodes Code (active)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-active&quot; (&quot;AllergyIntoleranceClinicalStatusCodes Code (active)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-confirmed&quot; (&quot;AllergyIntoleranceVerificationStatusCodes Code (confirmed)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-inactive&quot; (&quot;AllergyIntoleranceClinicalStatusCodes Code (inactive)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-refuted&quot; (&quot;AllergyIntoleranceVerificationStatusCodes Code (refuted)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-resolved&quot; (&quot;AllergyIntoleranceClinicalStatusCodes Code (resolved)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-unconfirmed&quot; (&quot;AllergyIntoleranceVerificationStatusCodes Code (unconfirmed)&quot;)</li>
+                <li style="width:80%">code &quot;Billing&quot; (&quot;Diagnosis Role Code (billing)&quot;)</li>
+                <li style="width:80%">code &quot;Birth date&quot; (&quot;LOINC Code (21112-8)&quot;)</li>
+                <li style="width:80%">code &quot;Community&quot; (&quot;MedicationRequestCategory Code (community)&quot;)</li>
+                <li style="width:80%">code &quot;confirmed&quot; (&quot;ConditionVerificationStatusCodes Code (confirmed)&quot;)</li>
+                <li style="width:80%">code &quot;Dead&quot; (&quot;SNOMEDCT Code (419099009)&quot;)</li>
+                <li style="width:80%">code &quot;differential&quot; (&quot;ConditionVerificationStatusCodes Code (differential)&quot;)</li>
+                <li style="width:80%">code &quot;Discharge&quot; (&quot;MedicationRequestCategory Code (discharge)&quot;)</li>
+                <li style="width:80%">code &quot;entered-in-error&quot; (&quot;ConditionVerificationStatusCodes Code (entered-in-error)&quot;)</li>
+                <li style="width:80%">code &quot;ER&quot; (&quot;RoleCode Code (ER)&quot;)</li>
+                <li style="width:80%">code &quot;ICU&quot; (&quot;RoleCode Code (ICU)&quot;)</li>
+                <li style="width:80%">code &quot;inactive&quot; (&quot;ConditionClinicalStatusCodes Code (inactive)&quot;)</li>
+                <li style="width:80%">code &quot;provisional&quot; (&quot;ConditionVerificationStatusCodes Code (provisional)&quot;)</li>
+                <li style="width:80%">code &quot;recurrence&quot; (&quot;ConditionClinicalStatusCodes Code (recurrence)&quot;)</li>
+                <li style="width:80%">code &quot;refuted&quot; (&quot;ConditionVerificationStatusCodes Code (refuted)&quot;)</li>
+                <li style="width:80%">code &quot;relapse&quot; (&quot;ConditionClinicalStatusCodes Code (relapse)&quot;)</li>
+                <li style="width:80%">code &quot;remission&quot; (&quot;ConditionClinicalStatusCodes Code (remission)&quot;)</li>
+                <li style="width:80%">code &quot;resolved&quot; (&quot;ConditionClinicalStatusCodes Code (resolved)&quot;)</li>
+                <li style="width:80%">code &quot;unconfirmed&quot; (&quot;ConditionVerificationStatusCodes Code (unconfirmed)&quot;)</li>
+                <li style="width:80%">valueset &quot;All Primary and Secondary Cancer&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.161)</li>
+                <li style="width:80%">valueset &quot;Emergency Department Visit&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292)</li>
+                <li style="width:80%">valueset &quot;Encounter Inpatient&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307)</li>
+                <li style="width:80%">valueset &quot;Ethnicity&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837)</li>
+                <li style="width:80%">valueset &quot;Hospice Care&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1004.20)</li>
+                <li style="width:80%">valueset &quot;Observation Services&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.143)</li>
+                <li style="width:80%">valueset &quot;ONC Administrative Sex&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1)</li>
+                <li style="width:80%">valueset &quot;Palliative Care&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.162)</li>
+                <li style="width:80%">valueset &quot;Payer&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591)</li>
+                <li style="width:80%">valueset &quot;Race&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836)</li>
+                <li style="width:80%">valueset &quot;Schedule II and Schedule III Opioids&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1125.2)</li>
+                <li style="width:80%">valueset &quot;Schedule IV Benzodiazepines&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1125.1)</li>
+        </ul>
+</div>    <h3><a name="d1e647" href="#toc">Data Criteria (FHIR Data Requirements)</a></h3>
+
+<div>
+        <ul style="padding-left: 50px;">
+                <li style="width:80%">&quot;Condition: All Primary and Secondary Cancer&quot; using &quot;All Primary and Secondary Cancer (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.161)&quot;</li>
+                <li style="width:80%">&quot;Coverage: Payer&quot; using &quot;Payer (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Emergency Department Visit&quot; using &quot;Emergency Department Visit (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Encounter Inpatient&quot; using &quot;Encounter Inpatient (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Observation Services&quot; using &quot;Observation Services (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.143)&quot;</li>
+                <li style="width:80%">&quot;MedicationRequest: Schedule II and Schedule III Opioids&quot; using &quot;Schedule II and Schedule III Opioids (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1125.2)&quot;</li>
+                <li style="width:80%">&quot;MedicationRequest: Schedule IV Benzodiazepines&quot; using &quot;Schedule IV Benzodiazepines (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1125.1)&quot;</li>
+                <li style="width:80%">&quot;ServiceRequest: Hospice Care&quot; using &quot;Hospice Care (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1004.20)&quot;</li>
+                <li style="width:80%">&quot;ServiceRequest: Palliative Care&quot; using &quot;Palliative Care (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.162)&quot;</li>
+        </ul>
+</div><h3><a name="d1e767" href="#toc">Supplemental Data Elements</a></h3>
+<ul style="list-style:none;padding-left: 25px;">
+	<li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="SDE_Ethnicity980826707" />
+        <label for="SDE_Ethnicity980826707" class="list-header"><strong>SDE Ethnicity</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">SDE.&quot;SDE Ethnicity&quot;</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="SDE_Payer965525232" />
+        <label for="SDE_Payer965525232" class="list-header"><strong>SDE Payer</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">SDE.&quot;SDE Payer&quot;</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="SDE_Race1463019291" />
+        <label for="SDE_Race1463019291" class="list-header"><strong>SDE Race</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">SDE.&quot;SDE Race&quot;</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="SDE_Sex1267769731" />
+        <label for="SDE_Sex1267769731" class="list-header"><strong>SDE Sex</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">SDE.&quot;SDE Sex&quot;</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li></ul><h3><a name="d1e879" href="#toc">Risk Adjustment Variables</a></h3>
+<ul style="list-style:none;padding-left: 25px;">
+			<li>None</li>
+</ul><div style="float:left; background:teal; height:3px; width:80%"></div>
+<pre><br/></pre><table class="header_table" role="presentation">
+    <tbody>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Measure Set</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre></pre>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+    </body>
+</html>

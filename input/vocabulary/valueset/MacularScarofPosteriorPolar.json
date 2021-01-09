@@ -1,0 +1,70 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.526.3.1559",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1559",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.526.3.1559"
+  } ],
+  "version": "20200307",
+  "name": "MacularScarofPosteriorPolar",
+  "title": "Macular Scar of Posterior Polar",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://hl7.org/fhir/sid/icd-10-cm",
+      "version": "2020",
+      "concept": [ {
+        "code": "H31.011",
+        "display": "Macula scars of posterior pole (postinflammatory) (post-traumatic), right eye"
+      }, {
+        "code": "H31.012",
+        "display": "Macula scars of posterior pole (postinflammatory) (post-traumatic), left eye"
+      }, {
+        "code": "H31.013",
+        "display": "Macula scars of posterior pole (postinflammatory) (post-traumatic), bilateral"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2019-09",
+      "concept": [ {
+        "code": "15631531000119100",
+        "display": "Scarred macula of bilateral eyes (disorder)"
+      }, {
+        "code": "15631611000119106",
+        "display": "Scarred macula of right eye (disorder)"
+      }, {
+        "code": "15710081000119102",
+        "display": "Scar of macula of right eye following trauma (disorder)"
+      }, {
+        "code": "15710121000119100",
+        "display": "Scar of macula of bilateral eyes following trauma (disorder)"
+      }, {
+        "code": "15710161000119105",
+        "display": "Scar of macula of left eye following trauma (disorder)"
+      }, {
+        "code": "18410006",
+        "display": "Scarred macula (disorder)"
+      }, {
+        "code": "21939006",
+        "display": "Scar of posterior pole of eye (disorder)"
+      }, {
+        "code": "246181000119100",
+        "display": "Chorioretinal scar of posterior pole of eye (disorder)"
+      }, {
+        "code": "267611002",
+        "display": "Degeneration of macula and posterior pole (disorder)"
+      }, {
+        "code": "425622004",
+        "display": "Scar of macula following trauma (disorder)"
+      }, {
+        "code": "737273002",
+        "display": "Degeneration of posterior pole of eye (disorder)"
+      }, {
+        "code": "774010000",
+        "display": "Scarred macula of left eye (disorder)"
+      } ]
+    } ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.67.1.101.1.254",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.67.1.101.1.254",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.67.1.101.1.254"
+  } ],
+  "version": "20170504",
+  "name": "Dysthymia",
+  "title": "Dysthymia",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://hl7.org/fhir/sid/icd-10-cm",
+      "version": "2020",
+      "concept": [ {
+        "code": "F34.1",
+        "display": "Dysthymic disorder"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2019-09",
+      "concept": [ {
+        "code": "19694002",
+        "display": "Late onset dysthymia (disorder)"
+      }, {
+        "code": "2506003",
+        "display": "Early onset dysthymia (disorder)"
+      }, {
+        "code": "3109008",
+        "display": "Secondary dysthymia early onset (disorder)"
+      }, {
+        "code": "36170009",
+        "display": "Secondary dysthymia late onset (disorder)"
+      }, {
+        "code": "38451003",
+        "display": "Primary dysthymia early onset (disorder)"
+      }, {
+        "code": "67711008",
+        "display": "Primary dysthymia late onset (disorder)"
+      }, {
+        "code": "78667006",
+        "display": "Dysthymia (disorder)"
+      }, {
+        "code": "83176005",
+        "display": "Primary dysthymia (disorder)"
+      }, {
+        "code": "85080004",
+        "display": "Secondary dysthymia (disorder)"
+      } ]
+    } ]
+  }
+}

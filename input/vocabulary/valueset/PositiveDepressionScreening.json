@@ -1,0 +1,24 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.526.3.1565",
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1565",
+  "identifier": [ {
+    "system": "urn:ietf:rfc:3986",
+    "value": "2.16.840.1.113883.3.526.3.1565"
+  } ],
+  "version": "20200307",
+  "name": "PositiveDepressionScreening",
+  "title": "Positive Depression Screening",
+  "status": "active",
+  "publisher": "NLM",
+  "compose": {
+    "include": [ {
+      "system": "http://snomed.info/sct",
+      "version": "2019-09",
+      "concept": [ {
+        "code": "428181000124104",
+        "display": "Depression screening positive (finding)"
+      } ]
+    } ]
+  }
+}
