@@ -5,7 +5,7 @@
   "entry": [ {
     "resource": {
       "resourceType": "Observation",
-      "id": "denom-EXM124-3",
+      "id": "numer-EXM124-3",
       "meta": {
         "profile": [ "http://hl7.org/fhir/observation" ]
       },
@@ -18,13 +18,14 @@
         } ]
       },
       "subject": {
-        "reference": "Patient/denom-EXM124"
+        "reference": "Patient/numer-EXM124"
       },
-      "effectiveDateTime": "2019-11-01T00:00:00"
+      "effectiveDateTime": "2019-11-01T00:00:00",
+      "valueBoolean": true
     },
     "request": {
       "method": "PUT",
-      "url": "Observation/denom-EXM124-3"
+      "url": "Observation/numer-EXM124-3"
     }
   } ]
 }

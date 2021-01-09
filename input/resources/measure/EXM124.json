@@ -36,13 +36,13 @@
       "reference": "cqf-tooling"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM124",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM124-9.0.000",
   "identifier": [ {
     "use": "official",
     "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms",
     "value": "124"
   } ],
-  "version": "8.2.000",
+  "version": "9.0.000",
   "name": "EXM124",
   "title": "Cervical Cancer Screening",
   "status": "active",
@@ -55,7 +55,7 @@
       "value": "http://www.ncqa.org/"
     } ]
   } ],
-  "description": "Percentage of women 21-64 years of age who were screened for cervical cancer using either of the following criteria: <br/> *  Women age 21-64 who had cervical cytology performed every 3 years <br/>.*  Women age 30-64 who had cervical cytology/human papillomavirus (HPV) co-testing performed every 5 years ",
+  "description": "Percentage of women 21-64 years of age who were screened for cervical cancer using either of the following criteria: <br> *  Women age 21-64 who had cervical cytology performed every 3 years <br.*  Women age 30-64 who had cervical cytology/human papillomavirus (HPV) co-testing performed every 5 years ",
   "useContext": [ {
     "code": {
       "code": "program"
@@ -99,21 +99,21 @@
     "citation": "U.S. Preventive Services Task Force (USPSTF). 2016. \"Screening for Breast Cancer: U.S. Preventive Services Task Force Recommendation Statement.\" Ann Intern Med. 164(4):279-296. doi:10.7326/M15-2886."
   }, {
     "type": "depends-on",
-    "resource": "Library/FHIRHelpers-4.0.0"
+    "resource": "Library/FHIRHelpers-4.0.1"
   }, {
     "type": "depends-on",
-    "resource": "Library/Hospice-1.0.000"
+    "resource": "Library/Hospice-2.0.000"
   }, {
     "type": "depends-on",
-    "resource": "Library/AdultOutpatientEncounters-1.1.000"
+    "resource": "Library/AdultOutpatientEncounters-2.0.000"
   }, {
     "type": "depends-on",
-    "resource": "Library/MATGlobalCommonFunctions-4.0.000"
+    "resource": "Library/MATGlobalCommonFunctions-5.0.000"
   }, {
     "type": "depends-on",
-    "resource": "Library/SupplementalDataElements-1.0.0"
+    "resource": "Library/SupplementalDataElements-2.0.0"
   } ],
-  "library": [ "Library/EXM124-8.2.000" ],
+  "library": [ "Library/EXM124-9.0.000" ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
     "coding": [ {
