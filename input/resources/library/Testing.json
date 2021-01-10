@@ -1,17 +1,6 @@
 {
   "resourceType": "Library",
   "id": "Testing",
-  "extension": [ {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
-    "valueReference": {
-      "reference": "#cqf-tooling"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
-    "valueReference": {
-      "reference": "cqf-tooling"
-    }
-  } ],
   "url": "http://fhir.org/guides/cqframework/Library/Testing",
   "version": "1.0.000",
   "name": "Testing",
