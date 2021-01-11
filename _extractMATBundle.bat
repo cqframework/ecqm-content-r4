@@ -1,7 +1,7 @@
 @ECHO OFF
 SET tooling_jar=tooling-1.3.1-SNAPSHOT-jar-with-dependencies.jar
 SET input_cache_path=%~dp0input-cache
-SET mat_bundle=/Users/mholck/Development/ecqm-content-r4/bundles/mat/EXM506_v6_02_Artifacts/measure-json-bundle.json
+SET mat_bundle=bundles\mat\CLONE124_v6_03-Artifacts\measure-json-bundle.json
 
 SET JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 
