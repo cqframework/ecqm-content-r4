@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-    <id value="fhir.cqframework.ecqm-content-r4"/>
-    <url value="http://fhir.org/guides/cqframework/ImplementationGuide/fhir.cqframework.ecqm-content-r4"/>
-    <version value="1.0.0"/>
+    <id value="gov.healthit.ecqi.ecqms"/>
+    <url value="http://ecqi.healthit.gov/ecqms/ImplementationGuide/gov.healthit.ecqi.ecqms"/>
+    <version value="2021"/>
     <name value="eCQMContentR4"/>
     <title value="eCQM FHIR R4 Content Implementation Guide"/>
     <status value="draft"/>
@@ -16,7 +16,7 @@
       </telecom>
     </contact>
     <description value="eCQM FHIR 4 Implementation Guide"/>
-    <packageId value="fhir.cqframework.ecqm-content-r4"/>
+    <packageId value="gov.healthit.ecqi.ecqms"/>
     <!-- TODO: Identify the license for this content -->
     <license value="CC0-1.0"/>
 	  <fhirVersion value="4.0.1"/>
