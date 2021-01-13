@@ -1,10 +1,10 @@
 {
   "resourceType": "Library",
-  "id": "MATGlobalCommonFunctionsFHIR4-5.0.000",
+  "id": "MATGlobalCommonFunctionsFHIR4",
   "meta": {
-    "versionId": "6",
-    "lastUpdated": "2020-12-15T14:00:15.000+00:00",
-    "source": "#hSZzUhrzXzFf3WBF",
+    "versionId": "1",
+    "lastUpdated": "2021-01-08T13:45:23.000+00:00",
+    "source": "#rleQARQ9I8uRjCwO",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm" ]
   },
   "language": "en",
@@ -19,7 +19,7 @@
       "code": "logic-library"
     } ]
   },
-  "date": "2020-12-15T14:00:14+00:00",
+  "date": "2021-01-08T13:45:22+00:00",
   "publisher": "Mathematica",
   "description": "MATGlobalCommonFunctionsFHIR4",
   "relatedArtifact": [ {

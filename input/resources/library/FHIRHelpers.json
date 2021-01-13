@@ -1,10 +1,10 @@
 {
   "resourceType": "Library",
-  "id": "FHIRHelpers-4.0.001",
+  "id": "FHIRHelpers",
   "meta": {
-    "versionId": "6",
-    "lastUpdated": "2020-12-15T14:00:08.000+00:00",
-    "source": "#Ng9dKx86xXqGHDBb",
+    "versionId": "1",
+    "lastUpdated": "2021-01-08T13:45:09.000+00:00",
+    "source": "#c0gl7b4E1XsL6xrE",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm" ]
   },
   "language": "en",
@@ -19,7 +19,7 @@
       "code": "logic-library"
     } ]
   },
-  "date": "2020-12-15T14:00:04+00:00",
+  "date": "2021-01-08T13:45:04+00:00",
   "publisher": "Mathematica",
   "description": "FHIRHelpers",
   "content": [ {

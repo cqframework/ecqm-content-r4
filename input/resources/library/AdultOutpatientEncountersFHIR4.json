@@ -1,10 +1,10 @@
 {
   "resourceType": "Library",
-  "id": "AdultOutpatientEncountersFHIR4-2.0.000",
+  "id": "AdultOutpatientEncountersFHIR4",
   "meta": {
-    "versionId": "6",
-    "lastUpdated": "2020-12-15T14:00:10.000+00:00",
-    "source": "#DeK9gAmzv83PZ8kF",
+    "versionId": "1",
+    "lastUpdated": "2021-01-08T13:45:12.000+00:00",
+    "source": "#X7Ce7WrTJkDc9c5x",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm" ]
   },
   "language": "en",
@@ -19,7 +19,7 @@
       "code": "logic-library"
     } ]
   },
-  "date": "2020-12-15T14:00:09+00:00",
+  "date": "2021-01-08T13:45:12+00:00",
   "publisher": "Mathematica",
   "description": "AdultOutpatientEncountersFHIR4",
   "relatedArtifact": [ {

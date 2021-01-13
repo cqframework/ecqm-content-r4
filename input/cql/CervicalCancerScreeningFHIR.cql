@@ -1,4 +1,4 @@
-library CervicalCancerScreeningFHIR version '1.0.001'
+library CervicalCancerScreeningFHIR version '1.0.002'
 
 using FHIR version '4.0.1'
 
