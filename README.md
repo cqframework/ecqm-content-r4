@@ -15,20 +15,41 @@ This repository contains the measure artifacts for all FHIR based eCQMs. It is s
    |-- ig.ini
    |-- bundles
        |-- measure
-           |--EXM124v8
+           |--EXM124
    |-- input
        |-- ecqm-content-r4.xml
        |-- pagecontent
            |-- cql
-               |-- EXM124v8.cql
+               |-- EXM124.cql
        |-- resources
            |-- library
-               |-- EXM124v8.json
+               |-- EXM124.json
            |-- measure
-               |-- EXM124v8.json
+               |-- EXM124.json
        |-- tests
            |-- measure
-               |-- EXM124v8
+               |-- EXM124
        |-- vocabulary
            |-- valueset
 ```
+
+## Extracting MAT Packages
+
+The CQF Tooling provides support for extracting a MAT exported package into the
+directories of this repository so that the measure is included in the published
+implementation guide. To do this, place the MAT export files (unzipped) in a
+directory in the `bundles\mat` directory, and then run the following tooling
+command:
+
+```
+[tooling-jar] -ExtractMatBundle bundles\mat\[bundle-directory]\[bundle-file]
+```
+
+For example:
+
+```
+input-cache\tooling-1.3.1-SNAPSHOT-jar-with-dependencies.jar -ExtractMATBundle bundles\mat\CLONE124_v6_03-Artifacts\measure-json-bundle.json
+```
+
+Then run the `_refresh` command to refresh the implementation guide content with
+the new content, and then run `_genonce` to publish the implementation guide.

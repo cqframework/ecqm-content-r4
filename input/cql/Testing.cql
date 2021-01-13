@@ -1,10 +1,10 @@
 library Testing version '1.0.000'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0'
-include MATGlobalCommonFunctions version '4.0.000' called Global
-include SupplementalDataElements version '1.0.0' called SDE
+include FHIRHelpers version '4.0.1'
+include MATGlobalCommonFunctions version '5.0.000' called Global
+include SupplementalDataElements version '2.0.0' called SDE
 
 valueset "All Opioids": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.87'
 
