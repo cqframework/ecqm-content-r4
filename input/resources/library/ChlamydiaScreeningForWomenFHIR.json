@@ -232,12 +232,6 @@
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1012"
     } ]
   }, {
-    "type": "MedicationStatement",
-    "codeFilter": [ {
-      "path": "code",
-      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1080"
-    } ]
-  }, {
     "type": "MedicationRequest",
     "codeFilter": [ {
       "path": "code",

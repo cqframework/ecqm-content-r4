@@ -11,6 +11,7 @@
   "url": "http://ecqi.healthit.gov/ecqms/Library/AdultOutpatientEncountersFHIR4",
   "version": "2.0.000",
   "name": "AdultOutpatientEncountersFHIR4",
+  "title": "Adult Outpatient Encounters FHIR4",
   "status": "active",
   "experimental": false,
   "type": {
