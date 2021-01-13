@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>Statin Therapy for the Prevention and Treatment of Cardiovascular DiseaseFHIR 0.1.002</title>
+        <title>Statin Therapy for the Prevention and Treatment of Cardiovascular DiseaseFHIR 0.1.004</title>
 <style type="text/css">
     body {
         color: rgb(0,0,0);
@@ -628,7 +628,7 @@
             <td style="width:30%"></td>
 
             <th scope="row" class="row-header"><span class="td_label">eCQM Version Number</span></th>
-            <td style="width:30%">0.1.002</td>
+            <td style="width:30%">0.1.004</td>
         </tr>
         <tr>
             <th scope="row" class="row-header"><span class="td_label">NQF Number</span></th>
@@ -971,14 +971,14 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 	            <ul style="list-style:none;">
 <li class="list-unstyled" style="list-style:none;padding-left:0;">
     <div class="treeview hover p-l-10">
-        <input type="checkbox" id="Population_Criteria_1_628311534" />
-        <label for="Population_Criteria_1_628311534" class="list-header"><b>Population Criteria 1</b></label>
+        <input type="checkbox" id="Population_Criteria_1_440178581" />
+        <label for="Population_Criteria_1_440178581" class="list-header"><b>Population Criteria 1</b></label>
             <ul>
 <li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Initial_Population_595322319"/>
-                <label for="Initial_Population_595322319" class="list-header"><strong>Initial Population</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Initial_Population_1141212761"/>
+                <label for="Initial_Population_1141212761" class="list-header"><strong>Initial Population</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -986,7 +986,7 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate (Patient.birthDate ), start of &quot;Measurement Period&quot; ) &gt;= 21
-        and exists &quot;Qualifying Encounter During Measurement Period&quot;</pre>
+            and exists &quot;Qualifying Encounter During Measurement Period&quot;</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -999,8 +999,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Denominator_365940710"/>
-                <label for="Denominator_365940710" class="list-header"><strong>Denominator</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_316784693"/>
+                <label for="Denominator_316784693" class="list-header"><strong>Denominator</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1008,7 +1008,7 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">&quot;Initial Population&quot;
-        and exists ( &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot; )</pre>
+            and exists ( &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot; )</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1021,8 +1021,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exclusions_1973682082"/>
-                <label for="Denominator_Exclusions_1973682082" class="list-header"><strong>Denominator Exclusions</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exclusions_1581790517"/>
+                <label for="Denominator_Exclusions_1581790517" class="list-header"><strong>Denominator Exclusions</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1030,10 +1030,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">exists ( ( [Condition: &quot;Rhabdomyolysis&quot;]
-          union [Condition: &quot;Breastfeeding&quot;]
-          union [Condition: &quot;Pregnancy or Other Related Diagnoses&quot;] ) ExclusionDiagnosis
-          where Global.&quot;Prevalence Period&quot; ( ExclusionDiagnosis ) overlaps &quot;Measurement Period&quot;
-      )</pre>
+              union [Condition: &quot;Breastfeeding&quot;]
+              union [Condition: &quot;Pregnancy or Other Related Diagnoses&quot;] ) ExclusionDiagnosis
+              where Global.&quot;Prevalence Period&quot; ( ExclusionDiagnosis ) overlaps &quot;Measurement Period&quot;
+          )</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1046,8 +1046,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Numerator_1975876343"/>
-                <label for="Numerator_1975876343" class="list-header"><strong>Numerator</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_1288157655"/>
+                <label for="Numerator_1288157655" class="list-header"><strong>Numerator</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1055,7 +1055,7 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">exists &quot;Statin Therapy Ordered During Measurement Period&quot;
-        or exists &quot;Currently Taking Statin Therapy Through the End of the Measurement Period&quot;</pre>
+            or exists &quot;Currently Taking Statin Therapy Through the End of the Measurement Period&quot;</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1068,8 +1068,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Numerator_Exclusions_1837791286"/>
-                <label for="Numerator_Exclusions_1837791286" class="list-header"><strong>Numerator Exclusions</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_Exclusions_355405921"/>
+                <label for="Numerator_Exclusions_355405921" class="list-header"><strong>Numerator Exclusions</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1089,8 +1089,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exceptions_1029240635"/>
-                <label for="Denominator_Exceptions_1029240635" class="list-header"><strong>Denominator Exceptions</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exceptions_1706548722"/>
+                <label for="Denominator_Exceptions_1706548722" class="list-header"><strong>Denominator Exceptions</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1098,10 +1098,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">&quot;Patient Has Order for or Receiving Hospice Care or Palliative Care&quot;
-        or &quot;Has ESRD&quot;
-        or &quot;Has Hepatitis or Liver Disease&quot;
-        or exists &quot;Adverse Reaction to Statin&quot;
-        or exists &quot;Allergy or Intolerance to Statin&quot;</pre>
+            or &quot;Has ESRD&quot;
+            or &quot;Has Hepatitis or Liver Disease&quot;
+            or exists &quot;Adverse Reaction to Statin&quot;
+            or exists &quot;Allergy or Intolerance to Statin&quot;</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1114,8 +1114,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Stratification_1739320649"/>
-                <label for="Stratification_1739320649" class="list-header"><strong>Stratification</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Stratification_1748287375"/>
+                <label for="Stratification_1748287375" class="list-header"><strong>Stratification</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1136,14 +1136,14 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
     </div>
 </li><li class="list-unstyled" style="list-style:none;padding-left:0;">
     <div class="treeview hover p-l-10">
-        <input type="checkbox" id="Population_Criteria_2_1289753090" />
-        <label for="Population_Criteria_2_1289753090" class="list-header"><b>Population Criteria 2</b></label>
+        <input type="checkbox" id="Population_Criteria_2_656357149" />
+        <label for="Population_Criteria_2_656357149" class="list-header"><b>Population Criteria 2</b></label>
             <ul>
 <li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Initial_Population_336780550"/>
-                <label for="Initial_Population_336780550" class="list-header"><strong>Initial Population</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Initial_Population_2111291237"/>
+                <label for="Initial_Population_2111291237" class="list-header"><strong>Initial Population</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1151,7 +1151,7 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate (Patient.birthDate ), start of &quot;Measurement Period&quot; ) &gt;= 21
-        and exists &quot;Qualifying Encounter During Measurement Period&quot;</pre>
+            and exists &quot;Qualifying Encounter During Measurement Period&quot;</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1164,8 +1164,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Denominator_197489681"/>
-                <label for="Denominator_197489681" class="list-header"><strong>Denominator</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_1014535770"/>
+                <label for="Denominator_1014535770" class="list-header"><strong>Denominator</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1173,10 +1173,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">&quot;Initial Population&quot;
-        and ( exists &quot;Current or Prior LDL Result Greater Than or Equal To 190&quot;
-            or &quot;Has Hypercholesterolemia&quot;
-        )
-        and not exists &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot;</pre>
+            and ( exists &quot;Current or Prior LDL Result Greater Than or Equal To 190&quot;
+                or &quot;Has Hypercholesterolemia&quot;
+            )
+            and not exists &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot;</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1189,8 +1189,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exclusions_446762583"/>
-                <label for="Denominator_Exclusions_446762583" class="list-header"><strong>Denominator Exclusions</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exclusions_1163651586"/>
+                <label for="Denominator_Exclusions_1163651586" class="list-header"><strong>Denominator Exclusions</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1198,10 +1198,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">exists ( ( [Condition: &quot;Rhabdomyolysis&quot;]
-          union [Condition: &quot;Breastfeeding&quot;]
-          union [Condition: &quot;Pregnancy or Other Related Diagnoses&quot;] ) ExclusionDiagnosis
-          where Global.&quot;Prevalence Period&quot; ( ExclusionDiagnosis ) overlaps &quot;Measurement Period&quot;
-      )</pre>
+              union [Condition: &quot;Breastfeeding&quot;]
+              union [Condition: &quot;Pregnancy or Other Related Diagnoses&quot;] ) ExclusionDiagnosis
+              where Global.&quot;Prevalence Period&quot; ( ExclusionDiagnosis ) overlaps &quot;Measurement Period&quot;
+          )</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1214,8 +1214,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Numerator_1057555082"/>
-                <label for="Numerator_1057555082" class="list-header"><strong>Numerator</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_1882876426"/>
+                <label for="Numerator_1882876426" class="list-header"><strong>Numerator</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1223,7 +1223,7 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">exists &quot;Statin Therapy Ordered During Measurement Period&quot;
-        or exists &quot;Currently Taking Statin Therapy Through the End of the Measurement Period&quot;</pre>
+            or exists &quot;Currently Taking Statin Therapy Through the End of the Measurement Period&quot;</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1236,8 +1236,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Numerator_Exclusions_1814372615"/>
-                <label for="Numerator_Exclusions_1814372615" class="list-header"><strong>Numerator Exclusions</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_Exclusions_2123913597"/>
+                <label for="Numerator_Exclusions_2123913597" class="list-header"><strong>Numerator Exclusions</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1257,8 +1257,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exceptions_1014092520"/>
-                <label for="Denominator_Exceptions_1014092520" class="list-header"><strong>Denominator Exceptions</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exceptions_1242861190"/>
+                <label for="Denominator_Exceptions_1242861190" class="list-header"><strong>Denominator Exceptions</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1266,10 +1266,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">&quot;Patient Has Order for or Receiving Hospice Care or Palliative Care&quot;
-        or &quot;Has ESRD&quot;
-        or &quot;Has Hepatitis or Liver Disease&quot;
-        or exists &quot;Adverse Reaction to Statin&quot;
-        or exists &quot;Allergy or Intolerance to Statin&quot;</pre>
+            or &quot;Has ESRD&quot;
+            or &quot;Has Hepatitis or Liver Disease&quot;
+            or exists &quot;Adverse Reaction to Statin&quot;
+            or exists &quot;Allergy or Intolerance to Statin&quot;</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1282,8 +1282,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Stratification_802584703"/>
-                <label for="Stratification_802584703" class="list-header"><strong>Stratification</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Stratification_15142669"/>
+                <label for="Stratification_15142669" class="list-header"><strong>Stratification</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1304,14 +1304,14 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
     </div>
 </li><li class="list-unstyled" style="list-style:none;padding-left:0;">
     <div class="treeview hover p-l-10">
-        <input type="checkbox" id="Population_Criteria_3_800257889" />
-        <label for="Population_Criteria_3_800257889" class="list-header"><b>Population Criteria 3</b></label>
+        <input type="checkbox" id="Population_Criteria_3_354765918" />
+        <label for="Population_Criteria_3_354765918" class="list-header"><b>Population Criteria 3</b></label>
             <ul>
 <li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Initial_Population_88406704"/>
-                <label for="Initial_Population_88406704" class="list-header"><strong>Initial Population</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Initial_Population_677370439"/>
+                <label for="Initial_Population_677370439" class="list-header"><strong>Initial Population</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1319,7 +1319,7 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate (Patient.birthDate ), start of &quot;Measurement Period&quot; ) &gt;= 21
-        and exists &quot;Qualifying Encounter During Measurement Period&quot;</pre>
+            and exists &quot;Qualifying Encounter During Measurement Period&quot;</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1332,8 +1332,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Denominator_1491649813"/>
-                <label for="Denominator_1491649813" class="list-header"><strong>Denominator</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_76086439"/>
+                <label for="Denominator_76086439" class="list-header"><strong>Denominator</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1341,12 +1341,12 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">&quot;Initial Population&quot;
-        and Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( Patient.birthDate ), start of &quot;Measurement Period&quot; ) in Interval[40, 75]
-        and &quot;Has Diabetes&quot;
-        and &quot;Highest LDL Result Within 3 Years is Greater Than or Equal To 70 and Less Than 190&quot; is not null
-        and not exists &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot;
-        and not exists &quot;Current or Prior LDL Result Greater Than or Equal To 190&quot;
-        and not &quot;Has Hypercholesterolemia&quot;</pre>
+            and Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( Patient.birthDate ), start of &quot;Measurement Period&quot; ) in Interval[40, 75]
+            and &quot;Has Diabetes&quot;
+            and &quot;Highest LDL Result Within 3 Years is Greater Than or Equal To 70 and Less Than 190&quot; is not null
+            and not exists &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot;
+            and not exists &quot;Current or Prior LDL Result Greater Than or Equal To 190&quot;
+            and not &quot;Has Hypercholesterolemia&quot;</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1359,8 +1359,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exclusions_2132201745"/>
-                <label for="Denominator_Exclusions_2132201745" class="list-header"><strong>Denominator Exclusions</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exclusions_1982216970"/>
+                <label for="Denominator_Exclusions_1982216970" class="list-header"><strong>Denominator Exclusions</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1368,10 +1368,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">exists ( ( [Condition: &quot;Rhabdomyolysis&quot;]
-          union [Condition: &quot;Breastfeeding&quot;]
-          union [Condition: &quot;Pregnancy or Other Related Diagnoses&quot;] ) ExclusionDiagnosis
-          where Global.&quot;Prevalence Period&quot; ( ExclusionDiagnosis ) overlaps &quot;Measurement Period&quot;
-      )</pre>
+              union [Condition: &quot;Breastfeeding&quot;]
+              union [Condition: &quot;Pregnancy or Other Related Diagnoses&quot;] ) ExclusionDiagnosis
+              where Global.&quot;Prevalence Period&quot; ( ExclusionDiagnosis ) overlaps &quot;Measurement Period&quot;
+          )</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1384,8 +1384,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Numerator_557035487"/>
-                <label for="Numerator_557035487" class="list-header"><strong>Numerator</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_338675675"/>
+                <label for="Numerator_338675675" class="list-header"><strong>Numerator</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1393,7 +1393,7 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">exists &quot;Statin Therapy Ordered During Measurement Period&quot;
-        or exists &quot;Currently Taking Statin Therapy Through the End of the Measurement Period&quot;</pre>
+            or exists &quot;Currently Taking Statin Therapy Through the End of the Measurement Period&quot;</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1406,8 +1406,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Numerator_Exclusions_1587927518"/>
-                <label for="Numerator_Exclusions_1587927518" class="list-header"><strong>Numerator Exclusions</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_Exclusions_1486736459"/>
+                <label for="Numerator_Exclusions_1486736459" class="list-header"><strong>Numerator Exclusions</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1427,8 +1427,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exceptions_333481196"/>
-                <label for="Denominator_Exceptions_333481196" class="list-header"><strong>Denominator Exceptions</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exceptions_366054184"/>
+                <label for="Denominator_Exceptions_366054184" class="list-header"><strong>Denominator Exceptions</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1436,11 +1436,11 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                                 <li style="padding-left: 0px;">
                                     <div>
                                         <pre class="cql-definition-body">&quot;Patient Has Order for or Receiving Hospice Care or Palliative Care&quot;
-        or &quot;Has ESRD&quot;
-        or &quot;Has Hepatitis or Liver Disease&quot;
-        or exists &quot;Adverse Reaction to Statin&quot;
-        or exists &quot;Allergy or Intolerance to Statin&quot;
-        or &quot;Most Recent LDL Result Within 3 Years is Less Than 70&quot;</pre>
+            or &quot;Has ESRD&quot;
+            or &quot;Has Hepatitis or Liver Disease&quot;
+            or exists &quot;Adverse Reaction to Statin&quot;
+            or exists &quot;Allergy or Intolerance to Statin&quot;
+            or &quot;Most Recent LDL Result Within 3 Years is Less Than 70&quot;</pre>
                                     </div>
                                 </li>
                             </ul>&nbsp;
@@ -1453,8 +1453,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
     <div class="treeview hover p-l-10">
         <ul class="list-unstyled">
-            <li class="list-unstyled"><input type="checkbox" id="Stratification_2027243370"/>
-                <label for="Stratification_2027243370" class="list-header"><strong>Stratification</strong></label>
+            <li class="list-unstyled"><input type="checkbox" id="Stratification_28097123"/>
+                <label for="Stratification_28097123" class="list-header"><strong>Stratification</strong></label>
                 <ul class="code">
                     <li class="list-unstyled">
                         <div class="treeview hover p-l-10">
@@ -1482,8 +1482,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                 <ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Adverse_Reaction_to_Statin543126610" />
-            <label for="Adverse_Reaction_to_Statin543126610" class="list-header"><strong>Adverse Reaction to Statin</strong></label>
+            <input type="checkbox" id="Adverse_Reaction_to_Statin1157685177" />
+            <label for="Adverse_Reaction_to_Statin1157685177" class="list-header"><strong>Adverse Reaction to Statin</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1491,7 +1491,7 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">[AdverseEvent: &quot;Statin Allergen&quot;] StatinReaction
-        where StatinReaction.date during &quot;Measurement Period&quot;</pre>
+            where StatinReaction.date during &quot;Measurement Period&quot;</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1503,8 +1503,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Allergy_or_Intolerance_to_Statin1621367777" />
-            <label for="Allergy_or_Intolerance_to_Statin1621367777" class="list-header"><strong>Allergy or Intolerance to Statin</strong></label>
+            <input type="checkbox" id="Allergy_or_Intolerance_to_Statin2147110717" />
+            <label for="Allergy_or_Intolerance_to_Statin2147110717" class="list-header"><strong>Allergy or Intolerance to Statin</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1512,7 +1512,7 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">[AllergyIntolerance: &quot;Statin Allergen&quot;] StatinAllergyIntolerance
-        where Global.&quot;Normalize Interval&quot; ( StatinAllergyIntolerance.onset ) starts before end &quot;Measurement Period&quot;</pre>
+            where Global.&quot;Normalize Interval&quot; ( StatinAllergyIntolerance.onset ) starts before end &quot;Measurement Period&quot;</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1524,8 +1524,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="ASCVD_Diagnosis_or_Procedure_Before_End_of_Measurement_Period2043969682" />
-            <label for="ASCVD_Diagnosis_or_Procedure_Before_End_of_Measurement_Period2043969682" class="list-header"><strong>ASCVD Diagnosis or Procedure Before End of Measurement Period</strong></label>
+            <input type="checkbox" id="ASCVD_Diagnosis_or_Procedure_Before_End_of_Measurement_Period935056186" />
+            <label for="ASCVD_Diagnosis_or_Procedure_Before_End_of_Measurement_Period935056186" class="list-header"><strong>ASCVD Diagnosis or Procedure Before End of Measurement Period</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1533,21 +1533,21 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">( ( [Condition: &quot;Myocardial Infarction&quot;]
-          union [Condition: &quot;Cerebrovascular Disease, Stroke, TIA&quot;]
-          union [Condition: &quot;Atherosclerosis and Peripheral Arterial Disease&quot;]
-          union [Condition: &quot;Ischemic Heart Disease or Other Related Diagnoses&quot;]
-          union [Condition: &quot;Stable and Unstable Angina&quot;] ) ASCVDDiagnosis
-          where Global.&quot;Normalize Interval&quot; ( ASCVDDiagnosis.onset ) starts before
-          end of &quot;Measurement Period&quot;
-      )
-        union ( ( [Procedure: &quot;PCI&quot;]
-            union [Procedure: &quot;CABG Surgeries&quot;]
-            union [Procedure: &quot;Carotid Intervention&quot;]
-            union [Procedure: &quot;CABG, PCI Procedure&quot;] ) ASCVDProcedure
-            where Global.&quot;Normalize Interval&quot; ( ASCVDProcedure.performed ) starts before
-            end of &quot;Measurement Period&quot;
-              and ASCVDProcedure.status = &#39;completed&#39;
-        )</pre>
+              union [Condition: &quot;Cerebrovascular Disease, Stroke, TIA&quot;]
+              union [Condition: &quot;Atherosclerosis and Peripheral Arterial Disease&quot;]
+              union [Condition: &quot;Ischemic Heart Disease or Other Related Diagnoses&quot;]
+              union [Condition: &quot;Stable and Unstable Angina&quot;] ) ASCVDDiagnosis
+              where Global.&quot;Normalize Interval&quot; ( ASCVDDiagnosis.onset ) starts before
+              end of &quot;Measurement Period&quot;
+          )
+            union ( ( [Procedure: &quot;PCI&quot;]
+                union [Procedure: &quot;CABG Surgeries&quot;]
+                union [Procedure: &quot;Carotid Intervention&quot;]
+                union [Procedure: &quot;CABG, PCI Procedure&quot;] ) ASCVDProcedure
+                where Global.&quot;Normalize Interval&quot; ( ASCVDProcedure.performed ) starts before
+                end of &quot;Measurement Period&quot;
+                  and ASCVDProcedure.status = &#39;completed&#39;
+            )</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1559,8 +1559,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Current_or_Prior_LDL_Result_Greater_Than_or_Equal_To_190196935215" />
-            <label for="Current_or_Prior_LDL_Result_Greater_Than_or_Equal_To_190196935215" class="list-header"><strong>Current or Prior LDL Result Greater Than or Equal To 190</strong></label>
+            <input type="checkbox" id="Current_or_Prior_LDL_Result_Greater_Than_or_Equal_To_1901808415140" />
+            <label for="Current_or_Prior_LDL_Result_Greater_Than_or_Equal_To_1901808415140" class="list-header"><strong>Current or Prior LDL Result Greater Than or Equal To 190</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1568,10 +1568,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">[Observation: &quot;LDL Cholesterol&quot;] LDL
-        where LDL.value &gt;= 190 &#39;mg/dL&#39;
-          and LDL.effective before
-          end of &quot;Measurement Period&quot;
-          and LDL.status in { &#39;final&#39;, &#39;amended&#39;, &#39;corrected&#39;, &#39;appended&#39; }</pre>
+            where LDL.value &gt;= 190 &#39;mg/dL&#39;
+              and LDL.effective before
+              end of &quot;Measurement Period&quot;
+              and LDL.status in { &#39;final&#39;, &#39;amended&#39;, &#39;corrected&#39;, &#39;appended&#39; }</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1583,8 +1583,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Currently_Taking_Statin_Therapy_Through_the_End_of_the_Measurement_Period748952991" />
-            <label for="Currently_Taking_Statin_Therapy_Through_the_End_of_the_Measurement_Period748952991" class="list-header"><strong>Currently Taking Statin Therapy Through the End of the Measurement Period</strong></label>
+            <input type="checkbox" id="Currently_Taking_Statin_Therapy_Through_the_End_of_the_Measurement_Period923711715" />
+            <label for="Currently_Taking_Statin_Therapy_Through_the_End_of_the_Measurement_Period923711715" class="list-header"><strong>Currently Taking Statin Therapy Through the End of the Measurement Period</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1592,10 +1592,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">( [MedicationRequest: &quot;Low Intensity Statin Therapy&quot;]
-        union [MedicationRequest: &quot;Moderate Intensity Statin Therapy&quot;]
-        union [MedicationRequest: &quot;High Intensity Statin Therapy&quot;] ) ActiveStatin
-        where ActiveStatin.dispenseRequest.validityPeriod overlaps after &quot;Measurement Period&quot;
-          and ActiveStatin.status in { &#39;active&#39;, &#39;completed&#39; }</pre>
+            union [MedicationRequest: &quot;Moderate Intensity Statin Therapy&quot;]
+            union [MedicationRequest: &quot;High Intensity Statin Therapy&quot;] ) ActiveStatin
+            where ActiveStatin.dispenseRequest.validityPeriod overlaps after &quot;Measurement Period&quot;
+              and ActiveStatin.status in { &#39;active&#39;, &#39;completed&#39; }</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1607,8 +1607,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Denominator_1933480664" />
-            <label for="Denominator_1933480664" class="list-header"><strong>Denominator 1</strong></label>
+            <input type="checkbox" id="Denominator_1473928216" />
+            <label for="Denominator_1473928216" class="list-header"><strong>Denominator 1</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1616,7 +1616,7 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">&quot;Initial Population&quot;
-        and exists ( &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot; )</pre>
+            and exists ( &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot; )</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1628,8 +1628,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Denominator_2836932189" />
-            <label for="Denominator_2836932189" class="list-header"><strong>Denominator 2</strong></label>
+            <input type="checkbox" id="Denominator_21421513711" />
+            <label for="Denominator_21421513711" class="list-header"><strong>Denominator 2</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1637,10 +1637,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">&quot;Initial Population&quot;
-        and ( exists &quot;Current or Prior LDL Result Greater Than or Equal To 190&quot;
-            or &quot;Has Hypercholesterolemia&quot;
-        )
-        and not exists &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot;</pre>
+            and ( exists &quot;Current or Prior LDL Result Greater Than or Equal To 190&quot;
+                or &quot;Has Hypercholesterolemia&quot;
+            )
+            and not exists &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot;</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1652,8 +1652,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Denominator_3229408557" />
-            <label for="Denominator_3229408557" class="list-header"><strong>Denominator 3</strong></label>
+            <input type="checkbox" id="Denominator_31905863415" />
+            <label for="Denominator_31905863415" class="list-header"><strong>Denominator 3</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1661,12 +1661,12 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">&quot;Initial Population&quot;
-        and Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( Patient.birthDate ), start of &quot;Measurement Period&quot; ) in Interval[40, 75]
-        and &quot;Has Diabetes&quot;
-        and &quot;Highest LDL Result Within 3 Years is Greater Than or Equal To 70 and Less Than 190&quot; is not null
-        and not exists &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot;
-        and not exists &quot;Current or Prior LDL Result Greater Than or Equal To 190&quot;
-        and not &quot;Has Hypercholesterolemia&quot;</pre>
+            and Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( Patient.birthDate ), start of &quot;Measurement Period&quot; ) in Interval[40, 75]
+            and &quot;Has Diabetes&quot;
+            and &quot;Highest LDL Result Within 3 Years is Greater Than or Equal To 70 and Less Than 190&quot; is not null
+            and not exists &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot;
+            and not exists &quot;Current or Prior LDL Result Greater Than or Equal To 190&quot;
+            and not &quot;Has Hypercholesterolemia&quot;</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1678,8 +1678,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Denominator_Exceptions145893909" />
-            <label for="Denominator_Exceptions145893909" class="list-header"><strong>Denominator Exceptions</strong></label>
+            <input type="checkbox" id="Denominator_Exceptions320410495" />
+            <label for="Denominator_Exceptions320410495" class="list-header"><strong>Denominator Exceptions</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1687,10 +1687,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">&quot;Patient Has Order for or Receiving Hospice Care or Palliative Care&quot;
-        or &quot;Has ESRD&quot;
-        or &quot;Has Hepatitis or Liver Disease&quot;
-        or exists &quot;Adverse Reaction to Statin&quot;
-        or exists &quot;Allergy or Intolerance to Statin&quot;</pre>
+            or &quot;Has ESRD&quot;
+            or &quot;Has Hepatitis or Liver Disease&quot;
+            or exists &quot;Adverse Reaction to Statin&quot;
+            or exists &quot;Allergy or Intolerance to Statin&quot;</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1702,8 +1702,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Denominator_Exceptions_2126505969" />
-            <label for="Denominator_Exceptions_2126505969" class="list-header"><strong>Denominator Exceptions 2</strong></label>
+            <input type="checkbox" id="Denominator_Exceptions_21692135187" />
+            <label for="Denominator_Exceptions_21692135187" class="list-header"><strong>Denominator Exceptions 2</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1711,10 +1711,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">&quot;Patient Has Order for or Receiving Hospice Care or Palliative Care&quot;
-        or &quot;Has ESRD&quot;
-        or &quot;Has Hepatitis or Liver Disease&quot;
-        or exists &quot;Adverse Reaction to Statin&quot;
-        or exists &quot;Allergy or Intolerance to Statin&quot;</pre>
+            or &quot;Has ESRD&quot;
+            or &quot;Has Hepatitis or Liver Disease&quot;
+            or exists &quot;Adverse Reaction to Statin&quot;
+            or exists &quot;Allergy or Intolerance to Statin&quot;</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1726,8 +1726,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Denominator_Exceptions_3309294649" />
-            <label for="Denominator_Exceptions_3309294649" class="list-header"><strong>Denominator Exceptions 3</strong></label>
+            <input type="checkbox" id="Denominator_Exceptions_31654887351" />
+            <label for="Denominator_Exceptions_31654887351" class="list-header"><strong>Denominator Exceptions 3</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1735,11 +1735,11 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">&quot;Patient Has Order for or Receiving Hospice Care or Palliative Care&quot;
-        or &quot;Has ESRD&quot;
-        or &quot;Has Hepatitis or Liver Disease&quot;
-        or exists &quot;Adverse Reaction to Statin&quot;
-        or exists &quot;Allergy or Intolerance to Statin&quot;
-        or &quot;Most Recent LDL Result Within 3 Years is Less Than 70&quot;</pre>
+            or &quot;Has ESRD&quot;
+            or &quot;Has Hepatitis or Liver Disease&quot;
+            or exists &quot;Adverse Reaction to Statin&quot;
+            or exists &quot;Allergy or Intolerance to Statin&quot;
+            or &quot;Most Recent LDL Result Within 3 Years is Less Than 70&quot;</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1751,8 +1751,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Denominator_Exclusions1045589394" />
-            <label for="Denominator_Exclusions1045589394" class="list-header"><strong>Denominator Exclusions</strong></label>
+            <input type="checkbox" id="Denominator_Exclusions365525697" />
+            <label for="Denominator_Exclusions365525697" class="list-header"><strong>Denominator Exclusions</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1760,10 +1760,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">exists ( ( [Condition: &quot;Rhabdomyolysis&quot;]
-          union [Condition: &quot;Breastfeeding&quot;]
-          union [Condition: &quot;Pregnancy or Other Related Diagnoses&quot;] ) ExclusionDiagnosis
-          where Global.&quot;Prevalence Period&quot; ( ExclusionDiagnosis ) overlaps &quot;Measurement Period&quot;
-      )</pre>
+              union [Condition: &quot;Breastfeeding&quot;]
+              union [Condition: &quot;Pregnancy or Other Related Diagnoses&quot;] ) ExclusionDiagnosis
+              where Global.&quot;Prevalence Period&quot; ( ExclusionDiagnosis ) overlaps &quot;Measurement Period&quot;
+          )</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1775,8 +1775,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Has_Diabetes1875895581" />
-            <label for="Has_Diabetes1875895581" class="list-header"><strong>Has Diabetes</strong></label>
+            <input type="checkbox" id="Has_Diabetes611692015" />
+            <label for="Has_Diabetes611692015" class="list-header"><strong>Has Diabetes</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1784,8 +1784,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">exists ( [Condition: &quot;Diabetes&quot;] Diabetes
-          where Global.&quot;Prevalence Period&quot; ( Diabetes ) overlaps &quot;Measurement Period&quot;
-      )</pre>
+              where Global.&quot;Prevalence Period&quot; ( Diabetes ) overlaps &quot;Measurement Period&quot;
+          )</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1797,8 +1797,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Has_ESRD471600339" />
-            <label for="Has_ESRD471600339" class="list-header"><strong>Has ESRD</strong></label>
+            <input type="checkbox" id="Has_ESRD1251493171" />
+            <label for="Has_ESRD1251493171" class="list-header"><strong>Has ESRD</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1806,9 +1806,9 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">exists ( [Condition: &quot;End Stage Renal Disease&quot;] ESRD
-          where Global.&quot;Prevalence Period&quot; ( ESRD)
-           overlaps &quot;Measurement Period&quot;
-      )</pre>
+              where Global.&quot;Prevalence Period&quot; ( ESRD)
+               overlaps &quot;Measurement Period&quot;
+          )</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1820,8 +1820,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Has_Hepatitis_or_Liver_Disease1442843147" />
-            <label for="Has_Hepatitis_or_Liver_Disease1442843147" class="list-header"><strong>Has Hepatitis or Liver Disease</strong></label>
+            <input type="checkbox" id="Has_Hepatitis_or_Liver_Disease778919132" />
+            <label for="Has_Hepatitis_or_Liver_Disease778919132" class="list-header"><strong>Has Hepatitis or Liver Disease</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1829,10 +1829,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">exists ( ( [Condition: &quot;Hepatitis A&quot;]
-          union [Condition: &quot;Hepatitis B&quot;]
-          union [Condition: &quot;Liver Disease&quot;] ) HepatitisLiverDisease
-          where Global.&quot;Prevalence Period&quot; ( HepatitisLiverDisease ) overlaps &quot;Measurement Period&quot;
-      )</pre>
+              union [Condition: &quot;Hepatitis B&quot;]
+              union [Condition: &quot;Liver Disease&quot;] ) HepatitisLiverDisease
+              where Global.&quot;Prevalence Period&quot; ( HepatitisLiverDisease ) overlaps &quot;Measurement Period&quot;
+          )</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1844,8 +1844,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Has_Hypercholesterolemia1553637624" />
-            <label for="Has_Hypercholesterolemia1553637624" class="list-header"><strong>Has Hypercholesterolemia</strong></label>
+            <input type="checkbox" id="Has_Hypercholesterolemia776415516" />
+            <label for="Has_Hypercholesterolemia776415516" class="list-header"><strong>Has Hypercholesterolemia</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1853,9 +1853,9 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">exists ( [Condition: &quot;Hypercholesterolemia&quot;] Hypercholesterolemia
-          where Global.&quot;Normalize Interval&quot; ( Hypercholesterolemia.onset ) starts before
-          end of &quot;Measurement Period&quot;
-      )</pre>
+              where Global.&quot;Normalize Interval&quot; ( Hypercholesterolemia.onset ) starts before
+              end of &quot;Measurement Period&quot;
+          )</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1867,8 +1867,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Highest_LDL_Result_Within_3_Years_is_Greater_Than_or_Equal_To_70_and_Less_Than_19054653598" />
-            <label for="Highest_LDL_Result_Within_3_Years_is_Greater_Than_or_Equal_To_70_and_Less_Than_19054653598" class="list-header"><strong>Highest LDL Result Within 3 Years is Greater Than or Equal To 70 and Less Than 190</strong></label>
+            <input type="checkbox" id="Highest_LDL_Result_Within_3_Years_is_Greater_Than_or_Equal_To_70_and_Less_Than_1901319425913" />
+            <label for="Highest_LDL_Result_Within_3_Years_is_Greater_Than_or_Equal_To_70_and_Less_Than_1901319425913" class="list-header"><strong>Highest LDL Result Within 3 Years is Greater Than or Equal To 70 and Less Than 190</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1876,12 +1876,12 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">( Max([Observation: &quot;LDL Cholesterol&quot;] LDL
-          where LDL.effective 3 years or less before
-          end of &quot;Measurement Period&quot;
-            and LDL.status in { &#39;final&#39;, &#39;amended&#39;, &#39;corrected&#39;, &#39;appended&#39; }
-          return LDL.value as Quantity
-      )) LDLResult
-        where LDLResult in Interval[70 &#39;mg/dL&#39;, 190 &#39;mg/dL&#39; )</pre>
+              where LDL.effective 3 years or less before
+              end of &quot;Measurement Period&quot;
+                and LDL.status in { &#39;final&#39;, &#39;amended&#39;, &#39;corrected&#39;, &#39;appended&#39; }
+              return LDL.value as Quantity
+          )) LDLResult
+            where LDLResult in Interval[70 &#39;mg/dL&#39;, 190 &#39;mg/dL&#39; )</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1893,8 +1893,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Initial_Population514358877" />
-            <label for="Initial_Population514358877" class="list-header"><strong>Initial Population</strong></label>
+            <input type="checkbox" id="Initial_Population396238612" />
+            <label for="Initial_Population396238612" class="list-header"><strong>Initial Population</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1902,7 +1902,7 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate (Patient.birthDate ), start of &quot;Measurement Period&quot; ) &gt;= 21
-        and exists &quot;Qualifying Encounter During Measurement Period&quot;</pre>
+            and exists &quot;Qualifying Encounter During Measurement Period&quot;</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1914,8 +1914,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Most_Recent_LDL_Result_Within_3_Years_is_Less_Than_70164137852" />
-            <label for="Most_Recent_LDL_Result_Within_3_Years_is_Less_Than_70164137852" class="list-header"><strong>Most Recent LDL Result Within 3 Years is Less Than 70</strong></label>
+            <input type="checkbox" id="Most_Recent_LDL_Result_Within_3_Years_is_Less_Than_70509447575" />
+            <label for="Most_Recent_LDL_Result_Within_3_Years_is_Less_Than_70509447575" class="list-header"><strong>Most Recent LDL Result Within 3 Years is Less Than 70</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1923,12 +1923,12 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">( Last([Observation: &quot;LDL Cholesterol&quot;] LDL
-          where Global.&quot;Normalize Interval&quot;(LDL.effective) 3 years or less before
-          end &quot;Measurement Period&quot;
-            and LDL.status in { &#39;final&#39;, &#39;amended&#39;, &#39;corrected&#39;, &#39;appended&#39; }
-          sort by effective
-      )) MostRecentLDL
-        return MostRecentLDL.value &lt; 70 &#39;mg/dL&#39;</pre>
+              where Global.&quot;Normalize Interval&quot;(LDL.effective) 3 years or less before
+              end &quot;Measurement Period&quot;
+                and LDL.status in { &#39;final&#39;, &#39;amended&#39;, &#39;corrected&#39;, &#39;appended&#39; }
+              sort by effective
+          )) MostRecentLDL
+            return MostRecentLDL.value &lt; 70 &#39;mg/dL&#39;</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1940,8 +1940,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Numerator302999390" />
-            <label for="Numerator302999390" class="list-header"><strong>Numerator</strong></label>
+            <input type="checkbox" id="Numerator311514446" />
+            <label for="Numerator311514446" class="list-header"><strong>Numerator</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1949,7 +1949,7 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">exists &quot;Statin Therapy Ordered During Measurement Period&quot;
-        or exists &quot;Currently Taking Statin Therapy Through the End of the Measurement Period&quot;</pre>
+            or exists &quot;Currently Taking Statin Therapy Through the End of the Measurement Period&quot;</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1961,8 +1961,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Patient_Has_Order_for_or_Receiving_Hospice_Care_or_Palliative_Care579302260" />
-            <label for="Patient_Has_Order_for_or_Receiving_Hospice_Care_or_Palliative_Care579302260" class="list-header"><strong>Patient Has Order for or Receiving Hospice Care or Palliative Care</strong></label>
+            <input type="checkbox" id="Patient_Has_Order_for_or_Receiving_Hospice_Care_or_Palliative_Care1430592785" />
+            <label for="Patient_Has_Order_for_or_Receiving_Hospice_Care_or_Palliative_Care1430592785" class="list-header"><strong>Patient Has Order for or Receiving Hospice Care or Palliative Care</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -1970,22 +1970,22 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">exists ( ( [ServiceRequest: &quot;Hospice Care Ambulatory&quot;]
-          union [ServiceRequest: &quot;Palliative or Hospice Care&quot;] ) PalliativeOrHospiceCareOrder
-          where PalliativeOrHospiceCareOrder.authoredOn on or before
-          end of &quot;Measurement Period&quot;
-            and PalliativeOrHospiceCareOrder.status in { &#39;active&#39;, &#39;on-hold&#39;, &#39;completed&#39; }
-      )
-        or exists ( ( [Procedure: &quot;Hospice Care Ambulatory&quot;]
-            union [Procedure: &quot;Palliative or Hospice Care&quot;] ) PalliativeOrHospiceCarePerformed
-            where Global.&quot;Normalize Interval&quot; ( PalliativeOrHospiceCarePerformed.performed ) starts on or before
-            end of &quot;Measurement Period&quot;
-              and PalliativeOrHospiceCarePerformed.status = &#39;completed&#39;
-        )
-        or exists ( [Encounter: &quot;Encounter for palliative care&quot;] PalliativeEncounter
-            where PalliativeEncounter.period starts on or before
-            end of &quot;Measurement Period&quot;
-              and PalliativeEncounter.status = &#39;finished&#39;
-        )</pre>
+              union [ServiceRequest: &quot;Palliative or Hospice Care&quot;] ) PalliativeOrHospiceCareOrder
+              where PalliativeOrHospiceCareOrder.authoredOn on or before
+              end of &quot;Measurement Period&quot;
+                and PalliativeOrHospiceCareOrder.status in { &#39;active&#39;, &#39;on-hold&#39;, &#39;completed&#39; }
+          )
+            or exists ( ( [Procedure: &quot;Hospice Care Ambulatory&quot;]
+                union [Procedure: &quot;Palliative or Hospice Care&quot;] ) PalliativeOrHospiceCarePerformed
+                where Global.&quot;Normalize Interval&quot; ( PalliativeOrHospiceCarePerformed.performed ) starts on or before
+                end of &quot;Measurement Period&quot;
+                  and PalliativeOrHospiceCarePerformed.status = &#39;completed&#39;
+            )
+            or exists ( [Encounter: &quot;Encounter for palliative care&quot;] PalliativeEncounter
+                where PalliativeEncounter.period starts on or before
+                end of &quot;Measurement Period&quot;
+                  and PalliativeEncounter.status = &#39;finished&#39;
+            )</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -1997,8 +1997,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Qualifying_Encounter_During_Measurement_Period913927241" />
-            <label for="Qualifying_Encounter_During_Measurement_Period913927241" class="list-header"><strong>Qualifying Encounter During Measurement Period</strong></label>
+            <input type="checkbox" id="Qualifying_Encounter_During_Measurement_Period2043106389" />
+            <label for="Qualifying_Encounter_During_Measurement_Period2043106389" class="list-header"><strong>Qualifying Encounter During Measurement Period</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -2006,15 +2006,15 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">( [Encounter: &quot;Annual Wellness Visit&quot;]
-        union [Encounter: &quot;Office Visit&quot;]
-        union [Encounter: &quot;Outpatient Consultation&quot;]
-        union [Encounter: &quot;Outpatient Encounters for Preventive Care&quot;]
-        union [Encounter: &quot;Preventive Care Services - Established Office Visit, 18 and Up&quot;]
-        union [Encounter: &quot;Preventive Care Services - Other&quot;]
-        union [Encounter: &quot;Preventive Care Services-Individual Counseling&quot;]
-        union [Encounter: &quot;Preventive Care Services-Initial Office Visit, 18 and Up&quot;] ) ValidEncounter
-        where ValidEncounter.period during &quot;Measurement Period&quot;
-          and ValidEncounter.status = &#39;finished&#39;</pre>
+            union [Encounter: &quot;Office Visit&quot;]
+            union [Encounter: &quot;Outpatient Consultation&quot;]
+            union [Encounter: &quot;Outpatient Encounters for Preventive Care&quot;]
+            union [Encounter: &quot;Preventive Care Services - Established Office Visit, 18 and Up&quot;]
+            union [Encounter: &quot;Preventive Care Services - Other&quot;]
+            union [Encounter: &quot;Preventive Care Services-Individual Counseling&quot;]
+            union [Encounter: &quot;Preventive Care Services-Initial Office Visit, 18 and Up&quot;] ) ValidEncounter
+            where ValidEncounter.period during &quot;Measurement Period&quot;
+              and ValidEncounter.status = &#39;finished&#39;</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -2026,8 +2026,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="SDE_Ethnicity194891329" />
-            <label for="SDE_Ethnicity194891329" class="list-header"><strong>SDE Ethnicity</strong></label>
+            <input type="checkbox" id="SDE_Ethnicity1858478200" />
+            <label for="SDE_Ethnicity1858478200" class="list-header"><strong>SDE Ethnicity</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -2046,8 +2046,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="SDE_Payer1731259431" />
-            <label for="SDE_Payer1731259431" class="list-header"><strong>SDE Payer</strong></label>
+            <input type="checkbox" id="SDE_Payer1689735752" />
+            <label for="SDE_Payer1689735752" class="list-header"><strong>SDE Payer</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -2066,8 +2066,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="SDE_Race682624836" />
-            <label for="SDE_Race682624836" class="list-header"><strong>SDE Race</strong></label>
+            <input type="checkbox" id="SDE_Race392300451" />
+            <label for="SDE_Race392300451" class="list-header"><strong>SDE Race</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -2086,8 +2086,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="SDE_Sex972578718" />
-            <label for="SDE_Sex972578718" class="list-header"><strong>SDE Sex</strong></label>
+            <input type="checkbox" id="SDE_Sex45873108" />
+            <label for="SDE_Sex45873108" class="list-header"><strong>SDE Sex</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -2106,8 +2106,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 </ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
     <li class="list-unstyled">
         <div class="treeview hover p-l-10">
-            <input type="checkbox" id="Statin_Therapy_Ordered_During_Measurement_Period884707964" />
-            <label for="Statin_Therapy_Ordered_During_Measurement_Period884707964" class="list-header"><strong>Statin Therapy Ordered During Measurement Period</strong></label>
+            <input type="checkbox" id="Statin_Therapy_Ordered_During_Measurement_Period1653986246" />
+            <label for="Statin_Therapy_Ordered_During_Measurement_Period1653986246" class="list-header"><strong>Statin Therapy Ordered During Measurement Period</strong></label>
             <ul class="code" style="margin-right: 20%; opacity: 1;">
                 <li class="list-unstyled">
                     <div>
@@ -2115,10 +2115,10 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
                             <li style="padding-left: 0px;" class="list-unstyled">
                                 <div>
                                     <pre class="cql-definition-body">( [MedicationRequest: &quot;Low Intensity Statin Therapy&quot;]
-        union [MedicationRequest: &quot;Moderate Intensity Statin Therapy&quot;]
-        union [MedicationRequest: &quot;High Intensity Statin Therapy&quot;] ) StatinOrdered
-        where StatinOrdered.authoredOn during &quot;Measurement Period&quot;
-          and StatinOrdered.status in { &#39;active&#39;, &#39;completed&#39; }</pre>
+            union [MedicationRequest: &quot;Moderate Intensity Statin Therapy&quot;]
+            union [MedicationRequest: &quot;High Intensity Statin Therapy&quot;] ) StatinOrdered
+            where StatinOrdered.authoredOn during &quot;Measurement Period&quot;
+              and StatinOrdered.status in { &#39;active&#39;, &#39;completed&#39; }</pre>
                                 </div>
                             </li>
                         </ul>&nbsp;
@@ -2257,8 +2257,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
 <ul style="list-style:none;padding-left: 25px;">
 	<li class="list-unstyled">
     <div class="treeview hover p-l-10">
-        <input type="checkbox" id="SDE_Ethnicity1629275859" />
-        <label for="SDE_Ethnicity1629275859" class="list-header"><strong>SDE Ethnicity</strong></label>
+        <input type="checkbox" id="SDE_Ethnicity1731413764" />
+        <label for="SDE_Ethnicity1731413764" class="list-header"><strong>SDE Ethnicity</strong></label>
         <ul class="code" style="margin-right: 20%; opacity: 1;">
             <li class="list-unstyled">
                 <div>
@@ -2275,8 +2275,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
     </div>
 </li><li class="list-unstyled">
     <div class="treeview hover p-l-10">
-        <input type="checkbox" id="SDE_Payer306115012" />
-        <label for="SDE_Payer306115012" class="list-header"><strong>SDE Payer</strong></label>
+        <input type="checkbox" id="SDE_Payer1129721781" />
+        <label for="SDE_Payer1129721781" class="list-header"><strong>SDE Payer</strong></label>
         <ul class="code" style="margin-right: 20%; opacity: 1;">
             <li class="list-unstyled">
                 <div>
@@ -2293,8 +2293,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
     </div>
 </li><li class="list-unstyled">
     <div class="treeview hover p-l-10">
-        <input type="checkbox" id="SDE_Race708013786" />
-        <label for="SDE_Race708013786" class="list-header"><strong>SDE Race</strong></label>
+        <input type="checkbox" id="SDE_Race585619253" />
+        <label for="SDE_Race585619253" class="list-header"><strong>SDE Race</strong></label>
         <ul class="code" style="margin-right: 20%; opacity: 1;">
             <li class="list-unstyled">
                 <div>
@@ -2311,8 +2311,8 @@ This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource
     </div>
 </li><li class="list-unstyled">
     <div class="treeview hover p-l-10">
-        <input type="checkbox" id="SDE_Sex187576544" />
-        <label for="SDE_Sex187576544" class="list-header"><strong>SDE Sex</strong></label>
+        <input type="checkbox" id="SDE_Sex1362399534" />
+        <label for="SDE_Sex1362399534" class="list-header"><strong>SDE Sex</strong></label>
         <ul class="code" style="margin-right: 20%; opacity: 1;">
             <li class="list-unstyled">
                 <div>
