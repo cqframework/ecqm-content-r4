@@ -33,6 +33,11 @@ This repository contains the measure artifacts for all FHIR based eCQMs. It is s
            |-- valueset
 ```
 
+## Refresh IG Processing
+
+Note that there are known issues with the refresh ig processing of MAT-extracted
+measure content that we are still working through as part of Connectathon 26 (2021-JAN).
+
 ## Extracting MAT Packages
 
 The CQF Tooling provides support for extracting a MAT exported package into the
