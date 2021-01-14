@@ -15,7 +15,7 @@
         <value value="https://github.com/cqframework/ecqm-content-r4"/>
       </telecom>
     </contact>
-    <description value="eCQM FHIR 4 Implementation Guide"/>
+    <description value="Draft electronic Clinical Quality Measure (eCQM) Implementation Guide"/>
     <packageId value="gov.healthit.ecqi.ecqms"/>
     <!-- TODO: Identify the license for this content -->
     <license value="CC0-1.0"/>
