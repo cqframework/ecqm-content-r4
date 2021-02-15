@@ -397,9 +397,19 @@
             {% if Library.relatedArtifact.where(type = 'composed-of').exists() %}
             <p><b>Components</b><br/>
             <table class="grid-dict">
-              <tr><th><b>Type</b></th><th><b>Resource</b></th></tr>
+              <tr><th><b>Resource</b></th><th><b>Display</b></th></tr>
               {% for artifact in Library.relatedArtifact.where(type = 'composed-of') %}
-                <tr><td>{{artifact.type.value}}</td><td>{{artifact.resource}}</td></tr>
+                <tr><td>{{artifact.resource}}</td><td>{{artifact.display}}</td></tr>
+              {% endfor %}
+            </table>
+            </p>
+            {% endif %}
+            {% if Library.relatedArtifact.where(type = 'depends-on').exists() %}
+            <p><b>Dependencies</b><br/>
+            <table class="grid-dict">
+              <tr><th><b>Resource</b></th><th><b>Display</b></th></tr>
+              {% for artifact in Library.relatedArtifact.where(type = 'depends-on') %}
+                <tr><td>{{artifact.resource}}</td><td>{{artifact.display}}</td></tr>
               {% endfor %}
             </table>
             </p>
