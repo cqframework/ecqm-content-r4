@@ -1,4 +1,4 @@
-library CMS111 version '0.0.005'
+library CMS111 version '0.0.013'
 
 using FHIR version '4.0.1'
 
@@ -42,41 +42,30 @@ define "Measure Population":
 
 define "Measure Population Exclusions":
   /* Exclude the most recent ED encounter (LastEDVisit) that occurred within an hour of the inpatient admission with ED admission source in "Hospital Setting" (any different facility- by location or CCN ) */
-      Global."Inpatient Encounter" EncounterInpatient
-          where "LastEDEncounter"(EncounterInpatient).hospitalization.admitSource in "Hospital Settings"
-
-define "Stratification 1":
-  /* Patient encounters without a principal diagnosis of "Psychiatric/Mental Health Diagnosis */
-       Global."Inpatient Encounter" EncounterInpatient
-       let Diag: Global."PrincipalDiagnosis"(EncounterInpatient)
-              where  IsNull(Diag) or not (Diag.code in "Psychiatric/Mental Health Diagnosis")
+                Global."Inpatient Encounter" EncounterInpatient
+                    where "LastEDEncounter"(EncounterInpatient).hospitalization.admitSource in "Hospital Settings"
 
 define "Stratification 2":
   /* Patient encounters with a principal diagnosis of "Psychiatric/Mental Health Diagnosis */
-      Global."Inpatient Encounter" EncounterInpatient
-          where   Global."PrincipalDiagnosis"(EncounterInpatient).code in "Psychiatric/Mental Health Diagnosis"
+                Global."Inpatient Encounter" EncounterInpatient
+                    where   Global."PrincipalDiagnosis"(EncounterInpatient).code in "Psychiatric/Mental Health Diagnosis"
 
 define "ED Encounter with Decision to Admit":
   /* Constrains the inpatient encounter to having an ED visit with a decision to admit (assessment or order) to inpatient and ED facility location period is not null */
-      from
-        Global."Inpatient Encounter" EncounterInpatient
-        let LastEDVisit: LastEDEncounter(EncounterInpatient)
-        where Global."Normalize Interval"("AdmitDecisionUsingAssessmentDuringLastEDBeforeDeparture"(EncounterInpatient).effective) during LastEDVisit.period
-              or "AdmitDecisionUsingEncounterOrderDuringLastEDandBeforeDeparture"(EncounterInpatient).authoredOn during LastEDVisit.period
-              and exists ( LastEDVisit.location Location
-                  where Global.GetLocation(Location.location).type in "Emergency Department Visit"
-                        and end of Location.period != maximum DateTime)
+                from
+                  Global."Inpatient Encounter" EncounterInpatient
+                  let LastEDVisit: LastEDEncounter(EncounterInpatient)
+                  where (Global."Normalize Interval"("AdmitDecisionUsingAssessmentDuringLastEDBeforeDeparture"(EncounterInpatient).effective) starts during LastEDVisit.period
+                        or "AdmitDecisionUsingEncounterOrderDuringLastEDandBeforeDeparture"(EncounterInpatient).authoredOn during LastEDVisit.period)
+                        and exists ( LastEDVisit.location Location
+                            where Global.GetLocation(Location.location).type in "Emergency Department Visit"
+                                  and end of Location.period != maximum DateTime)
 
-define function "AdmitDecisionUsingAssessmentDuringLastEDBeforeDeparture"(EncounterInpatient Encounter ):
-  /* Captures the decision to admit assessment, time, and result that was performed during the last ED visit */
-  Last(
-    ["Observation": "Emergency Department Evaluation"] EDEvaluation
-      let LastEDVisit: "LastEDEncounter"(EncounterInpatient)
-      where Global."Normalize Interval"(EDEvaluation.effective) during LastEDVisit.period
-            and EDEvaluation.value in "Admit Inpatient"
-            and EDEvaluation.status in {'final', 'amended', 'corrected'}
-            and Global."Normalize Interval"(EDEvaluation.effective) ends before or on "EDDepartureTime"(LastEDVisit)
-      sort by effective)
+define "Stratification 1":
+  /* Patient encounters without a principal diagnosis of "Psychiatric/Mental Health Diagnosis */
+                 Global."Inpatient Encounter" EncounterInpatient
+                 let Diag: Global."PrincipalDiagnosis"(EncounterInpatient)
+                        where  IsNull(Diag) or not (Diag.code in "Psychiatric/Mental Health Diagnosis")
 
 define function "LastEDEncounter"(EncounterInpatient Encounter ):
   /* The most recent (last) ED encounter that is within an hour of an inpatient encounter */
@@ -104,9 +93,23 @@ define function "AdmitDecisionUsingEncounterOrderDuringLastEDandBeforeDeparture"
 define function "EDDepartureTime"(Encounter Encounter ):
   /* The time the patient physically departed the Emergency Department */
   Last(Encounter.location Location
-      where Global.GetLocation(Location.location).type in "Emergency Department Visit"
-        and end of Location.period != maximum DateTime
+      where ((Global.GetLocation(Location.location))Place
+      where exists(Place.type PlaceType 
+  where FHIRHelpers.ToConcept(PlaceType ) in "Emergency Department Visit")) is not null
+        and (end of Location.period) != maximum DateTime
       return
       end of Location.period
       sort ascending)
+
+define function "AdmitDecisionUsingAssessmentDuringLastEDBeforeDeparture"(EncounterInpatient Encounter ):
+  /* Captures the decision to admit assessment, time, and result that was performed during the last ED visit */
+  Last(
+    ["Observation": "Emergency Department Evaluation"] EDEvaluation
+      let LastEDVisit: "LastEDEncounter"(EncounterInpatient)
+      where Global."Normalize Interval"(EDEvaluation.effective) starts during LastEDVisit.period
+     and FHIRHelpers.ToConcept(EDEvaluation.value as FHIR.CodeableConcept) in "Admit Inpatient" 
+            
+            and EDEvaluation.status in {'final', 'amended', 'corrected'}
+            and Global."Normalize Interval"(EDEvaluation.effective) starts before or on "EDDepartureTime"(LastEDVisit)
+   sort by start of Global."Normalize Interval" (effective))
 
