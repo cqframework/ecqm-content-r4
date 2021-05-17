@@ -1,11 +1,11 @@
-library DischargedonAntithromboticTherapyFHIR version '1.0.000'
+library DischargedonAntithromboticTherapyFHIR version '1.0.001'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
 include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
-include TJCOverallFHIR version '1.0.000' called TJC
+include TJCOverallFHIR version '1.1.000' called TJC
 
 valueset "Antithrombotic Therapy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.201' 
 valueset "Comfort Measures": 'http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45' 

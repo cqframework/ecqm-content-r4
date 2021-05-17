@@ -1,4 +1,4 @@
-library TJCOverallFHIR version '1.0.000'
+library TJCOverallFHIR version '1.1.000'
 
 /*@update: @@BTR 2020-03-31 ->
 Incremented version to 5.0.000
@@ -65,15 +65,15 @@ define "Ischemic Stroke Encounters with Discharge Disposition":
     
     // Translator issue with 1.4.9-SNAPSHOT: https://github.com/cqframework/clinical_quality_language/issues/511
 
-define "Comfort Measures during Hospitalization":
-  "Ischemic Stroke Encounter" IschemicStrokeEncounter
-       	//with "Intervention Comfort Measures" ComfortMeasure
-        //	such that FHIRHelpers.ToDateTime(Coalesce(ComfortMeasure.performed as dateTime,ComfortMeasure.authoredOn)) during Global."HospitalizationWithObservation"(IschemicStrokeEncounter)
-
 define "Encounter with Principal Diagnosis and Age":
   "All Stroke Encounter" AllStrokeEncounter
     		with ["Patient"] BirthDate
     			such that Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(BirthDate.birthDate), start of FHIRHelpers.ToInterval(AllStrokeEncounter.period)) >= 18
+
+define "Comfort Measures during Hospitalization":
+  "Ischemic Stroke Encounter" IschemicStrokeEncounter
+       with "Intervention Comfort Measures" ComfortMeasure
+       such that FHIRHelpers.ToDateTime(Coalesce(ComfortMeasure.performed as dateTime,ComfortMeasure.authoredOn)) during Global."HospitalizationWithObservation"(IschemicStrokeEncounter)
 
 define function "CalendarDayOfOrDayAfter"(StartValue DateTime ):
   Interval(Global."ToDate"(StartValue), Global."ToDate"(StartValue + 2 days))
