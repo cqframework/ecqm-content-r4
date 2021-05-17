@@ -1,4 +1,6 @@
 @ECHO OFF
+REM Necessary for the prompting of 'create' and 'overwrite' variables as, without this, they will be expanded immediately to '' and promptig will have no effect.
+setlocal EnableDelayedExpansion
 
 SET "dlurl=https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&g=org.opencds.cqf&a=tooling&v=1.3.1-SNAPSHOT&c=jar-with-dependencies"
 SET tooling_jar=tooling-1.3.1-SNAPSHOT-jar-with-dependencies.jar
@@ -32,24 +34,33 @@ IF NOT EXIST "%input_cache_path%%tooling_jar%" (
 ECHO Will place refresh jar here: %input_cache_path%%tooling_jar%
 IF "%skipPrompts%"=="false" (
     SET /p create="Ok? (Y/N)"
-    IF /I "%create%"=="Y" (
+    IF /I "!create!"=="Y" (
+        ECHO Creating refresh jar
         MKDIR "%input_cache_path%" 2> NUL
         GOTO:download
+    ) ELSE (
+        ECHO Skipping create
+        GOTO:done
     )
 ) ELSE (
+    ECHO Prompting disabled, creating refresh jar
     MKDIR "%input_cache_path%" 2> NUL
     GOTO:download
 )
-
 GOTO:done
 
 :upgrade
 IF "%skipPrompts%"=="false" (
     SET /p overwrite="Overwrite %jarlocation%? (Y/N)"
-    IF /I "%overwrite%"=="Y" (
+    IF /I "!overwrite!"=="Y" (
+        ECHO Overwriting existing jar
         GOTO:download
+    ) ELSE (
+        ECHO Skipping download as it would overwrite existing jar
+        GOTO:done
     )
 ) ELSE (
+    ECHO Prompting disabled, overwriting refresh jar
     GOTO:download
 )
 GOTO:done
@@ -80,7 +91,7 @@ GOTO done
 :win8.1
 :win8
 :vista
-ECHO This script does not yet support Windows %winver%.  Please ask for help on https://chat.fhir.org/#narrow/stream/179207-connectathon-mgmt/topic/Clinical.20Reasoning.20Track
+ECHO "This script does not yet support Windows %winver%.  Please ask for help on https://chat.fhir.org/#narrow/stream/179207-connectathon-mgmt/topic/Clinical.20Reasoning.20Track"
 GOTO done
 
 :done
