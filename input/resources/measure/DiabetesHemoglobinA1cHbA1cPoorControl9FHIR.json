@@ -195,6 +195,17 @@
             }
           } ]
         }
+      }, {
+        "path": "period",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
       } ]
     }
   }, {
@@ -230,8 +241,24 @@
         "code": [ {
           "code": "order"
         } ]
+      }, {
+        "path": "intent",
+        "code": [ {
+          "code": "order"
+        } ]
       } ],
       "dateFilter": [ {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
         "path": "authoredOn",
         "_valueDateTime": {
           "extension": [ {
@@ -321,6 +348,11 @@
         "code": [ {
           "code": "completed"
         } ]
+      }, {
+        "path": "status",
+        "code": [ {
+          "code": "completed"
+        } ]
       } ]
     }
   }, {
@@ -376,16 +408,17 @@
             }
           } ]
         }
-      } ]
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
-    "valueDataRequirement": {
-      "type": "DeviceUseStatement",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" ],
-      "codeFilter": [ {
-        "path": "device.code",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
       } ]
     }
   }, {
@@ -694,7 +727,7 @@
       "valueString": "Has Criteria Indicating Frailty"
     }, {
       "url": "statement",
-      "valueString": "define \"Has Criteria Indicating Frailty\":\n  //Ask Bryn about devices\n      \texists ( [DeviceRequest: \"Frailty Device\"] FrailtyDeviceOrder\n      \t\t\twhere FrailtyDeviceOrder.authoredOn during \"Measurement Period\"\n      \t)\n      \t\tor exists ( [DeviceUseStatement: \"Frailty Device\"] FrailtyDeviceUse\n      \t\t\t\twhere Global.\"Normalize Interval\"(FrailtyDeviceUse.timing) overlaps \"Measurement Period\"\n      \t\t)\n      \t\tor exists ( [Condition: \"Frailty Diagnosis\"] FrailtyDiagnosis\n      \t\t\t\twhere Global.\"Prevalence Period\"(FrailtyDiagnosis) overlaps \"Measurement Period\"\n      \t\t)\n      \t\tor exists ( [Encounter: \"Frailty Encounter\"] FrailtyEncounter\n      \t\t\t\twhere FrailtyEncounter.period overlaps \"Measurement Period\"\n      \t\t)\n      \t\tor exists ( [Observation: \"Frailty Symptom\"] FrailtySymptomObservation\n      \t\t\t\twhere Global.\"Normalize Interval\"(FrailtySymptomObservation.effective) overlaps \"Measurement Period\"\n      \t\t)"
+      "valueString": "define \"Has Criteria Indicating Frailty\":\n  //Ask Bryn about devices\n      \texists ( [DeviceRequest: \"Frailty Device\"] FrailtyDeviceOrder\n      \t\t\twhere FrailtyDeviceOrder.authoredOn during \"Measurement Period\"\n      \t)\n      \t\t/* or exists ( [DeviceUseStatement: \"Frailty Device\"] FrailtyDeviceUse\n      \t\t\t\twhere Global.\"Normalize Interval\"(FrailtyDeviceUse.timing) overlaps \"Measurement Period\"\n      \t\t) */\n      \t\tor exists ( [Condition: \"Frailty Diagnosis\"] FrailtyDiagnosis\n      \t\t\t\twhere Global.\"Prevalence Period\"(FrailtyDiagnosis) overlaps \"Measurement Period\"\n      \t\t)\n      \t\tor exists ( [Encounter: \"Frailty Encounter\"] FrailtyEncounter\n      \t\t\t\twhere FrailtyEncounter.period overlaps \"Measurement Period\"\n      \t\t)\n      \t\tor exists ( [Observation: \"Frailty Symptom\"] FrailtySymptomObservation\n      \t\t\t\twhere Global.\"Normalize Interval\"(FrailtySymptomObservation.effective) overlaps \"Measurement Period\"\n      \t\t)"
     }, {
       "url": "displaySequence",
       "valueInteger": 15
@@ -850,7 +883,7 @@
   "title": "Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-05-17T11:21:23-06:00",
+  "date": "2021-05-17T16:38:47-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {

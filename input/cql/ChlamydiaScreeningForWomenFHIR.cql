@@ -48,7 +48,7 @@ code "Yes (qualifier value)": '373066001' from "SNOMEDCT" display 'Yes (qualifie
 
 parameter "Measurement Period" Interval<DateTime>
   default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
-  
+
 context Patient
 
 define "SDE Ethnicity":
@@ -69,7 +69,7 @@ define "Initial Population":
           and exists ("Qualifying Encounters")
               and (exists ("Assessments Identifying Sexual Activity")
                   or exists ("Diagnoses Identifying Sexual Activity")
-                  or exists ("Active Contraceptive Medications")
+                  /* or exists ("Active Contraceptive Medications") */
                   or exists ("Ordered Contraceptive Medications")
                   or exists ("Laboratory Tests Identifying Sexual Activity")
                   or exists ("Diagnostic Studies Identifying Sexual Activity")
@@ -98,10 +98,10 @@ define "Diagnoses Identifying Sexual Activity":
           where SexualActivityDiagnosis.verificationStatus ~ ToConcept(Global."confirmed")
               and Global."Prevalence Period"(SexualActivityDiagnosis) overlaps "Measurement Period"
 
-define "Active Contraceptive Medications":
+/* define "Active Contraceptive Medications":
   ["MedicationStatement": "Contraceptive Medications"] ActiveContraceptives
           where ActiveContraceptives.status = 'active'
-          and Global."Normalize Interval"(ActiveContraceptives.effective) overlaps "Measurement Period"
+          and Global."Normalize Interval"(ActiveContraceptives.effective) overlaps "Measurement Period" */
 
 define "Ordered Contraceptive Medications":
   ["MedicationRequest": "Contraceptive Medications"] OrderedContraceptives
@@ -143,7 +143,7 @@ define "Denominator":
 define "Denominator Exclusions":
   (exists ("Pregnancy Test Exclusion")
             and not exists ("Diagnoses Identifying Sexual Activity")
-            and not exists ("Active Contraceptive Medications")
+            /* and not exists ("Active Contraceptive Medications") */
             and not exists ("Laboratory Tests Identifying Sexual Activity But Not Pregnancy")
             and not exists ("Procedures Identifying Sexual Activity")
             and not exists ("Assessments Identifying Sexual Activity")
