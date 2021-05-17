@@ -1,0 +1,2352 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Statin Therapy for the Prevention and Treatment of Cardiovascular Disease FHIR 0.1.009</title>
+<style type="text/css">
+    body {
+        color: rgb(0,0,0);
+        background-color: rgb(255, 255, 255);
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 11px;
+        overflow-y: auto;
+    }
+    h1 {
+        font-size: 12pt;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 11pt;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 10pt;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: 8pt;
+        font-weight: bold;
+    }
+
+    tr {
+        background-color: #ccc;
+    }
+
+    td {
+        padding: 0.1cm 0.2cm;
+        vertical-align: top;
+    }
+
+    a {
+        /*color: rgb(0, 0, 255);
+      background-color: rgb(255,255,255);*/
+    }
+
+    table {
+        line-height: 10pt;
+        width: 80%;
+        font-size: 11px;
+    }
+
+    /*div {
+    width: 80%;
+}*/
+
+    .list-unstyled {
+        list-style-type: none;
+    }
+
+    .list-unstyled li {
+        padding-top: 5px;
+    }
+
+    .list-header {
+        font-size: 12px;
+        color: rgb(0, 0, 238);
+    }
+
+    .list-header:hover {
+        text-decoration: underline;
+    }
+
+    .code {
+        font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;
+        color: black;
+        font-size: 12px;
+    }
+
+    .p-l-10 {
+        padding-left: 10px;
+    }
+
+    .section {
+        font-size: 10pt;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-right: 0.5em;
+        font-weight: 700;
+    }
+
+    .cql-keyword-new {
+        color: rgb(0, 0, 255);
+        font-weight: 700;
+    }
+
+    .cql-class,
+    .cql-object {
+        color: rgb(25, 127, 157);
+    }
+
+    .cql_keyword {
+        color: rgb(127, 0, 85);
+        font-weight: 700;
+    }
+
+    .cql_function {
+        color: rgb(127, 0, 85);
+        font-weight: 700;
+    }
+
+    .cql_attribute {
+        color: rgb(127, 0, 85);
+        font-weight: 700;
+    }
+
+    .cql_string {
+        color: rgb(42, 0, 255);
+    }
+
+    .cql_identifier .cql_function {
+        color: rgb(60, 76, 114);
+    }
+
+    hr.style13 {
+        height: 10px;
+        border: 0;
+        box-shadow: 0 10px 10px -10px #8c8b8b inset;
+    }
+
+    .treeview:hover input~label:before,
+    .treeview.hover input~label:before {
+        opacity: 1.0;
+        -webkit-transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -ms-transition-duration: 0.5s;
+        -o-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+    }
+
+    .treeview ul {
+        -webkit-transition-duration: 1s;
+        -moz-transition-duration: 1s;
+        -ms-transition-duration: 1s;
+        -o-transition-duration: 1s;
+        transition-duration: 1s;
+        -webkit-transition-timing-function: ease;
+        -moz-transition-timing-function: ease;
+        -ms-transition-timing-function: ease;
+        -o-transition-timing-function: ease;
+        transition-timing-function: ease;
+        list-style: none;
+        padding-left: 1em;
+    }
+
+    .treeview ul li span {
+        -webkit-transition-property: color;
+        -moz-transition-property: color;
+        -ms-transition-property: color;
+        -o-transition-property: color;
+        transition-property: color;
+        -webkit-transition-duration: 1s;
+        -moz-transition-duration: 1s;
+        -ms-transition-duration: 1s;
+        -o-transition-duration: 1s;
+        transition-duration: 1s;
+
+    }
+
+    .treeview input {
+        display: none;
+    }
+
+    .treeview input[type=checkbox]:checked~ul {
+        display: none;
+    }
+
+    .treeview input[type=checkbox]~ul {
+        margin-right: 20%;
+        opacity: 1;
+    }
+
+    .treeview input~label {
+        cursor: pointer;
+    }
+
+    .treeview input~label:before {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        margin-left: -1em;
+        margin-top: 0.25em;
+        border-width: 4px;
+        border-style: solid;
+        border-top-color: transparent;
+        border-right-color: rgb(0, 0, 238);
+        border-bottom-color: rgb(0, 0, 238);
+        border-left-color: transparent;
+        opacity: 0.0;
+        -webkit-transition-property: opacity;
+        -moz-transition-property: opacity;
+        -ms-transition-property: opacity;
+        -o-transition-property: opacity;
+        transition-property: opacity;
+        -webkit-transition-duration: 1s;
+        -moz-transition-duration: 1s;
+        -ms-transition-duration: 1s;
+        -o-transition-duration: 1s;
+        transition-duration: 1s;
+    }
+
+    .treeview input:checked~label:before {
+        margin-left: -0.8em;
+        border-width: 5px;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: rgb(0, 0, 238);
+    }
+
+    .h1center {
+        font-size: 12pt;
+        font-weight: bold;
+        text-align: center;
+        width: 80%;
+    }
+
+    .header_table {
+        border: 1pt inset rgb(0, 0, 0);
+    }
+
+    .narr_table {
+        width: 100%;
+    }
+
+    .narr_tr {
+        background-color: rgb(225, 225, 225);
+    }
+
+    pre {
+        /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+        white-space: pre-wrap;
+        /* css-3 */
+        white-space: -moz-pre-wrap !important;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        /* Internet Explorer 5.5+ */
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 11px;
+        text-align: left;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+
+    .narr_th {
+        background-color: rgb(201, 201, 201);
+    }
+
+    .td_label {
+        font-weight: bold;
+        color: white;
+    }
+
+    .hll {
+        background-color: #ffffcc
+    }
+
+    .c {
+        color: #408080;
+        font-style: italic
+    }
+
+    /* Comment */
+    .err {
+        border: 1px solid #FF0000
+    }
+
+    /* Error */
+    .k {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword */
+    .o {
+        color: #666666
+    }
+
+    /* Operator */
+    .cm {
+        color: #408080;
+        font-style: italic
+    }
+
+    /* Comment.Multiline */
+    .cp {
+        color: #BC7A00
+    }
+
+    /* Comment.Preproc */
+    .c1 {
+        color: #408080;
+        font-style: italic
+    }
+
+    /* Comment.Single */
+    .cs {
+        color: #408080;
+        font-style: italic
+    }
+
+    /* Comment.Special */
+    .gd {
+        color: #A00000
+    }
+
+    /* Generic.Deleted */
+    .ge {
+        font-style: italic
+    }
+
+    /* Generic.Emph */
+    .gr {
+        color: #FF0000
+    }
+
+    /* Generic.Error */
+    .gh {
+        color: #000080;
+        font-weight: bold
+    }
+
+    /* Generic.Heading */
+    .gi {
+        color: #00A000
+    }
+
+    /* Generic.Inserted */
+    .go {
+        color: #888888
+    }
+
+    /* Generic.Output */
+    .gp {
+        color: #000080;
+        font-weight: bold
+    }
+
+    /* Generic.Prompt */
+    .gs {
+        font-weight: bold
+    }
+
+    /* Generic.Strong */
+    .gu {
+        color: #800080;
+        font-weight: bold
+    }
+
+    /* Generic.Subheading */
+    .gt {
+        color: #0044DD
+    }
+
+    /* Generic.Traceback */
+    .kc {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword.Constant */
+    .kd {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword.Declaration */
+    .kn {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword.Namespace */
+    .kp {
+        color: #008000
+    }
+
+    /* Keyword.Pseudo */
+    .kr {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword.Reserved */
+    .kt {
+        color: #B00040
+    }
+
+    /* Keyword.Type */
+    .m {
+        color: #666666
+    }
+
+    /* Literal.Number */
+    .s {
+        color: #BA2121
+    }
+
+    /* Literal.String */
+    .na {
+        color: #7D9029
+    }
+
+    /* Name.Attribute */
+    .nb {
+        color: #008000
+    }
+
+    /* Name.Builtin */
+    .nc {
+        color: #0000FF;
+        font-weight: bold
+    }
+
+    /* Name.Class */
+    .no {
+        color: #880000
+    }
+
+    /* Name.Constant */
+    .nd {
+        color: #AA22FF
+    }
+
+    /* Name.Decorator */
+    .ni {
+        color: #999999;
+        font-weight: bold
+    }
+
+    /* Name.Entity */
+    .ne {
+        color: #D2413A;
+        font-weight: bold
+    }
+
+    /* Name.Exception */
+    .nf {
+        color: #0000FF
+    }
+
+    /* Name.Function */
+    .nl {
+        color: #A0A000
+    }
+
+    /* Name.Label */
+    .nn {
+        color: #0000FF;
+        font-weight: bold
+    }
+
+    /* Name.Namespace */
+    .nt {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Name.Tag */
+    .nv {
+        color: #19177C
+    }
+
+    /* Name.Variable */
+    .ow {
+        color: #AA22FF;
+        font-weight: bold
+    }
+
+    /* Operator.Word */
+    .w {
+        color: #bbbbbb
+    }
+
+    /* Text.Whitespace */
+    .mf {
+        color: #666666
+    }
+
+    /* Literal.Number.Float */
+    .mh {
+        color: #666666
+    }
+
+    /* Literal.Number.Hex */
+    .mi {
+        color: #666666
+    }
+
+    /* Literal.Number.Integer */
+    .mo {
+        color: #666666
+    }
+
+    /* Literal.Number.Oct */
+    .sb {
+        color: #BA2121
+    }
+
+    /* Literal.String.Backtick */
+    .sc {
+        color: #BA2121
+    }
+
+    /* Literal.String.Char */
+    .sd {
+        color: #BA2121;
+        font-style: italic
+    }
+
+    /* Literal.String.Doc */
+    .s2 {
+        color: #BA2121
+    }
+
+    /* Literal.String.Double */
+    .se {
+        color: #BB6622;
+        font-weight: bold
+    }
+
+    /* Literal.String.Escape */
+    .sh {
+        color: #BA2121
+    }
+
+    /* Literal.String.Heredoc */
+    .si {
+        color: #BB6688;
+        font-weight: bold
+    }
+
+    /* Literal.String.Interpol */
+    .sx {
+        color: #008000
+    }
+
+    /* Literal.String.Other */
+    .sr {
+        color: #BB6688
+    }
+
+    /* Literal.String.Regex */
+    .s1 {
+        color: #BA2121
+    }
+
+    /* Literal.String.Single */
+    .ss {
+        color: #19177C
+    }
+
+    /* Literal.String.Symbol */
+    .bp {
+        color: #008000
+    }
+
+    /* Name.Builtin.Pseudo */
+    .vc {
+        color: #19177C
+    }
+
+    /* Name.Variable.Class */
+    .vg {
+        color: #19177C
+    }
+
+    /* Name.Variable.Global */
+    .vi {
+        color: #19177C
+    }
+
+    /* Name.Variable.Instance */
+    .il {
+    color: #666666
+    }
+
+    /* Literal.Number.Integer.Long */
+
+    #nn-text {
+        text-align: center;
+        text-align: center;
+        color: lightgrey;
+        font-size: 40px;
+    }
+
+    .cql-definition-body {
+        width: 950px;
+        display: block;
+        word-wrap: break-word;
+    }
+
+    li {
+        padding-left: 15px;
+    }
+    .row-header {
+        background-color:#656565;
+        width:20%;
+        padding: 0.1cm 0.2cm;
+        text-align: left;
+    }
+</style>    </head>
+    <body>
+<table class="header_table" role="presentation">
+    <tbody>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">eCQM Title</span></th>
+            <td style="width:80%" colspan="3"><h1 style="font-size:10px">Statin Therapy for the Prevention and Treatment of Cardiovascular Disease FHIR</h1></td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">eCQM Identifier (Measure Authoring Tool)</span></th>
+            <td style="width:30%">1040FHIR</td>
+
+            <th scope="row" class="row-header"><span class="td_label">eCQM Version Number</span></th>
+            <td style="width:30%">0.1.009</td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">NQF Number</span></th>
+            <td style="width:30%">Not Applicable</td>
+
+            <th scope="row" class="row-header"><span class="td_label">GUID</span></th>
+            <td style="width:30%">92684f2f-14c2-44e3-ab3b-569d67305668</td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Measurement Period</span></th>
+            <td style="width:80%" colspan="3">January 1, 2021 through December 31, 2021</td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Measure Steward</span></th>
+            <td style="width:80%" colspan="3">Mathematica</td>
+        </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Population Basis</span></th>
+                <td style="width:80%" colspan="3">boolean</td>
+            </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Experimental</span></th>
+                <td style="width:80%" colspan="3">No</td>
+            </tr>
+                <tr>
+                    <th scope="row" class="row-header"><span class="td_label">Measure Developer</span></th>
+                    <td style="width:80%" colspan="3">Mathematica</td>
+                </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Endorsed By</span></th>
+            <td style="width:80%" colspan="3">None</td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Description</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Percentage of the following patients - all considered at high risk of cardiovascular events - who were prescribed or were on statin therapy during the measurement period: 
+*Adults aged &gt;= 21 years who were previously diagnosed with or currently have an active diagnosis of clinical atherosclerotic cardiovascular disease (ASCVD); OR 
+*Adults aged &gt;= 21 years who have ever had a fasting or direct low-density lipoprotein cholesterol (LDL-C) level &gt;= 190 mg/dL or were previously diagnosed with or currently have an active diagnosis of familial or pure hypercholesterolemia; OR 
+*Adults aged 40-75 years with a diagnosis of diabetes with a fasting or direct LDL-C level of 70-189 mg/dL</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Copyright</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Limited proprietary coding is contained in the measure specifications for convenience. Users of the proprietary code sets should obtain all necessary licenses from the owners of these code sets. PCPI disclaims all liability for use or accuracy of any Current Procedural Terminology (CPT[R]) or other coding contained in the specifications.
+
+CPT(R) contained in the Measure specifications is copyright 2004-2019 American Medical Association. LOINC(R) is copyright 2004-2019 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2019 International Health Terminology Standards Development Organisation. ICD-10 is copyright 2019 World Health Organization. All Rights Reserved.</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Disclaimer</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>These performance measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications.
+
+THE MEASURES AND SPECIFICATIONS ARE PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND.
+
+Due to technical limitations, registered trademarks are indicated by (R) or [R].</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Measure Scoring</span></th>
+            <td style="width:80%" colspan="3">Proportion</td>
+        </tr>
+                <tr>
+                    <th scope="row" class="row-header"><span class="td_label">Measure Type</span></th>
+                    <td style="width:80%" colspan="3">Process</td>
+                </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Stratification</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre>None</pre>
+                    </div>
+                </td>
+            </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Risk Adjustment</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>None</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Rate Aggregation</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>This measure is intended to have one reporting rate, which aggregates the following populations into a single performance rate for reporting purposes: 
+
+Population 1: Patients aged &gt;= 21 years at the beginning of the measurement period with clinical ASCVD
+
+Population 2: Patients aged &gt;= 21 years at the beginning of the measurement period who have ever had a fasting or direct laboratory test result of LDL-C &gt;= 190 mg/dL or were previously diagnosed with or currently have an active diagnosis of familial or pure hypercholesterolemia
+
+Population 3: Patients aged 40 to 75 years at the beginning of the measurement period with Type 1 or Type 2 diabetes and with a LDL-C result of 70 -189 mg/dL recorded as the highest fasting or direct laboratory test result in the measurement year or during the two years prior to the beginning of the measurement period
+For the purposes of this measure, a single performance rate can be calculated as follows:
+
+Performance Rate = (Numerator 1 + Numerator 2 +Numerator 3)/ [(Denominator 1 - Denominator Exclusions 1- Denominator Exceptions 1) + (Denominator 2 - Denominator Exclusions 2 - Denominator Exceptions 2) +(Denominator 3 - Denominator Exclusions 3 - Denominator Exceptions 3)]</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Rationale</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>&quot;Cardiovascular disease (CVD) is the leading cause of death in the United States, causing approximately 1 of every 3 deaths in the United States in 2015. In 2015, stroke caused approximately 1 of every 19 deaths in the United States and the estimated annual costs for CVD and stroke were $329.7 billion, including $199.2 billion in direct costs (hospital services, physicians and other professionals, prescribed medications, home health care, and other medical durables) and $130.5 billion in indirect costs from lost future productivity (cardiovascular and stroke premature deaths). CVD costs more than any other diagnostic group&quot; (Benjamin et al., 2018).
+
+Data collected between 2011 and 2014 indicates that more than 94.6 million U.S. adults, 20 years or older, had total cholesterol levels equal to 200 mg/dL or more, while almost 28.5 million had levels 240 mg/dL or more (Benjamin et al., 2018). Elevated blood cholesterol is a major risk factor for CVD and statin therapy has been associated with a reduced risk of CVD. Numerous randomized trials have demonstrated that treatment with a statin reduces LDL-C, and reduces the risk of major cardiovascular events by approximately 20 percent (Ference, 2015).
+
+In 2013, guidelines on the treatment of blood cholesterol to reduce atherosclerotic cardiovascular risk in adults were published (see Stone et al., 2014). This guideline was published by an Expert Panel, which synthesized evidence from randomized controlled trials to identify people most likely to benefit from cholesterol-lowering therapy. The American College of Cardiology (ACC)/American Heart Association (AHA) Guideline recommendations are intended to provide a strong evidence-based foundation for the treatment of blood cholesterol for the primary and secondary prevention and treatment of Atherosclerotic Cardiovascular Disease (ASCVD) in adult men and women (21 years of age or older). The document concludes the addition of statin therapy reduces the risk of ASCVD among high-risk individuals, defined as follows: individuals with clinical ASCVD, with LDL-C &gt;= 190 mg/dL, or with diabetes and LDL-C 70-189 mg/dL (Stone et al., 2014).
+
+One study that surveyed U.S. cardiology, primary care, and endocrinology practices found that 1 in 4 guideline-eligible patients were not on a statin and less than half were on the recommended statin intensity. Untreated and undertreated patients had significantly higher LDL-C levels than those receiving guideline-directed statin treatment (Navar et al., 2017). The Statin Safety Expert Panel that participated in an NLA Statin Safety Task Force meeting in October 2013 reaffirms the general safety of statin therapy. 
+
+However, 1 in 10 people who try taking a statin will report some kind of intolerance, most commonly muscle aches. Other known low risk circumstances of statin intolerance include side effects such as myopathy, cognitive dysfunction, increased hepatic transaminase levels, and new onset diabetes. Statin intolerance usually does not involve substantial risk for mortality or permanent disability (Guyton et al., 2014). Ultimately, the panel members concluded that for most patients requiring statin therapy, the potential benefits of statin therapy outweigh the potential risks. In general terms, the benefits of statins to prevent non-fatal myocardial infarction, revascularization, stroke, and CVD mortality, far outweighs any potential harm related to the drug (Jacobson, 2014).</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Clinical Recommendation Statement</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>This electronic clinical quality measure is intended to align with the 2013 ACC/AHA Guideline on the Treatment of Blood Cholesterol (Stone et al., 2014), which indicates the use of statins as the first line of cholesterol-lowering medication therapy to lower the risk of ASCVD among at-risk populations.
+
+Recommendations for Treatment of Blood Cholesterol to Reduce Atherosclerotic Cardiovascular Risk in Adults - Statin Treatment:
+Secondary Prevention:
+1. High-intensity statin therapy should be initiated or continued as first-line therapy in women and men &lt;=75 years of age who have clinical ASCVD, unless contraindicated. (Level of Evidence A), (Stone et al., 2014)  
+
+2. In individuals with clinical ASCVD in whom high-intensity statin therapy would otherwise be used, when high-intensity statin therapy is contraindicated or when characteristics predisposing to statin-associated adverse effects are present, moderate-intensity statin should be used as the second option, if tolerated. (Level of Evidence A), (Stone et al., 2014) 
+
+Primary Prevention in Individuals &gt;= 21 Years of Age With LDL-C &gt;=190 mg/dL:
+2. Adults &gt;=21 years of age with primary LDL-C &gt;=190 mg/dL should be treated with statin therapy. (10-year ASCVD risk estimation is not required.) (Level of Evidence B), (Stone et al., 2014)
+
+Primary Prevention in Individuals With Diabetes and LDL-C 70-189 mg/dL:
+1. Moderate-intensity statin therapy should be initiated or continued for adults 40-75 years of age with diabetes. (Level of Evidence A), (Stone et al., 2014)</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Improvement Notation</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Increased score indicates improvement</pre>
+                </div>
+            </td>
+        </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Reference</span></th>
+                <td style="width:80%" colspan="3"></td>
+            </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Definition</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Clinical atherosclerotic cardiovascular disease (ASCVD) includes: 
+*  Acute coronary syndromes 
+*  History of myocardial infarction 
+*  Stable or unstable angina 
+*  Coronary or other arterial revascularization 
+*  Stroke or transient ischemic attack (TIA) 
+*  Peripheral arterial disease of atherosclerotic origin 
+
+Lipoprotein density cholesterol (LDL-C) result: 
+*  A fasting or direct LDL-C laboratory test performed and test result documented in the medical record. 
+
+Statin therapy:   
+*  Administration of one or more of a group of medications that are used to lower plasma lipoprotein levels in the treatment of hyperlipoproteinemia. 
+
+Statin Medication Therapy List (NOTE: List does NOT include dosage):
+
+[Generic name] (Brand or trade name) and (-) Medication type, if applicable:
+[Atorvastatin] (Lipitor) - Statin
+[Fluvastatin] (Lescol XL or Lescol) - Statin
+[Lovastatin (Mevinolin)](Mevacor or Altoprev) -Statin
+[Pitavastatin]Livalo
+[Pravastatin Sodium] (Pravachol) - Statin
+[Rosuvastatin Calcium] (Crestor) - Statin
+[Simvastatin] (Zocor) - Statin
+[Amlodipine Besylate/Atorvastatin Calcium] (Caduet) - Combination
+[Ezetimibe/Simvastatin] (Vytorin) - Combination
+
+Some patients may not be appropriate to prescribe or use statin therapy (see
+exceptions and exclusions for a complete list). 
+
+&quot;Statin intolerance is the inability to tolerate a dose of statin required to reduce a person&#39;s CV risk sufficiently from their baseline risk and could result from different statin related side effects including: muscle symptoms, headache, sleep disorders, dyspepsia, nausea, rash, alopecia, erectile dysfunction, gynecomastia, and/or arthritis&quot; (Banach et al., 2015, p.2 ).
+
+Patients that experience symptoms such as these may prefer not to take or continue statin therapy and therefore may be exempt from the denominator.</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Guidance</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Numerator instructions and guidance:
+-Current statin therapy use must be documented in the patient&#39;s current medication list or ordered during the measurement period.
+-ONLY statin therapy meets the measure Numerator criteria (NOT other cholesterol lowering medications).
+-Prescription or order does NOT need to be linked to an encounter or visit; it may be called to the pharmacy.
+-Statin medication &quot;samples&quot; provided to patients can be documented as &quot;current statin therapy&quot; if documented in the medication list in health/medical record.
+-Patients who meet the denominator criteria for inclusion, but are not prescribed or using statin therapy, will NOT meet performance for this measure. There is only one performance rate calculated for this measure; the weighted average of the three populations.  
+-Adherence to statin therapy is not calculated in this measure.
+
+Denominator Guidance: 
+The denominator covers three distinct populations. Use the following process to prevent counting patients more than once.
+
+Denominator Population 1:  
+Patients aged &gt;= 21 years at the beginning of the measurement period with clinical ASCVD
+
+-If YES, meets Denominator Population 1 risk category		 
+-If NO, screen for next risk category
+
+Denominator Population 2: 
+Patients aged &gt;= 21 years at the beginning of the measurement period who have ever had a fasting or direct laboratory test result of LDL-C &gt;= 190 mg/dL or were previously diagnosed with or currently have an active diagnosis of familial or pure hypercholesterolemia
+
+-If YES, meets Denominator Population 2 risk category		 
+-If NO, screen for next risk category
+
+Denominator Population 3:
+Patients aged 40 to 75 years at the beginning of the measurement period with Type 1 or Type 2 diabetes and with a LDL-C result of 70 -189 mg/dL recorded as the highest fasting or direct laboratory test result in the measurement year or during the two years prior to the beginning of the measurement period
+
+-If YES, meets Denominator Population 3 risk category
+-If NO, patient does NOT meet Denominator criteria and is NOT eligible for measure inclusion
+
+Denominator Guidance for Encounter:
+-In order for the patient to be included in the denominator, the patient must have ONE denominator-eligible visit, defined as follows:
+
+--Outpatient encounter visit type
+--Encounter, performed: initial or established office visit, face-to-face interaction, preventive care services, or annual wellness visit
+
+LDL-C Laboratory test result options:
+The measure can be reported for all patients with a documented fasting or direct LDL-C level recorded as follows:
+
+To meet Denominator Population 1: 
+There is no LDL-C result required.
+
+To meet Denominator Population 2:
+If a patient has ANY previous fasting or direct laboratory result of LDL-C &gt;= 190 mg/dL, report the highest value &gt;= 190 mg/dL.
+
+To meet Denominator Population 3: 
+If a patient has more than one LDL-C result during the measurement period or during the two years before the start of the measurement period, report the highest level recorded during either time. The Denominator Exception, &quot;Patients with diabetes who have the most recent fasting or direct LDL-C laboratory test result &lt; 70 mg/dL and are not taking statin therapy&quot; applies only to Denominator Population 3.
+
+Intensity of statin therapy in primary and secondary prevention:
+
+The expert panel of the 2013 ACC/AHA Guidelines (Stone et al., 2014) defines recommended intensity of statin therapy on the basis of the average expected LDL-C response to specific statin and dose. Although intensity of statin therapy is important in managing cholesterol, this measure assesses prescription of ANY statin therapy, irrespective of intensity. Assessment of appropriate intensity and dosage documentation added too much complexity to allow inclusion of statin therapy intensity in the measure at this time.
+
+Lifestyle modification coaching:
+A healthy lifestyle is important for the prevention of cardiovascular disease. However, lifestyle modification monitoring and documentation added too much complexity to allow its inclusion in the measure at this time.
+
+This eCQM is a patient-based measure.
+
+This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource center (https://ecqi.healthit.gov/qdm) for more information on the QDM.</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Transmission Format</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>TBD</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Initial Population</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre></pre>
+                </div>
+            </td>
+        </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Denominator</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre></pre>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Denominator Exclusions</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre></pre>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Numerator</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre></pre>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Numerator Exclusions</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre></pre>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Denominator Exceptions</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre></pre>
+                    </div>
+                </td>
+            </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Supplemental Data Elements</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre></pre>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>
+    <a name="toc">Table of Contents</a>
+</h2>
+<ul style="padding-left: 50px;">
+    <li><a href="#d1e405">Population Criteria</a></li>
+    <li><a href="#d1e649">Definitions</a></li>
+    <li><a href="#d1e650">Functions</a></li>
+    <li><a href="#d1e555">Terminology</a></li>
+            <li><a href="#d1e647">Data Criteria (FHIR Data Requirements)</a></li>
+
+    <li><a href="#d1e767">Supplemental Data Elements</a></li>
+    <li><a href="#d1e879">Risk Adjustment Variables</a></li>
+</ul><div style="float:left; background:teal; height:3px; width:80%"></div>
+<pre><br/></pre><h3><a name="d1e405" href="#toc">Population Criteria</a></h3>
+<div>
+	            <ul style="list-style:none;">
+<li class="list-unstyled" style="list-style:none;padding-left:0;">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="Population_Criteria_1_887271346" />
+        <label for="Population_Criteria_1_887271346" class="list-header"><b>Population Criteria 1</b></label>
+            <ul>
+<li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Initial_Population_914368852"/>
+                <label for="Initial_Population_914368852" class="list-header"><strong>Initial Population</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate (Patient.birthDate ), start of &quot;Measurement Period&quot; ) &gt;= 21
+            and exists &quot;Qualifying Encounter During Measurement Period&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_1842125645"/>
+                <label for="Denominator_1842125645" class="list-header"><strong>Denominator</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">&quot;Initial Population&quot;
+            and exists ( &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot; )</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exclusions_418558674"/>
+                <label for="Denominator_Exclusions_418558674" class="list-header"><strong>Denominator Exclusions</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">exists ( ( [Condition: &quot;Rhabdomyolysis&quot;]
+              union [Condition: &quot;Breastfeeding&quot;]
+              union [Condition: &quot;Pregnancy or Other Related Diagnoses&quot;] ) ExclusionDiagnosis
+              where Global.&quot;Prevalence Period&quot; ( ExclusionDiagnosis ) overlaps &quot;Measurement Period&quot;
+          )</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_1307040997"/>
+                <label for="Numerator_1307040997" class="list-header"><strong>Numerator</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">exists &quot;Statin Therapy Ordered During Measurement Period&quot;
+            or exists &quot;Currently Taking Statin Therapy Through the End of the Measurement Period&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_Exclusions_1954360790"/>
+                <label for="Numerator_Exclusions_1954360790" class="list-header"><strong>Numerator Exclusions</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body cql-class">None</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exceptions_454821844"/>
+                <label for="Denominator_Exceptions_454821844" class="list-header"><strong>Denominator Exceptions</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">&quot;Patient Has Order for or Receiving Hospice Care or Palliative Care&quot;
+            or &quot;Has ESRD&quot;
+            or &quot;Has Hepatitis or Liver Disease&quot;
+            or exists &quot;Adverse Reaction to Statin&quot;
+            or exists &quot;Allergy or Intolerance to Statin&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Stratification_199368853"/>
+                <label for="Stratification_199368853" class="list-header"><strong>Stratification</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body cql-class">None</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li>            </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0;">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="Population_Criteria_2_1225273404" />
+        <label for="Population_Criteria_2_1225273404" class="list-header"><b>Population Criteria 2</b></label>
+            <ul>
+<li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Initial_Population_1872015334"/>
+                <label for="Initial_Population_1872015334" class="list-header"><strong>Initial Population</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate (Patient.birthDate ), start of &quot;Measurement Period&quot; ) &gt;= 21
+            and exists &quot;Qualifying Encounter During Measurement Period&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_828184002"/>
+                <label for="Denominator_828184002" class="list-header"><strong>Denominator</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">&quot;Initial Population&quot;
+            and ( exists &quot;Current or Prior LDL Result Greater Than or Equal To 190&quot;
+                or &quot;Has Hypercholesterolemia&quot;
+            )
+            and not exists &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exclusions_715610031"/>
+                <label for="Denominator_Exclusions_715610031" class="list-header"><strong>Denominator Exclusions</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">exists ( ( [Condition: &quot;Rhabdomyolysis&quot;]
+              union [Condition: &quot;Breastfeeding&quot;]
+              union [Condition: &quot;Pregnancy or Other Related Diagnoses&quot;] ) ExclusionDiagnosis
+              where Global.&quot;Prevalence Period&quot; ( ExclusionDiagnosis ) overlaps &quot;Measurement Period&quot;
+          )</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_1687621554"/>
+                <label for="Numerator_1687621554" class="list-header"><strong>Numerator</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">exists &quot;Statin Therapy Ordered During Measurement Period&quot;
+            or exists &quot;Currently Taking Statin Therapy Through the End of the Measurement Period&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_Exclusions_553794382"/>
+                <label for="Numerator_Exclusions_553794382" class="list-header"><strong>Numerator Exclusions</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body cql-class">None</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exceptions_1166164823"/>
+                <label for="Denominator_Exceptions_1166164823" class="list-header"><strong>Denominator Exceptions</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">&quot;Patient Has Order for or Receiving Hospice Care or Palliative Care&quot;
+            or &quot;Has ESRD&quot;
+            or &quot;Has Hepatitis or Liver Disease&quot;
+            or exists &quot;Adverse Reaction to Statin&quot;
+            or exists &quot;Allergy or Intolerance to Statin&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Stratification_755643882"/>
+                <label for="Stratification_755643882" class="list-header"><strong>Stratification</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body cql-class">None</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li>            </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0;">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="Population_Criteria_3_1228131357" />
+        <label for="Population_Criteria_3_1228131357" class="list-header"><b>Population Criteria 3</b></label>
+            <ul>
+<li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Initial_Population_283036701"/>
+                <label for="Initial_Population_283036701" class="list-header"><strong>Initial Population</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate (Patient.birthDate ), start of &quot;Measurement Period&quot; ) &gt;= 21
+            and exists &quot;Qualifying Encounter During Measurement Period&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_799563951"/>
+                <label for="Denominator_799563951" class="list-header"><strong>Denominator</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">&quot;Initial Population&quot;
+            and Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( Patient.birthDate ), start of &quot;Measurement Period&quot; ) in Interval[40, 75]
+            and &quot;Has Diabetes&quot;
+            and &quot;Highest LDL Result Within 3 Years is Greater Than or Equal To 70 and Less Than 190&quot; is not null
+            and not exists &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot;
+            and not exists &quot;Current or Prior LDL Result Greater Than or Equal To 190&quot;
+            and not &quot;Has Hypercholesterolemia&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exclusions_131085344"/>
+                <label for="Denominator_Exclusions_131085344" class="list-header"><strong>Denominator Exclusions</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">exists ( ( [Condition: &quot;Rhabdomyolysis&quot;]
+              union [Condition: &quot;Breastfeeding&quot;]
+              union [Condition: &quot;Pregnancy or Other Related Diagnoses&quot;] ) ExclusionDiagnosis
+              where Global.&quot;Prevalence Period&quot; ( ExclusionDiagnosis ) overlaps &quot;Measurement Period&quot;
+          )</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_768842318"/>
+                <label for="Numerator_768842318" class="list-header"><strong>Numerator</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">exists &quot;Statin Therapy Ordered During Measurement Period&quot;
+            or exists &quot;Currently Taking Statin Therapy Through the End of the Measurement Period&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Numerator_Exclusions_36057236"/>
+                <label for="Numerator_Exclusions_36057236" class="list-header"><strong>Numerator Exclusions</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body cql-class">None</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Denominator_Exceptions_1252790439"/>
+                <label for="Denominator_Exceptions_1252790439" class="list-header"><strong>Denominator Exceptions</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">&quot;Patient Has Order for or Receiving Hospice Care or Palliative Care&quot;
+            or &quot;Has ESRD&quot;
+            or &quot;Has Hepatitis or Liver Disease&quot;
+            or exists &quot;Adverse Reaction to Statin&quot;
+            or exists &quot;Allergy or Intolerance to Statin&quot;
+            or &quot;Most Recent LDL Result Within 3 Years is Less Than 70&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Stratification_441077384"/>
+                <label for="Stratification_441077384" class="list-header"><strong>Stratification</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body cql-class">None</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li>            </ul>
+    </div>
+</li>            </ul>
+</div><h3><a name="d1e649" href="#toc">Definitions</a></h3>
+<div>
+    <ul style="list-style:none;padding-left: 10px;">
+        <li class="list-unstyled" style="list-style:none;">
+            <div>
+                <ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Adverse_Reaction_to_Statin1735583536" />
+            <label for="Adverse_Reaction_to_Statin1735583536" class="list-header"><strong>Adverse Reaction to Statin</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">[AdverseEvent: &quot;Statin Allergen&quot;] StatinReaction
+            where StatinReaction.date during &quot;Measurement Period&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Allergy_or_Intolerance_to_Statin2085478926" />
+            <label for="Allergy_or_Intolerance_to_Statin2085478926" class="list-header"><strong>Allergy or Intolerance to Statin</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">[AllergyIntolerance: &quot;Statin Allergen&quot;] StatinAllergyIntolerance
+            where Global.&quot;Normalize Interval&quot; ( StatinAllergyIntolerance.onset ) starts before end &quot;Measurement Period&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="ASCVD_Diagnosis_or_Procedure_Before_End_of_Measurement_Period527158963" />
+            <label for="ASCVD_Diagnosis_or_Procedure_Before_End_of_Measurement_Period527158963" class="list-header"><strong>ASCVD Diagnosis or Procedure Before End of Measurement Period</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">( ( [Condition: &quot;Myocardial Infarction&quot;]
+              union [Condition: &quot;Cerebrovascular Disease, Stroke, TIA&quot;]
+              union [Condition: &quot;Atherosclerosis and Peripheral Arterial Disease&quot;]
+              union [Condition: &quot;Ischemic Heart Disease or Other Related Diagnoses&quot;]
+              union [Condition: &quot;Stable and Unstable Angina&quot;] ) ASCVDDiagnosis
+              where Global.&quot;Normalize Interval&quot; ( ASCVDDiagnosis.onset ) starts before
+              end of &quot;Measurement Period&quot;
+          )
+            union ( ( [Procedure: &quot;PCI&quot;]
+                union [Procedure: &quot;CABG Surgeries&quot;]
+                union [Procedure: &quot;Carotid Intervention&quot;]
+                union [Procedure: &quot;CABG, PCI Procedure&quot;] ) ASCVDProcedure
+                where Global.&quot;Normalize Interval&quot; ( ASCVDProcedure.performed ) starts before
+                end of &quot;Measurement Period&quot;
+                  and ASCVDProcedure.status = &#39;completed&#39;
+            )</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Current_or_Prior_LDL_Result_Greater_Than_or_Equal_To_190250139893" />
+            <label for="Current_or_Prior_LDL_Result_Greater_Than_or_Equal_To_190250139893" class="list-header"><strong>Current or Prior LDL Result Greater Than or Equal To 190</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">[Observation: &quot;LDL Cholesterol&quot;] LDL
+            where LDL.value &gt;= 190 &#39;mg/dL&#39;
+              and LDL.effective before
+              end of &quot;Measurement Period&quot;
+              and LDL.status in { &#39;final&#39;, &#39;amended&#39;, &#39;corrected&#39;, &#39;appended&#39; }</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Currently_Taking_Statin_Therapy_Through_the_End_of_the_Measurement_Period1651869404" />
+            <label for="Currently_Taking_Statin_Therapy_Through_the_End_of_the_Measurement_Period1651869404" class="list-header"><strong>Currently Taking Statin Therapy Through the End of the Measurement Period</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">( [MedicationRequest: &quot;Low Intensity Statin Therapy&quot;]
+            union [MedicationRequest: &quot;Moderate Intensity Statin Therapy&quot;]
+            union [MedicationRequest: &quot;High Intensity Statin Therapy&quot;] ) ActiveStatin
+            where ActiveStatin.dispenseRequest.validityPeriod overlaps after &quot;Measurement Period&quot;
+              and ActiveStatin.status in { &#39;active&#39;, &#39;completed&#39; }</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Denominator_168773080" />
+            <label for="Denominator_168773080" class="list-header"><strong>Denominator 1</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Initial Population&quot;
+            and exists ( &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot; )</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Denominator_21720092651" />
+            <label for="Denominator_21720092651" class="list-header"><strong>Denominator 2</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Initial Population&quot;
+            and ( exists &quot;Current or Prior LDL Result Greater Than or Equal To 190&quot;
+                or &quot;Has Hypercholesterolemia&quot;
+            )
+            and not exists &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Denominator_31512699341" />
+            <label for="Denominator_31512699341" class="list-header"><strong>Denominator 3</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Initial Population&quot;
+            and Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( Patient.birthDate ), start of &quot;Measurement Period&quot; ) in Interval[40, 75]
+            and &quot;Has Diabetes&quot;
+            and &quot;Highest LDL Result Within 3 Years is Greater Than or Equal To 70 and Less Than 190&quot; is not null
+            and not exists &quot;ASCVD Diagnosis or Procedure Before End of Measurement Period&quot;
+            and not exists &quot;Current or Prior LDL Result Greater Than or Equal To 190&quot;
+            and not &quot;Has Hypercholesterolemia&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Denominator_Exceptions420442534" />
+            <label for="Denominator_Exceptions420442534" class="list-header"><strong>Denominator Exceptions</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Patient Has Order for or Receiving Hospice Care or Palliative Care&quot;
+            or &quot;Has ESRD&quot;
+            or &quot;Has Hepatitis or Liver Disease&quot;
+            or exists &quot;Adverse Reaction to Statin&quot;
+            or exists &quot;Allergy or Intolerance to Statin&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Denominator_Exceptions_21949071276" />
+            <label for="Denominator_Exceptions_21949071276" class="list-header"><strong>Denominator Exceptions 2</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Patient Has Order for or Receiving Hospice Care or Palliative Care&quot;
+            or &quot;Has ESRD&quot;
+            or &quot;Has Hepatitis or Liver Disease&quot;
+            or exists &quot;Adverse Reaction to Statin&quot;
+            or exists &quot;Allergy or Intolerance to Statin&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Denominator_Exceptions_3190969447" />
+            <label for="Denominator_Exceptions_3190969447" class="list-header"><strong>Denominator Exceptions 3</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Patient Has Order for or Receiving Hospice Care or Palliative Care&quot;
+            or &quot;Has ESRD&quot;
+            or &quot;Has Hepatitis or Liver Disease&quot;
+            or exists &quot;Adverse Reaction to Statin&quot;
+            or exists &quot;Allergy or Intolerance to Statin&quot;
+            or &quot;Most Recent LDL Result Within 3 Years is Less Than 70&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Denominator_Exclusions1037370141" />
+            <label for="Denominator_Exclusions1037370141" class="list-header"><strong>Denominator Exclusions</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">exists ( ( [Condition: &quot;Rhabdomyolysis&quot;]
+              union [Condition: &quot;Breastfeeding&quot;]
+              union [Condition: &quot;Pregnancy or Other Related Diagnoses&quot;] ) ExclusionDiagnosis
+              where Global.&quot;Prevalence Period&quot; ( ExclusionDiagnosis ) overlaps &quot;Measurement Period&quot;
+          )</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Has_Diabetes938326174" />
+            <label for="Has_Diabetes938326174" class="list-header"><strong>Has Diabetes</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">exists ( [Condition: &quot;Diabetes&quot;] Diabetes
+              where Global.&quot;Prevalence Period&quot; ( Diabetes ) overlaps &quot;Measurement Period&quot;
+          )</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Has_ESRD2123349036" />
+            <label for="Has_ESRD2123349036" class="list-header"><strong>Has ESRD</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">exists ( [Condition: &quot;End Stage Renal Disease&quot;] ESRD
+              where Global.&quot;Prevalence Period&quot; ( ESRD)
+               overlaps &quot;Measurement Period&quot;
+          )</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Has_Hepatitis_or_Liver_Disease1020880538" />
+            <label for="Has_Hepatitis_or_Liver_Disease1020880538" class="list-header"><strong>Has Hepatitis or Liver Disease</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">exists ( ( [Condition: &quot;Hepatitis A&quot;]
+              union [Condition: &quot;Hepatitis B&quot;]
+              union [Condition: &quot;Liver Disease&quot;] ) HepatitisLiverDisease
+              where Global.&quot;Prevalence Period&quot; ( HepatitisLiverDisease ) overlaps &quot;Measurement Period&quot;
+          )</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Has_Hypercholesterolemia2016105303" />
+            <label for="Has_Hypercholesterolemia2016105303" class="list-header"><strong>Has Hypercholesterolemia</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">exists ( [Condition: &quot;Hypercholesterolemia&quot;] Hypercholesterolemia
+              where Global.&quot;Normalize Interval&quot; ( Hypercholesterolemia.onset ) starts before
+              end of &quot;Measurement Period&quot;
+          )</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Highest_LDL_Result_Within_3_Years_is_Greater_Than_or_Equal_To_70_and_Less_Than_1901882115700" />
+            <label for="Highest_LDL_Result_Within_3_Years_is_Greater_Than_or_Equal_To_70_and_Less_Than_1901882115700" class="list-header"><strong>Highest LDL Result Within 3 Years is Greater Than or Equal To 70 and Less Than 190</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">( Max([Observation: &quot;LDL Cholesterol&quot;] LDL
+              where LDL.effective 3 years or less before
+              end of &quot;Measurement Period&quot;
+                and LDL.status in { &#39;final&#39;, &#39;amended&#39;, &#39;corrected&#39;, &#39;appended&#39; }
+              return LDL.value as Quantity
+          )) LDLResult
+            where LDLResult in Interval[70 &#39;mg/dL&#39;, 190 &#39;mg/dL&#39; )</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Initial_Population105678378" />
+            <label for="Initial_Population105678378" class="list-header"><strong>Initial Population</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate (Patient.birthDate ), start of &quot;Measurement Period&quot; ) &gt;= 21
+            and exists &quot;Qualifying Encounter During Measurement Period&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Most_Recent_LDL_Result_Within_3_Years_is_Less_Than_702035454831" />
+            <label for="Most_Recent_LDL_Result_Within_3_Years_is_Less_Than_702035454831" class="list-header"><strong>Most Recent LDL Result Within 3 Years is Less Than 70</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">( Last([Observation: &quot;LDL Cholesterol&quot;] LDL
+              where Global.&quot;Normalize Interval&quot;(LDL.effective) 3 years or less before
+              end &quot;Measurement Period&quot;
+                and LDL.status in { &#39;final&#39;, &#39;amended&#39;, &#39;corrected&#39;, &#39;appended&#39; }
+              sort by effective
+          )) MostRecentLDL
+            return MostRecentLDL.value &lt; 70 &#39;mg/dL&#39;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Numerator306719182" />
+            <label for="Numerator306719182" class="list-header"><strong>Numerator</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">exists &quot;Statin Therapy Ordered During Measurement Period&quot;
+            or exists &quot;Currently Taking Statin Therapy Through the End of the Measurement Period&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Patient_Has_Order_for_or_Receiving_Hospice_Care_or_Palliative_Care1076118339" />
+            <label for="Patient_Has_Order_for_or_Receiving_Hospice_Care_or_Palliative_Care1076118339" class="list-header"><strong>Patient Has Order for or Receiving Hospice Care or Palliative Care</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">exists ( ( [ServiceRequest: &quot;Hospice Care Ambulatory&quot;]
+              union [ServiceRequest: &quot;Palliative or Hospice Care&quot;] ) PalliativeOrHospiceCareOrder
+              where PalliativeOrHospiceCareOrder.authoredOn on or before
+              end of &quot;Measurement Period&quot;
+                and PalliativeOrHospiceCareOrder.status in { &#39;active&#39;, &#39;on-hold&#39;, &#39;completed&#39; }
+          )
+            or exists ( ( [Procedure: &quot;Hospice Care Ambulatory&quot;]
+                union [Procedure: &quot;Palliative or Hospice Care&quot;] ) PalliativeOrHospiceCarePerformed
+                where Global.&quot;Normalize Interval&quot; ( PalliativeOrHospiceCarePerformed.performed ) starts on or before
+                end of &quot;Measurement Period&quot;
+                  and PalliativeOrHospiceCarePerformed.status = &#39;completed&#39;
+            )
+            or exists ( [Encounter: &quot;Encounter for palliative care&quot;] PalliativeEncounter
+                where PalliativeEncounter.period starts on or before
+                end of &quot;Measurement Period&quot;
+                  and PalliativeEncounter.status = &#39;finished&#39;
+            )</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Qualifying_Encounter_During_Measurement_Period932644398" />
+            <label for="Qualifying_Encounter_During_Measurement_Period932644398" class="list-header"><strong>Qualifying Encounter During Measurement Period</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">( [Encounter: &quot;Annual Wellness Visit&quot;]
+            union [Encounter: &quot;Office Visit&quot;]
+            union [Encounter: &quot;Outpatient Consultation&quot;]
+            union [Encounter: &quot;Outpatient Encounters for Preventive Care&quot;]
+            union [Encounter: &quot;Preventive Care Services - Established Office Visit, 18 and Up&quot;]
+            union [Encounter: &quot;Preventive Care Services - Other&quot;]
+            union [Encounter: &quot;Preventive Care Services-Individual Counseling&quot;]
+            union [Encounter: &quot;Preventive Care Services-Initial Office Visit, 18 and Up&quot;] ) ValidEncounter
+            where ValidEncounter.period during &quot;Measurement Period&quot;
+              and ValidEncounter.status = &#39;finished&#39;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="SDE_Ethnicity7520814" />
+            <label for="SDE_Ethnicity7520814" class="list-header"><strong>SDE Ethnicity</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">SDE.&quot;SDE Ethnicity&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="SDE_Payer1203903689" />
+            <label for="SDE_Payer1203903689" class="list-header"><strong>SDE Payer</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">SDE.&quot;SDE Payer&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="SDE_Race298143989" />
+            <label for="SDE_Race298143989" class="list-header"><strong>SDE Race</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">SDE.&quot;SDE Race&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="SDE_Sex396765206" />
+            <label for="SDE_Sex396765206" class="list-header"><strong>SDE Sex</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">SDE.&quot;SDE Sex&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Statin_Therapy_Ordered_During_Measurement_Period787336708" />
+            <label for="Statin_Therapy_Ordered_During_Measurement_Period787336708" class="list-header"><strong>Statin Therapy Ordered During Measurement Period</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">( [MedicationRequest: &quot;Low Intensity Statin Therapy&quot;]
+            union [MedicationRequest: &quot;Moderate Intensity Statin Therapy&quot;]
+            union [MedicationRequest: &quot;High Intensity Statin Therapy&quot;] ) StatinOrdered
+            where StatinOrdered.authoredOn during &quot;Measurement Period&quot;
+              and StatinOrdered.status in { &#39;active&#39;, &#39;completed&#39; }</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>            </div>
+        </li>
+    </ul>
+</div><h3><a name="d1e650" href="#toc">Functions</a></h3>
+<div>
+    <ul style="list-style:none;padding-left: 10px;">
+        <li class="list-unstyled" style="list-style:none;">
+            <div>
+                                    None
+            </div>
+        </li>
+    </ul>
+</div><h3><a name="d1e555" href="#toc">Terminology</a></h3>
+<div>
+            <ul style="padding-left: 50px;">
+                <li style="width:80%">code &quot;active&quot; (&quot;ConditionClinicalStatusCodes Code (active)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-active&quot; (&quot;AllergyIntoleranceClinicalStatusCodes Code (active)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-confirmed&quot; (&quot;AllergyIntoleranceVerificationStatusCodes Code (confirmed)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-inactive&quot; (&quot;AllergyIntoleranceClinicalStatusCodes Code (inactive)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-refuted&quot; (&quot;AllergyIntoleranceVerificationStatusCodes Code (refuted)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-resolved&quot; (&quot;AllergyIntoleranceClinicalStatusCodes Code (resolved)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-unconfirmed&quot; (&quot;AllergyIntoleranceVerificationStatusCodes Code (unconfirmed)&quot;)</li>
+                <li style="width:80%">code &quot;Billing&quot; (&quot;Diagnosis Role Code (billing)&quot;)</li>
+                <li style="width:80%">code &quot;Birthdate&quot; (&quot;LOINC Code (21112-8)&quot;)</li>
+                <li style="width:80%">code &quot;Community&quot; (&quot;MedicationRequestCategory Code (community)&quot;)</li>
+                <li style="width:80%">code &quot;confirmed&quot; (&quot;ConditionVerificationStatusCodes Code (confirmed)&quot;)</li>
+                <li style="width:80%">code &quot;Dead&quot; (&quot;SNOMEDCT Code (419099009)&quot;)</li>
+                <li style="width:80%">code &quot;differential&quot; (&quot;ConditionVerificationStatusCodes Code (differential)&quot;)</li>
+                <li style="width:80%">code &quot;Discharge&quot; (&quot;MedicationRequestCategory Code (discharge)&quot;)</li>
+                <li style="width:80%">code &quot;Encounter for palliative care&quot; (&quot;ICD10CM Code (Z51.5)&quot;)</li>
+                <li style="width:80%">code &quot;entered-in-error&quot; (&quot;ConditionVerificationStatusCodes Code (entered-in-error)&quot;)</li>
+                <li style="width:80%">code &quot;ER&quot; (&quot;RoleCode Code (ER)&quot;)</li>
+                <li style="width:80%">code &quot;ICU&quot; (&quot;RoleCode Code (ICU)&quot;)</li>
+                <li style="width:80%">code &quot;inactive&quot; (&quot;ConditionClinicalStatusCodes Code (inactive)&quot;)</li>
+                <li style="width:80%">code &quot;provisional&quot; (&quot;ConditionVerificationStatusCodes Code (provisional)&quot;)</li>
+                <li style="width:80%">code &quot;recurrence&quot; (&quot;ConditionClinicalStatusCodes Code (recurrence)&quot;)</li>
+                <li style="width:80%">code &quot;refuted&quot; (&quot;ConditionVerificationStatusCodes Code (refuted)&quot;)</li>
+                <li style="width:80%">code &quot;relapse&quot; (&quot;ConditionClinicalStatusCodes Code (relapse)&quot;)</li>
+                <li style="width:80%">code &quot;remission&quot; (&quot;ConditionClinicalStatusCodes Code (remission)&quot;)</li>
+                <li style="width:80%">code &quot;resolved&quot; (&quot;ConditionClinicalStatusCodes Code (resolved)&quot;)</li>
+                <li style="width:80%">code &quot;unconfirmed&quot; (&quot;ConditionVerificationStatusCodes Code (unconfirmed)&quot;)</li>
+                <li style="width:80%">valueset &quot;Annual Wellness Visit&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240)</li>
+                <li style="width:80%">valueset &quot;Atherosclerosis and Peripheral Arterial Disease&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.21)</li>
+                <li style="width:80%">valueset &quot;Breastfeeding&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.73)</li>
+                <li style="width:80%">valueset &quot;CABG Surgeries&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.694)</li>
+                <li style="width:80%">valueset &quot;CABG, PCI Procedure&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1138.566)</li>
+                <li style="width:80%">valueset &quot;Carotid Intervention&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.204)</li>
+                <li style="width:80%">valueset &quot;Cerebrovascular Disease, Stroke, TIA&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.44)</li>
+                <li style="width:80%">valueset &quot;Diabetes&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001)</li>
+                <li style="width:80%">valueset &quot;Emergency Department Visit&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292)</li>
+                <li style="width:80%">valueset &quot;Encounter Inpatient&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307)</li>
+                <li style="width:80%">valueset &quot;End Stage Renal Disease&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.353)</li>
+                <li style="width:80%">valueset &quot;Ethnicity&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837)</li>
+                <li style="width:80%">valueset &quot;Hepatitis A&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1024)</li>
+                <li style="width:80%">valueset &quot;Hepatitis B&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.67.1.101.1.269)</li>
+                <li style="width:80%">valueset &quot;High Intensity Statin Therapy&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1572)</li>
+                <li style="width:80%">valueset &quot;Hospice Care Ambulatory&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1584)</li>
+                <li style="width:80%">valueset &quot;Hypercholesterolemia&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.100)</li>
+                <li style="width:80%">valueset &quot;Ischemic Heart Disease or Other Related Diagnoses&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.46)</li>
+                <li style="width:80%">valueset &quot;LDL Cholesterol&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1573)</li>
+                <li style="width:80%">valueset &quot;Liver Disease&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.42)</li>
+                <li style="width:80%">valueset &quot;Low Intensity Statin Therapy&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1574)</li>
+                <li style="width:80%">valueset &quot;Moderate Intensity Statin Therapy&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1575)</li>
+                <li style="width:80%">valueset &quot;Myocardial Infarction&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.403)</li>
+                <li style="width:80%">valueset &quot;Observation Services&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.143)</li>
+                <li style="width:80%">valueset &quot;Office Visit&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001)</li>
+                <li style="width:80%">valueset &quot;ONC Administrative Sex&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1)</li>
+                <li style="width:80%">valueset &quot;Outpatient Consultation&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1008)</li>
+                <li style="width:80%">valueset &quot;Outpatient Encounters for Preventive Care&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1576)</li>
+                <li style="width:80%">valueset &quot;Palliative Care Encounter&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1575)</li>
+                <li style="width:80%">valueset &quot;Palliative or Hospice Care&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1579)</li>
+                <li style="width:80%">valueset &quot;Payer&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591)</li>
+                <li style="width:80%">valueset &quot;PCI&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.67)</li>
+                <li style="width:80%">valueset &quot;Pregnancy or Other Related Diagnoses&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1623)</li>
+                <li style="width:80%">valueset &quot;Preventive Care Services - Established Office Visit, 18 and Up&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025)</li>
+                <li style="width:80%">valueset &quot;Preventive Care Services - Other&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1030)</li>
+                <li style="width:80%">valueset &quot;Preventive Care Services-Individual Counseling&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1026)</li>
+                <li style="width:80%">valueset &quot;Preventive Care Services-Initial Office Visit, 18 and Up&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023)</li>
+                <li style="width:80%">valueset &quot;Race&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836)</li>
+                <li style="width:80%">valueset &quot;Rhabdomyolysis&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.102)</li>
+                <li style="width:80%">valueset &quot;Stable and Unstable Angina&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.47)</li>
+                <li style="width:80%">valueset &quot;Statin Allergen&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.42)</li>
+        </ul>
+</div>    <h3><a name="d1e647" href="#toc">Data Criteria (FHIR Data Requirements)</a></h3>
+
+<div>
+        <ul style="padding-left: 50px;">
+                <li style="width:80%">&quot;AdverseEvent: Statin Allergen&quot; using &quot;Statin Allergen (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.42)&quot;</li>
+                <li style="width:80%">&quot;Condition&quot;</li>
+                <li style="width:80%">&quot;Condition: Atherosclerosis and Peripheral Arterial Disease&quot; using &quot;Atherosclerosis and Peripheral Arterial Disease (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.21)&quot;</li>
+                <li style="width:80%">&quot;Condition: Breastfeeding&quot; using &quot;Breastfeeding (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.73)&quot;</li>
+                <li style="width:80%">&quot;Condition: Cerebrovascular Disease, Stroke, TIA&quot; using &quot;Cerebrovascular Disease, Stroke, TIA (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.44)&quot;</li>
+                <li style="width:80%">&quot;Condition: Diabetes&quot; using &quot;Diabetes (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001)&quot;</li>
+                <li style="width:80%">&quot;Condition: End Stage Renal Disease&quot; using &quot;End Stage Renal Disease (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.353)&quot;</li>
+                <li style="width:80%">&quot;Condition: Hepatitis A&quot; using &quot;Hepatitis A (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1024)&quot;</li>
+                <li style="width:80%">&quot;Condition: Hepatitis B&quot; using &quot;Hepatitis B (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.67.1.101.1.269)&quot;</li>
+                <li style="width:80%">&quot;Condition: Hypercholesterolemia&quot; using &quot;Hypercholesterolemia (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.100)&quot;</li>
+                <li style="width:80%">&quot;Condition: Ischemic Heart Disease or Other Related Diagnoses&quot; using &quot;Ischemic Heart Disease or Other Related Diagnoses (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.46)&quot;</li>
+                <li style="width:80%">&quot;Condition: Liver Disease&quot; using &quot;Liver Disease (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.42)&quot;</li>
+                <li style="width:80%">&quot;Condition: Myocardial Infarction&quot; using &quot;Myocardial Infarction (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.403)&quot;</li>
+                <li style="width:80%">&quot;Condition: Pregnancy or Other Related Diagnoses&quot; using &quot;Pregnancy or Other Related Diagnoses (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1623)&quot;</li>
+                <li style="width:80%">&quot;Condition: Rhabdomyolysis&quot; using &quot;Rhabdomyolysis (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.102)&quot;</li>
+                <li style="width:80%">&quot;Condition: Stable and Unstable Angina&quot; using &quot;Stable and Unstable Angina (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.47)&quot;</li>
+                <li style="width:80%">&quot;Coverage: Payer&quot; using &quot;Payer (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Annual Wellness Visit&quot; using &quot;Annual Wellness Visit (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Emergency Department Visit&quot; using &quot;Emergency Department Visit (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Encounter for palliative care&quot; using &quot;Encounter for palliative care (ICD10CM Code Z51.5)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Encounter Inpatient&quot; using &quot;Encounter Inpatient (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Observation Services&quot; using &quot;Observation Services (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.143)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Office Visit&quot; using &quot;Office Visit (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Outpatient Consultation&quot; using &quot;Outpatient Consultation (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1008)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Outpatient Encounters for Preventive Care&quot; using &quot;Outpatient Encounters for Preventive Care (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1576)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Preventive Care Services - Established Office Visit, 18 and Up&quot; using &quot;Preventive Care Services - Established Office Visit, 18 and Up (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Preventive Care Services - Other&quot; using &quot;Preventive Care Services - Other (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1030)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Preventive Care Services-Individual Counseling&quot; using &quot;Preventive Care Services-Individual Counseling (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1026)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Preventive Care Services-Initial Office Visit, 18 and Up&quot; using &quot;Preventive Care Services-Initial Office Visit, 18 and Up (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023)&quot;</li>
+                <li style="width:80%">&quot;Location&quot;</li>
+                <li style="width:80%">&quot;Medication&quot;</li>
+                <li style="width:80%">&quot;MedicationRequest: High Intensity Statin Therapy&quot; using &quot;High Intensity Statin Therapy (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1572)&quot;</li>
+                <li style="width:80%">&quot;MedicationRequest: Low Intensity Statin Therapy&quot; using &quot;Low Intensity Statin Therapy (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1574)&quot;</li>
+                <li style="width:80%">&quot;MedicationRequest: Moderate Intensity Statin Therapy&quot; using &quot;Moderate Intensity Statin Therapy (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1575)&quot;</li>
+                <li style="width:80%">&quot;Observation: LDL Cholesterol&quot; using &quot;LDL Cholesterol (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1573)&quot;</li>
+                <li style="width:80%">&quot;Procedure: CABG Surgeries&quot; using &quot;CABG Surgeries (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.694)&quot;</li>
+                <li style="width:80%">&quot;Procedure: CABG, PCI Procedure&quot; using &quot;CABG, PCI Procedure (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1138.566)&quot;</li>
+                <li style="width:80%">&quot;Procedure: Carotid Intervention&quot; using &quot;Carotid Intervention (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.204)&quot;</li>
+                <li style="width:80%">&quot;Procedure: PCI&quot; using &quot;PCI (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.67)&quot;</li>
+                <li style="width:80%">&quot;Provenance&quot;</li>
+                <li style="width:80%">&quot;ServiceRequest: Hospice Care Ambulatory&quot; using &quot;Hospice Care Ambulatory (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1584)&quot;</li>
+                <li style="width:80%">&quot;ServiceRequest: Palliative or Hospice Care&quot; using &quot;Palliative or Hospice Care (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1579)&quot;</li>
+        </ul>
+</div><h3><a name="d1e767" href="#toc">Supplemental Data Elements</a></h3>
+<ul style="list-style:none;padding-left: 25px;">
+	<li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="SDE_Ethnicity1161375960" />
+        <label for="SDE_Ethnicity1161375960" class="list-header"><strong>SDE Ethnicity</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">SDE.&quot;SDE Ethnicity&quot;</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="SDE_Payer1779397322" />
+        <label for="SDE_Payer1779397322" class="list-header"><strong>SDE Payer</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">SDE.&quot;SDE Payer&quot;</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="SDE_Race555620696" />
+        <label for="SDE_Race555620696" class="list-header"><strong>SDE Race</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">SDE.&quot;SDE Race&quot;</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="SDE_Sex224188167" />
+        <label for="SDE_Sex224188167" class="list-header"><strong>SDE Sex</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">SDE.&quot;SDE Sex&quot;</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li></ul><h3><a name="d1e879" href="#toc">Risk Adjustment Variables</a></h3>
+<ul style="list-style:none;padding-left: 25px;">
+			<li>None</li>
+</ul><div style="float:left; background:teal; height:3px; width:80%"></div>
+<pre><br/></pre><table class="header_table" role="presentation">
+    <tbody>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Measure Set</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre></pre>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+    </body>
+</html>
