@@ -1,0 +1,660 @@
+{
+  "resourceType": "Library",
+  "id": "ChlamydiaScreeningForWomenFHIR",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-04-23T09:33:42.000-06:00",
+    "source": "#hbcOR8GkMyg1pzwe",
+    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm" ]
+  },
+  "language": "en",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "cqf-tooling"
+    }
+  } ],
+  "url": "http://ecqi.healthit.gov/ecqms/Library/ChlamydiaScreeningForWomenFHIR",
+  "version": "0.0.001",
+  "name": "ChlamydiaScreeningForWomenFHIR",
+  "status": "active",
+  "experimental": false,
+  "type": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/library-type",
+      "code": "logic-library"
+    } ]
+  },
+  "date": "2021-04-23T15:33:42+00:00",
+  "publisher": "National Committee for Quality Assurance",
+  "description": "Chlamydia Screening for WomenFHIR",
+  "relatedArtifact": [ {
+    "type": "depends-on",
+    "display": "FHIR model information",
+    "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
+  }, {
+    "type": "depends-on",
+    "display": "Library SDE",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/SupplementalDataElementsFHIR4|2.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library Global",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library Hospice",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/HospiceFHIR4|2.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
+  }, {
+    "type": "depends-on",
+    "display": "Library Global",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Code system LOINC",
+    "resource": "http://loinc.org"
+  }, {
+    "type": "depends-on",
+    "display": "Code system SNOMEDCT",
+    "resource": "http://snomed.info/sct"
+  }, {
+    "type": "depends-on",
+    "display": "Code system ConditionVerificationStatusCodes",
+    "resource": "http://terminology.hl7.org/CodeSystem/condition-verification"
+  }, {
+    "type": "depends-on",
+    "display": "Code system SNOMEDCT:2017-09",
+    "resource": "http://snomed.info/sct|http://snomed.info/sct/version/201709"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Carrier of Predominantly Sexually Transmitted Infection",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.112.11.1023"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Chlamydia",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.112.12.1003"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Chlamydia Screening",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1052"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Complications of Pregnancy, Childbirth and the Puerperium",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1012"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Contraceptive Medications",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1080"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Delivery Live Births",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1015"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Diagnostic Studies During Pregnancy",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1008"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Ethnicity",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Female",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.560.100.2"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Genital Herpes",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1049"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Gonococcal Infections and Venereal Diseases",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.112.12.1001"
+  }, {
+    "type": "depends-on",
+    "display": "Value set HIV",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.120.12.1003"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Home Healthcare Services",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Inflammatory Diseases of Female Reproductive Organs",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.112.12.1004"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Isotretinoin",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1143"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Lab Tests During Pregnancy",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1007"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Lab Tests for Sexually Transmitted Infections",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1051"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Office Visit",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
+  }, {
+    "type": "depends-on",
+    "display": "Value set ONC Administrative Sex",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Other Female Reproductive Conditions",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1006"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Pap Test",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1017"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Payer",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Pregnancy Test",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1011"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Preventive Care Services, Initial Office Visit, 0 to 17",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1022"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Preventive Care, Established Office Visit, 0 to 17",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1024"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Procedures During Pregnancy",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1009"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Procedures Involving Contraceptive Devices",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1010"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Sexually Active",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.121.12.1040"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Syphilis",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.112.12.1002"
+  }, {
+    "type": "depends-on",
+    "display": "Value set X-Ray Study (all inclusive)",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1034"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Payer",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Encounter Inpatient",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Hospice care ambulatory",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+  } ],
+  "parameter": [ {
+    "name": "Measurement Period",
+    "use": "in",
+    "min": 0,
+    "max": "1",
+    "type": "Period"
+  }, {
+    "name": "Patient",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "Patient"
+  }, {
+    "name": "SDE Ethnicity",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Coding"
+  }, {
+    "name": "SDE Payer",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Any"
+  }, {
+    "name": "SDE Race",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Coding"
+  }, {
+    "name": "SDE Sex",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "Coding"
+  }, {
+    "name": "Qualifying Encounters",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Encounter"
+  }, {
+    "name": "Assessments Identifying Sexual Activity",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Observation"
+  }, {
+    "name": "Diagnoses Identifying Sexual Activity",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Condition"
+  }, {
+    "name": "Active Contraceptive Medications",
+    "use": "out",
+    "min": 0,
+    "max": "*"
+  }, {
+    "name": "Ordered Contraceptive Medications",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "MedicationRequest"
+  }, {
+    "name": "Laboratory Tests Identifying Sexual Activity But Not Pregnancy",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "ServiceRequest"
+  }, {
+    "name": "Laboratory Tests Identifying Sexual Activity",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "ServiceRequest"
+  }, {
+    "name": "Diagnostic Studies Identifying Sexual Activity",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "ServiceRequest"
+  }, {
+    "name": "Procedures Identifying Sexual Activity",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Procedure"
+  }, {
+    "name": "Initial Population",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "boolean"
+  }, {
+    "name": "Denominator",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "boolean"
+  }, {
+    "name": "Pregnancy Test Exclusion",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "ServiceRequest"
+  }, {
+    "name": "Denominator Exclusions",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "boolean"
+  }, {
+    "name": "Numerator",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "boolean"
+  }, {
+    "name": "Stratifaction 1",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "boolean"
+  }, {
+    "name": "Stratifaction 2",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "boolean"
+  } ],
+  "dataRequirement": [ {
+    "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+  }, {
+    "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+    "codeFilter": [ {
+      "path": "url",
+      "code": [ {
+        "code": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+      } ]
+    } ]
+  }, {
+    "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+    "codeFilter": [ {
+      "path": "url",
+      "code": [ {
+        "code": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+      } ]
+    } ]
+  }, {
+    "type": "Observation",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.121.12.1040"
+    }, {
+      "path": "code"
+    } ]
+  }, {
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationStatement" ],
+    "codeFilter": [ {
+      "path": "medication",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1080"
+    }, {
+      "path": "status",
+      "code": [ {
+        "code": "active"
+      } ]
+    } ]
+  }, {
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "codeFilter": [ {
+      "path": "medication",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1080"
+    }, {
+      "path": "intent.value",
+      "code": [ {
+        "code": "order"
+      } ]
+    } ],
+    "dateFilter": [ {
+      "path": "authoredOn",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    } ]
+  }, {
+    "type": "ServiceRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1008"
+    }, {
+      "path": "intent.value",
+      "code": [ {
+        "code": "order"
+      } ]
+    } ],
+    "dateFilter": [ {
+      "path": "authoredOn",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    } ]
+  }, {
+    "type": "ServiceRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1011"
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
+    } ],
+    "dateFilter": [ {
+      "path": "authoredOn",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    } ]
+  }, {
+    "type": "ServiceRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1034"
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
+    } ]
+  }, {
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "codeFilter": [ {
+      "path": "medication",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1143"
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
+    } ]
+  }, {
+    "type": "ServiceRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1011"
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
+    } ],
+    "dateFilter": [ {
+      "path": "authoredOn",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
+    } ],
+    "dateFilter": [ {
+      "path": "period",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    }, {
+      "path": "period",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    }, {
+      "path": "period",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    } ]
+  }, {
+    "type": "ServiceRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
+    } ],
+    "dateFilter": [ {
+      "path": "authoredOn",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    }, {
+      "path": "authoredOn",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    }, {
+      "path": "authoredOn",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    } ]
+  }, {
+    "type": "Procedure",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+    }, {
+      "path": "status",
+      "code": [ {
+        "code": "completed"
+      } ]
+    }, {
+      "path": "status",
+      "code": [ {
+        "code": "completed"
+      } ]
+    }, {
+      "path": "status",
+      "code": [ {
+        "code": "completed"
+      } ]
+    } ]
+  }, {
+    "type": "Observation",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1052"
+    } ],
+    "dateFilter": [ {
+      "path": "effective",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    } ]
+  } ],
+  "content": [ {
+    "contentType": "text/cql",
+    "data": "bGlicmFyeSBDaGxhbXlkaWFTY3JlZW5pbmdGb3JXb21lbkZISVIgdmVyc2lvbiAnMC4wLjAwMScNCg0KdXNpbmcgRkhJUiB2ZXJzaW9uICc0LjAuMScNCg0KaW5jbHVkZSBGSElSSGVscGVycyB2ZXJzaW9uICc0LjAuMDAxJyBjYWxsZWQgRkhJUkhlbHBlcnMNCmluY2x1ZGUgU3VwcGxlbWVudGFsRGF0YUVsZW1lbnRzRkhJUjQgdmVyc2lvbiAnMi4wLjAwMCcgY2FsbGVkIFNERQ0KaW5jbHVkZSBNQVRHbG9iYWxDb21tb25GdW5jdGlvbnNGSElSNCB2ZXJzaW9uICc1LjAuMDAwJyBjYWxsZWQgR2xvYmFsDQppbmNsdWRlIEhvc3BpY2VGSElSNCB2ZXJzaW9uICcyLjAuMDAwJyBjYWxsZWQgSG9zcGljZQ0KDQpjb2Rlc3lzdGVtICJMT0lOQyI6ICdodHRwOi8vbG9pbmMub3JnJw0KY29kZXN5c3RlbSAiU05PTUVEQ1QiOiAnaHR0cDovL3Nub21lZC5pbmZvL3NjdCcNCg0KdmFsdWVzZXQgIkNhcnJpZXIgb2YgUHJlZG9taW5hbnRseSBTZXh1YWxseSBUcmFuc21pdHRlZCBJbmZlY3Rpb24iOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTEyLjExLjEwMjMnDQp2YWx1ZXNldCAiQ2hsYW15ZGlhIjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjExMi4xMi4xMDAzJw0KdmFsdWVzZXQgIkNobGFteWRpYSBTY3JlZW5pbmciOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTEwLjEyLjEwNTInDQp2YWx1ZXNldCAiQ29tcGxpY2F0aW9ucyBvZiBQcmVnbmFuY3ksIENoaWxkYmlydGggYW5kIHRoZSBQdWVycGVyaXVtIjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjExMS4xMi4xMDEyJw0KdmFsdWVzZXQgIkNvbnRyYWNlcHRpdmUgTWVkaWNhdGlvbnMiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTk2LjEyLjEwODAnDQp2YWx1ZXNldCAiRGVsaXZlcnkgTGl2ZSBCaXJ0aHMiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTExLjEyLjEwMTUnDQp2YWx1ZXNldCAiRGlhZ25vc3RpYyBTdHVkaWVzIER1cmluZyBQcmVnbmFuY3kiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTExLjEyLjEwMDgnDQp2YWx1ZXNldCAiRXRobmljaXR5IjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExNDIyMi40LjExLjgzNycNCnZhbHVlc2V0ICJGZW1hbGUiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNTYwLjEwMC4yJw0KdmFsdWVzZXQgIkdlbml0YWwgSGVycGVzIjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjExMC4xMi4xMDQ5Jw0KdmFsdWVzZXQgIkdvbm9jb2NjYWwgSW5mZWN0aW9ucyBhbmQgVmVuZXJlYWwgRGlzZWFzZXMiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTEyLjEyLjEwMDEnDQp2YWx1ZXNldCAiSElWIjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjEyMC4xMi4xMDAzJw0KdmFsdWVzZXQgIkhvbWUgSGVhbHRoY2FyZSBTZXJ2aWNlcyI6ICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMDEuMTIuMTAxNicNCnZhbHVlc2V0ICJJbmZsYW1tYXRvcnkgRGlzZWFzZXMgb2YgRmVtYWxlIFJlcHJvZHVjdGl2ZSBPcmdhbnMiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTEyLjEyLjEwMDQnDQp2YWx1ZXNldCAiSXNvdHJldGlub2luIjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjE5Ni4xMi4xMTQzJw0KdmFsdWVzZXQgIkxhYiBUZXN0cyBEdXJpbmcgUHJlZ25hbmN5IjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjExMS4xMi4xMDA3Jw0KdmFsdWVzZXQgIkxhYiBUZXN0cyBmb3IgU2V4dWFsbHkgVHJhbnNtaXR0ZWQgSW5mZWN0aW9ucyI6ICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMTAuMTIuMTA1MScNCnZhbHVlc2V0ICJPZmZpY2UgVmlzaXQiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTAxLjEyLjEwMDEnDQp2YWx1ZXNldCAiT05DIEFkbWluaXN0cmF0aXZlIFNleCI6ICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM3NjIuMS40LjEnDQp2YWx1ZXNldCAiT3RoZXIgRmVtYWxlIFJlcHJvZHVjdGl2ZSBDb25kaXRpb25zIjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjExMS4xMi4xMDA2Jw0KdmFsdWVzZXQgIlBhcCBUZXN0IjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjEwOC4xMi4xMDE3Jw0KdmFsdWVzZXQgIlBheWVyIjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExNDIyMi40LjExLjM1OTEnDQp2YWx1ZXNldCAiUHJlZ25hbmN5IFRlc3QiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTExLjEyLjEwMTEnDQp2YWx1ZXNldCAiUHJldmVudGl2ZSBDYXJlIFNlcnZpY2VzIC0gRXN0YWJsaXNoZWQgT2ZmaWNlIFZpc2l0LCAxOCBhbmQgVXAiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTAxLjEyLjEwMjUnDQp2YWx1ZXNldCAiUHJldmVudGl2ZSBDYXJlIFNlcnZpY2VzLCBJbml0aWFsIE9mZmljZSBWaXNpdCwgMCB0byAxNyI6ICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMDEuMTIuMTAyMicNCnZhbHVlc2V0ICJQcmV2ZW50aXZlIENhcmUgU2VydmljZXMtSW5pdGlhbCBPZmZpY2UgVmlzaXQsIDE4IGFuZCBVcCI6ICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMDEuMTIuMTAyMycNCnZhbHVlc2V0ICJQcmV2ZW50aXZlIENhcmUsIEVzdGFibGlzaGVkIE9mZmljZSBWaXNpdCwgMCB0byAxNyI6ICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMDEuMTIuMTAyNCcNCnZhbHVlc2V0ICJQcm9jZWR1cmVzIER1cmluZyBQcmVnbmFuY3kiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTExLjEyLjEwMDknDQp2YWx1ZXNldCAiUHJvY2VkdXJlcyBJbnZvbHZpbmcgQ29udHJhY2VwdGl2ZSBEZXZpY2VzIjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjExMS4xMi4xMDEwJw0KdmFsdWVzZXQgIlNleHVhbGx5IEFjdGl2ZSI6ICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMjEuMTIuMTA0MCcNCnZhbHVlc2V0ICJTeXBoaWxpcyI6ICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMTIuMTIuMTAwMicNCnZhbHVlc2V0ICJYLVJheSBTdHVkeSAoYWxsIGluY2x1c2l2ZSkiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTk4LjEyLjEwMzQnDQoNCmNvZGUgIkJpcnRoIGRhdGUiOiAnMjExMTItOCcgZnJvbSAiTE9JTkMiIGRpc3BsYXkgJ0JpcnRoIGRhdGUnDQpjb2RlICJZZXMgKHF1YWxpZmllciB2YWx1ZSkiOiAnMzczMDY2MDAxJyBmcm9tICJTTk9NRURDVCIgZGlzcGxheSAnWWVzIChxdWFsaWZpZXIgdmFsdWUpJw0KDQpwYXJhbWV0ZXIgIk1lYXN1cmVtZW50IFBlcmlvZCIgSW50ZXJ2YWw8RGF0ZVRpbWU+DQogIGRlZmF1bHQgSW50ZXJ2YWxbQDIwMTktMDEtMDFUMDA6MDA6MDAuMCwgQDIwMjAtMDEtMDFUMDA6MDA6MDAuMCkNCg0KY29udGV4dCBQYXRpZW50DQoNCmRlZmluZSAiU0RFIEV0aG5pY2l0eSI6DQogIFNERS4iU0RFIEV0aG5pY2l0eSINCg0KZGVmaW5lICJTREUgUGF5ZXIiOg0KICBTREUuIlNERSBQYXllciINCg0KZGVmaW5lICJTREUgUmFjZSI6DQogIFNERS4iU0RFIFJhY2UiDQoNCmRlZmluZSAiU0RFIFNleCI6DQogIFNERS4iU0RFIFNleCINCg0KZGVmaW5lICJJbml0aWFsIFBvcHVsYXRpb24iOg0KICAoUGF0aWVudC5nZW5kZXIgPSAnZmVtYWxlJw0KICAgICAgCQlhbmQgR2xvYmFsLiJDYWxlbmRhckFnZUluWWVhcnNBdCIoRkhJUkhlbHBlcnMuVG9EYXRlKFBhdGllbnQuYmlydGhEYXRlKSwgc3RhcnQgb2YgIk1lYXN1cmVtZW50IFBlcmlvZCIpIGluIEludGVydmFsWzE2LCAyNF0pDQogICAgICAgICAgYW5kIGV4aXN0cyAoIlF1YWxpZnlpbmcgRW5jb3VudGVycyIpDQogICAgICAgICAgICAgIGFuZCAoZXhpc3RzICgiQXNzZXNzbWVudHMgSWRlbnRpZnlpbmcgU2V4dWFsIEFjdGl2aXR5IikNCiAgICAgICAgICAgICAgICAgIG9yIGV4aXN0cyAoIkRpYWdub3NlcyBJZGVudGlmeWluZyBTZXh1YWwgQWN0aXZpdHkiKQ0KICAgICAgICAgICAgICAgICAgLyogb3IgZXhpc3RzICgiQWN0aXZlIENvbnRyYWNlcHRpdmUgTWVkaWNhdGlvbnMiKSAqLw0KICAgICAgICAgICAgICAgICAgb3IgZXhpc3RzICgiT3JkZXJlZCBDb250cmFjZXB0aXZlIE1lZGljYXRpb25zIikNCiAgICAgICAgICAgICAgICAgIG9yIGV4aXN0cyAoIkxhYm9yYXRvcnkgVGVzdHMgSWRlbnRpZnlpbmcgU2V4dWFsIEFjdGl2aXR5IikNCiAgICAgICAgICAgICAgICAgIG9yIGV4aXN0cyAoIkRpYWdub3N0aWMgU3R1ZGllcyBJZGVudGlmeWluZyBTZXh1YWwgQWN0aXZpdHkiKQ0KICAgICAgICAgICAgICAgICAgb3IgZXhpc3RzICgiUHJvY2VkdXJlcyBJZGVudGlmeWluZyBTZXh1YWwgQWN0aXZpdHkiKSkNCg0KZGVmaW5lICJRdWFsaWZ5aW5nIEVuY291bnRlcnMiOg0KICAoWyJFbmNvdW50ZXIiOiAiT2ZmaWNlIFZpc2l0Il0NCiAgICAgIHVuaW9uIFsiRW5jb3VudGVyIjogIlByZXZlbnRpdmUgQ2FyZSBTZXJ2aWNlcyAtIEVzdGFibGlzaGVkIE9mZmljZSBWaXNpdCwgMTggYW5kIFVwIl0NCiAgICAgIHVuaW9uIFsiRW5jb3VudGVyIjogIlByZXZlbnRpdmUgQ2FyZSBTZXJ2aWNlcy1Jbml0aWFsIE9mZmljZSBWaXNpdCwgMTggYW5kIFVwIl0NCiAgICAgIHVuaW9uIFsiRW5jb3VudGVyIjogIlByZXZlbnRpdmUgQ2FyZSBTZXJ2aWNlcywgSW5pdGlhbCBPZmZpY2UgVmlzaXQsIDAgdG8gMTciXQ0KICAgICAgdW5pb24gWyJFbmNvdW50ZXIiOiAiUHJldmVudGl2ZSBDYXJlLCBFc3RhYmxpc2hlZCBPZmZpY2UgVmlzaXQsIDAgdG8gMTciXQ0KICAgICAgdW5pb24gWyJFbmNvdW50ZXIiOiAiSG9tZSBIZWFsdGhjYXJlIFNlcnZpY2VzIl0pIFZhbGlkRW5jb3VudGVyDQogICAgICAgICAgCQl3aGVyZSBWYWxpZEVuY291bnRlci5wZXJpb2QgZHVyaW5nICJNZWFzdXJlbWVudCBQZXJpb2QiDQogICAgICAgICAgICAgICAgICAJCWFuZCBWYWxpZEVuY291bnRlci5zdGF0dXMgID0gJ2ZpbmlzaGVkJw0KDQpkZWZpbmUgIkRpYWdub3NlcyBJZGVudGlmeWluZyBTZXh1YWwgQWN0aXZpdHkiOg0KICAoWyJDb25kaXRpb24iOiAiT3RoZXIgRmVtYWxlIFJlcHJvZHVjdGl2ZSBDb25kaXRpb25zIl0NCiAgICAgICAgICB1bmlvbiBbIkNvbmRpdGlvbiI6ICJHZW5pdGFsIEhlcnBlcyJdDQogICAgICAgICAgdW5pb24gWyJDb25kaXRpb24iOiAiR29ub2NvY2NhbCBJbmZlY3Rpb25zIGFuZCBWZW5lcmVhbCBEaXNlYXNlcyJdDQogICAgICAgICAgdW5pb24gWyJDb25kaXRpb24iOiAiSW5mbGFtbWF0b3J5IERpc2Vhc2VzIG9mIEZlbWFsZSBSZXByb2R1Y3RpdmUgT3JnYW5zIl0NCiAgICAgICAgICB1bmlvbiBbIkNvbmRpdGlvbiI6ICJDaGxhbXlkaWEiXQ0KICAgICAgICAgIHVuaW9uIFsiQ29uZGl0aW9uIjogIkhJViJdDQogICAgICAgICAgdW5pb24gWyJDb25kaXRpb24iOiAiU3lwaGlsaXMiXQ0KICAgICAgICAgIHVuaW9uIFsiQ29uZGl0aW9uIjogIkNhcnJpZXIgb2YgUHJlZG9taW5hbnRseSBTZXh1YWxseSBUcmFuc21pdHRlZCBJbmZlY3Rpb24iXQ0KICAgICAgICAgIHVuaW9uIFsiQ29uZGl0aW9uIjogIkNvbXBsaWNhdGlvbnMgb2YgUHJlZ25hbmN5LCBDaGlsZGJpcnRoIGFuZCB0aGUgUHVlcnBlcml1bSJdKSBTZXh1YWxBY3Rpdml0eURpYWdub3Npcw0KICAgICAgICAgIHdoZXJlIFNleHVhbEFjdGl2aXR5RGlhZ25vc2lzLnZlcmlmaWNhdGlvblN0YXR1cyB+IFRvQ29uY2VwdChHbG9iYWwuImNvbmZpcm1lZCIpDQogICAgICAgICAgICAgIGFuZCBHbG9iYWwuIlByZXZhbGVuY2UgUGVyaW9kIihTZXh1YWxBY3Rpdml0eURpYWdub3Npcykgb3ZlcmxhcHMgIk1lYXN1cmVtZW50IFBlcmlvZCINCg0KLyogZGVmaW5lICJBY3RpdmUgQ29udHJhY2VwdGl2ZSBNZWRpY2F0aW9ucyI6DQogIFsiTWVkaWNhdGlvblN0YXRlbWVudCI6ICJDb250cmFjZXB0aXZlIE1lZGljYXRpb25zIl0gQWN0aXZlQ29udHJhY2VwdGl2ZXMNCiAgICAgICAgICB3aGVyZSBBY3RpdmVDb250cmFjZXB0aXZlcy5zdGF0dXMgPSAnYWN0aXZlJw0KICAgICAgICAgIGFuZCBHbG9iYWwuIk5vcm1hbGl6ZSBJbnRlcnZhbCIoQWN0aXZlQ29udHJhY2VwdGl2ZXMuZWZmZWN0aXZlKSBvdmVybGFwcyAiTWVhc3VyZW1lbnQgUGVyaW9kIiAqLw0KDQpkZWZpbmUgIk9yZGVyZWQgQ29udHJhY2VwdGl2ZSBNZWRpY2F0aW9ucyI6DQogIFsiTWVkaWNhdGlvblJlcXVlc3QiOiAiQ29udHJhY2VwdGl2ZSBNZWRpY2F0aW9ucyJdIE9yZGVyZWRDb250cmFjZXB0aXZlcw0KICAgICAgICAgIHdoZXJlIE9yZGVyZWRDb250cmFjZXB0aXZlcy5zdGF0dXMgaW4geydhY3RpdmUnLCdjb21wbGV0ZWQnfQ0KICAgICAgICAgIGFuZCBPcmRlcmVkQ29udHJhY2VwdGl2ZXMuaW50ZW50LnZhbHVlID0gJ29yZGVyJw0KICAgICAgICAgICAgICBhbmQgT3JkZXJlZENvbnRyYWNlcHRpdmVzLmF1dGhvcmVkT24gZHVyaW5nICJNZWFzdXJlbWVudCBQZXJpb2QiDQoNCmRlZmluZSAiTGFib3JhdG9yeSBUZXN0cyBJZGVudGlmeWluZyBTZXh1YWwgQWN0aXZpdHkgQnV0IE5vdCBQcmVnbmFuY3kiOg0KICAoWyJTZXJ2aWNlUmVxdWVzdCI6ICJQYXAgVGVzdCJdDQogICAgICAgICAgdW5pb24gWyJTZXJ2aWNlUmVxdWVzdCI6ICJMYWIgVGVzdHMgRHVyaW5nIFByZWduYW5jeSJdDQogICAgICAgICAgdW5pb24gWyJTZXJ2aWNlUmVxdWVzdCI6ICJMYWIgVGVzdHMgZm9yIFNleHVhbGx5IFRyYW5zbWl0dGVkIEluZmVjdGlvbnMiXSkgTGFiT3JkZXJzDQogICAgICAgICAgd2hlcmUgTGFiT3JkZXJzLnN0YXR1cyBpbiB7J2FjdGl2ZScsICdjb21wbGV0ZWQnfQ0KICAgICAgICAgIGFuZCBMYWJPcmRlcnMuaW50ZW50LnZhbHVlID0gJ29yZGVyJw0KICAgICAgICAgIGFuZCBMYWJPcmRlcnMuYXV0aG9yZWRPbiBkdXJpbmcgIk1lYXN1cmVtZW50IFBlcmlvZCINCg0KZGVmaW5lICJMYWJvcmF0b3J5IFRlc3RzIElkZW50aWZ5aW5nIFNleHVhbCBBY3Rpdml0eSI6DQogICggWyJTZXJ2aWNlUmVxdWVzdCI6ICJQcmVnbmFuY3kgVGVzdCJdDQogICAgICAgICAgdW5pb24gIkxhYm9yYXRvcnkgVGVzdHMgSWRlbnRpZnlpbmcgU2V4dWFsIEFjdGl2aXR5IEJ1dCBOb3QgUHJlZ25hbmN5IiApIEFsbExhYk9yZGVycw0KICAgICAgICAgIHdoZXJlIEFsbExhYk9yZGVycy5zdGF0dXMgaW4geydhY3RpdmUnLCAnY29tcGxldGVkJ30NCiAgICAgICAgICBhbmQgQWxsTGFiT3JkZXJzLmludGVudC52YWx1ZSA9ICdvcmRlcicNCiAgICAgICAgICBhbmQgQWxsTGFiT3JkZXJzLmF1dGhvcmVkT24gZHVyaW5nICJNZWFzdXJlbWVudCBQZXJpb2QiDQoNCmRlZmluZSAiRGlhZ25vc3RpYyBTdHVkaWVzIElkZW50aWZ5aW5nIFNleHVhbCBBY3Rpdml0eSI6DQogIFsiU2VydmljZVJlcXVlc3QiOiAiRGlhZ25vc3RpYyBTdHVkaWVzIER1cmluZyBQcmVnbmFuY3kiXSBTZXh1YWxBY3Rpdml0eURpYWdub3N0aWNzDQogICAgICAgICAgd2hlcmUgU2V4dWFsQWN0aXZpdHlEaWFnbm9zdGljcy5zdGF0dXMgaW4geydhY3RpdmUnLCAnY29tcGxldGVkJ30NCiAgICAgICAgICBhbmQgU2V4dWFsQWN0aXZpdHlEaWFnbm9zdGljcy5pbnRlbnQudmFsdWUgPSAnb3JkZXInDQogICAgICAgICAgYW5kIFNleHVhbEFjdGl2aXR5RGlhZ25vc3RpY3MuYXV0aG9yZWRPbiBkdXJpbmcgIk1lYXN1cmVtZW50IFBlcmlvZCINCg0KZGVmaW5lICJQcm9jZWR1cmVzIElkZW50aWZ5aW5nIFNleHVhbCBBY3Rpdml0eSI6DQogICggWyJQcm9jZWR1cmUiOiAiRGVsaXZlcnkgTGl2ZSBCaXJ0aHMiXQ0KICAgICAgICAgIHVuaW9uIFsiUHJvY2VkdXJlIjogIlByb2NlZHVyZXMgRHVyaW5nIFByZWduYW5jeSJdDQogICAgICAgICAgdW5pb24gWyJQcm9jZWR1cmUiOiAiUHJvY2VkdXJlcyBJbnZvbHZpbmcgQ29udHJhY2VwdGl2ZSBEZXZpY2VzIl0gKSBQcm9jZWR1cmVzRm9yU2V4dWFsQWN0aXZpdHkNCiAgICAgICAgICB3aGVyZSBQcm9jZWR1cmVzRm9yU2V4dWFsQWN0aXZpdHkuc3RhdHVzID0gJ2NvbXBsZXRlZCcNCiAgICAgICAgICBhbmQgR2xvYmFsLiJOb3JtYWxpemUgSW50ZXJ2YWwiKFByb2NlZHVyZXNGb3JTZXh1YWxBY3Rpdml0eS5wZXJmb3JtZWQpIGR1cmluZyAiTWVhc3VyZW1lbnQgUGVyaW9kIg0KDQpkZWZpbmUgIkRlbm9taW5hdG9yIjoNCiAgIkluaXRpYWwgUG9wdWxhdGlvbiINCg0KZGVmaW5lICJEZW5vbWluYXRvciBFeGNsdXNpb25zIjoNCiAgKGV4aXN0cyAoIlByZWduYW5jeSBUZXN0IEV4Y2x1c2lvbiIpDQogICAgICAgICAgICBhbmQgbm90IGV4aXN0cyAoIkRpYWdub3NlcyBJZGVudGlmeWluZyBTZXh1YWwgQWN0aXZpdHkiKQ0KICAgICAgICAgICAgLyogYW5kIG5vdCBleGlzdHMgKCJBY3RpdmUgQ29udHJhY2VwdGl2ZSBNZWRpY2F0aW9ucyIpICovDQogICAgICAgICAgICBhbmQgbm90IGV4aXN0cyAoIkxhYm9yYXRvcnkgVGVzdHMgSWRlbnRpZnlpbmcgU2V4dWFsIEFjdGl2aXR5IEJ1dCBOb3QgUHJlZ25hbmN5IikNCiAgICAgICAgICAgIGFuZCBub3QgZXhpc3RzICgiUHJvY2VkdXJlcyBJZGVudGlmeWluZyBTZXh1YWwgQWN0aXZpdHkiKQ0KICAgICAgICAgICAgYW5kIG5vdCBleGlzdHMgKCJBc3Nlc3NtZW50cyBJZGVudGlmeWluZyBTZXh1YWwgQWN0aXZpdHkiKQ0KICAgICAgICAgICAgYW5kIG5vdCBleGlzdHMgKCJPcmRlcmVkIENvbnRyYWNlcHRpdmUgTWVkaWNhdGlvbnMiKQ0KICAgICAgICAgICAgYW5kIG5vdCBleGlzdHMgKCJEaWFnbm9zdGljIFN0dWRpZXMgSWRlbnRpZnlpbmcgU2V4dWFsIEFjdGl2aXR5IikpDQogICAgICAgICAgICBvciBIb3NwaWNlLiJIYXMgSG9zcGljZSINCg0KZGVmaW5lICJQcmVnbmFuY3kgVGVzdCBFeGNsdXNpb24iOg0KICAoIFsiU2VydmljZVJlcXVlc3QiOiAiUHJlZ25hbmN5IFRlc3QiXSBQcmVnbmFuY3lUZXN0DQogICAgICAgICAgIHdpdGggWyJTZXJ2aWNlUmVxdWVzdCI6ICJYLVJheSBTdHVkeSAoYWxsIGluY2x1c2l2ZSkiXSBYcmF5T3JkZXINCiAgICAgICAgICAgICAgICAgc3VjaCB0aGF0IFhyYXlPcmRlci5hdXRob3JlZE9uIG9jY3VycyA3IGRheXMgb3IgbGVzcyBvbiBvciBhZnRlciBkYXkgb2YgUHJlZ25hbmN5VGVzdC5hdXRob3JlZE9uDQogICAgICAgICAgICAgICAgIGFuZCBYcmF5T3JkZXIuc3RhdHVzIGluIHsnYWN0aXZlJywnY29tcGxldGVkJ30NCiAgICAgICAgICAgICAgICAgYW5kIFhyYXlPcmRlci5pbnRlbnQgPSAnb3JkZXInDQogICAgICAgICAgICAgICAgIGFuZCBQcmVnbmFuY3lUZXN0LnN0YXR1cyBpbiB7J2FjdGl2ZScsJ2NvbXBsZXRlZCd9DQogICAgICAgICAgICAgICAgIGFuZCBQcmVnbmFuY3lUZXN0LmludGVudCA9ICdvcmRlcicNCiAgICAgICAgICAgICAgICAgYW5kIFByZWduYW5jeVRlc3QuYXV0aG9yZWRPbiBkdXJpbmcgIk1lYXN1cmVtZW50IFBlcmlvZCINCg0KICAgICAgICkNCiAgICAgICAgIHVuaW9uICggWyJTZXJ2aWNlUmVxdWVzdCI6ICJQcmVnbmFuY3kgVGVzdCJdIFByZWduYW5jeVRlc3RPcmRlcg0KICAgICAgICAgICAgIHdpdGggWyJNZWRpY2F0aW9uUmVxdWVzdCI6ICJJc290cmV0aW5vaW4iXSBBY2N1dGFuZU9yZGVyDQogICAgICAgICAgICAgICBzdWNoIHRoYXQgQWNjdXRhbmVPcmRlci5hdXRob3JlZE9uIG9jY3VycyA3IGRheXMgb3IgbGVzcyBvbiBvciBhZnRlciBkYXkgb2YgUHJlZ25hbmN5VGVzdE9yZGVyLmF1dGhvcmVkT24NCiAgICAgICAgICAgICAgIGFuZCBBY2N1dGFuZU9yZGVyLnN0YXR1cyBpbiB7J2FjdGl2ZScsJ2NvbXBsZXRlZCd9DQogICAgICAgICAgICAgICBhbmQgQWNjdXRhbmVPcmRlci5pbnRlbnQgPSAnb3JkZXInDQogICAgICAgICAgICAgICBhbmQgUHJlZ25hbmN5VGVzdE9yZGVyLnN0YXR1cyBpbiB7J2FjdGl2ZScsJ2NvbXBsZXRlZCd9DQogICAgICAgICAgICAgICBhbmQgUHJlZ25hbmN5VGVzdE9yZGVyLmludGVudCA9ICdvcmRlcicNCiAgICAgICAgICAgICAgIGFuZCBQcmVnbmFuY3lUZXN0T3JkZXIuYXV0aG9yZWRPbiBkdXJpbmcgIk1lYXN1cmVtZW50IFBlcmlvZCINCiAgICAgICAgICkNCg0KZGVmaW5lICJOdW1lcmF0b3IiOg0KICBleGlzdHMgKFsiT2JzZXJ2YXRpb24iOiAiQ2hsYW15ZGlhIFNjcmVlbmluZyJdIENobGFteWRpYVRlc3QNCiAgICAgICAgICAgd2hlcmUgQ2hsYW15ZGlhVGVzdC5zdGF0dXMgaW4geydwcmVsaW1pbmFyeScsICdhbWVuZGVkJywgJ2NvcnJlY3RlZCcsJ2ZpbmFsJ30NCiAgICAgICAgICAgYW5kIENobGFteWRpYVRlc3QudmFsdWUgaXMgbm90IG51bGwNCiAgICAgICAgICAgICBhbmQgZW5kIG9mIEdsb2JhbC4iTm9ybWFsaXplIEludGVydmFsIihDaGxhbXlkaWFUZXN0LmVmZmVjdGl2ZSkgZHVyaW5nICJNZWFzdXJlbWVudCBQZXJpb2QiKQ0KDQpkZWZpbmUgIlN0cmF0aWZhY3Rpb24gMSI6DQogIEdsb2JhbC4iQ2FsZW5kYXJBZ2VJblllYXJzQXQiKEZISVJIZWxwZXJzLlRvRGF0ZShQYXRpZW50LmJpcnRoRGF0ZSksIHN0YXJ0IG9mICJNZWFzdXJlbWVudCBQZXJpb2QiKSBpbiBJbnRlcnZhbFsxNiwgMjBdDQoNCmRlZmluZSAiU3RyYXRpZmFjdGlvbiAyIjoNCiAgR2xvYmFsLiJDYWxlbmRhckFnZUluWWVhcnNBdCIoRkhJUkhlbHBlcnMuVG9EYXRlKFBhdGllbnQuYmlydGhEYXRlKSwgc3RhcnQgb2YgIk1lYXN1cmVtZW50IFBlcmlvZCIpIGluIEludGVydmFsWzIxLCAyNF0NCg0KZGVmaW5lICJBc3Nlc3NtZW50cyBJZGVudGlmeWluZyBTZXh1YWwgQWN0aXZpdHkiOg0KICBbIk9ic2VydmF0aW9uIjogIlNleHVhbGx5IEFjdGl2ZSJdIFNleHVhbEFjdGl2aXR5QXNzZXNzbWVudA0KICAgICAgd2hlcmUgU2V4dWFsQWN0aXZpdHlBc3Nlc3NtZW50LmNvZGUgfiAiWWVzIChxdWFsaWZpZXIgdmFsdWUpIg0KICAgICAgICAgIGFuZCBTZXh1YWxBY3Rpdml0eUFzc2Vzc21lbnQuc3RhdHVzIGluIHsnZmluYWwnLCAnYW1lbmRlZCcsICdjb3JyZWN0ZWQnLCAncHJlbGltaW5hcnknfQ0KICAgICAgICBhbmQgZW5kIG9mIEdsb2JhbC4iTm9ybWFsaXplIEludGVydmFsIihTZXh1YWxBY3Rpdml0eUFzc2Vzc21lbnQuZWZmZWN0aXZlKSBiZWZvcmUgZW5kIG9mICJNZWFzdXJlbWVudCBQZXJpb2QiDQo="
+  } ]
+}

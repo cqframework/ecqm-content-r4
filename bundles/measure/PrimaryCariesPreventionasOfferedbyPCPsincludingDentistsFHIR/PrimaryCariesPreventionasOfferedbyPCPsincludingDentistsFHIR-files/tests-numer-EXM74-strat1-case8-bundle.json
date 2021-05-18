@@ -1,0 +1,143 @@
+{
+  "resourceType": "Bundle",
+  "id": "tests-numer-EXM74-strat1-case8-bundle",
+  "type": "transaction",
+  "entry": [ {
+    "resource": {
+      "resourceType": "Coverage",
+      "id": "numer-EXM74-strat1-case8-Coverage",
+      "status": "active",
+      "type": {
+        "coding": [ {
+          "system": "http://www.nlm.nih.gov/research/umls/sop",
+          "code": "517",
+          "display": "Commercial Managed Care - Dental"
+        } ]
+      },
+      "beneficiary": {
+        "reference": "Patient/numer-EXM74-strat1-case8"
+      },
+      "period": {
+        "start": "2018-05-30T00:00:00-00:00",
+        "end": "2020-05-31T00:00:00-00:00"
+      },
+      "payor": [ {
+        "reference": "Patient/numer-EXM74-strat1-case8"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Coverage/numer-EXM74-strat1-case8-Coverage"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "numer-EXM74-strat1-case8-Encounter",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "IMP",
+        "display": "inpatient encounter"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/CD2",
+          "code": "D0145",
+          "display": "Oral evaluation for a patient under three years of age and counseling with primary caregiver"
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/numer-EXM74-strat1-case8"
+      },
+      "period": {
+        "start": "2019-12-10T09:00:00",
+        "end": "2019-12-10T09:30:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/numer-EXM74-strat1-case8-Encounter"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "numer-EXM74-strat1-case8",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2131-1",
+            "display": "Other"
+          }
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2135-2",
+            "display": "Hispanic or Latino"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "usual",
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical Record Number"
+          } ]
+        },
+        "system": "http://hospital.smarthealthit.org",
+        "value": "9999999911"
+      } ],
+      "name": [ {
+        "family": "Jones",
+        "given": [ "Louise" ]
+      } ],
+      "gender": "male",
+      "birthDate": "2016-04-01"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/numer-EXM74-strat1-case8"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Procedure",
+      "id": "numer-EXM74-strat1-case8-Procedure",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" ]
+      },
+      "status": "completed",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "313042009",
+          "display": "Application of dental fluoride varnish (procedure)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer-EXM74-strat1-case8"
+      },
+      "performedPeriod": {
+        "start": "2019-09-01T16:15:00",
+        "end": "2019-09-01T16:19:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Procedure/numer-EXM74-strat1-case8-Procedure"
+    }
+  } ]
+}

@@ -17,10 +17,11 @@ else
 fi
 
 echo "$fsoption"
+fsoption=""
 
 tooling=$input_cache_path/$tooling_jar
 if test -f "$tooling"; then
-	java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -t -d -p $fsoption
+	java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -t -d -p $fsoption -rp input/cql
 
 else
 	tooling=../$tooling_jar

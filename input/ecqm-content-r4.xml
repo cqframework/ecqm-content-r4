@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-    <id value="fhir.cqframework.ecqm-content-r4"/>
-    <url value="http://fhir.org/guides/cqframework/ImplementationGuide/fhir.cqframework.ecqm-content-r4"/>
-    <version value="1.0.0"/>
+    <id value="gov.healthit.ecqi.ecqms"/>
+    <url value="http://ecqi.healthit.gov/ecqms/ImplementationGuide/gov.healthit.ecqi.ecqms"/>
+    <version value="2021"/>
     <name value="eCQMContentR4"/>
     <title value="eCQM FHIR R4 Content Implementation Guide"/>
     <status value="draft"/>
@@ -15,8 +15,8 @@
         <value value="https://github.com/cqframework/ecqm-content-r4"/>
       </telecom>
     </contact>
-    <description value="eCQM FHIR 4 Implementation Guide"/>
-    <packageId value="fhir.cqframework.ecqm-content-r4"/>
+    <description value="Draft electronic Clinical Quality Measure (eCQM) Implementation Guide"/>
+    <packageId value="gov.healthit.ecqi.ecqms"/>
     <!-- TODO: Identify the license for this content -->
     <license value="CC0-1.0"/>
 	  <fhirVersion value="4.0.1"/>
@@ -120,6 +120,19 @@
           <code value="path-resource" />
           <value value="input/vocabulary/valueset"/>
         </parameter>
+
+        <!-- This parameter indicates to the publisher that it should translate and package CQL libraries. See the example library resources for more -->
+        <!--
+        <parameter>
+          <code value="path-binary"/>
+          <value value="input/cql"/>
+        </parameter>
+        -->
+        <parameter>
+          <code value="path-liquid"/>
+          <value value="templates\liquid"/>
+        </parameter>
+
         <!-- Uncomment one or more of these if you want to limit which syntaxes are supported or want to disable the display of mappings
          <parameter>
            <code value="excludexml"/>
@@ -129,10 +142,12 @@
            <code value="excludejson"/>
            <value value="true"/>
          </parameter>
+          -->
          <parameter>
            <code value="excludettl"/>
            <value value="true"/>
          </parameter>
+         <!--
          <parameter>
            <code value="excludemap"/>
            <value value="true"/>

@@ -1,0 +1,31 @@
+{
+  "resourceType": "Bundle",
+  "id": "tests-Observation-bundle",
+  "type": "transaction",
+  "entry": [ {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "denom3-EXM347-Observation",
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "13457-7",
+          "display": "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/denom3-EXM347"
+      },
+      "effectiveDateTime": "2018-01-01T08:30:00",
+      "valueQuantity": {
+        "value": 95,
+        "unit": "mg/dL"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/denom3-EXM347-Observation"
+    }
+  } ]
+}
