@@ -1,0 +1,1493 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Core Clinical Data Elements for the Hybrid Hospital-Wide Readmission (HWR) Measure with Claims and Electronic Health Record Data FHIR 1.2.002</title>
+<style type="text/css">
+    body {
+        color: rgb(0,0,0);
+        background-color: rgb(255, 255, 255);
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 11px;
+        overflow-y: auto;
+    }
+    h1 {
+        font-size: 12pt;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 11pt;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 10pt;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: 8pt;
+        font-weight: bold;
+    }
+
+    tr {
+        background-color: #ccc;
+    }
+
+    td {
+        padding: 0.1cm 0.2cm;
+        vertical-align: top;
+    }
+
+    a {
+        /*color: rgb(0, 0, 255);
+      background-color: rgb(255,255,255);*/
+    }
+
+    table {
+        line-height: 10pt;
+        width: 80%;
+        font-size: 11px;
+    }
+
+    /*div {
+    width: 80%;
+}*/
+
+    .list-unstyled {
+        list-style-type: none;
+    }
+
+    .list-unstyled li {
+        padding-top: 5px;
+    }
+
+    .list-header {
+        font-size: 12px;
+        color: rgb(0, 0, 238);
+    }
+
+    .list-header:hover {
+        text-decoration: underline;
+    }
+
+    .code {
+        font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;
+        color: black;
+        font-size: 12px;
+    }
+
+    .p-l-10 {
+        padding-left: 10px;
+    }
+
+    .section {
+        font-size: 10pt;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-right: 0.5em;
+        font-weight: 700;
+    }
+
+    .cql-keyword-new {
+        color: rgb(0, 0, 255);
+        font-weight: 700;
+    }
+
+    .cql-class,
+    .cql-object {
+        color: rgb(25, 127, 157);
+    }
+
+    .cql_keyword {
+        color: rgb(127, 0, 85);
+        font-weight: 700;
+    }
+
+    .cql_function {
+        color: rgb(127, 0, 85);
+        font-weight: 700;
+    }
+
+    .cql_attribute {
+        color: rgb(127, 0, 85);
+        font-weight: 700;
+    }
+
+    .cql_string {
+        color: rgb(42, 0, 255);
+    }
+
+    .cql_identifier .cql_function {
+        color: rgb(60, 76, 114);
+    }
+
+    hr.style13 {
+        height: 10px;
+        border: 0;
+        box-shadow: 0 10px 10px -10px #8c8b8b inset;
+    }
+
+    .treeview:hover input~label:before,
+    .treeview.hover input~label:before {
+        opacity: 1.0;
+        -webkit-transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -ms-transition-duration: 0.5s;
+        -o-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+    }
+
+    .treeview ul {
+        -webkit-transition-duration: 1s;
+        -moz-transition-duration: 1s;
+        -ms-transition-duration: 1s;
+        -o-transition-duration: 1s;
+        transition-duration: 1s;
+        -webkit-transition-timing-function: ease;
+        -moz-transition-timing-function: ease;
+        -ms-transition-timing-function: ease;
+        -o-transition-timing-function: ease;
+        transition-timing-function: ease;
+        list-style: none;
+        padding-left: 1em;
+    }
+
+    .treeview ul li span {
+        -webkit-transition-property: color;
+        -moz-transition-property: color;
+        -ms-transition-property: color;
+        -o-transition-property: color;
+        transition-property: color;
+        -webkit-transition-duration: 1s;
+        -moz-transition-duration: 1s;
+        -ms-transition-duration: 1s;
+        -o-transition-duration: 1s;
+        transition-duration: 1s;
+
+    }
+
+    .treeview input {
+        display: none;
+    }
+
+    .treeview input[type=checkbox]:checked~ul {
+        display: none;
+    }
+
+    .treeview input[type=checkbox]~ul {
+        margin-right: 20%;
+        opacity: 1;
+    }
+
+    .treeview input~label {
+        cursor: pointer;
+    }
+
+    .treeview input~label:before {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        margin-left: -1em;
+        margin-top: 0.25em;
+        border-width: 4px;
+        border-style: solid;
+        border-top-color: transparent;
+        border-right-color: rgb(0, 0, 238);
+        border-bottom-color: rgb(0, 0, 238);
+        border-left-color: transparent;
+        opacity: 0.0;
+        -webkit-transition-property: opacity;
+        -moz-transition-property: opacity;
+        -ms-transition-property: opacity;
+        -o-transition-property: opacity;
+        transition-property: opacity;
+        -webkit-transition-duration: 1s;
+        -moz-transition-duration: 1s;
+        -ms-transition-duration: 1s;
+        -o-transition-duration: 1s;
+        transition-duration: 1s;
+    }
+
+    .treeview input:checked~label:before {
+        margin-left: -0.8em;
+        border-width: 5px;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: rgb(0, 0, 238);
+    }
+
+    .h1center {
+        font-size: 12pt;
+        font-weight: bold;
+        text-align: center;
+        width: 80%;
+    }
+
+    .header_table {
+        border: 1pt inset rgb(0, 0, 0);
+    }
+
+    .narr_table {
+        width: 100%;
+    }
+
+    .narr_tr {
+        background-color: rgb(225, 225, 225);
+    }
+
+    pre {
+        /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+        white-space: pre-wrap;
+        /* css-3 */
+        white-space: -moz-pre-wrap !important;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        /* Internet Explorer 5.5+ */
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 11px;
+        text-align: left;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+
+    .narr_th {
+        background-color: rgb(201, 201, 201);
+    }
+
+    .td_label {
+        font-weight: bold;
+        color: white;
+    }
+
+    .hll {
+        background-color: #ffffcc
+    }
+
+    .c {
+        color: #408080;
+        font-style: italic
+    }
+
+    /* Comment */
+    .err {
+        border: 1px solid #FF0000
+    }
+
+    /* Error */
+    .k {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword */
+    .o {
+        color: #666666
+    }
+
+    /* Operator */
+    .cm {
+        color: #408080;
+        font-style: italic
+    }
+
+    /* Comment.Multiline */
+    .cp {
+        color: #BC7A00
+    }
+
+    /* Comment.Preproc */
+    .c1 {
+        color: #408080;
+        font-style: italic
+    }
+
+    /* Comment.Single */
+    .cs {
+        color: #408080;
+        font-style: italic
+    }
+
+    /* Comment.Special */
+    .gd {
+        color: #A00000
+    }
+
+    /* Generic.Deleted */
+    .ge {
+        font-style: italic
+    }
+
+    /* Generic.Emph */
+    .gr {
+        color: #FF0000
+    }
+
+    /* Generic.Error */
+    .gh {
+        color: #000080;
+        font-weight: bold
+    }
+
+    /* Generic.Heading */
+    .gi {
+        color: #00A000
+    }
+
+    /* Generic.Inserted */
+    .go {
+        color: #888888
+    }
+
+    /* Generic.Output */
+    .gp {
+        color: #000080;
+        font-weight: bold
+    }
+
+    /* Generic.Prompt */
+    .gs {
+        font-weight: bold
+    }
+
+    /* Generic.Strong */
+    .gu {
+        color: #800080;
+        font-weight: bold
+    }
+
+    /* Generic.Subheading */
+    .gt {
+        color: #0044DD
+    }
+
+    /* Generic.Traceback */
+    .kc {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword.Constant */
+    .kd {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword.Declaration */
+    .kn {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword.Namespace */
+    .kp {
+        color: #008000
+    }
+
+    /* Keyword.Pseudo */
+    .kr {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Keyword.Reserved */
+    .kt {
+        color: #B00040
+    }
+
+    /* Keyword.Type */
+    .m {
+        color: #666666
+    }
+
+    /* Literal.Number */
+    .s {
+        color: #BA2121
+    }
+
+    /* Literal.String */
+    .na {
+        color: #7D9029
+    }
+
+    /* Name.Attribute */
+    .nb {
+        color: #008000
+    }
+
+    /* Name.Builtin */
+    .nc {
+        color: #0000FF;
+        font-weight: bold
+    }
+
+    /* Name.Class */
+    .no {
+        color: #880000
+    }
+
+    /* Name.Constant */
+    .nd {
+        color: #AA22FF
+    }
+
+    /* Name.Decorator */
+    .ni {
+        color: #999999;
+        font-weight: bold
+    }
+
+    /* Name.Entity */
+    .ne {
+        color: #D2413A;
+        font-weight: bold
+    }
+
+    /* Name.Exception */
+    .nf {
+        color: #0000FF
+    }
+
+    /* Name.Function */
+    .nl {
+        color: #A0A000
+    }
+
+    /* Name.Label */
+    .nn {
+        color: #0000FF;
+        font-weight: bold
+    }
+
+    /* Name.Namespace */
+    .nt {
+        color: #008000;
+        font-weight: bold
+    }
+
+    /* Name.Tag */
+    .nv {
+        color: #19177C
+    }
+
+    /* Name.Variable */
+    .ow {
+        color: #AA22FF;
+        font-weight: bold
+    }
+
+    /* Operator.Word */
+    .w {
+        color: #bbbbbb
+    }
+
+    /* Text.Whitespace */
+    .mf {
+        color: #666666
+    }
+
+    /* Literal.Number.Float */
+    .mh {
+        color: #666666
+    }
+
+    /* Literal.Number.Hex */
+    .mi {
+        color: #666666
+    }
+
+    /* Literal.Number.Integer */
+    .mo {
+        color: #666666
+    }
+
+    /* Literal.Number.Oct */
+    .sb {
+        color: #BA2121
+    }
+
+    /* Literal.String.Backtick */
+    .sc {
+        color: #BA2121
+    }
+
+    /* Literal.String.Char */
+    .sd {
+        color: #BA2121;
+        font-style: italic
+    }
+
+    /* Literal.String.Doc */
+    .s2 {
+        color: #BA2121
+    }
+
+    /* Literal.String.Double */
+    .se {
+        color: #BB6622;
+        font-weight: bold
+    }
+
+    /* Literal.String.Escape */
+    .sh {
+        color: #BA2121
+    }
+
+    /* Literal.String.Heredoc */
+    .si {
+        color: #BB6688;
+        font-weight: bold
+    }
+
+    /* Literal.String.Interpol */
+    .sx {
+        color: #008000
+    }
+
+    /* Literal.String.Other */
+    .sr {
+        color: #BB6688
+    }
+
+    /* Literal.String.Regex */
+    .s1 {
+        color: #BA2121
+    }
+
+    /* Literal.String.Single */
+    .ss {
+        color: #19177C
+    }
+
+    /* Literal.String.Symbol */
+    .bp {
+        color: #008000
+    }
+
+    /* Name.Builtin.Pseudo */
+    .vc {
+        color: #19177C
+    }
+
+    /* Name.Variable.Class */
+    .vg {
+        color: #19177C
+    }
+
+    /* Name.Variable.Global */
+    .vi {
+        color: #19177C
+    }
+
+    /* Name.Variable.Instance */
+    .il {
+    color: #666666
+    }
+
+    /* Literal.Number.Integer.Long */
+
+    #nn-text {
+        text-align: center;
+        text-align: center;
+        color: lightgrey;
+        font-size: 40px;
+    }
+
+    .cql-definition-body {
+        width: 950px;
+        display: block;
+        word-wrap: break-word;
+    }
+
+    li {
+        padding-left: 15px;
+    }
+    .row-header {
+        background-color:#656565;
+        width:20%;
+        padding: 0.1cm 0.2cm;
+        text-align: left;
+    }
+</style>    </head>
+    <body>
+<table class="header_table" role="presentation">
+    <tbody>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">eCQM Title</span></th>
+            <td style="width:80%" colspan="3"><h1 style="font-size:10px">Core Clinical Data Elements for the Hybrid Hospital-Wide Readmission (HWR) Measure with Claims and Electronic Health Record Data FHIR</h1></td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">eCQM Identifier (Measure Authoring Tool)</span></th>
+            <td style="width:30%">1022FHIR</td>
+
+            <th scope="row" class="row-header"><span class="td_label">eCQM Version Number</span></th>
+            <td style="width:30%">1.2.002</td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">NQF Number</span></th>
+            <td style="width:30%">2879</td>
+
+            <th scope="row" class="row-header"><span class="td_label">GUID</span></th>
+            <td style="width:30%">9f0a747c-7c9c-4a74-9c0a-b83897615fa2</td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Measurement Period</span></th>
+            <td style="width:80%" colspan="3">July 1, 2021 through June 30, 2022</td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Measure Steward</span></th>
+            <td style="width:80%" colspan="3">Centers for Medicare &amp; Medicaid Services (CMS)</td>
+        </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Population Basis</span></th>
+                <td style="width:80%" colspan="3">boolean</td>
+            </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Experimental</span></th>
+                <td style="width:80%" colspan="3">No</td>
+            </tr>
+                <tr>
+                    <th scope="row" class="row-header"><span class="td_label">Measure Developer</span></th>
+                    <td style="width:80%" colspan="3">Yale New Haven Health Service Corporation/ Center for Outcomes Research and Evaluation</td>
+                </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Endorsed By</span></th>
+            <td style="width:80%" colspan="3">National Quality Forum</td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Description</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>This logic is intended to extract electronic clinical data. This is not an electronic clinical quality measure and this logic will not produce measure results. Instead, it will produce a file containing the data that CMS will link with administrative claims to risk adjust the Hybrid HWR outcome measure. It is designed to extract the first resulted set of vital signs and basic laboratory results obtained from encounters for adult Medicare Fee-For-Service patients admitted to acute care short stay hospitals.</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Copyright</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Limited proprietary coding is contained in these specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets.
+
+This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2019 International Health Terminology Standards Development Organisation. All rights reserved.
+
+LOINC(R) copyright 2004-2019 Regenstrief Institute, Inc</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Disclaimer</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>These performance specifications are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications.
+
+THE MEASURES AND SPECIFICATIONS ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND.
+
+Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Measure Scoring</span></th>
+            <td style="width:80%" colspan="3">Cohort</td>
+        </tr>
+                <tr>
+                    <th scope="row" class="row-header"><span class="td_label">Measure Type</span></th>
+                    <td style="width:80%" colspan="3">Outcome</td>
+                </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Stratification</span></th>
+                <td style="width:80%" colspan="3">
+                    <div style="width:660px;">
+                        <pre>None</pre>
+                    </div>
+                </td>
+            </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Risk Adjustment</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>For a detailed description of how the core clinical data elements are used in the Hybrid HWR measure risk adjustment model, see the Hybrid HWR Measure with Electronic Health Record Extracted Risk Factors Specifications Report on QualityNet.org here:
+https://qualitynet.org/inpatient/measures/hybrid/methodology</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Rate Aggregation</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>None</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Rationale</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>The intent of this logic is to extract the FIRST set of clinical data elements from hospital electronic health records (EHRs) for all qualifying encounters. The data will be linked with administrative claims to risk adjust the Hybrid HWR outcome measure. This work addresses stakeholder concerns that clinical data garnered from patients, and used by clinicians to guide diagnostic decisions and treatment, are preferable to administrative claims data when profiling hospitals&#39; case mix. We are calling the list of data elements for extraction the &quot;HWR-specific core clinical data elements&quot;. The core clinical data elements are the first set of vital signs and basic laboratory tests resulted from encounters for adult Medicare Fee-For-Service patients, age 65 or older (Initial Population), after they arrive at the hospital to which they are subsequently admitted. For example, this first set of data values is often captured in the emergency department or in the pre-operative area, sometimes hours before a patient is admitted to that same facility. 
+
+These data elements were selected because they: 1. reflect patients&#39; clinical status when they first present to the hospital, 2. are clinically and statistically relevant to patient outcomes, 3. are consistently obtained on adult inpatient encounters based on current clinical practice, 4. are captured with a standard definition and recorded in a standard format across providers, and 5. are entered in structured fields that are feasibly retrieved from current EHR systems. Additional data called Linking Variables are used to link EHR data files with administrative claims data for CMS to calculate results for the Hybrid HWR measure, which are: CMS Certification Number, Health Insurance Claim Number (HICN) or Medicare Beneficiary Identifier (MBI), date of birth, sex, admission date, and discharge date.</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Clinical Recommendation Statement</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>The logic is not meant to guide or alter the care patients receive. The purpose of this core clinical data elements logic is to extract clinical data that are already routinely captured in EHRs from encounters for hospitalized adult patients. It is not intended to require that clinical staff perform additional measurements or tests that are not needed for diagnostic assessment or treatment of patients.</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Improvement Notation</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>Decreased score indicates improvement</pre>
+                </div>
+            </td>
+        </tr>
+            <tr>
+                <th scope="row" class="row-header"><span class="td_label">Reference</span></th>
+                <td style="width:80%" colspan="3"></td>
+            </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Definition</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>HWR-Specific Core Clinical Data Elements</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Guidance</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>These specifications are for use for data with discharges that occur between July 1, 2021 and June 30, 2022. The associated Hospital Specific Report (HSR) is anticipated to be released in Spring 2023.
+
+This logic guides the user to extract the FIRST resulted HWR-specific core clinical data elements for all Medicare Fee-For-Service encounters for patients age 65 or older (Initial Population) directly admitted to the hospital or admitted to the same facility after being treated in another area such as the emergency department or hospital outpatient location. 
+
+The logic supports extraction of the FIRST set of HWR-specific core clinical data elements in two different ways depending on if the patient was a direct admission, meaning that the patient was admitted directly to an inpatient unit without first receiving care in the emergency department or other hospital outpatient locations within the same admitting facility: 
+
+1. If the patient was a direct admission, the logic supports extraction of the FIRST resulted vital signs within 2 hours (120 minutes) after the start of the inpatient admission, and the FIRST resulted laboratory tests within 24 hours (1440 minutes) after the start of the inpatient admission. 
+2. If the patient has values captured prior to admission, for example from the emergency department, pre-operative, or other outpatient area within the hospital, the logic supports extraction of the FIRST resulted vital signs and laboratory tests within 24 hours (1440 minutes) PRIOR to the start of the inpatient admission. All clinical systems used in inpatient and outpatient locations within the hospital facility should be queried when looking for core clinical data element values related to a patient who is subsequently admitted.
+
+Value sets for the laboratory tests represent the LOINC codes currently available for these tests. If the institution is using local codes to capture and store relevant laboratory test data, those sites should map that information to the LOINC code for reporting of the core clinical data elements.
+
+NOTE: Do not report ALL values on an encounter during their entire admission. Only report the FIRST resulted value for EACH core clinical data element collected in the appropriate timeframe, if available.
+
+For each encounter please also submit the following Linking Variables: 
+CMS Certification Number,
+Health Insurance Claim Number (HICN) or Medicare Beneficiary Identifier (MBI),
+Date of Birth,
+Sex,
+Inpatient Admission Date, and
+Discharge Date.</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Transmission Format</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>TBD</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Initial Population</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>All Medicare Fee-For-Service encounters age 65 and older at the start of an inpatient admission, who are discharged during the measurement period (length of stay &lt;365 days).
+
+NOTE: All Medicare Fee-For-Service encounters meeting the above criteria should be included, regardless if Medicare Fee-For-Service is the primary, secondary, or tertiary payer.</pre>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Supplemental Data Elements</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre>For encounters in the Initial Population, report the FIRST value for vital signs resulted from hospital outpatient locations in a facility within the 24 hours prior to the inpatient admission. If no values were resulted in the 24 hours prior to the admission (for example, for patients directly admitted to the hospital) report the first value resulted within 2 hours after the start of the inpatient admission. For laboratory test results, report the first value resulted from hospital outpatient locations in a facility within the 24 hours prior to admission. If there are no values in the 24 hours prior to admission, report the first value resulted within 24 hours after the start of the inpatient admission. First values for the core clinical data elements may be resulted in the emergency department or other hospital outpatient locations within the hospital facility before a patient is subsequently admitted to the same hospital. First values for these data elements may also be resulted in an inpatient location for directly admitted patients who do not receive care in the emergency department or other hospital outpatient locations before admission. 
+
+The core clinical data elements are as follows:
+Heart rate
+Systolic blood pressure
+Respiratory rate
+Temperature
+Oxygen saturation
+Weight
+Hematocrit
+White blood cell count
+Potassium
+Sodium
+Bicarbonate (or carbon dioxide, see Bicarbonate Lab Test value set)
+Creatinine
+Glucose
+
+NOTE: Do not report ALL values on an encounter during their entire admission. Only report the FIRST resulted value for EACH core clinical data element collected in the appropriate timeframe, if available.
+
+For every patient in the Initial Population, also identify payer, race, ethnicity and sex.</pre>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>
+    <a name="toc">Table of Contents</a>
+</h2>
+<ul style="padding-left: 50px;">
+    <li><a href="#d1e405">Population Criteria</a></li>
+    <li><a href="#d1e649">Definitions</a></li>
+    <li><a href="#d1e650">Functions</a></li>
+    <li><a href="#d1e555">Terminology</a></li>
+            <li><a href="#d1e647">Data Criteria (FHIR Data Requirements)</a></li>
+
+    <li><a href="#d1e767">Supplemental Data Elements</a></li>
+    <li><a href="#d1e879">Risk Adjustment Variables</a></li>
+</ul><div style="float:left; background:teal; height:3px; width:80%"></div>
+<pre><br/></pre><h3><a name="d1e405" href="#toc">Population Criteria</a></h3>
+<div>
+	            <ul>
+<li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Initial_Population_1122619625"/>
+                <label for="Initial_Population_1122619625" class="list-header"><strong>Initial Population</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body">exists &quot;Inpatient Encounters&quot;</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li>            </ul>
+            <ul>
+<li class="list-unstyled" style="list-style:none;padding-left:0px;">
+    <div class="treeview hover p-l-10">
+        <ul class="list-unstyled">
+            <li class="list-unstyled"><input type="checkbox" id="Stratification_1100071176"/>
+                <label for="Stratification_1100071176" class="list-header"><strong>Stratification</strong></label>
+                <ul class="code">
+                    <li class="list-unstyled">
+                        <div class="treeview hover p-l-10">
+                            <ul>
+                                <li style="padding-left: 0px;">
+                                    <div>
+                                        <pre class="cql-definition-body cql-class">None</pre>
+                                    </div>
+                                </li>
+                            </ul>&nbsp;
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</li>            </ul>
+</div><h3><a name="d1e649" href="#toc">Definitions</a></h3>
+<div>
+    <ul style="list-style:none;padding-left: 10px;">
+        <li class="list-unstyled" style="list-style:none;">
+            <div>
+                <ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Initial_Population1211709235" />
+            <label for="Initial_Population1211709235" class="list-header"><strong>Initial Population</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">exists &quot;Inpatient Encounters&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Inpatient_Encounters1701748736" />
+            <label for="Inpatient_Encounters1701748736" class="list-header"><strong>Inpatient Encounters</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">from
+                     [&quot;Encounter&quot;: &quot;Encounter Inpatient&quot;] InpatientEncounter,
+                     [&quot;Coverage&quot;: &quot;Medicare payer&quot;] Payer
+                      where (Payer.period overlaps before InpatientEncounter.period
+                      or start of Payer.period same as start of InpatientEncounter.period)
+                      and end of Payer.period != start of InpatientEncounter.period
+                      and Global.&quot;HospitalizationWithObservationLengthofStay&quot; (InpatientEncounter) &lt; 365
+                      and InpatientEncounter.period ends during &quot;Measurement Period&quot;
+                      and Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate(Patient.birthDate), start of InpatientEncounter.period ) &gt;= 65
+                  return InpatientEncounter</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="Results1981978954" />
+            <label for="Results1981978954" class="list-header"><strong>Results</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">flatten{
+                  // First physical exams (vital signs)
+                    &quot;FirstPhysicalExamWithEncounterId&quot;(([Observation: &quot;Heart rate&quot;] O where O.effective is not null sort by effective.value), &#39;FirstHeartRate&#39;),
+                                &quot;FirstPhysicalExamWithEncounterId&quot;(([Observation: &quot;Systolic blood pressure&quot;] O where O.effective is not null sort by effective.value), &#39;FirstSystolicBP&#39;),
+                                &quot;FirstPhysicalExamWithEncounterId&quot;(([Observation: &quot;Respiratory rate&quot;] O where O.effective is not null sort by effective.value), &#39;FirstRespRate&#39;),
+                                &quot;FirstPhysicalExamWithEncounterId&quot;(([Observation: &quot;Body temperature&quot;] O where O.effective is not null sort by effective.value), &#39;FirstTeperature&#39;),
+                                &quot;FirstPhysicalExamWithEncounterId&quot;(([Observation: &quot;Oxygen saturation in Arterial blood by Pulse oximetry&quot;] O where O.effective is not null sort by effective.value), &#39;FirstO2Saturation&#39;),
+                                  
+                  // First weight using lab test timing
+                      &quot;FirstPhysicalExamWithEncounterIdUsingLabTiming&quot;(([Observation: &quot;Body weight&quot;] O where O.effective is not null sort by effective.value), &#39;FirstWeight&#39;), 
+                  //First lab tests
+                       &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;Hematocrit lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstHematocrit&#39;),
+                        &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;White blood cells count lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstWhiteBloodCell&#39;),
+                        &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;Potassium lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstPotassium&#39;),
+                        &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;Sodium lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstSodium&#39;),
+                        &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;Bicarbonate lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstBicarbonate&#39;),
+                        &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;Creatinine lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstCreatinine&#39;),
+                        &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;Glucose lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstGlucose&#39;)
+            }</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="SDE_Ethnicity456796136" />
+            <label for="SDE_Ethnicity456796136" class="list-header"><strong>SDE Ethnicity</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">SDE.&quot;SDE Ethnicity&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="SDE_Payer712355465" />
+            <label for="SDE_Payer712355465" class="list-header"><strong>SDE Payer</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">SDE.&quot;SDE Payer&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="SDE_Race1826217171" />
+            <label for="SDE_Race1826217171" class="list-header"><strong>SDE Race</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">SDE.&quot;SDE Race&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="SDE_Sex150336815" />
+            <label for="SDE_Sex150336815" class="list-header"><strong>SDE Sex</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">SDE.&quot;SDE Sex&quot;</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>            </div>
+        </li>
+    </ul>
+</div><h3><a name="d1e650" href="#toc">Functions</a></h3>
+<div>
+    <ul style="list-style:none;padding-left: 10px;">
+        <li class="list-unstyled" style="list-style:none;">
+            <div>
+                <ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="CalendarAgeInYearsAt_BirthDateTime_FHIR_Datatype__AsOf_FHIR_Datatype_1720957031" />
+            <label for="CalendarAgeInYearsAt_BirthDateTime_FHIR_Datatype__AsOf_FHIR_Datatype_1720957031" class="list-header"><strong>CalendarAgeInYearsAt(BirthDateTime FHIR Datatype, AsOf FHIR Datatype)</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">years between ToDate(BirthDateTime)and ToDate(AsOf)</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="FirstLabTestWithEncounterId_LabList_FHIR_Datatype__CCDE_FHIR_Datatype_1949522185" />
+            <label for="FirstLabTestWithEncounterId_LabList_FHIR_Datatype__CCDE_FHIR_Datatype_1949522185" class="list-header"><strong>FirstLabTestWithEncounterId(LabList FHIR Datatype, CCDE FHIR Datatype)</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Inpatient Encounters&quot; Encounter
+  let firstlab: First(LabList Lab
+      where Lab.issued during Interval[start of Encounter.period - 1440 minutes, start of Encounter.period + 1440 minutes]
+      and Lab.status in {&#39;final&#39;, &#39;amended&#39;, &#39;preliminary&#39;})
+  return &#39;\r\n&#39; &amp; CCDE &amp; &#39;,&#39; &amp; Encounter.id &amp; &#39;,&#39; &amp; ToString(firstlab.value as Quantity) &amp; &#39;,&#39; &amp; ToString(firstlab.issued)</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="FirstPhysicalExamWithEncounterId_ExamList_FHIR_Datatype__CCDE_FHIR_Datatype_801436780" />
+            <label for="FirstPhysicalExamWithEncounterId_ExamList_FHIR_Datatype__CCDE_FHIR_Datatype_801436780" class="list-header"><strong>FirstPhysicalExamWithEncounterId(ExamList FHIR Datatype, CCDE FHIR Datatype)</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Inpatient Encounters&quot; Encounter
+  let firstexam: First(ExamList Exam
+      where Exam.effective during Interval[start of Encounter.period - 1440 minutes, start of Encounter.period + 120 minutes]
+      and Exam.status in {&#39;final&#39;, &#39;amended&#39;, &#39;preliminary&#39;})
+  return &#39;\r\n&#39; &amp; CCDE &amp; &#39;,&#39; &amp; Encounter.id &amp; &#39;,&#39; &amp; ToString(firstexam.value as Quantity) &amp; &#39;,&#39; &amp; ToString(firstexam.effective)</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="FirstPhysicalExamWithEncounterIdUsingLabTiming_ExamList_FHIR_Datatype__CCDE_FHIR_Datatype_69897523" />
+            <label for="FirstPhysicalExamWithEncounterIdUsingLabTiming_ExamList_FHIR_Datatype__CCDE_FHIR_Datatype_69897523" class="list-header"><strong>FirstPhysicalExamWithEncounterIdUsingLabTiming(ExamList FHIR Datatype, CCDE FHIR Datatype)</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;Inpatient Encounters&quot; Encounter
+  let firstexamwithlabtiming: First(ExamList Exam
+      where Exam.effective during Interval[start of Encounter.period - 1440 minutes, start of Encounter.period + 1440 minutes]
+and Exam.status in {&#39;final&#39;, &#39;amended&#39;, &#39;preliminary&#39;})
+  return &#39;\r\n&#39; &amp; CCDE &amp; &#39;,&#39; &amp; Encounter.id &amp; &#39;,&#39; &amp; ToString(firstexamwithlabtiming.value as Quantity) &amp; &#39;,&#39; &amp; ToString(firstexamwithlabtiming.effective)</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="HospitalizationWithObservation_TheEncounter_FHIR_Datatype_1101933187" />
+            <label for="HospitalizationWithObservation_TheEncounter_FHIR_Datatype_1101933187" class="list-header"><strong>HospitalizationWithObservation(TheEncounter FHIR Datatype)</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">TheEncounter Visit
+  		let ObsVisit: Last([Encounter: &quot;Observation Services&quot;] LastObs
+  				where LastObs.period ends 1 hour or less on or before start of Visit.period
+  				sort by end of period
+  			),
+  			VisitStart: Coalesce(start of ObsVisit.period, start of Visit.period),
+  			EDVisit: Last([Encounter: &quot;Emergency Department Visit&quot;] LastED
+  				where LastED.period ends 1 hour or less on or before VisitStart
+  				sort by end of period
+  			)
+  		return Interval[Coalesce(start of EDVisit.period, VisitStart), end of Visit.period]</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="HospitalizationWithObservationLengthofStay_Encounter_FHIR_Datatype_2014785799" />
+            <label for="HospitalizationWithObservationLengthofStay_Encounter_FHIR_Datatype_2014785799" class="list-header"><strong>HospitalizationWithObservationLengthofStay(Encounter FHIR Datatype)</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">&quot;LengthInDays&quot;(&quot;HospitalizationWithObservation&quot;(Encounter))</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="LengthInDays_Value_FHIR_Datatype_1200109729" />
+            <label for="LengthInDays_Value_FHIR_Datatype_1200109729" class="list-header"><strong>LengthInDays(Value FHIR Datatype)</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">difference in days between start of Value and end of Value</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="LengthOfStay_Stay_FHIR_Datatype_418106491" />
+            <label for="LengthOfStay_Stay_FHIR_Datatype_418106491" class="list-header"><strong>LengthOfStay(Stay FHIR Datatype)</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">difference in days between start of Stay and 
+end of Stay</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul><ul class="list-unstyled" style="list-style:none;padding-left:0;">
+    <li class="list-unstyled">
+        <div class="treeview hover p-l-10">
+            <input type="checkbox" id="ToDate_Value_FHIR_Datatype_967985609" />
+            <label for="ToDate_Value_FHIR_Datatype_967985609" class="list-header"><strong>ToDate(Value FHIR Datatype)</strong></label>
+            <ul class="code" style="margin-right: 20%; opacity: 1;">
+                <li class="list-unstyled">
+                    <div>
+                        <ul style="padding-left: 0px;">
+                            <li style="padding-left: 0px;" class="list-unstyled">
+                                <div>
+                                    <pre class="cql-definition-body">DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezoneoffset from Value)</pre>
+                                </div>
+                            </li>
+                        </ul>&nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>            </div>
+        </li>
+    </ul>
+</div><h3><a name="d1e555" href="#toc">Terminology</a></h3>
+<div>
+            <ul style="padding-left: 50px;">
+                <li style="width:80%">code &quot;active&quot; (&quot;ConditionClinicalStatusCodes Code (active)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-active&quot; (&quot;AllergyIntoleranceClinicalStatusCodes Code (active)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-confirmed&quot; (&quot;AllergyIntoleranceVerificationStatusCodes Code (confirmed)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-inactive&quot; (&quot;AllergyIntoleranceClinicalStatusCodes Code (inactive)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-refuted&quot; (&quot;AllergyIntoleranceVerificationStatusCodes Code (refuted)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-resolved&quot; (&quot;AllergyIntoleranceClinicalStatusCodes Code (resolved)&quot;)</li>
+                <li style="width:80%">code &quot;allergy-unconfirmed&quot; (&quot;AllergyIntoleranceVerificationStatusCodes Code (unconfirmed)&quot;)</li>
+                <li style="width:80%">code &quot;Billing&quot; (&quot;Diagnosis Role Code (billing)&quot;)</li>
+                <li style="width:80%">code &quot;Birth date&quot; (&quot;LOINC Code (21112-8)&quot;)</li>
+                <li style="width:80%">code &quot;Community&quot; (&quot;MedicationRequestCategory Code (community)&quot;)</li>
+                <li style="width:80%">code &quot;confirmed&quot; (&quot;ConditionVerificationStatusCodes Code (confirmed)&quot;)</li>
+                <li style="width:80%">code &quot;Dead&quot; (&quot;SNOMEDCT Code (419099009)&quot;)</li>
+                <li style="width:80%">code &quot;differential&quot; (&quot;ConditionVerificationStatusCodes Code (differential)&quot;)</li>
+                <li style="width:80%">code &quot;Discharge&quot; (&quot;MedicationRequestCategory Code (discharge)&quot;)</li>
+                <li style="width:80%">code &quot;entered-in-error&quot; (&quot;ConditionVerificationStatusCodes Code (entered-in-error)&quot;)</li>
+                <li style="width:80%">code &quot;ER&quot; (&quot;RoleCode Code (ER)&quot;)</li>
+                <li style="width:80%">code &quot;Heart rate&quot; (&quot;LOINC Code (8867-4)&quot;)</li>
+                <li style="width:80%">code &quot;ICU&quot; (&quot;RoleCode Code (ICU)&quot;)</li>
+                <li style="width:80%">code &quot;inactive&quot; (&quot;ConditionClinicalStatusCodes Code (inactive)&quot;)</li>
+                <li style="width:80%">code &quot;Oxygen saturation in Arterial blood by Pulse oximetry&quot; (&quot;LOINC Code (59408-5)&quot;)</li>
+                <li style="width:80%">code &quot;provisional&quot; (&quot;ConditionVerificationStatusCodes Code (provisional)&quot;)</li>
+                <li style="width:80%">code &quot;recurrence&quot; (&quot;ConditionClinicalStatusCodes Code (recurrence)&quot;)</li>
+                <li style="width:80%">code &quot;refuted&quot; (&quot;ConditionVerificationStatusCodes Code (refuted)&quot;)</li>
+                <li style="width:80%">code &quot;relapse&quot; (&quot;ConditionClinicalStatusCodes Code (relapse)&quot;)</li>
+                <li style="width:80%">code &quot;remission&quot; (&quot;ConditionClinicalStatusCodes Code (remission)&quot;)</li>
+                <li style="width:80%">code &quot;resolved&quot; (&quot;ConditionClinicalStatusCodes Code (resolved)&quot;)</li>
+                <li style="width:80%">code &quot;Respiratory rate&quot; (&quot;LOINC Code (9279-1)&quot;)</li>
+                <li style="width:80%">code &quot;Systolic blood pressure&quot; (&quot;LOINC Code (8480-6)&quot;)</li>
+                <li style="width:80%">code &quot;unconfirmed&quot; (&quot;ConditionVerificationStatusCodes Code (unconfirmed)&quot;)</li>
+                <li style="width:80%">valueset &quot;Bicarbonate lab test&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.139)</li>
+                <li style="width:80%">valueset &quot;Body temperature&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.152)</li>
+                <li style="width:80%">valueset &quot;Body weight&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.159)</li>
+                <li style="width:80%">valueset &quot;Creatinine lab test&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2363)</li>
+                <li style="width:80%">valueset &quot;Emergency Department Visit&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292)</li>
+                <li style="width:80%">valueset &quot;Encounter Inpatient&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307)</li>
+                <li style="width:80%">valueset &quot;Ethnicity&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837)</li>
+                <li style="width:80%">valueset &quot;Glucose lab test&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.134)</li>
+                <li style="width:80%">valueset &quot;Hematocrit lab test&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.114)</li>
+                <li style="width:80%">valueset &quot;Medicare payer&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1104.10)</li>
+                <li style="width:80%">valueset &quot;Observation Services&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.143)</li>
+                <li style="width:80%">valueset &quot;ONC Administrative Sex&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1)</li>
+                <li style="width:80%">valueset &quot;Payer&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591)</li>
+                <li style="width:80%">valueset &quot;Potassium lab test&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.117)</li>
+                <li style="width:80%">valueset &quot;Race&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836)</li>
+                <li style="width:80%">valueset &quot;Sodium lab test&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.119)</li>
+                <li style="width:80%">valueset &quot;White blood cells count lab test&quot; (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.129)</li>
+        </ul>
+</div>    <h3><a name="d1e647" href="#toc">Data Criteria (FHIR Data Requirements)</a></h3>
+
+<div>
+        <ul style="padding-left: 50px;">
+                <li style="width:80%">&quot;Condition&quot;</li>
+                <li style="width:80%">&quot;Coverage: Medicare payer&quot; using &quot;Medicare payer (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1104.10)&quot;</li>
+                <li style="width:80%">&quot;Coverage: Payer&quot; using &quot;Payer (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Emergency Department Visit&quot; using &quot;Emergency Department Visit (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Encounter Inpatient&quot; using &quot;Encounter Inpatient (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307)&quot;</li>
+                <li style="width:80%">&quot;Encounter: Observation Services&quot; using &quot;Observation Services (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.143)&quot;</li>
+                <li style="width:80%">&quot;Location&quot;</li>
+                <li style="width:80%">&quot;Medication&quot;</li>
+                <li style="width:80%">&quot;Observation: Bicarbonate lab test&quot; using &quot;Bicarbonate lab test (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.139)&quot;</li>
+                <li style="width:80%">&quot;Observation: Body temperature&quot; using &quot;Body temperature (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.152)&quot;</li>
+                <li style="width:80%">&quot;Observation: Body weight&quot; using &quot;Body weight (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.159)&quot;</li>
+                <li style="width:80%">&quot;Observation: Creatinine lab test&quot; using &quot;Creatinine lab test (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2363)&quot;</li>
+                <li style="width:80%">&quot;Observation: Glucose lab test&quot; using &quot;Glucose lab test (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.134)&quot;</li>
+                <li style="width:80%">&quot;Observation: Heart rate&quot; using &quot;Heart rate (LOINC Code 8867-4)&quot;</li>
+                <li style="width:80%">&quot;Observation: Hematocrit lab test&quot; using &quot;Hematocrit lab test (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.114)&quot;</li>
+                <li style="width:80%">&quot;Observation: Oxygen saturation in Arterial blood by Pulse oximetry&quot; using &quot;Oxygen saturation in Arterial blood by Pulse oximetry (LOINC Code 59408-5)&quot;</li>
+                <li style="width:80%">&quot;Observation: Potassium lab test&quot; using &quot;Potassium lab test (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.117)&quot;</li>
+                <li style="width:80%">&quot;Observation: Respiratory rate&quot; using &quot;Respiratory rate (LOINC Code 9279-1)&quot;</li>
+                <li style="width:80%">&quot;Observation: Sodium lab test&quot; using &quot;Sodium lab test (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.119)&quot;</li>
+                <li style="width:80%">&quot;Observation: Systolic blood pressure&quot; using &quot;Systolic blood pressure (LOINC Code 8480-6)&quot;</li>
+                <li style="width:80%">&quot;Observation: White blood cells count lab test&quot; using &quot;White blood cells count lab test (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.129)&quot;</li>
+                <li style="width:80%">&quot;Provenance&quot;</li>
+        </ul>
+</div><h3><a name="d1e767" href="#toc">Supplemental Data Elements</a></h3>
+<ul style="list-style:none;padding-left: 25px;">
+	<li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="Results915565914" />
+        <label for="Results915565914" class="list-header"><strong>Results</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">flatten{
+                  // First physical exams (vital signs)
+                    &quot;FirstPhysicalExamWithEncounterId&quot;(([Observation: &quot;Heart rate&quot;] O where O.effective is not null sort by effective.value), &#39;FirstHeartRate&#39;),
+                                &quot;FirstPhysicalExamWithEncounterId&quot;(([Observation: &quot;Systolic blood pressure&quot;] O where O.effective is not null sort by effective.value), &#39;FirstSystolicBP&#39;),
+                                &quot;FirstPhysicalExamWithEncounterId&quot;(([Observation: &quot;Respiratory rate&quot;] O where O.effective is not null sort by effective.value), &#39;FirstRespRate&#39;),
+                                &quot;FirstPhysicalExamWithEncounterId&quot;(([Observation: &quot;Body temperature&quot;] O where O.effective is not null sort by effective.value), &#39;FirstTeperature&#39;),
+                                &quot;FirstPhysicalExamWithEncounterId&quot;(([Observation: &quot;Oxygen saturation in Arterial blood by Pulse oximetry&quot;] O where O.effective is not null sort by effective.value), &#39;FirstO2Saturation&#39;),
+                                  
+                  // First weight using lab test timing
+                      &quot;FirstPhysicalExamWithEncounterIdUsingLabTiming&quot;(([Observation: &quot;Body weight&quot;] O where O.effective is not null sort by effective.value), &#39;FirstWeight&#39;), 
+                  //First lab tests
+                       &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;Hematocrit lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstHematocrit&#39;),
+                        &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;White blood cells count lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstWhiteBloodCell&#39;),
+                        &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;Potassium lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstPotassium&#39;),
+                        &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;Sodium lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstSodium&#39;),
+                        &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;Bicarbonate lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstBicarbonate&#39;),
+                        &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;Creatinine lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstCreatinine&#39;),
+                        &quot;FirstLabTestWithEncounterId&quot;(([Observation: &quot;Glucose lab test&quot;] O where O.issued is not null sort by issued.value), &#39;FirstGlucose&#39;)
+            }</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="SDE_Ethnicity1048930233" />
+        <label for="SDE_Ethnicity1048930233" class="list-header"><strong>SDE Ethnicity</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">SDE.&quot;SDE Ethnicity&quot;</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="SDE_Payer1003222830" />
+        <label for="SDE_Payer1003222830" class="list-header"><strong>SDE Payer</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">SDE.&quot;SDE Payer&quot;</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="SDE_Race619923231" />
+        <label for="SDE_Race619923231" class="list-header"><strong>SDE Race</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">SDE.&quot;SDE Race&quot;</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li><li class="list-unstyled">
+    <div class="treeview hover p-l-10">
+        <input type="checkbox" id="SDE_Sex1027164468" />
+        <label for="SDE_Sex1027164468" class="list-header"><strong>SDE Sex</strong></label>
+        <ul class="code" style="margin-right: 20%; opacity: 1;">
+            <li class="list-unstyled">
+                <div>
+                    <ul style="padding-left: 0px;">
+                        <li style="padding-left: 0px;" class="list-unstyled">
+                            <div>
+                                <pre class="cql-definition-body">SDE.&quot;SDE Sex&quot;</pre>
+                            </div>
+                        </li>
+                    </ul>&nbsp;
+                </div>
+            </li>
+        </ul>
+    </div>
+</li></ul><h3><a name="d1e879" href="#toc">Risk Adjustment Variables</a></h3>
+<ul style="list-style:none;padding-left: 25px;">
+			<li>None</li>
+</ul><div style="float:left; background:teal; height:3px; width:80%"></div>
+<pre><br/></pre><table class="header_table" role="presentation">
+    <tbody>
+        <tr>
+            <th scope="row" class="row-header"><span class="td_label">Measure Set</span></th>
+            <td style="width:80%" colspan="3">
+                <div style="width:660px;">
+                    <pre></pre>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+    </body>
+</html>
