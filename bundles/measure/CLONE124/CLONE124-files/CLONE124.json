@@ -12,6 +12,11 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
     "valueCode": "boolean"
   }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "cqf-tooling"
+    }
+  }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
     "valueParameterDefinition": {
       "name": "Measurement Period",
@@ -317,11 +322,6 @@
       "url": "displaySequence",
       "valueInteger": 13
     } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
-    "valueReference": {
-      "reference": "cqf-tooling"
-    }
   } ],
   "url": "http://ecqi.healthit.gov/ecqms/Measure/CervicalCancerScreeningFHIR",
   "identifier": [ {
@@ -334,7 +334,7 @@
   "title": "Cervical Cancer Screening FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-05-17T16:38:48-06:00",
+  "date": "2021-05-17T17:56:37-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {

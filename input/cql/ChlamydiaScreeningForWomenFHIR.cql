@@ -1,4 +1,4 @@
-library ChlamydiaScreeningforWomenFHIR version '0.0.001'
+library ChlamydiaScreeningForWomenFHIR version '0.0.001'
 
 using FHIR version '4.0.1'
 

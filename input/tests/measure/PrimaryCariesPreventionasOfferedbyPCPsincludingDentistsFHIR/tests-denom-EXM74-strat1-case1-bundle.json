@@ -4,6 +4,33 @@
   "type": "transaction",
   "entry": [ {
     "resource": {
+      "resourceType": "Coverage",
+      "id": "denom-EXM74-strat1-case1-Coverage",
+      "status": "active",
+      "type": {
+        "coding": [ {
+          "system": "http://www.nlm.nih.gov/research/umls/sop",
+          "code": "299",
+          "display": "Medicaid - Dental"
+        } ]
+      },
+      "beneficiary": {
+        "reference": "Patient/denom-EXM74-strat1-case1"
+      },
+      "period": {
+        "start": "2018-05-30T00:00:00-00:00",
+        "end": "2020-05-31T00:00:00-00:00"
+      },
+      "payor": [ {
+        "reference": "Patient/denom-EXM74-strat1-case1"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Coverage/denom-EXM74-strat1-case1-Coverage"
+    }
+  }, {
+    "resource": {
       "resourceType": "Encounter",
       "id": "denom-EXM74-strat1-case1-Encounter",
       "meta": {
@@ -84,33 +111,6 @@
     "request": {
       "method": "PUT",
       "url": "Patient/denom-EXM74-strat1-case1"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Coverage",
-      "id": "denom-EXM74-strat1-case1-Coverage",
-      "status": "active",
-      "type": {
-        "coding": [ {
-          "system": "http://www.nlm.nih.gov/research/umls/sop",
-          "code": "299",
-          "display": "Medicaid - Dental"
-        } ]
-      },
-      "beneficiary": {
-        "reference": "Patient/denom-EXM74-strat1-case1"
-      },
-      "period": {
-        "start": "2018-05-30T00:00:00-00:00",
-        "end": "2020-05-31T00:00:00-00:00"
-      },
-      "payor": [ {
-        "reference": "Patient/denom-EXM74-strat1-case1"
-      } ]
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Coverage/denom-EXM74-strat1-case1-Coverage"
     }
   } ]
 }

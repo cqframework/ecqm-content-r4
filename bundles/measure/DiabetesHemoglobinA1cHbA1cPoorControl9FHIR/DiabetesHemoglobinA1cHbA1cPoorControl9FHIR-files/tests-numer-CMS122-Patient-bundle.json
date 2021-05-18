@@ -4,34 +4,6 @@
   "type": "transaction",
   "entry": [ {
     "resource": {
-      "resourceType": "Encounter",
-      "id": "numer-CMS122-Encounter",
-      "text": {
-        "status": "generated"
-      },
-      "status": "finished",
-      "type": [ {
-        "coding": [ {
-          "system": "urn:oid:2.16.840.1.113883.6.12",
-          "code": "99202",
-          "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and straightforward medical decision making. When using time for code selection, 15-29 minutes of total time is spent on the date of the encounter."
-        } ],
-        "text": "Office Visit"
-      } ],
-      "subject": {
-        "reference": "Patient/numer-CMS122-Patient"
-      },
-      "period": {
-        "start": "2019-01-16T08:30:00",
-        "end": "2019-01-20T08:30:00"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Encounter/numer-CMS122-Encounter"
-    }
-  }, {
-    "resource": {
       "resourceType": "Condition",
       "id": "numer-CMS122-Condition",
       "clinicalStatus": {
@@ -74,48 +46,31 @@
     }
   }, {
     "resource": {
-      "resourceType": "Patient",
-      "id": "numer-CMS122-Patient",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
-      },
+      "resourceType": "Encounter",
+      "id": "numer-CMS122-Encounter",
       "text": {
-        "status": "extensions"
+        "status": "generated"
       },
-      "extension": [ {
-        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
-        "extension": [ {
-          "url": "ombCategory",
-          "valueCoding": {
-            "system": "urn:oid:2.16.840.1.113883.6.238",
-            "code": "2106-3",
-            "display": "White"
-          }
-        } ]
-      }, {
-        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
-        "extension": [ {
-          "url": "ombCategory",
-          "valueCoding": {
-            "system": "urn:oid:2.16.840.1.113883.6.238",
-            "code": "2186-5",
-            "display": "Not Hispanic or Latino"
-          }
-        } ]
+      "status": "finished",
+      "type": [ {
+        "coding": [ {
+          "system": "urn:oid:2.16.840.1.113883.6.12",
+          "code": "99202",
+          "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and straightforward medical decision making. When using time for code selection, 15-29 minutes of total time is spent on the date of the encounter."
+        } ],
+        "text": "Office Visit"
       } ],
-      "active": true,
-      "name": [ {
-        "use": "official",
-        "text": "BECK,TOM",
-        "family": "BECK",
-        "given": [ "TOM" ]
-      } ],
-      "gender": "male",
-      "birthDate": "1965-06-30"
+      "subject": {
+        "reference": "Patient/numer-CMS122-Patient"
+      },
+      "period": {
+        "start": "2019-01-16T08:30:00",
+        "end": "2019-01-20T08:30:00"
+      }
     },
     "request": {
       "method": "PUT",
-      "url": "Patient/numer-CMS122-Patient"
+      "url": "Encounter/numer-CMS122-Encounter"
     }
   }, {
     "resource": {
@@ -182,6 +137,51 @@
     "request": {
       "method": "PUT",
       "url": "Observation/numer-CMS122-Observation2"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "numer-CMS122-Patient",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+      },
+      "text": {
+        "status": "extensions"
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2106-3",
+            "display": "White"
+          }
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino"
+          }
+        } ]
+      } ],
+      "active": true,
+      "name": [ {
+        "use": "official",
+        "text": "BECK,TOM",
+        "family": "BECK",
+        "given": [ "TOM" ]
+      } ],
+      "gender": "male",
+      "birthDate": "1965-06-30"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/numer-CMS122-Patient"
     }
   } ]
 }

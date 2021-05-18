@@ -128,56 +128,8 @@
         "code": [ {
           "code": "finished"
         } ]
-      }, {
-        "path": "status",
-        "code": [ {
-          "code": "finished"
-        } ]
-      }, {
-        "path": "status",
-        "code": [ {
-          "code": "finished"
-        } ]
-      }, {
-        "path": "status",
-        "code": [ {
-          "code": "finished"
-        } ]
       } ],
       "dateFilter": [ {
-        "path": "period",
-        "_valueDateTime": {
-          "extension": [ {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql-identifier",
-              "expression": "Measurement Period"
-            }
-          } ]
-        }
-      }, {
-        "path": "period",
-        "_valueDateTime": {
-          "extension": [ {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql-identifier",
-              "expression": "Measurement Period"
-            }
-          } ]
-        }
-      }, {
-        "path": "period",
-        "_valueDateTime": {
-          "extension": [ {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql-identifier",
-              "expression": "Measurement Period"
-            }
-          } ]
-        }
-      }, {
         "path": "period",
         "_valueDateTime": {
           "extension": [ {
@@ -219,56 +171,8 @@
         "code": [ {
           "code": "finished"
         } ]
-      }, {
-        "path": "status",
-        "code": [ {
-          "code": "finished"
-        } ]
-      }, {
-        "path": "status",
-        "code": [ {
-          "code": "finished"
-        } ]
-      }, {
-        "path": "status",
-        "code": [ {
-          "code": "finished"
-        } ]
       } ],
       "dateFilter": [ {
-        "path": "period",
-        "_valueDateTime": {
-          "extension": [ {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql-identifier",
-              "expression": "Measurement Period"
-            }
-          } ]
-        }
-      }, {
-        "path": "period",
-        "_valueDateTime": {
-          "extension": [ {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql-identifier",
-              "expression": "Measurement Period"
-            }
-          } ]
-        }
-      }, {
-        "path": "period",
-        "_valueDateTime": {
-          "extension": [ {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql-identifier",
-              "expression": "Measurement Period"
-            }
-          } ]
-        }
-      }, {
         "path": "period",
         "_valueDateTime": {
           "extension": [ {
@@ -310,56 +214,8 @@
         "code": [ {
           "code": "finished"
         } ]
-      }, {
-        "path": "status",
-        "code": [ {
-          "code": "finished"
-        } ]
-      }, {
-        "path": "status",
-        "code": [ {
-          "code": "finished"
-        } ]
-      }, {
-        "path": "status",
-        "code": [ {
-          "code": "finished"
-        } ]
       } ],
       "dateFilter": [ {
-        "path": "period",
-        "_valueDateTime": {
-          "extension": [ {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql-identifier",
-              "expression": "Measurement Period"
-            }
-          } ]
-        }
-      }, {
-        "path": "period",
-        "_valueDateTime": {
-          "extension": [ {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql-identifier",
-              "expression": "Measurement Period"
-            }
-          } ]
-        }
-      }, {
-        "path": "period",
-        "_valueDateTime": {
-          "extension": [ {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql-identifier",
-              "expression": "Measurement Period"
-            }
-          } ]
-        }
-      }, {
         "path": "period",
         "_valueDateTime": {
           "extension": [ {
@@ -644,7 +500,7 @@
   "title": "CMS 111",
   "status": "draft",
   "experimental": false,
-  "date": "2021-05-17T16:38:47-06:00",
+  "date": "2021-05-17T17:56:37-06:00",
   "publisher": "Centers for Medicare & Medicaid Services (CMS)",
   "contact": [ {
     "telecom": [ {

@@ -195,17 +195,6 @@
             }
           } ]
         }
-      }, {
-        "path": "period",
-        "_valueDateTime": {
-          "extension": [ {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql-identifier",
-              "expression": "Measurement Period"
-            }
-          } ]
-        }
       } ]
     }
   }, {
@@ -241,24 +230,8 @@
         "code": [ {
           "code": "order"
         } ]
-      }, {
-        "path": "intent",
-        "code": [ {
-          "code": "order"
-        } ]
       } ],
       "dateFilter": [ {
-        "path": "authoredOn",
-        "_valueDateTime": {
-          "extension": [ {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql-identifier",
-              "expression": "Measurement Period"
-            }
-          } ]
-        }
-      }, {
         "path": "authoredOn",
         "_valueDateTime": {
           "extension": [ {
@@ -348,11 +321,6 @@
         "code": [ {
           "code": "completed"
         } ]
-      }, {
-        "path": "status",
-        "code": [ {
-          "code": "completed"
-        } ]
       } ]
     }
   }, {
@@ -365,6 +333,17 @@
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
       } ],
       "dateFilter": [ {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
         "path": "authoredOn",
         "_valueDateTime": {
           "extension": [ {
@@ -883,7 +862,7 @@
   "title": "Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-05-17T16:38:47-06:00",
+  "date": "2021-05-17T17:56:37-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {

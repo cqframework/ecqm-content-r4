@@ -5,7 +5,7 @@
   "entry": [ {
     "resource": {
       "resourceType": "Patient",
-      "id": "denom-EXM74",
+      "id": "numer-strat3-EXM74",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
       },
@@ -47,11 +47,11 @@
         "given": [ "Louise" ]
       } ],
       "gender": "female",
-      "birthDate": "2010-11-21"
+      "birthDate": "2005-11-21"
     },
     "request": {
       "method": "PUT",
-      "url": "Patient/denom-EXM74"
+      "url": "Patient/numer-strat3-EXM74"
     }
   } ]
 }

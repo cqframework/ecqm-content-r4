@@ -5,7 +5,7 @@
   "entry": [ {
     "resource": {
       "resourceType": "Procedure",
-      "id": "numer-strat2-EXM74-Procedure",
+      "id": "numer-strat3-EXM74-Procedure",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" ]
       },
@@ -18,7 +18,7 @@
         } ]
       },
       "subject": {
-        "reference": "Patient/numer-strat2-EXM74"
+        "reference": "Patient/numer-strat3-EXM74"
       },
       "performedPeriod": {
         "start": "2019-08-21T08:05:00-07:00",
@@ -27,7 +27,7 @@
     },
     "request": {
       "method": "PUT",
-      "url": "Procedure/numer-strat2-EXM74-Procedure"
+      "url": "Procedure/numer-strat3-EXM74-Procedure"
     }
   } ]
 }

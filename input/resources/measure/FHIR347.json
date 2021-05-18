@@ -3,7 +3,7 @@
   "id": "FHIR347",
   "meta": {
     "versionId": "7",
-    "lastUpdated": "2021-04-29T09:31:40.000-05:00",
+    "lastUpdated": "2021-04-29T08:31:40.000-06:00",
     "source": "#PLO1cndnG1rcw9qt",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
   },
@@ -684,7 +684,7 @@
   "title": "Statin Therapy for the Prevention and Treatment of Cardiovascular Disease FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-05-17T10:25:20-05:00",
+  "date": "2021-05-17T18:56:37-05:00",
   "publisher": "Mathematica",
   "contact": [ {
     "telecom": [ {

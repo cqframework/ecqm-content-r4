@@ -5,7 +5,7 @@
   "entry": [ {
     "resource": {
       "resourceType": "Encounter",
-      "id": "denom-EXM74-Encounter",
+      "id": "numer-strat3-EXM74-Encounter",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
       },
@@ -23,7 +23,7 @@
         } ]
       } ],
       "subject": {
-        "reference": "Patient/denom-EXM74"
+        "reference": "Patient/numer-strat3-EXM74"
       },
       "period": {
         "start": "2019-08-21T08:00:00-07:00",
@@ -32,7 +32,7 @@
     },
     "request": {
       "method": "PUT",
-      "url": "Encounter/denom-EXM74-Encounter"
+      "url": "Encounter/numer-strat3-EXM74-Encounter"
     }
   } ]
 }
