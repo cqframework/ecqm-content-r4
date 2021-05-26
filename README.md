@@ -16,7 +16,7 @@ The following table provides an index to the currently available library content
 |Library|Version|Status|
 |----|----|----|
 |[AdultOutpatientEncountersFHIR4](input/cql/AdultOutpatientEncountersFHIR4.cql)|2.0.000|Active|
-|[AdvancedIllnessandFrailtyExclusionECQMFHIR4](input/cql/AvancedIllnessandFrailtyExclusionECQMFHIR4.cql)|5.12.000|Active|
+|[AdvancedIllnessandFrailtyExclusionECQMFHIR4](input/cql/AdvancedIllnessandFrailtyExclusionECQMFHIR4.cql)|5.12.000|Active|
 |[FHIRHelpers](input/cql/FHIRHelpers.cql)|4.0.001|Active|
 |[HospiceFHIR4](input/cql/HospiceFHIR4.cql)|2.0.000|Active|
 |[MATGlobalCommonFunctionsFHIR4](input/cql/MATGlobalCommonFunctionsFHIR4.cql)|5.0.000|Active|
