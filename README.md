@@ -27,16 +27,16 @@ The following table provides an index to the currently available library content
 
 |Library|Version|Status|
 |----|----|----|
-|[BreastCancerScreeningFHIR](input/cql/BreastCancerScreeningFHIR.cql)|2.0.003|Active|
+|[BreastCancerScreeningFHIR](input/cql/BreastCancerScreeningFHIR.cql)|2.0.003|Draft|
 |[CMS111](input/cql/CMS111.cql)|0.0.013|Draft|
 |[CervicalCancerScreeningFHIR](input/cql/CervicalCancerScreeningFHIR.cql)|0.0.001|Draft|
 |[ChlamydiaScreeningForWomenFHIR](input/cql/ChlamydiaScreeningForWomenFHIR.cql)|0.0.001|Draft|
 |[ColorectalCancerScreeningsFHIR](input/cql/ColorectalCancerScreeningsFHIR.cql)|0.0.001|Draft|
 |[DiabetesHemoglobinA1cHbA1cPoorControl9FHIR](input/cql/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR.cql)|0.0.001|Draft|
-|[DischargedonAntithromboticTherapyFHIR](input/cql/DischargedonAntithromboticTherapyFHIR.cql)|1.0.001|Active|
+|[DischargedonAntithromboticTherapyFHIR](input/cql/DischargedonAntithromboticTherapyFHIR.cql)|1.0.001|Draft|
 |[EXM506](input/cql/EXM506.cql)|0.0.002|Draft|
 |[FHIR347](input/cql/FHIR347.cql)|0.1.009|Draft|
-|[HybridHWRFHIR](input/cql/HybridHWRFHIR.cql)|1.2.002|Active|
+|[HybridHWRFHIR](input/cql/HybridHWRFHIR.cql)|1.2.002|Draft|
 |[PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR](input/cql/PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR.cql)|0.0.002|Draft|
 
 ## Repository Structure
