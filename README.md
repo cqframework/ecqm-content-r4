@@ -1,7 +1,7 @@
 # ecqm-content-r4
 eCQM Measure Content (FHIR R4 v4.0.1)
 
-This repository contains measure artifacts for FHIR based eCQMs for the 2020 reporting year. Note that these measures and shared libraries are translated from the versions of eCQMs published for the 2020 reporting year, and have specific versions, especially for the shared libraries, appropriate to the content for that reporting year. For current translation efforts focused on the 2021 reporting year, see the [eCQM Content R4 2021](https://github.com/cqframework/ecqm-content-r4-2021) repository.
+This repository contains measure artifacts for FHIR based eCQMs published in May of 2020 for the 2021 reporting year. These measures and shared libraries are translated from the QDM-based versions of eCQMs published in May 2020 for the 2021 reporting year, and have specific versions, especially for the shared libraries, appropriate to the content for that publication update. For current translation efforts focused on the 2021 publication and the 2022 reporting year, see the [eCQM Content R4 2021](https://github.com/cqframework/ecqm-content-r4-2021) repository.
 
 Commits to this repository will automatically trigger a build of the continuous integration build, available here:
 
