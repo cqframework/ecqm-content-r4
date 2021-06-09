@@ -88,15 +88,15 @@ define function "AdmitDecisionUsingEncounterOrderDuringLastEDandBeforeDeparture"
       where AdmitOrder.authoredOn during LastEDVisit.period
         and AdmitOrder.authoredOn before or on "EDDepartureTime"(LastEDVisit)
         and AdmitOrder.intent in {'plan', 'order'}
-      sort by authoredOn)
+      sort by FHIRHelpers.ToDateTime(authoredOn))
 
 define function "EDDepartureTime"(Encounter Encounter ):
   /* The time the patient physically departed the Emergency Department */
   Last(Encounter.location Location
       where ((Global.GetLocation(Location.location))Place
-      where exists(Place.type PlaceType 
+      where exists(Place.type PlaceType
   where FHIRHelpers.ToConcept(PlaceType ) in "Emergency Department Visit")) is not null
-        and (end of Location.period) != maximum DateTime
+        /* and (end of Location.period) != maximum DateTime */
       return
       end of Location.period
       sort ascending)
@@ -107,8 +107,8 @@ define function "AdmitDecisionUsingAssessmentDuringLastEDBeforeDeparture"(Encoun
     ["Observation": "Emergency Department Evaluation"] EDEvaluation
       let LastEDVisit: "LastEDEncounter"(EncounterInpatient)
       where Global."Normalize Interval"(EDEvaluation.effective) starts during LastEDVisit.period
-     and FHIRHelpers.ToConcept(EDEvaluation.value as FHIR.CodeableConcept) in "Admit Inpatient" 
-            
+     and FHIRHelpers.ToConcept(EDEvaluation.value as FHIR.CodeableConcept) in "Admit Inpatient"
+
             and EDEvaluation.status in {'final', 'amended', 'corrected'}
             and Global."Normalize Interval"(EDEvaluation.effective) starts before or on "EDDepartureTime"(LastEDVisit)
    sort by start of Global."Normalize Interval" (effective))
