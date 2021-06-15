@@ -1,0 +1,1330 @@
+{
+  "resourceType": "Measure",
+  "id": "ControllingHighBloodPressureFHIR",
+  "meta": {
+    "versionId": "2",
+    "lastUpdated": "2021-05-12T16:18:09.000-05:00",
+    "source": "#qSjAb3wdGFl52pze",
+    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
+  },
+  "language": "en",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+    "valueCode": "boolean"
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "cqf-tooling"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Measurement Period",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "type": "Period"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "SDE Sex",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "Coding"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Numerator",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Denominator",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "SDE Payer",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Any"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Initial Population",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "SDE Ethnicity",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Coding"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Denominator Exclusions",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "SDE Race",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Coding"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "codeFilter": [ {
+        "path": "code",
+        "code": [ {
+          "system": "http://loinc.org",
+          "code": "85354-9",
+          "display": "Blood pressure panel with all children optional"
+        } ]
+      }, {
+        "path": "component.code"
+      }, {
+        "path": "component.code"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "codeFilter": [ {
+        "path": "code",
+        "code": [ {
+          "system": "http://loinc.org",
+          "code": "85354-9",
+          "display": "Blood pressure panel with all children optional"
+        } ]
+      }, {
+        "path": "component.code"
+      }, {
+        "path": "component.code"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Patient",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "codeFilter": [ {
+        "path": "url",
+        "code": [ {
+          "code": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        } ]
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
+      } ],
+      "dateFilter": [ {
+        "path": "period",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "period",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "period",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "period",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "period",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "ServiceRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+      }, {
+        "path": "intent",
+        "code": [ {
+          "code": "order"
+        } ]
+      }, {
+        "path": "intent",
+        "code": [ {
+          "code": "order"
+        } ]
+      }, {
+        "path": "intent",
+        "code": [ {
+          "code": "order"
+        } ]
+      }, {
+        "path": "intent",
+        "code": [ {
+          "code": "order"
+        } ]
+      }, {
+        "path": "intent",
+        "code": [ {
+          "code": "order"
+        } ]
+      } ],
+      "dateFilter": [ {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Procedure",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+      }, {
+        "path": "status",
+        "code": [ {
+          "code": "completed"
+        } ]
+      }, {
+        "path": "status",
+        "code": [ {
+          "code": "completed"
+        } ]
+      }, {
+        "path": "status",
+        "code": [ {
+          "code": "completed"
+        } ]
+      }, {
+        "path": "status",
+        "code": [ {
+          "code": "completed"
+        } ]
+      }, {
+        "path": "status",
+        "code": [ {
+          "code": "completed"
+        } ]
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "DeviceRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/DeviceRequest" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
+      } ],
+      "dateFilter": [ {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "DeviceUseStatement",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" ],
+      "codeFilter": [ {
+        "path": "device.code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1074"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1075"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Patient",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "codeFilter": [ {
+        "path": "url",
+        "code": [ {
+          "code": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        } ]
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+    "valueCoding": {
+      "system": "http://loinc.org",
+      "code": "85354-9",
+      "display": "Blood pressure panel with all children optional"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+    "valueCoding": {
+      "system": "http://loinc.org",
+      "code": "8462-4",
+      "display": "Diastolic blood pressure"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+    "valueCoding": {
+      "system": "http://loinc.org",
+      "code": "8480-6",
+      "display": "Systolic blood pressure"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+    "valueCoding": {
+      "system": "http://terminology.hl7.org/CodeSystem/condition-verification",
+      "code": "confirmed",
+      "display": "confirmed"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+    "valueCoding": {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/version/201709",
+      "code": "428361000124107",
+      "display": "Discharge to home for hospice care (procedure)"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+    "valueCoding": {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/version/201709",
+      "code": "428371000124100",
+      "display": "Discharge to healthcare facility for hospice care (procedure)"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "SupplementalDataElementsFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "SDE Sex"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Sex\":\n  case\n      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }\n      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }\n      else null\n    end"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 0
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "SDE Sex"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Sex\":\n  SDE.\"SDE Sex\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 1
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "AdultOutpatientEncountersFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "Qualifying Encounters"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Qualifying Encounters\":\n  (\n      [Encounter: \"Office Visit\"]\n    \t\tunion [Encounter: \"Annual Wellness Visit\"]\n    \t\tunion [Encounter: \"Preventive Care Services - Established Office Visit, 18 and Up\"]\n    \t\tunion [Encounter: \"Preventive Care Services-Initial Office Visit, 18 and Up\"]\n    \t\tunion [Encounter: \"Home Healthcare Services\"]\n    ) ValidEncounter\n  \t\twhere ValidEncounter.period during \"Measurement Period\"\n    \t\tand ValidEncounter.status  = 'finished'"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 2
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Qualifying Diastolic Blood Pressure Reading"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Qualifying Diastolic Blood Pressure Reading\":\n  [Observation: \"Blood pressure panel with all children optional\"] BloodPressure\n                                  where BloodPressure.status.value in {'final', 'amended'}\n                                  and Global.\"Normalize Interval\"(BloodPressure.effective) during \"Measurement Period\"\n    and not ((GetEncounter(BloodPressure.encounter)).class.code.value in {'emergency', 'inpatient encounter', 'inpatient acute', 'inpatient non-acute', 'pre-admission', 'short stay'})\n                                  and exists (BloodPressure.component DiastolicBP\n                                  where FHIRHelpers.ToConcept(DiastolicBP.code) ~ \"Diastolic blood pressure\"\n                                  and DiastolicBP.value.unit = 'mm[Hg]')"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 3
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Qualifying Systolic Blood Pressure Reading"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Qualifying Systolic Blood Pressure Reading\":\n  [Observation: \"Blood pressure panel with all children optional\"] BloodPressure\n                                    where BloodPressure.status.value in {'final', 'amended'}\n                                    and Global.\"Normalize Interval\"(BloodPressure.effective) during \"Measurement Period\"\n    and not (GetEncounter(BloodPressure.encounter).class.code.value in {'emergency', 'inpatient encounter', 'inpatient acute', 'inpatient non-acute', 'pre-admission', 'short stay'})\n                                    and exists (BloodPressure.component SystolicBP\n                                    where FHIRHelpers.ToConcept(SystolicBP.code) ~ \"Systolic blood pressure\"\n                                    and SystolicBP.value.unit = 'mm[Hg]')"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 4
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Blood Pressure Days"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Blood Pressure Days\":\n  ((\"Qualifying Diastolic Blood Pressure Reading\" DBPExam\n                                  return date from DBPExam.effective)\n                                  intersect (\"Qualifying Systolic Blood Pressure Reading\" SBPExam\n                                  return date from SBPExam.effective))"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 5
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Most Recent Blood Pressure Day"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Most Recent Blood Pressure Day\":\n  Max(\"Blood Pressure Days\")"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 6
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Lowest Diastolic Reading on Most Recent Blood Pressure Day"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Lowest Diastolic Reading on Most Recent Blood Pressure Day\":\n  First(\"Qualifying Diastolic Blood Pressure Reading\" DBPReading\n                            where DBPReading.effective same day as \"Most Recent Blood Pressure Day\"\n                            return singleton from (\n                            DBPReading.component C\n                              where C.code ~ \"Diastolic blood pressure\"\n                              return C.value as Quantity\n                          )\n                    \t\t\tsort ascending\n                    \t)"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 7
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Has Diastolic Blood Pressure Less Than 90"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Has Diastolic Blood Pressure Less Than 90\":\n  \"Lowest Diastolic Reading on Most Recent Blood Pressure Day\"\n                    .value < 90"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 8
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Lowest Systolic Reading on Most Recent Blood Pressure Day"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Lowest Systolic Reading on Most Recent Blood Pressure Day\":\n  First(\"Qualifying Systolic Blood Pressure Reading\" SBPReading\n                            where SBPReading.effective same day as \"Most Recent Blood Pressure Day\"\n                           return singleton from (\n                            SBPReading.component C\n                              where C.code ~ \"Systolic blood pressure\"\n                              return C.value as Quantity\n                          )\n                          sort ascending\n                    \t)"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 9
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Has Systolic Blood Pressure Less Than 140"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Has Systolic Blood Pressure Less Than 140\":\n  \"Lowest Systolic Reading on Most Recent Blood Pressure Day\".value < 140"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 10
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Numerator"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Numerator\":\n  \"Has Diastolic Blood Pressure Less Than 90\"\n                                  and \"Has Systolic Blood Pressure Less Than 140\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 11
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Essential Hypertension Diagnosis"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Essential Hypertension Diagnosis\":\n  [Condition: \"Essential Hypertension\"] Hypertension\n                                    where Hypertension.verificationStatus ~ ToConcept(Global.\"confirmed\")\n                                    and (Global.\"Prevalence Period\"(Hypertension) overlaps Interval[start of \"Measurement Period\" - 1 year, end of \"Measurement Period\"])"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 12
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Initial Population"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Initial Population\":\n  Global.CalendarAgeInYearsAt(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\") between 18 and 84\n                                    and exists \"Essential Hypertension Diagnosis\"\n                                    and exists AdultOutpatientEncounters.\"Qualifying Encounters\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 13
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Denominator"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Denominator\":\n  \"Initial Population\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 14
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "SupplementalDataElementsFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "SDE Payer"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Payer\":\n  [Coverage: type in \"Payer\"] Payer\n        return {\n          code: Payer.type,\n          period: Payer.period\n        }"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 15
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "SDE Payer"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Payer\":\n  SDE.\"SDE Payer\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 16
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "SupplementalDataElementsFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "SDE Ethnicity"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 17
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "SDE Ethnicity"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Ethnicity\":\n  SDE.\"SDE Ethnicity\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 18
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "HospiceFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "Has Hospice"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Has Hospice\":\n  exists (\n      [Encounter: \"Encounter Inpatient\"] DischargeHospice\n  \t\t\twhere DischargeHospice.status = 'finished'\n  \t\t    and (\n  \t        DischargeHospice.hospitalization.dischargeDisposition ~ \"Discharge to home for hospice care (procedure)\"\n  \t\t\t\t    or DischargeHospice.hospitalization.dischargeDisposition ~ \"Discharge to healthcare facility for hospice care (procedure)\"\n  \t    \t)\n  \t\t\t\tand DischargeHospice.period ends during \"Measurement Period\"\n  \t)\n      or exists (\n        [ServiceRequest: \"Hospice care ambulatory\"] HospiceOrder\n          where HospiceOrder.intent = 'order'\n              and HospiceOrder.authoredOn in \"Measurement Period\"\n      )\n      or exists (\n        [Procedure: \"Hospice care ambulatory\"] HospicePerformed\n          where HospicePerformed.status = 'completed'\n            and Global.\"Normalize Interval\"(HospicePerformed.performed) overlaps \"Measurement Period\"\n      )"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 19
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Pregnancy Or Renal Diagnosis Exclusions"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Pregnancy Or Renal Diagnosis Exclusions\":\n  ([Condition: \"Pregnancy\"]\n                                    union [Condition: \"End Stage Renal Disease\"]\n                                    union [Condition: \"Kidney Transplant Recipient\"]\n                                    union [Condition: \"Chronic Kidney Disease, Stage 5\"]) PregnancyESRDDiagnosis\n                                    where PregnancyESRDDiagnosis.verificationStatus ~ ToConcept(Global.\"confirmed\")\n                                    and (Global.\"Prevalence Period\"(PregnancyESRDDiagnosis) overlaps \"Measurement Period\")"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 20
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "End Stage Renal Disease Procedures"
+    }, {
+      "url": "statement",
+      "valueString": "define \"End Stage Renal Disease Procedures\":\n  ([Procedure: \"Vascular Access for Dialysis\"]\n                                  union [Procedure: \"Kidney Transplant\"]\n                                  union [Procedure: \"Dialysis Services\"]) ESRDProcedure\n                                  where ESRDProcedure.status = 'completed'\n                                  and Global.\"Normalize Interval\"(ESRDProcedure.performed) starts before end of \"Measurement Period\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 21
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "End Stage Renal Disease Encounter"
+    }, {
+      "url": "statement",
+      "valueString": "define \"End Stage Renal Disease Encounter\":\n  [Encounter: \"ESRD Monthly Outpatient Services\"] ESRDEncounter\n                                  where ESRDEncounter.status in {'arrived', 'triaged', 'in-progress', 'onleave', 'finished'}\n                                  and ESRDEncounter.period starts before end of \"Measurement Period\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 22
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "Long Term Care Periods During Measurement Period"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Long Term Care Periods During Measurement Period\":\n  ( [Encounter: \"Care Services in Long-Term Residential Facility\"]\n          \t\tunion [Encounter: \"Nursing Facility Visit\"] ) LongTermFacilityEncounter\n          \t\twhere LongTermFacilityEncounter.period overlaps \"Measurement Period\"\n          \t\treturn LongTermFacilityEncounter.period\n          \t\t\tintersect \"Measurement Period\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 23
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "Days Spent in Long Term Care During Measurement Period"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Days Spent in Long Term Care During Measurement Period\":\n  \"CumulativeDays\"(\"Long Term Care Periods During Measurement Period\")"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 24
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "Has Spent More Than 90 Days in Long Term Care"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Has Spent More Than 90 Days in Long Term Care\":\n  \"Days Spent in Long Term Care During Measurement Period\" > 90"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 25
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "Has Criteria Indicating Frailty"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Has Criteria Indicating Frailty\":\n  //Ask Bryn about devices\n  \texists ( [DeviceRequest: \"Frailty Device\"] FrailtyDeviceOrder\n  \t\t\twhere FrailtyDeviceOrder.authoredOn during \"Measurement Period\"\n  \t)\n  \t\tor exists ( [DeviceUseStatement: \"Frailty Device\"] FrailtyDeviceUse\n  \t\t\t\twhere Global.\"Normalize Interval\"(FrailtyDeviceUse.timing) overlaps \"Measurement Period\"\n  \t\t)\n  \t\tor exists ( [Condition: \"Frailty Diagnosis\"] FrailtyDiagnosis\n  \t\t\t\twhere Global.\"Prevalence Period\"(FrailtyDiagnosis) overlaps \"Measurement Period\"\n  \t\t)\n  \t\tor exists ( [Encounter: \"Frailty Encounter\"] FrailtyEncounter\n  \t\t\t\twhere FrailtyEncounter.period overlaps \"Measurement Period\"\n  \t\t)\n  \t\tor exists ( [Observation: \"Frailty Symptom\"] FrailtySymptomObservation\n  \t\t\t\twhere Global.\"Normalize Interval\"(FrailtySymptomObservation.effective) overlaps \"Measurement Period\"\n  \t\t)"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 26
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "Outpatient Encounters with Advanced Illness"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Outpatient Encounters with Advanced Illness\":\n  ( [Encounter: \"Outpatient\"]\n  \t\tunion [Encounter: \"Observation\"]\n  \t\tunion [Encounter: \"ED\"]\n  \t\tunion [Encounter: \"Nonacute Inpatient\"] ) OutpatientEncounter\n  \t\t with [Condition: \"Advanced Illness\"] AdvancedIllnessDiagnosis\n              such that exists (\n                  OutpatientEncounter.diagnosis.condition EncounterDiagnosis\n                      where EndsWith(EncounterDiagnosis.reference, AdvancedIllnessDiagnosis.id)\n              )\n              and OutpatientEncounter.period starts 2 years or less on or before\n  \t\t\tend of \"Measurement Period\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 27
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "Inpatient Encounter with Advanced Illness"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Inpatient Encounter with Advanced Illness\":\n  [Encounter: \"Acute Inpatient\"] InpatientEncounter\n  \t\twith [Condition: \"Advanced Illness\"] AdvancedIllnessDiagnosis\n              such that exists (\n                  InpatientEncounter.diagnosis.condition EncounterDiagnosis\n                      where EndsWith(EncounterDiagnosis.reference, AdvancedIllnessDiagnosis.id)\n              )\n  \t\t\tand InpatientEncounter.period starts 2 years or less on or before\n  \t\t\tend of \"Measurement Period\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 28
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "Dementia Medications In Year Before or During Measurement Period"
+    }, {
+      "url": "statement",
+      "valueString": "// start heredefine \"Dementia Medications In Year Before or During Measurement Period\":\n  [\"MedicationDispense\": \"Dementia Medications\"] DementiaMed\n  \t\twhere DementiaMed.whenHandedOver during Interval[\n              ( start of \"Measurement Period\" - 1 year ), end of \"Measurement Period\"\n          ]"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 29
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "Advanced Illness and Frailty Exclusion Including Over Age 80"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Advanced Illness and Frailty Exclusion Including Over Age 80\":\n  //If the measure includes populations age 80 and older, then use this logic:\n  \t(\n          Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\")in Interval[66, 80]\n              and \"Has Criteria Indicating Frailty\"\n              and ( Count(\"Outpatient Encounters with Advanced Illness\")>= 2\n                  or exists ( \"Inpatient Encounter with Advanced Illness\" )\n                  or exists \"Dementia Medications In Year Before or During Measurement Period\"\n              )\n  \t)\n  \t\tor (\n              Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\")>= 81\n  \t\t\t    and \"Has Criteria Indicating Frailty\"\n  \t\t)"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 30
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Denominator Exclusions"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Denominator Exclusions\":\n  Hospice.\"Has Hospice\"\n                            or exists \"Pregnancy Or Renal Diagnosis Exclusions\"\n                             or (exists \"End Stage Renal Disease Procedures\"\n                             or exists \"End Stage Renal Disease Encounter\")\n                              or Global.\"CalendarAgeInYearsAt\"(ToDateTime(Patient.birthDate), start of \"Measurement Period\")>=65\n                                     and AdvancedIllness.\"Has Spent More Than 90 Days in Long Term Care\"\n                                     or AdvancedIllness.\"Advanced Illness and Frailty Exclusion Including Over Age 80\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 31
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "SupplementalDataElementsFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "SDE Race"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 32
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "ControllingHighBloodPressureFHIR"
+    }, {
+      "url": "name",
+      "valueString": "SDE Race"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Race\":\n  SDE.\"SDE Race\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 33
+    } ]
+  } ],
+  "url": "http://ecqi.healthit.gov/ecqms/Measure/ControllingHighBloodPressureFHIR",
+  "identifier": [ {
+    "use": "official",
+    "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/guid",
+    "value": "21678081-0515-484c-b333-8bc628851d91"
+  }, {
+    "use": "official",
+    "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms",
+    "value": "165FHIR"
+  } ],
+  "version": "0.0.002",
+  "name": "ControllingHighBloodPressureFHIR",
+  "title": "Controlling High Blood PressureFHIR",
+  "status": "draft",
+  "experimental": false,
+  "date": "2021-06-07T09:49:34-05:00",
+  "publisher": "National Committee for Quality Assurance",
+  "contact": [ {
+    "telecom": [ {
+      "system": "url",
+      "value": "https://cms.gov"
+    } ]
+  } ],
+  "description": "Percentage of patients 18-85 years of age who had a diagnosis of essential hypertension starting before and continuing into, or starting during the first six months of the measurement period, and whose most recent blood pressure was adequately controlled (<140/90mmHg) during the measurement period",
+  "purpose": "Unknown",
+  "copyright": "This Physician Performance Measure (Measure) and related data specifications are owned and were developed by the National Committee for Quality Assurance (NCQA). NCQA is not responsible for any use of the Measure. NCQA makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and NCQA has no liability to anyone who relies on such measures or specifications. NCQA holds a copyright in the Measure. The Measure can be reproduced and distributed, without modification, for noncommercial purposes (e.g., use by healthcare providers in connection with their practices) without obtaining approval from NCQA. Commercial use is defined as the sale, licensing, or distribution of the Measure for commercial gain, or incorporation of the Measure into a product or service that is sold, licensed or distributed for commercial gain. All commercial uses or requests for modification must be approved by NCQA and are subject to a license at the discretion of NCQA. (C) 2012-2020 National Committee for Quality Assurance. All Rights Reserved.  \n\nLimited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any third party codes contained in the specifications. \n\nCPT(R) contained in the Measure specifications is copyright 2004-2020 American Medical Association. LOINC(R) copyright 2004-2020 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2020 International Health Terminology Standards Development Organisation. ICD-10 copyright 2020 World Health Organization. All Rights Reserved.",
+  "effectivePeriod": {
+    "start": "2022-01-01",
+    "end": "2022-12-31"
+  },
+  "relatedArtifact": [ {
+    "type": "depends-on",
+    "display": "Library SDE",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/SupplementalDataElementsFHIR4|2.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
+  }, {
+    "type": "depends-on",
+    "display": "Library Global",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
+  }, {
+    "type": "depends-on",
+    "display": "Library AdultOutpatientEncounters",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/AdultOutpatientEncountersFHIR4|2.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
+  }, {
+    "type": "depends-on",
+    "display": "Library Hospice",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/HospiceFHIR4|2.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
+  }, {
+    "type": "depends-on",
+    "display": "Library Global",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library AdvancedIllness",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/AdvancedIllnessandFrailtyExclusionFHIR4|5.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library Global",
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Code system LOINC",
+    "resource": "http://loinc.org"
+  }, {
+    "type": "depends-on",
+    "display": "Code system ConditionVerificationStatusCodes",
+    "resource": "http://terminology.hl7.org/CodeSystem/condition-verification"
+  }, {
+    "type": "depends-on",
+    "display": "Code system SNOMEDCT:2017-09",
+    "resource": "http://snomed.info/sct|http://snomed.info/sct/version/201709"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Office Visit",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Annual Wellness Visit",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Home Healthcare Services",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Essential Hypertension",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.104.12.1011"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Payer",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Encounter Inpatient",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Hospice care ambulatory",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Pregnancy",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.378"
+  }, {
+    "type": "depends-on",
+    "display": "Value set End Stage Renal Disease",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.353"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Kidney Transplant Recipient",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1029"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Chronic Kidney Disease, Stage 5",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1002"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Vascular Access for Dialysis",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1011"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Kidney Transplant",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1012"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Dialysis Services",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1013"
+  }, {
+    "type": "depends-on",
+    "display": "Value set ESRD Monthly Outpatient Services",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1014"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Care Services in Long-Term Residential Facility",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1014"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Nursing Facility Visit",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1012"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Frailty Device",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Frailty Diagnosis",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1074"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Frailty Encounter",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Frailty Symptom",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1075"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Outpatient",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1087"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Observation",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1086"
+  }, {
+    "type": "depends-on",
+    "display": "Value set ED",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1085"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Nonacute Inpatient",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1084"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Advanced Illness",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1082"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Acute Inpatient",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1083"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Dementia Medications",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1510"
+  } ],
+  "library": [ "http://ecqi.healthit.gov/ecqms/Library/ControllingHighBloodPressureFHIR" ],
+  "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. \n\nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
+  "scoring": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
+      "code": "proportion",
+      "display": "Proportion"
+    } ]
+  },
+  "type": [ {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/measure-type",
+      "code": "outcome"
+    } ]
+  } ],
+  "rationale": "High blood pressure (HBP), also known as hypertension, is when the pressure in blood vessels is higher than normal (Centers for Disease Control and Prevention [CDC], 2020). The causes of hypertension are multiple and multifaceted and can be based on genetic predisposition, environmental risk factors, being overweight and obese, sodium intake, potassium intake, physical activity, and alcohol use. High blood pressure is common; according to the American Heart Association, between 2013-2016, approximately 116.4 million US adults >= 20 years of age had HBP and the prevalence of hypertension among US adults 65 and older was 78.2 percent (Benjamin et al, 2019).\n\nHBP, known as the “silent killer,” increases risks of heart disease and stroke which are two of the leading causes of death in the U.S. (Yoon, Fryar, & Carroll, 2015). A person who has HBP is four times more likely to die from a stroke and three times more likely to die from heart disease (CDC, 2012). The National Vital Statistics Systems reported that in 2014 there were approximately 73,300 deaths directly due to HBP and 410,624 deaths with any mention of HBP (CDC, 2014). Between 2006 and 2016 the number of deaths due to HBP rose by 46.3 percent (Benjamin et al, 2019). . Managing and treating HBP would reduce cardiovascular disease mortality for males and females by 30.4 percent and 38.0 percent, respectively (Patel et al., 2015).\n\nThe estimated annual average direct and indirect cost of HBP from 2014 to 2015 was $55.9 billion (Benjamin et al, 2019). Total direct costs of HBP is projected to increase to $220.9 billion by 2035 (Benjamin et al, 2019). A study on cost-effectiveness on treating hypertension found that controlling HBP in patients with cardiovascular disease and systolic blood pressures of >= 160 mm Hg could be effective and cost-saving (Moran, 2015). \n\nMany studies have shown that controlling high blood pressure reduces cardiovascular events and mortality. The Systolic Blood Pressure Intervention Trial (SPRINT) investigated the impact of obtaining a SBP goal of <120 mm Hg compared to a SBP goal of <140 mm Hg among patients 50 and older with established cardiovascular disease and found that the patients with the former goal had reduced cardiovascular events and mortality (SPRINT Research Group et al., 2015). \n\nControlling HBP will significantly reduce the risks of cardiovascular disease mortality and lead to better health outcomes like reduction of heart attacks, stroke, and kidney disease (James et al., 2014). Thus, the relationship between the measure (control of hypertension) and the long-term clinical outcomes listed is well established.",
+  "clinicalRecommendationStatement": "The U.S. Preventive Services Task Force (2015) recommends screening for high blood pressure in adults age 18 years and older. This is a grade A recommendation.  \n\nAmerican College of Cardiology/American Heart Association (2017) \n\n-For adults with confirmed hypertension and known CVD or 10-year ASCVD event risk of 10% or higher, a blood pressure target of less than 130/80 mmHg is recommended (Level of evidence: B-R (for systolic blood pressures), Level of evidence: C-EO (for diastolic blood pressure)) \n\n-For adults with confirmed hypertension, without additional markers of increased CVD risk, a blood pressure target of less than 130/80 mmHg may be reasonable (Note: clinical trial evidence is strongest for a target blood pressure of 140/90 mmHg in this population. However, observational studies suggest that these individuals often have a high lifetime risk and would benefit from blood pressure control earlier in life) (Level of evidence: B-NR (for systolic blood pressure), Level of evidence: C-EO (for diastolic blood pressure)) \n\nAmerican College of Physicians and the American Academy of Family Physicians (2017):   \n\n-Initiate or intensify pharmacologic treatment in some adults aged 60 years or older at high cardiovascular risk, based on individualized assessment, to achieve a target systolic blood pressure of less than 140 mmHg (Grade: weak recommendation, Quality of evidence: low) \n\n-Initiate or intensify pharmacologic treatment in adults aged 60 years or older with a history of stroke or transient ischemic attack to achieve a target systolic blood pressure of less than 140 mmHg to reduce the risk of recurrent stroke (Grade: weak recommendation, Quality of evidence: moderate) \n\nAmerican Diabetes Association (2019): \n\n-For individuals with diabetes and hypertension at higher cardiovascular risk (existing atherosclerotic cardiovascular disease or 10-year atherosclerotic cardiovascular disease risk >15%), a blood pressure target of <130/80 mmHg may be appropriate, if it can be safely attained (Level of evidence: C)-For individuals with diabetes and hypertension at lower risk for cardiovascular disease (10-year atherosclerotic cardiovascular disease risk <15%), treat to a blood pressure target of <140/90 mmHg (Level of evidence: A)",
+  "improvementNotation": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+      "code": "increase"
+    } ]
+  },
+  "guidance": "In reference to the numerator element, only blood pressure readings performed by a clinician or a remote monitoring device are acceptable for numerator compliance with this measure. This includes blood pressures taken in person by a clinician and blood pressures measured remotely by electronic monitoring devices capable of transmitting the blood pressure data to the clinician. Blood pressure readings taken by a remote monitoring device and conveyed by the patient to the clinician are also acceptable. It is the clinician’s responsibility and discretion to confirm the remote monitoring device used to obtain the blood pressure is considered acceptable and reliable and whether the blood pressure reading is considered accurate before documenting it in the patient’s medical record.\n\nDo not include BP readings:\n-Taken during an acute inpatient stay or an ED visit\n-Taken on the same day as a diagnostic test or diagnostic or therapeutic procedure that requires a change in diet or change in medication on or one day before the day of the test or procedure, with the exception of fasting blood tests.\n-Taken by the patient using a non-digital device such as with a manual blood pressure cuff and a stethoscope.\n\nIf no blood pressure is recorded during the measurement period, the patient's blood pressure is assumed \"not controlled.\"\n\nIf there are multiple blood pressure readings on the same day, use the lowest systolic and the lowest diastolic reading as the most recent blood pressure reading.\n\nThis eCQM is a patient-based measure.\n\nThis version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource center (https://ecqi.healthit.gov/qdm) for more information on the QDM.",
+  "group": [ {
+    "population": [ {
+      "id": "8751E429-AC6B-4663-8FA8-99463D079359",
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "initial-population",
+          "display": "Initial Population"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql.identifier",
+        "expression": "Initial Population"
+      }
+    }, {
+      "id": "344D2AC5-1248-471D-88F4-9A3817A0A04B",
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator",
+          "display": "Denominator"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql.identifier",
+        "expression": "Denominator"
+      }
+    }, {
+      "id": "9087E085-7262-4BF2-B5D5-0E14858C1367",
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator-exclusion",
+          "display": "Denominator Exclusion"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql.identifier",
+        "expression": "Denominator Exclusions"
+      }
+    }, {
+      "id": "8500BE03-048E-4A35-B059-89C816D88282",
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "numerator",
+          "display": "Numerator"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql.identifier",
+        "expression": "Numerator"
+      }
+    } ]
+  } ],
+  "supplementalData": [ {
+    "id": "FEE71C9D-5229-4FA5-9069-3AD438895224",
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": {
+      "language": "text/cql.identifier",
+      "expression": "SDE Ethnicity"
+    }
+  }, {
+    "id": "AB518DC6-BF83-4DCF-8F9B-3388E93922EC",
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": {
+      "language": "text/cql.identifier",
+      "expression": "SDE Payer"
+    }
+  }, {
+    "id": "B99B3B4E-4EE5-40B5-8401-4BEFDFFF2E0C",
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": {
+      "language": "text/cql.identifier",
+      "expression": "SDE Race"
+    }
+  }, {
+    "id": "D08128ED-F32D-4B3D-B8AC-870EAEF86EA3",
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": {
+      "language": "text/cql.identifier",
+      "expression": "SDE Sex"
+    }
+  } ]
+}
