@@ -1,0 +1,147 @@
+{
+    "resourceType": "MeasureReport",
+    "contained": [
+        {
+            "resourceType": "Observation",
+            "id": "d145a99e-b061-4b4f-bd65-0349d32e95a5",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+                    "extension": [
+                        {
+                            "url": "measure",
+                            "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Measure/HybridHWRFHIR"
+                        },
+                        {
+                            "url": "populationId",
+                            "valueString": "sde-race"
+                        }
+                    ]
+                }
+            ],
+            "status": "final",
+            "code": {
+                "text": "sde-race"
+            },
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "http://www.cdc.gov/phin/resources/vocabulary/index.html",
+                        "code": "1002-5",
+                        "display": "American Indian or Alaska Native"
+                    }
+                ]
+            }
+        },
+        {
+            "resourceType": "Observation",
+            "id": "add81adc-8096-48c2-ab9b-5353ec22f20f",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+                    "extension": [
+                        {
+                            "url": "measure",
+                            "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Measure/HybridHWRFHIR"
+                        },
+                        {
+                            "url": "populationId",
+                            "valueString": "sde-ethnicity"
+                        }
+                    ]
+                }
+            ],
+            "status": "final",
+            "code": {
+                "text": "sde-ethnicity"
+            },
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "http://www.cdc.gov/phin/resources/vocabulary/index.html",
+                        "code": "2186-5",
+                        "display": "Not Hispanic or Latino"
+                    }
+                ]
+            }
+        },
+        {
+            "resourceType": "Observation",
+            "id": "051ff207-83db-41ba-8a2e-e95cfd5ca7b7",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+                    "extension": [
+                        {
+                            "url": "measure",
+                            "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Measure/HybridHWRFHIR"
+                        },
+                        {
+                            "url": "populationId",
+                            "valueString": "sde-sex"
+                        }
+                    ]
+                }
+            ],
+            "status": "final",
+            "code": {
+                "text": "sde-sex"
+            },
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "code": "F"
+                    }
+                ]
+            }
+        }
+    ],
+    "status": "complete",
+    "type": "individual",
+    "measure": "Measure/HybridHWRFHIR",
+    "subject": {
+        "reference": "Patient/ip-EXM529-case1"
+    },
+    "period": {
+        "start": "2019-01-01T00:00:00-07:00",
+        "end": "2019-12-31T00:00:00-07:00"
+    },
+    "group": [
+        {
+            "population": [
+                {
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                                "code": "initial-population",
+                                "display": "Initial Population"
+                            }
+                        ]
+                    },
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "evaluatedResource": [
+        {
+            "reference": "#d145a99e-b061-4b4f-bd65-0349d32e95a5"
+        },
+        {
+            "reference": "#add81adc-8096-48c2-ab9b-5353ec22f20f"
+        },
+        {
+            "reference": "#051ff207-83db-41ba-8a2e-e95cfd5ca7b7"
+        },
+        {
+            "reference": "#Patient/ip-EXM529-case1"
+        },
+        {
+            "reference": "#Coverage/ip-EXM529-case1-Coverage"
+        },
+        {
+            "reference": "#Encounter/ip-EXM529-case1-Encounter"
+        }
+    ]
+}
