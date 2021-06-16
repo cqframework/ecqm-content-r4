@@ -1,0 +1,41 @@
+{
+  "resourceType": "Bundle",
+  "id": "c087e739-7dd0-4b4c-bc68-e6c4aa257e61",
+  "type": "transaction-response",
+  "link": [
+    {
+      "relation": "self",
+      "url": "http://localhost:8080/cqf-ruler-r4/fhir"
+    }
+  ],
+  "entry": [
+    {
+      "response": {
+        "status": "200 OK",
+        "location": "Condition/denomexcpt2-EXM347-Condition/_history/1",
+        "etag": "1"
+      }
+    },
+    {
+      "response": {
+        "status": "200 OK",
+        "location": "Condition/denomexcpt2-EXM347-Condition2/_history/1",
+        "etag": "1"
+      }
+    },
+    {
+      "response": {
+        "status": "200 OK",
+        "location": "Encounter/denomexcpt2-EXM347-Encounter/_history/1",
+        "etag": "1"
+      }
+    },
+    {
+      "response": {
+        "status": "200 OK",
+        "location": "Patient/denomexcpt2-EXM347/_history/1",
+        "etag": "1"
+      }
+    }
+  ]
+}

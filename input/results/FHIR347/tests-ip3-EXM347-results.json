@@ -1,0 +1,320 @@
+{
+  "resourceType": "MeasureReport",
+  "contained": [
+    {
+      "resourceType": "Observation",
+      "id": "115e4cbb-3ae2-4fab-ba89-5e83f4acbd63",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [
+            {
+              "url": "measure",
+              "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Measure/FHIR347"
+            },
+            {
+              "url": "populationId",
+              "valueString": "sde-race"
+            }
+          ]
+        }
+      ],
+      "status": "final",
+      "code": {
+        "text": "sde-race"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2106-3",
+            "display": "White"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "68bd947d-4e4c-4a1e-b7cc-bb3dc3f68227",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [
+            {
+              "url": "measure",
+              "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Measure/FHIR347"
+            },
+            {
+              "url": "populationId",
+              "valueString": "sde-ethnicity"
+            }
+          ]
+        }
+      ],
+      "status": "final",
+      "code": {
+        "text": "sde-ethnicity"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "b286c98e-caab-45b3-97bc-810a06f8d390",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [
+            {
+              "url": "measure",
+              "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Measure/FHIR347"
+            },
+            {
+              "url": "populationId",
+              "valueString": "sde-sex"
+            }
+          ]
+        }
+      ],
+      "status": "final",
+      "code": {
+        "text": "sde-sex"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "F"
+          }
+        ]
+      }
+    }
+  ],
+  "status": "complete",
+  "type": "individual",
+  "measure": "Measure/FHIR347",
+  "subject": {
+    "reference": "Patient/ip3-EXM347"
+  },
+  "period": {
+    "start": "2019-01-01T00:00:00-07:00",
+    "end": "2019-12-31T00:00:00-07:00"
+  },
+  "group": [
+    {
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exception",
+                "display": "Denominator Exception"
+              }
+            ]
+          },
+          "count": 0
+        }
+      ]
+    },
+    {
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exception",
+                "display": "Denominator Exception"
+              }
+            ]
+          },
+          "count": 0
+        }
+      ]
+    },
+    {
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exception",
+                "display": "Denominator Exception"
+              }
+            ]
+          },
+          "count": 0
+        }
+      ]
+    }
+  ],
+  "evaluatedResource": [
+    {
+      "reference": "#115e4cbb-3ae2-4fab-ba89-5e83f4acbd63"
+    },
+    {
+      "reference": "#68bd947d-4e4c-4a1e-b7cc-bb3dc3f68227"
+    },
+    {
+      "reference": "#b286c98e-caab-45b3-97bc-810a06f8d390"
+    },
+    {
+      "reference": "#Patient/ip3-EXM347"
+    },
+    {
+      "reference": "#Encounter/ip3-EXM347-Encounter"
+    }
+  ]
+}
