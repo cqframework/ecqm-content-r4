@@ -54,7 +54,7 @@
       "status": "finished",
       "type": [ {
         "coding": [ {
-          "system": "urn:oid:2.16.840.1.113883.6.12",
+          "system": "http://www.ama-assn.org/go/cpt",
           "code": "99202",
           "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and straightforward medical decision making. When using time for code selection, 15-29 minutes of total time is spent on the date of the encounter."
         } ],
