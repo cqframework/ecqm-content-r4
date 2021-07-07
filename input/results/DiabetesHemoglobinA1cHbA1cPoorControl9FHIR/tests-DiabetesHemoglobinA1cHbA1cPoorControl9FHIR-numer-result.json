@@ -3,7 +3,7 @@
   "contained": [
     {
       "resourceType": "Observation",
-      "id": "9d3d9d27-b555-4b27-8c74-cf5c0a902bee",
+      "id": "960a58cc-459f-40f6-83f2-a4252c977fe4",
       "extension": [
         {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
@@ -35,7 +35,7 @@
     },
     {
       "resourceType": "Observation",
-      "id": "c37d186f-f067-48a1-a542-939e5157e4d8",
+      "id": "dbce9688-984e-4572-90c4-b908c26cbaf6",
       "extension": [
         {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
@@ -67,7 +67,7 @@
     },
     {
       "resourceType": "Observation",
-      "id": "813327a6-a56a-4ec7-a847-a94c8135d648",
+      "id": "e425e860-9a34-41e9-a8f6-a8e478d295e2",
       "extension": [
         {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
@@ -119,7 +119,7 @@
               }
             ]
           },
-          "count": 0
+          "count": 1
         },
         {
           "code": {
@@ -131,7 +131,7 @@
               }
             ]
           },
-          "count": 0
+          "count": 1
         },
         {
           "code": {
@@ -143,7 +143,7 @@
               }
             ]
           },
-          "count": 0
+          "count": 1
         },
         {
           "code": {
@@ -157,24 +157,229 @@
           },
           "count": 0
         }
-      ]
+      ],
+      "measureScore": {
+        "value": 1.0
+      }
     }
   ],
   "evaluatedResource": [
     {
-      "reference": "#9d3d9d27-b555-4b27-8c74-cf5c0a902bee"
+      "reference": "#960a58cc-459f-40f6-83f2-a4252c977fe4"
     },
     {
-      "reference": "#c37d186f-f067-48a1-a542-939e5157e4d8"
+      "reference": "#dbce9688-984e-4572-90c4-b908c26cbaf6"
     },
     {
-      "reference": "#813327a6-a56a-4ec7-a847-a94c8135d648"
+      "reference": "#e425e860-9a34-41e9-a8f6-a8e478d295e2"
     },
     {
-      "reference": "#Patient/numer-CMS122-Patient"
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          }
+        }
+      ],
+      "reference": "Condition/numer-CMS122-Condition"
     },
     {
-      "reference": "#Condition/numer-CMS122-Condition"
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          }
+        }
+      ],
+      "reference": "Encounter/numer-CMS122-Encounter"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          }
+        }
+      ],
+      "reference": "Patient/numer-CMS122-Patient"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          }
+        }
+      ],
+      "reference": "Condition/numer-CMS122-Condition"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          }
+        }
+      ],
+      "reference": "Encounter/numer-CMS122-Encounter"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          }
+        }
+      ],
+      "reference": "Patient/numer-CMS122-Patient"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          }
+        }
+      ],
+      "reference": "Observation/numer-CMS122-Observation"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://teminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          }
+        }
+      ],
+      "reference": "Observation/numer-CMS122-Observation2"
     }
   ]
 }
