@@ -7,7 +7,7 @@ in the measure development community.*/
 
 using FHIR version '4.0.1'
 
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 include FHIRHelpers version '4.0.001' called FHIRHelpers
 
 codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct' version 'http://snomed.info/sct/version/201709'

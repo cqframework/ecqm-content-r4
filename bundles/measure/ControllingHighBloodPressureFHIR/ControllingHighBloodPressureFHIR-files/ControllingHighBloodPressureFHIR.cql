@@ -4,10 +4,10 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 include AdultOutpatientEncountersFHIR4 version '2.0.000' called AdultOutpatientEncounters
 include HospiceFHIR4 version '2.0.000' called Hospice
-include AdvancedIllnessandFrailtyExclusionFHIR4 version '5.0.000' called AdvancedIllness
+include AdvancedIllnessandFrailtyExclusionECQMFHIR4 version '5.12.000' called AdvancedIllness
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "ActCode": 'http://terminology.hl7.org/CodeSystem/v3-ActCode'
@@ -66,21 +66,21 @@ define "Essential Hypertension Diagnosis":
                                     and (Global."Prevalence Period"(Hypertension) overlaps Interval[start of "Measurement Period" - 1 year, end of "Measurement Period"])
 
 define "Initial Population":
-  Global.CalendarAgeInYearsAt(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period") between 18 and 84
-                                    and exists "Essential Hypertension Diagnosis"
-                                    and exists AdultOutpatientEncounters."Qualifying Encounters"
+  AgeInYearsAt(start of "Measurement Period") between 18 and 84
+    and exists "Essential Hypertension Diagnosis"
+    and exists AdultOutpatientEncounters."Qualifying Encounters"
 
 define "Denominator":
   "Initial Population"
 
 define "Denominator Exclusions":
   Hospice."Has Hospice"
-                            or exists "Pregnancy Or Renal Diagnosis Exclusions"
-                             or (exists "End Stage Renal Disease Procedures"
-                             or exists "End Stage Renal Disease Encounter")
-                              or Global."CalendarAgeInYearsAt"(ToDateTime(Patient.birthDate), start of "Measurement Period")>=65
-                                     and AdvancedIllness."Has Spent More Than 90 Days in Long Term Care"
-                                     or AdvancedIllness."Advanced Illness and Frailty Exclusion Including Over Age 80"
+    or exists "Pregnancy Or Renal Diagnosis Exclusions"
+    or (exists "End Stage Renal Disease Procedures"
+      or exists "End Stage Renal Disease Encounter")
+    or AgeInYearsAt(start of "Measurement Period") >= 65
+    and AdvancedIllness."Long Term Care Periods Longer Than 90 Consecutive Days"
+    or AdvancedIllness."Advanced Illness and Frailty Exclusion Including Over Age 80"
 
 define "Pregnancy Or Renal Diagnosis Exclusions":
   ([Condition: "Pregnancy"]

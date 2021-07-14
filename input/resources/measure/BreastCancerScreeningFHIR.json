@@ -283,6 +283,17 @@
             }
           } ]
         }
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
       } ]
     }
   }, {
@@ -371,7 +382,7 @@
       "valueString": "Initial Population"
     }, {
       "url": "statement",
-      "valueString": "define \"Initial Population\":\n  Patient.gender = 'female'\n  \t\t\tand Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\") in Interval[51, 74)\n  \t\t\tand exists AdultOutpatientEncounters.\"Qualifying Encounters\""
+      "valueString": "define \"Initial Population\":\n  Patient.gender = 'female'\n  \t\t\tand AgeInYearsAt(start of \"Measurement Period\") between 51 and 74\n  \t\t\tand exists AdultOutpatientEncounters.\"Qualifying Encounters\""
     }, {
       "url": "displaySequence",
       "valueInteger": 2
@@ -566,7 +577,7 @@
       "valueString": "Advanced Illness and Frailty Exclusion Not Including Over Age 80"
     }, {
       "url": "statement",
-      "valueString": "define \"Advanced Illness and Frailty Exclusion Not Including Over Age 80\":\n  //If the measure does NOT include populations age 80 and older, then use this logic:\n      \tGlobal.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\")>= 65\n              and \"Has Criteria Indicating Frailty\"\n              and ( Count(\"Outpatient Encounters with Advanced Illness\")>= 2\n                  or exists ( \"Inpatient Encounter with Advanced Illness\" )\n                  or exists \"Dementia Medications In Year Before or During Measurement Period\"\n              )"
+      "valueString": "define \"Advanced Illness and Frailty Exclusion Not Including Over Age 80\":\n  //If the measure does NOT include populations age 80 and older, then use this logic:\n    AgeInYearsAt(start of \"Measurement Period\") >= 65\n    and \"Has Criteria Indicating Frailty\"\n    and ( Count(\"Outpatient Encounters with Advanced Illness\")>= 2\n        or exists ( \"Inpatient Encounter with Advanced Illness\" )\n        or exists \"Dementia Medications In Year Before or During Measurement Period\"\n    )"
     }, {
       "url": "displaySequence",
       "valueInteger": 15
@@ -611,7 +622,7 @@
       "valueString": "Denominator Exclusion"
     }, {
       "url": "statement",
-      "valueString": "define \"Denominator Exclusion\":\n  Hospice.\"Has Hospice\"\n  \t\t\t\tor (( exists \"Right Mastectomy Diagnosis\" \n  \t\t\t\tor exists \"Right Mastectomy Procedure\")\n            and (exists \"Left Mastectomy\" or exists \"Left Mastectomy Procedure\"))\n  \t\t\t\tor exists \"Bilateral Mastectomy Diagnosis\"\n  \t\t\t\tor exists \"Bilateral Mastectomy Procedure\"\n          or Frailty.\"Advanced Illness and Frailty Exclusion Not Including Over Age 80\"\n          or (Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\")>= 65\n              and Frailty.\"Long Term Care Periods Longer Than 90 Consecutive Days\")"
+      "valueString": "define \"Denominator Exclusion\":\n  Hospice.\"Has Hospice\"\n  \t\t\t\tor (( exists \"Right Mastectomy Diagnosis\"\n  \t\t\t\tor exists \"Right Mastectomy Procedure\")\n            and (exists \"Left Mastectomy\" or exists \"Left Mastectomy Procedure\"))\n  \t\t\t\tor exists \"Bilateral Mastectomy Diagnosis\"\n  \t\t\t\tor exists \"Bilateral Mastectomy Procedure\"\n          or Frailty.\"Advanced Illness and Frailty Exclusion Not Including Over Age 80\"\n          or (AgeInYearsAt(start of \"Measurement Period\") >= 65\n            and Frailty.\"Long Term Care Periods Longer Than 90 Consecutive Days\")"
     }, {
       "url": "displaySequence",
       "valueInteger": 18
@@ -628,7 +639,7 @@
   "title": "Breast Cancer Screening FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-05-17T17:56:37-06:00",
+  "date": "2021-07-14T14:25:14-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
@@ -646,7 +657,7 @@
   "relatedArtifact": [ {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
@@ -674,7 +685,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library Frailty",
@@ -682,7 +693,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Code system SNOMEDCT:2017-09",

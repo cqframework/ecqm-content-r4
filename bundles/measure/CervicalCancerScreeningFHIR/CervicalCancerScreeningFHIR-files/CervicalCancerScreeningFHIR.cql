@@ -4,7 +4,7 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 include AdultOutpatientEncountersFHIR4 version '2.0.000' called AdultOutpatientEncounters
 include HospiceFHIR4 version '2.0.000' called Hospice
 
@@ -35,8 +35,8 @@ define "SDE Sex":
 
 define "Initial Population":
   Patient.gender = 'female'
-    		and Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period") in Interval[23, 64]
-    		and exists AdultOutpatientEncounters."Qualifying Encounters"
+    and AgeInYearsAt(start of "Measurement Period") between 23 and 64
+		and exists AdultOutpatientEncounters."Qualifying Encounters"
 
 define "Denominator":
   "Initial Population"
@@ -68,6 +68,8 @@ define "HPV Test Within 5 Years for Women Age 30 and Older":
   [Observation: "HPV Test"] HPVTest
           where HPVTest.value is not null
             and HPVTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
-            and  Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of Global."Normalize Interval"(HPVTest.effective))>= 30
+            /* THis next line MIGHT not be what was intended after conversion to new AgeInYearsAt*/
+            and AgeInYearsAt(start of Global."Normalize Interval"(HPVTest.effective)) >= 30
+/*            and  Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of Global."Normalize Interval"(HPVTest.effective))>= 30 */
             and Global."Normalize Interval"(HPVTest.effective) ends 5 years or less on or before end of "Measurement Period"
 

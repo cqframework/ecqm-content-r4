@@ -4,7 +4,7 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 
 valueset "Admit Inpatient": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.164' 
 valueset "Decision to Admit to Hospital Inpatient": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.295' 

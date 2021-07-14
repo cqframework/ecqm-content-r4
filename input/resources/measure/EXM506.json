@@ -203,7 +203,7 @@
       "valueString": "Inpatient Encounter with Age Greater than or Equal to 18"
     }, {
       "url": "statement",
-      "valueString": "define \"Inpatient Encounter with Age Greater than or Equal to 18\":\n  Global.\"Inpatient Encounter\" EncounterInpatient\n         with [\"Patient\"] BirthDate\n           such that Global.CalendarAgeInYearsAt(FHIRHelpers.ToDate(Patient.birthDate), start of FHIRHelpers.ToInterval(EncounterInpatient.period)) >= 18"
+      "valueString": "define \"Inpatient Encounter with Age Greater than or Equal to 18\":\n  Global.\"Inpatient Encounter\" EncounterInpatient\n         with [\"Patient\"] BirthDate\n          such that AgeInYearsAt(start of FHIRHelpers.ToInterval(EncounterInpatient.period)) >= 18"
     }, {
       "url": "displaySequence",
       "valueInteger": 3
@@ -368,7 +368,7 @@
       "valueString": "SDE Ethnicity"
     }, {
       "url": "statement",
-      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
     }, {
       "url": "displaySequence",
       "valueInteger": 14
@@ -398,7 +398,7 @@
       "valueString": "Denominator Exclusion"
     }, {
       "url": "statement",
-      "valueString": "define \"Denominator Exclusion\":\n  (\"Inpatient Encounter with Age Greater than or Equal to 18\" InpatientEncounter\n     with [Condition: \"All Primary and Secondary Cancer\"]Cancer\n          such that Global.\"Prevalence Period\"(Cancer) overlaps InpatientEncounter.period)\n    \n           union (\"Inpatient Encounter with Age Greater than or Equal to 18\" InpatientEncounter\n         with ([\"ServiceRequest\": \"Palliative Care\"]\n         union [\"ServiceRequest\": \"Hospice Care\"] ) PalliativeOrHospiceCareOrder\n         such that  PalliativeOrHospiceCareOrder.intent = 'order'\n         and FHIRHelpers.ToDateTime(PalliativeOrHospiceCareOrder.authoredOn) during InpatientEncounter.period)\n    \n       union (\"Inpatient Encounter with Age Greater than or Equal to 18\" InpatientEncounter\n     with  ([\"Procedure\": \"Palliative Care\"]\n         union [\"Procedure\": \"Hospice Care\"] ) PalliativeOrHospiceCarePerformed\n                 such that Global.\"Normalize Interval\"(PalliativeOrHospiceCarePerformed.performed)\n                  overlaps InpatientEncounter.period)"
+      "valueString": "define \"Denominator Exclusion\":\n  (\"Inpatient Encounter with Age Greater than or Equal to 18\" InpatientEncounter\n     with [Condition: \"All Primary and Secondary Cancer\"]Cancer\n          such that Global.\"Prevalence Period\"(Cancer) overlaps InpatientEncounter.period)\n\n           union (\"Inpatient Encounter with Age Greater than or Equal to 18\" InpatientEncounter\n         with ([\"ServiceRequest\": \"Palliative Care\"]\n         union [\"ServiceRequest\": \"Hospice Care\"] ) PalliativeOrHospiceCareOrder\n         such that  PalliativeOrHospiceCareOrder.intent = 'order'\n         and FHIRHelpers.ToDateTime(PalliativeOrHospiceCareOrder.authoredOn) during InpatientEncounter.period)\n\n       union (\"Inpatient Encounter with Age Greater than or Equal to 18\" InpatientEncounter\n     with  ([\"Procedure\": \"Palliative Care\"]\n         union [\"Procedure\": \"Hospice Care\"] ) PalliativeOrHospiceCarePerformed\n                 such that Global.\"Normalize Interval\"(PalliativeOrHospiceCarePerformed.performed)\n                  overlaps InpatientEncounter.period)"
     }, {
       "url": "displaySequence",
       "valueInteger": 16
@@ -413,7 +413,7 @@
       "valueString": "SDE Race"
     }, {
       "url": "statement",
-      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
     }, {
       "url": "displaySequence",
       "valueInteger": 17
@@ -445,7 +445,7 @@
   "title": "EXM506",
   "status": "draft",
   "experimental": false,
-  "date": "2021-05-17T17:56:37-06:00",
+  "date": "2021-07-14T14:25:15-06:00",
   "publisher": "Centers for Medicare & Medicaid Services (CMS)",
   "contact": [ {
     "telecom": [ {
@@ -471,7 +471,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",

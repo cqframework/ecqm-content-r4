@@ -3,7 +3,7 @@
   "id": "HybridHWRFHIR",
   "meta": {
     "versionId": "2",
-    "lastUpdated": "2021-04-02T11:53:39.000-05:00",
+    "lastUpdated": "2021-04-02T10:53:39.000-06:00",
     "source": "#XbbUab59OgcoDc9V",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cohort-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
   },
@@ -317,7 +317,7 @@
       "valueString": "Inpatient Encounters"
     }, {
       "url": "statement",
-      "valueString": "define \"Inpatient Encounters\":\n  from\n                       [\"Encounter\": \"Encounter Inpatient\"] InpatientEncounter,\n                       [\"Coverage\": \"Medicare payer\"] Payer\n                        where (Payer.period overlaps before InpatientEncounter.period\n                        or start of Payer.period same as start of InpatientEncounter.period)\n                        and end of Payer.period != start of InpatientEncounter.period\n                        and Global.\"HospitalizationWithObservationLengthofStay\" (InpatientEncounter) < 365\n                        and InpatientEncounter.period ends during \"Measurement Period\"\n                        and Global.\"CalendarAgeInYearsAt\" ( FHIRHelpers.ToDate(Patient.birthDate), start of InpatientEncounter.period ) >= 65\n                    return InpatientEncounter"
+      "valueString": "define \"Inpatient Encounters\":\n  from\n                       [\"Encounter\": \"Encounter Inpatient\"] InpatientEncounter,\n                       [\"Coverage\": \"Medicare payer\"] Payer\n                        where (Payer.period overlaps before InpatientEncounter.period\n                        or start of Payer.period same as start of InpatientEncounter.period)\n                        and end of Payer.period != start of InpatientEncounter.period\n                        and \"HospitalizationWithObservationLengthofStay\" (InpatientEncounter) < 365\n                        and InpatientEncounter.period ends during \"Measurement Period\"\n                        and AgeInYearsAt(start of \"Measurement Period\") >= 65\n                    return InpatientEncounter"
     }, {
       "url": "displaySequence",
       "valueInteger": 2
@@ -392,7 +392,7 @@
       "valueString": "SDE Ethnicity"
     }, {
       "url": "statement",
-      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
     }, {
       "url": "displaySequence",
       "valueInteger": 7
@@ -422,7 +422,7 @@
       "valueString": "SDE Race"
     }, {
       "url": "statement",
-      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
     }, {
       "url": "displaySequence",
       "valueInteger": 9
@@ -462,7 +462,7 @@
   "title": "Core Clinical Data Elements for the Hybrid Hospital-Wide Readmission (HWR) Measure with Claims and Electronic Health Record Data FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-05-18T12:38:36-05:00",
+  "date": "2021-07-14T15:25:15-05:00",
   "publisher": "Centers for Medicare & Medicaid Services (CMS)",
   "contact": [ {
     "telecom": [ {
@@ -485,14 +485,6 @@
     "type": "depends-on",
     "display": "Library FHIRHelpers",
     "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
-  }, {
-    "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
-  }, {
-    "type": "depends-on",
-    "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",

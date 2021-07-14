@@ -3,7 +3,7 @@
   "id": "ControllingHighBloodPressureFHIR",
   "meta": {
     "versionId": "2",
-    "lastUpdated": "2021-05-12T16:18:09.000-05:00",
+    "lastUpdated": "2021-05-12T15:18:09.000-06:00",
     "source": "#qSjAb3wdGFl52pze",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
   },
@@ -379,16 +379,50 @@
             }
           } ]
         }
-      } ]
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
-    "valueDataRequirement": {
-      "type": "DeviceUseStatement",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" ],
-      "codeFilter": [ {
-        "path": "device.code",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
       } ]
     }
   }, {
@@ -457,7 +491,7 @@
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
     "valueCoding": {
-      "system": "http://terminology.hl7.org/CodeSystem/condition-verification",
+      "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
       "code": "confirmed",
       "display": "confirmed"
     }
@@ -682,7 +716,7 @@
       "valueString": "Initial Population"
     }, {
       "url": "statement",
-      "valueString": "define \"Initial Population\":\n  Global.CalendarAgeInYearsAt(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\") between 18 and 84\n                                    and exists \"Essential Hypertension Diagnosis\"\n                                    and exists AdultOutpatientEncounters.\"Qualifying Encounters\""
+      "valueString": "define \"Initial Population\":\n  AgeInYearsAt(start of \"Measurement Period\") between 18 and 84\n    and exists \"Essential Hypertension Diagnosis\"\n    and exists AdultOutpatientEncounters.\"Qualifying Encounters\""
     }, {
       "url": "displaySequence",
       "valueInteger": 13
@@ -742,7 +776,7 @@
       "valueString": "SDE Ethnicity"
     }, {
       "url": "statement",
-      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
     }, {
       "url": "displaySequence",
       "valueInteger": 17
@@ -826,13 +860,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+      "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
     }, {
       "url": "name",
       "valueString": "Long Term Care Periods During Measurement Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Long Term Care Periods During Measurement Period\":\n  ( [Encounter: \"Care Services in Long-Term Residential Facility\"]\n          \t\tunion [Encounter: \"Nursing Facility Visit\"] ) LongTermFacilityEncounter\n          \t\twhere LongTermFacilityEncounter.period overlaps \"Measurement Period\"\n          \t\treturn LongTermFacilityEncounter.period\n          \t\t\tintersect \"Measurement Period\""
+      "valueString": "// start heredefine \"Long Term Care Periods During Measurement Period\":\n  ( [Encounter: \"Care Services in Long-Term Residential Facility\"]\n              \t\tunion [Encounter: \"Nursing Facility Visit\"] ) LongTermFacilityEncounter\n              \t\twhere LongTermFacilityEncounter.period overlaps \"Measurement Period\"\n              \t\treturn LongTermFacilityEncounter.period\n              \t\t\tintersect \"Measurement Period\""
     }, {
       "url": "displaySequence",
       "valueInteger": 23
@@ -841,13 +875,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+      "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
     }, {
       "url": "name",
-      "valueString": "Days Spent in Long Term Care During Measurement Period"
+      "valueString": "Long Term Care Periods Longer Than 90 Consecutive Days"
     }, {
       "url": "statement",
-      "valueString": "define \"Days Spent in Long Term Care During Measurement Period\":\n  \"CumulativeDays\"(\"Long Term Care Periods During Measurement Period\")"
+      "valueString": "define \"Long Term Care Periods Longer Than 90 Consecutive Days\":\n  exists ( \"Long Term Care Periods During Measurement Period\" LongTermCareDuringMP\n        where duration in days of LongTermCareDuringMP > 90\n    )"
     }, {
       "url": "displaySequence",
       "valueInteger": 24
@@ -856,13 +890,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+      "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
     }, {
       "url": "name",
-      "valueString": "Has Spent More Than 90 Days in Long Term Care"
+      "valueString": "Has Criteria Indicating Frailty"
     }, {
       "url": "statement",
-      "valueString": "define \"Has Spent More Than 90 Days in Long Term Care\":\n  \"Days Spent in Long Term Care During Measurement Period\" > 90"
+      "valueString": "define \"Has Criteria Indicating Frailty\":\n  //Ask Bryn about devices\n      \texists ( [DeviceRequest: \"Frailty Device\"] FrailtyDeviceOrder\n      \t\t\twhere FrailtyDeviceOrder.authoredOn during \"Measurement Period\"\n      \t)\n      \t\t/* or exists ( [DeviceUseStatement: \"Frailty Device\"] FrailtyDeviceUse\n      \t\t\t\twhere Global.\"Normalize Interval\"(FrailtyDeviceUse.timing) overlaps \"Measurement Period\"\n      \t\t) */\n      \t\tor exists ( [Condition: \"Frailty Diagnosis\"] FrailtyDiagnosis\n      \t\t\t\twhere Global.\"Prevalence Period\"(FrailtyDiagnosis) overlaps \"Measurement Period\"\n      \t\t)\n      \t\tor exists ( [Encounter: \"Frailty Encounter\"] FrailtyEncounter\n      \t\t\t\twhere FrailtyEncounter.period overlaps \"Measurement Period\"\n      \t\t)\n      \t\tor exists ( [Observation: \"Frailty Symptom\"] FrailtySymptomObservation\n      \t\t\t\twhere Global.\"Normalize Interval\"(FrailtySymptomObservation.effective) overlaps \"Measurement Period\"\n      \t\t)"
     }, {
       "url": "displaySequence",
       "valueInteger": 25
@@ -871,13 +905,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+      "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
     }, {
       "url": "name",
-      "valueString": "Has Criteria Indicating Frailty"
+      "valueString": "Outpatient Encounters with Advanced Illness"
     }, {
       "url": "statement",
-      "valueString": "define \"Has Criteria Indicating Frailty\":\n  //Ask Bryn about devices\n  \texists ( [DeviceRequest: \"Frailty Device\"] FrailtyDeviceOrder\n  \t\t\twhere FrailtyDeviceOrder.authoredOn during \"Measurement Period\"\n  \t)\n  \t\tor exists ( [DeviceUseStatement: \"Frailty Device\"] FrailtyDeviceUse\n  \t\t\t\twhere Global.\"Normalize Interval\"(FrailtyDeviceUse.timing) overlaps \"Measurement Period\"\n  \t\t)\n  \t\tor exists ( [Condition: \"Frailty Diagnosis\"] FrailtyDiagnosis\n  \t\t\t\twhere Global.\"Prevalence Period\"(FrailtyDiagnosis) overlaps \"Measurement Period\"\n  \t\t)\n  \t\tor exists ( [Encounter: \"Frailty Encounter\"] FrailtyEncounter\n  \t\t\t\twhere FrailtyEncounter.period overlaps \"Measurement Period\"\n  \t\t)\n  \t\tor exists ( [Observation: \"Frailty Symptom\"] FrailtySymptomObservation\n  \t\t\t\twhere Global.\"Normalize Interval\"(FrailtySymptomObservation.effective) overlaps \"Measurement Period\"\n  \t\t)"
+      "valueString": "define \"Outpatient Encounters with Advanced Illness\":\n  ( [Encounter: \"Outpatient\"]\n      \t\tunion [Encounter: \"Observation\"]\n      \t\tunion [Encounter: \"ED\"]\n      \t\tunion [Encounter: \"Nonacute Inpatient\"] ) OutpatientEncounter\n      \t\t with [Condition: \"Advanced Illness\"] AdvancedIllnessDiagnosis\n                  such that exists (\n                      OutpatientEncounter.diagnosis.condition EncounterDiagnosis\n                          where EndsWith(EncounterDiagnosis.reference, AdvancedIllnessDiagnosis.id)\n                  )\n                  and OutpatientEncounter.period starts 2 years or less on or before\n      \t\t\tend of \"Measurement Period\""
     }, {
       "url": "displaySequence",
       "valueInteger": 26
@@ -886,13 +920,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+      "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
     }, {
       "url": "name",
-      "valueString": "Outpatient Encounters with Advanced Illness"
+      "valueString": "Inpatient Encounter with Advanced Illness"
     }, {
       "url": "statement",
-      "valueString": "define \"Outpatient Encounters with Advanced Illness\":\n  ( [Encounter: \"Outpatient\"]\n  \t\tunion [Encounter: \"Observation\"]\n  \t\tunion [Encounter: \"ED\"]\n  \t\tunion [Encounter: \"Nonacute Inpatient\"] ) OutpatientEncounter\n  \t\t with [Condition: \"Advanced Illness\"] AdvancedIllnessDiagnosis\n              such that exists (\n                  OutpatientEncounter.diagnosis.condition EncounterDiagnosis\n                      where EndsWith(EncounterDiagnosis.reference, AdvancedIllnessDiagnosis.id)\n              )\n              and OutpatientEncounter.period starts 2 years or less on or before\n  \t\t\tend of \"Measurement Period\""
+      "valueString": "define \"Inpatient Encounter with Advanced Illness\":\n  [Encounter: \"Acute Inpatient\"] InpatientEncounter\n      \t\twith [Condition: \"Advanced Illness\"] AdvancedIllnessDiagnosis\n                  such that exists (\n                      InpatientEncounter.diagnosis.condition EncounterDiagnosis\n                          where EndsWith(EncounterDiagnosis.reference, AdvancedIllnessDiagnosis.id)\n                  )\n      \t\t\tand InpatientEncounter.period starts 2 years or less on or before\n      \t\t\tend of \"Measurement Period\""
     }, {
       "url": "displaySequence",
       "valueInteger": 27
@@ -901,13 +935,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+      "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
     }, {
       "url": "name",
-      "valueString": "Inpatient Encounter with Advanced Illness"
+      "valueString": "Dementia Medications In Year Before or During Measurement Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Inpatient Encounter with Advanced Illness\":\n  [Encounter: \"Acute Inpatient\"] InpatientEncounter\n  \t\twith [Condition: \"Advanced Illness\"] AdvancedIllnessDiagnosis\n              such that exists (\n                  InpatientEncounter.diagnosis.condition EncounterDiagnosis\n                      where EndsWith(EncounterDiagnosis.reference, AdvancedIllnessDiagnosis.id)\n              )\n  \t\t\tand InpatientEncounter.period starts 2 years or less on or before\n  \t\t\tend of \"Measurement Period\""
+      "valueString": "define \"Dementia Medications In Year Before or During Measurement Period\":\n  [\"MedicationDispense\": \"Dementia Medications\"] DementiaMed\n      \t\twhere DementiaMed.whenHandedOver during Interval[\n                  ( start of \"Measurement Period\" - 1 year ), end of \"Measurement Period\"\n              ]"
     }, {
       "url": "displaySequence",
       "valueInteger": 28
@@ -916,31 +950,16 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
-    }, {
-      "url": "name",
-      "valueString": "Dementia Medications In Year Before or During Measurement Period"
-    }, {
-      "url": "statement",
-      "valueString": "// start heredefine \"Dementia Medications In Year Before or During Measurement Period\":\n  [\"MedicationDispense\": \"Dementia Medications\"] DementiaMed\n  \t\twhere DementiaMed.whenHandedOver during Interval[\n              ( start of \"Measurement Period\" - 1 year ), end of \"Measurement Period\"\n          ]"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 29
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "AdvancedIllnessandFrailtyExclusionFHIR4"
+      "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
     }, {
       "url": "name",
       "valueString": "Advanced Illness and Frailty Exclusion Including Over Age 80"
     }, {
       "url": "statement",
-      "valueString": "define \"Advanced Illness and Frailty Exclusion Including Over Age 80\":\n  //If the measure includes populations age 80 and older, then use this logic:\n  \t(\n          Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\")in Interval[66, 80]\n              and \"Has Criteria Indicating Frailty\"\n              and ( Count(\"Outpatient Encounters with Advanced Illness\")>= 2\n                  or exists ( \"Inpatient Encounter with Advanced Illness\" )\n                  or exists \"Dementia Medications In Year Before or During Measurement Period\"\n              )\n  \t)\n  \t\tor (\n              Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\")>= 81\n  \t\t\t    and \"Has Criteria Indicating Frailty\"\n  \t\t)"
+      "valueString": "define \"Advanced Illness and Frailty Exclusion Including Over Age 80\":\n  //If the measure includes populations age 80 and older, then use this logic:\n      \t(\n              AgeInYearsAt(start of \"Measurement Period\") between 66 and 80\n                  and \"Has Criteria Indicating Frailty\"\n                  and ( Count(\"Outpatient Encounters with Advanced Illness\")>= 2\n                      or exists ( \"Inpatient Encounter with Advanced Illness\" )\n                      or exists \"Dementia Medications In Year Before or During Measurement Period\"\n                  )\n      \t)\n      \t\tor (\n                AgeInYearsAt(start of \"Measurement Period\") >= 81\n      \t\t\t       and \"Has Criteria Indicating Frailty\"\n      \t\t)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 30
+      "valueInteger": 29
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -952,10 +971,10 @@
       "valueString": "Denominator Exclusions"
     }, {
       "url": "statement",
-      "valueString": "define \"Denominator Exclusions\":\n  Hospice.\"Has Hospice\"\n                            or exists \"Pregnancy Or Renal Diagnosis Exclusions\"\n                             or (exists \"End Stage Renal Disease Procedures\"\n                             or exists \"End Stage Renal Disease Encounter\")\n                              or Global.\"CalendarAgeInYearsAt\"(ToDateTime(Patient.birthDate), start of \"Measurement Period\")>=65\n                                     and AdvancedIllness.\"Has Spent More Than 90 Days in Long Term Care\"\n                                     or AdvancedIllness.\"Advanced Illness and Frailty Exclusion Including Over Age 80\""
+      "valueString": "define \"Denominator Exclusions\":\n  Hospice.\"Has Hospice\"\n    or exists \"Pregnancy Or Renal Diagnosis Exclusions\"\n    or (exists \"End Stage Renal Disease Procedures\"\n      or exists \"End Stage Renal Disease Encounter\")\n    or AgeInYearsAt(start of \"Measurement Period\") >= 65\n    and AdvancedIllness.\"Long Term Care Periods Longer Than 90 Consecutive Days\"\n    or AdvancedIllness.\"Advanced Illness and Frailty Exclusion Including Over Age 80\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 31
+      "valueInteger": 30
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -967,10 +986,10 @@
       "valueString": "SDE Race"
     }, {
       "url": "statement",
-      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 32
+      "valueInteger": 31
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -985,7 +1004,7 @@
       "valueString": "define \"SDE Race\":\n  SDE.\"SDE Race\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 33
+      "valueInteger": 32
     } ]
   } ],
   "url": "http://ecqi.healthit.gov/ecqms/Measure/ControllingHighBloodPressureFHIR",
@@ -1003,7 +1022,7 @@
   "title": "Controlling High Blood PressureFHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-06-07T09:49:34-05:00",
+  "date": "2021-07-14T15:25:15-05:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
@@ -1033,7 +1052,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
@@ -1057,15 +1076,15 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library AdvancedIllness",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/AdvancedIllnessandFrailtyExclusionFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Code system LOINC",
@@ -1073,7 +1092,7 @@
   }, {
     "type": "depends-on",
     "display": "Code system ConditionVerificationStatusCodes",
-    "resource": "http://terminology.hl7.org/CodeSystem/condition-verification"
+    "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
   }, {
     "type": "depends-on",
     "display": "Code system SNOMEDCT:2017-09",

@@ -4,7 +4,7 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 include AdultOutpatientEncountersFHIR4 version '2.0.000' called AdultOutpatientEncounters
 include HospiceFHIR4 version '2.0.000' called Hospice
 include AdvancedIllnessandFrailtyExclusionECQMFHIR4 version '5.12.000' called Frailty
@@ -60,8 +60,8 @@ define "SDE Sex":
   SDE."SDE Sex"
 
 define "Initial Population":
-  Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period") in Interval[50, 75]
-                      			and exists AdultOutpatientEncounters."Qualifying Encounters"
+  AgeInYearsAt(start of "Measurement Period") between 50 and 75
+	 and exists AdultOutpatientEncounters."Qualifying Encounters"
 
 define "Denominator":
   "Initial Population"

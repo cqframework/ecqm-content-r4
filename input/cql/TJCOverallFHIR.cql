@@ -8,7 +8,7 @@ Updated FHIR version to 4.0.1
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
 
 codesystem "LOINC": 'http://loinc.org' 
@@ -62,19 +62,21 @@ define "Ischemic Stroke Encounters with Discharge Disposition":
     			or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Patient Expired"
     			or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharged to Home for Hospice Care"
     			or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharged to Health Care Facility for Hospice Care"
-    
+
     // Translator issue with 1.4.9-SNAPSHOT: https://github.com/cqframework/clinical_quality_language/issues/511
 
 define "Encounter with Principal Diagnosis and Age":
   "All Stroke Encounter" AllStrokeEncounter
     		with ["Patient"] BirthDate
-    			such that Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(BirthDate.birthDate), start of FHIRHelpers.ToInterval(AllStrokeEncounter.period)) >= 18
+    			such that AgeInYearsAt(start of FHIRHelpers.ToInterval(AllStrokeEncounter.period)) >= 18
 
 define "Comfort Measures during Hospitalization":
   "Ischemic Stroke Encounter" IschemicStrokeEncounter
        with "Intervention Comfort Measures" ComfortMeasure
        such that FHIRHelpers.ToDateTime(Coalesce(ComfortMeasure.performed as dateTime,ComfortMeasure.authoredOn)) during Global."HospitalizationWithObservation"(IschemicStrokeEncounter)
 
+/*
+  Global.ToDate no longer exists and FHIRHelpers.ToDate does not take a System.DateTime
 define function "CalendarDayOfOrDayAfter"(StartValue DateTime ):
-  Interval(Global."ToDate"(StartValue), Global."ToDate"(StartValue + 2 days))
-
+  Interval(FHIRHelpers."ToDate"(StartValue), Global."ToDate"(StartValue + 2 days))
+  */

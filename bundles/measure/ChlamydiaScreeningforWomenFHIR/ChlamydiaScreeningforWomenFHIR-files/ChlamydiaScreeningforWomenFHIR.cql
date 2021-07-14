@@ -4,7 +4,7 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 include HospiceFHIR4 version '2.0.000' called Hospice
 
 codesystem "LOINC": 'http://loinc.org' 
@@ -64,15 +64,16 @@ define "SDE Sex":
 
 define "Initial Population":
   (Patient.gender = 'female'
-      		and Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period") in Interval[16, 24])
-          and exists ("Qualifying Encounters")
-              and (exists ("Assessments Identifying Sexual Activity")
-                  or exists ("Diagnoses Identifying Sexual Activity")
-                  or exists ("Active Contraceptive Medications")
-                  or exists ("Ordered Contraceptive Medications")
-                  or exists ("Laboratory Tests Identifying Sexual Activity")
-                  or exists ("Diagnostic Studies Identifying Sexual Activity")
-                  or exists ("Procedures Identifying Sexual Activity"))
+    and AgeInYearsAt(start of "Measurement Period") between 16 and 24
+  )
+  and exists ("Qualifying Encounters")
+  and (exists ("Assessments Identifying Sexual Activity")
+    or exists ("Diagnoses Identifying Sexual Activity")
+    or exists ("Active Contraceptive Medications")
+    or exists ("Ordered Contraceptive Medications")
+    or exists ("Laboratory Tests Identifying Sexual Activity")
+    or exists ("Diagnostic Studies Identifying Sexual Activity")
+    or exists ("Procedures Identifying Sexual Activity"))
 
 define "Qualifying Encounters":
   (["Encounter": "Office Visit"]
@@ -178,10 +179,10 @@ define "Numerator":
              and end of Global."Normalize Interval"(ChlamydiaTest.effective) during "Measurement Period")
 
 define "Stratifaction 1":
-  Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period") in Interval[16, 20]
+  AgeInYearsAt(start of "Measurement Period") between 16 and 20
 
 define "Stratifaction 2":
-  Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period") in Interval[21, 24]
+  AgeInYearsAt(start of "Measurement Period") between 21 and 24
 
 define "Assessments Identifying Sexual Activity":
   ["Observation": "Sexually Active"] SexualActivityAssessment

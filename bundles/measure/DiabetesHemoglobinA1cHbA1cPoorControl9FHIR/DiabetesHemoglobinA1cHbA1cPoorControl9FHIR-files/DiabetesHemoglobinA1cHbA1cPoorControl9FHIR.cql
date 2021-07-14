@@ -4,7 +4,7 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 include AdultOutpatientEncountersFHIR4 version '2.0.000' called AdultOutpatientEncounters
 include HospiceFHIR4 version '2.0.000' called Hospice
 include AdvancedIllnessandFrailtyExclusionECQMFHIR4 version '5.12.000' called Frailty
@@ -44,13 +44,13 @@ define "SDE Sex":
 
 define "Initial Population":
   exists ( ["Patient"] BirthDate
-          where Global."CalendarAgeInYearsAt" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of "Measurement Period" ) in Interval[18, 75)
-      )
-        and exists AdultOutpatientEncounters."Qualifying Encounters"
-        and exists ( ["Condition": "Diabetes"] Diabetes
-          where Diabetes.clinicalStatus ~ Global."active"
-            and Global."Prevalence Period"(Diabetes) overlaps "Measurement Period"
-            )
+    where AgeInYearsAt(start of "Measurement Period") between 18 and 75
+  )
+    and exists AdultOutpatientEncounters."Qualifying Encounters"
+    and exists ( ["Condition": "Diabetes"] Diabetes
+      where Diabetes.clinicalStatus ~ Global."active"
+        and Global."Prevalence Period"(Diabetes) overlaps "Measurement Period"
+    )
 
 define "Denominator":
   "Initial Population"
@@ -84,6 +84,6 @@ define "Denominator Exclusions":
   Hospice."Has Hospice"
         or Frailty."Advanced Illness and Frailty Exclusion Not Including Over Age 80"
         or ( exists ["Patient"] BirthDate
-            where ( Global."CalendarAgeInYearsAt" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of "Measurement Period" ) >= 65 )
+          where AgeInYearsAt(start of "Measurement Period") >= 65
               and Frailty."Long Term Care Periods Longer Than 90 Consecutive Days"
         )

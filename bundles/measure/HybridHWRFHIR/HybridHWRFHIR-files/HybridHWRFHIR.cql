@@ -6,7 +6,7 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 
 codesystem "LOINC": 'http://loinc.org'
 
@@ -60,9 +60,9 @@ define "Inpatient Encounters":
                         where (Payer.period overlaps before InpatientEncounter.period
                         or start of Payer.period same as start of InpatientEncounter.period)
                         and end of Payer.period != start of InpatientEncounter.period
-                        and Global."HospitalizationWithObservationLengthofStay" (InpatientEncounter) < 365
+                        and "HospitalizationWithObservationLengthofStay" (InpatientEncounter) < 365
                         and InpatientEncounter.period ends during "Measurement Period"
-                        and Global."CalendarAgeInYearsAt" ( FHIRHelpers.ToDate(Patient.birthDate), start of InpatientEncounter.period ) >= 65
+                        and AgeInYearsAt(start of "Measurement Period") >= 65
                     return InpatientEncounter
 
 define "Results":

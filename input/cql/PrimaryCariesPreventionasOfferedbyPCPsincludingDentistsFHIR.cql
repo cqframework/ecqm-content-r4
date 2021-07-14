@@ -4,7 +4,7 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 include HospiceFHIR4 version '2.0.000' called Hospice
 
 codesystem "LOINC": 'http://loinc.org'
@@ -54,24 +54,24 @@ define "Denominator Exclusions":
 
 define "Stratification 2":
   exists ["Patient"] BirthDate
-        where Global."CalendarAgeInYearsAt" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of "Measurement Period" ) in Interval[5, 11]
+    where AgeInYearsAt(start of "Measurement Period") between 5 and 11
 
 define "Stratification 3":
   exists ["Patient"] BirthDate
-        where Global."CalendarAgeInYearsAt" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of "Measurement Period" ) in Interval[12, 20 )
+    where AgeInYearsAt(start of "Measurement Period") between 12 and 20
 
 define "Stratification 1":
   exists ( ["Patient"] BirthDate
-          where Global."CalendarAgeInMonthsAt" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of "Measurement Period" ) >= 6
-            and Global."CalendarAgeInYearsAt" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of "Measurement Period" ) <= 4
-      )
+    where AgeInMonthsAt(start of "Measurement Period") >= 6
+    and AgeInYearsAt(start of "Measurement Period") <= 4
+  )
 
 define "Initial Population":
   exists ( ["Patient"] BirthDate
-          where Global."CalendarAgeInMonthsAt" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of "Measurement Period" ) >= 6
-            and Global."CalendarAgeInYearsAt" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of "Measurement Period" ) < 20
-      )
-        and exists ( "Qualifying Encounters" )
+    where AgeInMonthsAt(start of "Measurement Period") >= 6
+    and AgeInYearsAt(start of "Measurement Period") <= 20
+  )
+  and exists ( "Qualifying Encounters" )
 
 define "Numerator":
   exists  ["Procedure": "Fluoride Varnish Application for Children"] FluorideApplication
