@@ -257,7 +257,7 @@
       "valueString": "Initial Population"
     }, {
       "url": "statement",
-      "valueString": "define \"Initial Population\":\n  Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\") in Interval[50, 75]\n                      \t\t\tand exists AdultOutpatientEncounters.\"Qualifying Encounters\""
+      "valueString": "define \"Initial Population\":\n  AgeInYearsAt(start of \"Measurement Period\") between 50 and 75\n\t and exists AdultOutpatientEncounters.\"Qualifying Encounters\""
     }, {
       "url": "displaySequence",
       "valueInteger": 9
@@ -317,7 +317,7 @@
       "valueString": "SDE Ethnicity"
     }, {
       "url": "statement",
-      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
     }, {
       "url": "displaySequence",
       "valueInteger": 13
@@ -347,7 +347,7 @@
       "valueString": "SDE Race"
     }, {
       "url": "statement",
-      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
     }, {
       "url": "displaySequence",
       "valueInteger": 15
@@ -383,7 +383,7 @@
   "title": "Colorectal Cancer ScreeningFHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-05-17T17:56:37-06:00",
+  "date": "2021-07-14T14:25:14-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
@@ -413,7 +413,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",

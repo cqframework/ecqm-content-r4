@@ -4,7 +4,7 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 
 codesystem "LOINC": 'http://loinc.org' 
 
@@ -66,7 +66,7 @@ define "Opioid at Discharge":
 define "Inpatient Encounter with Age Greater than or Equal to 18":
   Global."Inpatient Encounter" EncounterInpatient
          with ["Patient"] BirthDate
-           such that Global.CalendarAgeInYearsAt(FHIRHelpers.ToDate(Patient.birthDate), start of FHIRHelpers.ToInterval(EncounterInpatient.period)) >= 18
+          such that AgeInYearsAt(start of FHIRHelpers.ToInterval(EncounterInpatient.period)) >= 18
 
 define "Benzodiazepine at Discharge":
   ["MedicationRequest": "Schedule IV Benzodiazepines"] BenzodiazepineDischarge
@@ -84,13 +84,13 @@ define "Denominator Exclusion":
   ("Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
      with [Condition: "All Primary and Secondary Cancer"]Cancer
           such that Global."Prevalence Period"(Cancer) overlaps InpatientEncounter.period)
-    
+
            union ("Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
          with (["ServiceRequest": "Palliative Care"]
          union ["ServiceRequest": "Hospice Care"] ) PalliativeOrHospiceCareOrder
          such that  PalliativeOrHospiceCareOrder.intent = 'order'
          and FHIRHelpers.ToDateTime(PalliativeOrHospiceCareOrder.authoredOn) during InpatientEncounter.period)
-    
+
        union ("Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
      with  (["Procedure": "Palliative Care"]
          union ["Procedure": "Hospice Care"] ) PalliativeOrHospiceCarePerformed

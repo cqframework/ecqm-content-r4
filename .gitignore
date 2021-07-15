@@ -3,3 +3,19 @@ input-cache/
 output/
 temp/
 template/
+/bundles/measure/BreastCancerScreeningFHIR/BreastCancerScreeningFHIR-files
+/bundles/measure/CLONE124/CLONE124-files
+/bundles/measure/CMS104/CMS104-files
+/bundles/measure/CMS111/CMS111-files
+/bundles/measure/CervicalCancerScreeningFHIR/CervicalCancerScreeningFHIR-files
+/bundles/measure/ChlamydiaScreeningforWomenFHIR/ChlamydiaScreeningforWomenFHIR-files
+/bundles/measure/ColorectalCancerScreeningsFHIR/ColorectalCancerScreeningsFHIR-files
+/bundles/measure/ControllingHighBloodPressureFHIR/ControllingHighBloodPressureFHIR-files
+/bundles/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR-files
+/bundles/measure/DischargedonAntithromboticTherapyFHIR/DischargedonAntithromboticTherapyFHIR-files
+/bundles/measure/EXM111/EXM111-files
+/bundles/measure/EXM124/EXM124-files
+/bundles/measure/FHIR CCDE - Lookback/FHIR CCDE - Lookback-files
+/bundles/measure/FHIR347/FHIR347-files
+/bundles/measure/HybridHWRFHIR/HybridHWRFHIR-files
+/bundles/measure/PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR/PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR-files

@@ -3,7 +3,7 @@ library AdvancedIllnessandFrailtyExclusionECQMFHIR4 version '5.12.000'
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 
 codesystem "LOINC": 'http://loinc.org'
 
@@ -31,7 +31,7 @@ context Patient
 define "Advanced Illness and Frailty Exclusion Including Over Age 80":
   //If the measure includes populations age 80 and older, then use this logic:
       	(
-              Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period")in Interval[66, 80]
+              AgeInYearsAt(start of "Measurement Period") between 66 and 80
                   and "Has Criteria Indicating Frailty"
                   and ( Count("Outpatient Encounters with Advanced Illness")>= 2
                       or exists ( "Inpatient Encounter with Advanced Illness" )
@@ -39,18 +39,18 @@ define "Advanced Illness and Frailty Exclusion Including Over Age 80":
                   )
       	)
       		or (
-                  Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period")>= 81
-      			    and "Has Criteria Indicating Frailty"
+                AgeInYearsAt(start of "Measurement Period") >= 81
+      			       and "Has Criteria Indicating Frailty"
       		)
 
 define "Advanced Illness and Frailty Exclusion Not Including Over Age 80":
   //If the measure does NOT include populations age 80 and older, then use this logic:
-      	Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period")>= 65
-              and "Has Criteria Indicating Frailty"
-              and ( Count("Outpatient Encounters with Advanced Illness")>= 2
-                  or exists ( "Inpatient Encounter with Advanced Illness" )
-                  or exists "Dementia Medications In Year Before or During Measurement Period"
-              )
+    AgeInYearsAt(start of "Measurement Period") >= 65
+    and "Has Criteria Indicating Frailty"
+    and ( Count("Outpatient Encounters with Advanced Illness")>= 2
+        or exists ( "Inpatient Encounter with Advanced Illness" )
+        or exists "Dementia Medications In Year Before or During Measurement Period"
+    )
 
 define "Dementia Medications In Year Before or During Measurement Period":
   ["MedicationDispense": "Dementia Medications"] DementiaMed

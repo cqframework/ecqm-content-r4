@@ -195,6 +195,17 @@
             }
           } ]
         }
+      }, {
+        "path": "period",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
       } ]
     }
   }, {
@@ -230,8 +241,24 @@
         "code": [ {
           "code": "order"
         } ]
+      }, {
+        "path": "intent",
+        "code": [ {
+          "code": "order"
+        } ]
       } ],
       "dateFilter": [ {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
         "path": "authoredOn",
         "_valueDateTime": {
           "extension": [ {
@@ -321,6 +348,11 @@
         "code": [ {
           "code": "completed"
         } ]
+      }, {
+        "path": "status",
+        "code": [ {
+          "code": "completed"
+        } ]
       } ]
     }
   }, {
@@ -333,6 +365,28 @@
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
       } ],
       "dateFilter": [ {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
+      }, {
         "path": "authoredOn",
         "_valueDateTime": {
           "extension": [ {
@@ -601,7 +655,7 @@
       "valueString": "Initial Population"
     }, {
       "url": "statement",
-      "valueString": "define \"Initial Population\":\n  exists ( [\"Patient\"] BirthDate\n          where Global.\"CalendarAgeInYearsAt\" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of \"Measurement Period\" ) in Interval[18, 75)\n      )\n        and exists AdultOutpatientEncounters.\"Qualifying Encounters\"\n        and exists ( [\"Condition\": \"Diabetes\"] Diabetes\n          where Diabetes.clinicalStatus ~ Global.\"active\"\n            and Global.\"Prevalence Period\"(Diabetes) overlaps \"Measurement Period\"\n            )"
+      "valueString": "define \"Initial Population\":\n  exists ( [\"Patient\"] BirthDate\n    where AgeInYearsAt(start of \"Measurement Period\") between 18 and 75\n  )\n    and exists AdultOutpatientEncounters.\"Qualifying Encounters\"\n    and exists ( [\"Condition\": \"Diabetes\"] Diabetes\n      where Diabetes.clinicalStatus ~ Global.\"active\"\n        and Global.\"Prevalence Period\"(Diabetes) overlaps \"Measurement Period\"\n    )"
     }, {
       "url": "displaySequence",
       "valueInteger": 8
@@ -661,7 +715,7 @@
       "valueString": "SDE Ethnicity"
     }, {
       "url": "statement",
-      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
     }, {
       "url": "displaySequence",
       "valueInteger": 12
@@ -766,7 +820,7 @@
       "valueString": "Advanced Illness and Frailty Exclusion Not Including Over Age 80"
     }, {
       "url": "statement",
-      "valueString": "define \"Advanced Illness and Frailty Exclusion Not Including Over Age 80\":\n  //If the measure does NOT include populations age 80 and older, then use this logic:\n      \tGlobal.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\")>= 65\n              and \"Has Criteria Indicating Frailty\"\n              and ( Count(\"Outpatient Encounters with Advanced Illness\")>= 2\n                  or exists ( \"Inpatient Encounter with Advanced Illness\" )\n                  or exists \"Dementia Medications In Year Before or During Measurement Period\"\n              )"
+      "valueString": "define \"Advanced Illness and Frailty Exclusion Not Including Over Age 80\":\n  //If the measure does NOT include populations age 80 and older, then use this logic:\n    AgeInYearsAt(start of \"Measurement Period\") >= 65\n    and \"Has Criteria Indicating Frailty\"\n    and ( Count(\"Outpatient Encounters with Advanced Illness\")>= 2\n        or exists ( \"Inpatient Encounter with Advanced Illness\" )\n        or exists \"Dementia Medications In Year Before or During Measurement Period\"\n    )"
     }, {
       "url": "displaySequence",
       "valueInteger": 19
@@ -811,7 +865,7 @@
       "valueString": "Denominator Exclusions"
     }, {
       "url": "statement",
-      "valueString": "define \"Denominator Exclusions\":\n  Hospice.\"Has Hospice\"\n        or Frailty.\"Advanced Illness and Frailty Exclusion Not Including Over Age 80\"\n        or ( exists [\"Patient\"] BirthDate\n            where ( Global.\"CalendarAgeInYearsAt\" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of \"Measurement Period\" ) >= 65 )\n              and Frailty.\"Long Term Care Periods Longer Than 90 Consecutive Days\"\n        )"
+      "valueString": "define \"Denominator Exclusions\":\n  Hospice.\"Has Hospice\"\n        or Frailty.\"Advanced Illness and Frailty Exclusion Not Including Over Age 80\"\n        or ( exists [\"Patient\"] BirthDate\n          where AgeInYearsAt(start of \"Measurement Period\") >= 65\n              and Frailty.\"Long Term Care Periods Longer Than 90 Consecutive Days\"\n        )"
     }, {
       "url": "displaySequence",
       "valueInteger": 22
@@ -826,7 +880,7 @@
       "valueString": "SDE Race"
     }, {
       "url": "statement",
-      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
     }, {
       "url": "displaySequence",
       "valueInteger": 23
@@ -862,7 +916,7 @@
   "title": "Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-05-17T17:56:37-06:00",
+  "date": "2021-07-14T14:25:15-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
@@ -892,7 +946,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
@@ -916,7 +970,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library Frailty",
@@ -924,7 +978,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Code system ConditionClinicalStatusCodes",

@@ -3,7 +3,7 @@ library FHIR347 version '0.1.009'
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001' called FHIRHelpers
-include MATGlobalCommonFunctionsFHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
 
 codesystem "ICD10CM": 'http://hl7.org/fhir/sid/icd-10-cm'
@@ -220,16 +220,16 @@ define "Statin Therapy Ordered During Measurement Period":
 
 define "Denominator 3":
   "Initial Population"
-              and Global."CalendarAgeInYearsAt" ( FHIRHelpers.ToDate ( Patient.birthDate ), start of "Measurement Period" ) in Interval[40, 75]
-              and "Has Diabetes"
-              and "Highest LDL Result Within 3 Years is Greater Than or Equal To 70 and Less Than 190" is not null
-              and not exists "ASCVD Diagnosis or Procedure Before End of Measurement Period"
-              and not exists "Current or Prior LDL Result Greater Than or Equal To 190"
-              and not "Has Hypercholesterolemia"
+    and AgeInYearsAt(start of "Measurement Period") between 40 and 75
+    and "Has Diabetes"
+    and "Highest LDL Result Within 3 Years is Greater Than or Equal To 70 and Less Than 190" is not null
+    and not exists "ASCVD Diagnosis or Procedure Before End of Measurement Period"
+    and not exists "Current or Prior LDL Result Greater Than or Equal To 190"
+    and not "Has Hypercholesterolemia"
 
 define "Initial Population":
-  Global."CalendarAgeInYearsAt" ( FHIRHelpers.ToDate (Patient.birthDate ), start of "Measurement Period" ) >= 21
-              and exists "Qualifying Encounter During Measurement Period"
+  AgeInYearsAt(start of "Measurement Period") >= 21
+    and exists "Qualifying Encounter During Measurement Period"
 
 define "Denominator Exclusions":
   exists ( ( [Condition: "Rhabdomyolysis"]

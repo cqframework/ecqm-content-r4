@@ -77,7 +77,7 @@
         "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-relatedRequirement",
         "extension": [ {
           "url": "targetId",
-          "valueString": "93"
+          "valueString": "88"
         }, {
           "url": "targetProperty",
           "valueString": "period"
@@ -209,7 +209,7 @@
       "valueString": "Encounter with Principal Diagnosis and Age"
     }, {
       "url": "statement",
-      "valueString": "// Translator issue with 1.4.9-SNAPSHOT: https://github.com/cqframework/clinical_quality_language/issues/511define \"Encounter with Principal Diagnosis and Age\":\n  \"All Stroke Encounter\" AllStrokeEncounter\n    \t\twith [\"Patient\"] BirthDate\n    \t\t\tsuch that Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(BirthDate.birthDate), start of FHIRHelpers.ToInterval(AllStrokeEncounter.period)) >= 18"
+      "valueString": "// Translator issue with 1.4.9-SNAPSHOT: https://github.com/cqframework/clinical_quality_language/issues/511define \"Encounter with Principal Diagnosis and Age\":\n  \"All Stroke Encounter\" AllStrokeEncounter\n    \t\twith [\"Patient\"] BirthDate\n    \t\t\tsuch that AgeInYearsAt(start of FHIRHelpers.ToInterval(AllStrokeEncounter.period)) >= 18"
     }, {
       "url": "displaySequence",
       "valueInteger": 2
@@ -436,7 +436,7 @@
   "title": "Discharged on Antithrombotic Therapy FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-05-17T17:56:37-06:00",
+  "date": "2021-07-14T14:25:15-06:00",
   "publisher": "The Joint Commission",
   "contact": [ {
     "telecom": [ {
@@ -458,7 +458,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
@@ -474,7 +474,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Code system MedicationRequestCategory",

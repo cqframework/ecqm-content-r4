@@ -255,6 +255,17 @@
             }
           } ]
         }
+      }, {
+        "path": "period",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
       } ]
     }
   }, {
@@ -265,6 +276,11 @@
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+      }, {
+        "path": "intent",
+        "code": [ {
+          "code": "order"
+        } ]
       }, {
         "path": "intent",
         "code": [ {
@@ -362,6 +378,17 @@
             }
           } ]
         }
+      }, {
+        "path": "authoredOn",
+        "_valueDateTime": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql-identifier",
+              "expression": "Measurement Period"
+            }
+          } ]
+        }
       } ]
     }
   }, {
@@ -372,6 +399,11 @@
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+      }, {
+        "path": "status",
+        "code": [ {
+          "code": "completed"
+        } ]
       }, {
         "path": "status",
         "code": [ {
@@ -487,7 +519,7 @@
       "valueString": "Stratification 3"
     }, {
       "url": "statement",
-      "valueString": "define \"Stratification 3\":\n  exists [\"Patient\"] BirthDate\n        where Global.\"CalendarAgeInYearsAt\" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of \"Measurement Period\" ) in Interval[12, 20 )"
+      "valueString": "define \"Stratification 3\":\n  exists [\"Patient\"] BirthDate\n    where AgeInYearsAt(start of \"Measurement Period\") between 12 and 20"
     }, {
       "url": "displaySequence",
       "valueInteger": 3
@@ -502,7 +534,7 @@
       "valueString": "Stratification 2"
     }, {
       "url": "statement",
-      "valueString": "define \"Stratification 2\":\n  exists [\"Patient\"] BirthDate\n        where Global.\"CalendarAgeInYearsAt\" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of \"Measurement Period\" ) in Interval[5, 11]"
+      "valueString": "define \"Stratification 2\":\n  exists [\"Patient\"] BirthDate\n    where AgeInYearsAt(start of \"Measurement Period\") between 5 and 11"
     }, {
       "url": "displaySequence",
       "valueInteger": 4
@@ -517,7 +549,7 @@
       "valueString": "Stratification 1"
     }, {
       "url": "statement",
-      "valueString": "define \"Stratification 1\":\n  exists ( [\"Patient\"] BirthDate\n          where Global.\"CalendarAgeInMonthsAt\" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of \"Measurement Period\" ) >= 6\n            and Global.\"CalendarAgeInYearsAt\" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of \"Measurement Period\" ) <= 4\n      )"
+      "valueString": "define \"Stratification 1\":\n  exists ( [\"Patient\"] BirthDate\n    where AgeInMonthsAt(start of \"Measurement Period\") >= 6\n    and AgeInYearsAt(start of \"Measurement Period\") <= 4\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 5
@@ -547,7 +579,7 @@
       "valueString": "Initial Population"
     }, {
       "url": "statement",
-      "valueString": "define \"Initial Population\":\n  exists ( [\"Patient\"] BirthDate\n          where Global.\"CalendarAgeInMonthsAt\" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of \"Measurement Period\" ) >= 6\n            and Global.\"CalendarAgeInYearsAt\" ( FHIRHelpers.ToDate(BirthDate.birthDate), start of \"Measurement Period\" ) < 20\n      )\n        and exists ( \"Qualifying Encounters\" )"
+      "valueString": "define \"Initial Population\":\n  exists ( [\"Patient\"] BirthDate\n    where AgeInMonthsAt(start of \"Measurement Period\") >= 6\n    and AgeInYearsAt(start of \"Measurement Period\") <= 20\n  )\n  and exists ( \"Qualifying Encounters\" )"
     }, {
       "url": "displaySequence",
       "valueInteger": 7
@@ -607,7 +639,7 @@
       "valueString": "SDE Ethnicity"
     }, {
       "url": "statement",
-      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
     }, {
       "url": "displaySequence",
       "valueInteger": 11
@@ -667,7 +699,7 @@
       "valueString": "SDE Race"
     }, {
       "url": "statement",
-      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
     }, {
       "url": "displaySequence",
       "valueInteger": 15
@@ -703,7 +735,7 @@
   "title": "Primary Caries Prevention Intervention as Offered by Primary Care Providers, including DentistsFHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-05-17T17:56:37-06:00",
+  "date": "2021-07-14T14:25:15-06:00",
   "publisher": "Centers for Medicare & Medicaid Services (CMS)",
   "contact": [ {
     "telecom": [ {
@@ -733,7 +765,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
@@ -749,7 +781,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|5.0.000"
+    "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Code system SNOMEDCT:2017-09",
