@@ -102,6 +102,7 @@
     "valueDataRequirement": {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "status", "value", "effective" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1052"
@@ -135,6 +136,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "url", "value", "url", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -147,6 +149,7 @@
     "valueDataRequirement": {
       "type": "ServiceRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "mustSupport": [ "authoredOn", "status", "intent" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1034"
@@ -167,6 +170,7 @@
     "valueDataRequirement": {
       "type": "ServiceRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "mustSupport": [ "intent", "authoredOn", "status", "authoredOn" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1011"
@@ -210,6 +214,7 @@
     "valueDataRequirement": {
       "type": "ServiceRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "mustSupport": [ "authoredOn", "status", "authoredOn", "intent" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.111.12.1011"
@@ -253,6 +258,7 @@
     "valueDataRequirement": {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "status", "intent", "authoredOn" ],
       "codeFilter": [ {
         "path": "medication",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1143"
@@ -273,6 +279,7 @@
     "valueDataRequirement": {
       "type": "Encounter",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "hospitalization.dischargeDisposition", "hospitalization", "hospitalization", "period", "status", "hospitalization.dischargeDisposition" ],
       "codeFilter": [ {
         "path": "type",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
@@ -328,6 +335,7 @@
     "valueDataRequirement": {
       "type": "ServiceRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "mustSupport": [ "intent", "authoredOn" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
@@ -403,6 +411,7 @@
     "valueDataRequirement": {
       "type": "Procedure",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "mustSupport": [ "status", "performed" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
@@ -433,6 +442,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "value", "url", "url", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -750,7 +760,7 @@
       "valueString": "Pregnancy Test Exclusion"
     }, {
       "url": "statement",
-      "valueString": "define \"Pregnancy Test Exclusion\":\n  ( [\"ServiceRequest\": \"Pregnancy Test\"] PregnancyTest\n           with [\"ServiceRequest\": \"X-Ray Study (all inclusive)\"] XrayOrder\n                 such that XrayOrder.authoredOn occurs 7 days or less on or after day of PregnancyTest.authoredOn\n                 and XrayOrder.status in {'active','completed'}\n                 and XrayOrder.intent = 'order'\n                 and PregnancyTest.status in {'active','completed'}\n                 and PregnancyTest.intent = 'order'\n                 and PregnancyTest.authoredOn during \"Measurement Period\"\n      \n       )\n         union ( [\"ServiceRequest\": \"Pregnancy Test\"] PregnancyTestOrder\n             with [\"MedicationRequest\": \"Isotretinoin\"] AccutaneOrder\n               such that AccutaneOrder.authoredOn occurs 7 days or less on or after day of PregnancyTestOrder.authoredOn\n               and AccutaneOrder.status in {'active','completed'}\n               and AccutaneOrder.intent = 'order'\n               and PregnancyTestOrder.status in {'active','completed'}\n               and PregnancyTestOrder.intent = 'order'\n               and PregnancyTestOrder.authoredOn during \"Measurement Period\"\n         )"
+      "valueString": "define \"Pregnancy Test Exclusion\":\n  ( [\"ServiceRequest\": \"Pregnancy Test\"] PregnancyTest\n           with [\"ServiceRequest\": \"X-Ray Study (all inclusive)\"] XrayOrder\n                 such that XrayOrder.authoredOn occurs 7 days or less on or after day of PregnancyTest.authoredOn\n                 and XrayOrder.status in {'active','completed'}\n                 and XrayOrder.intent = 'order'\n                 and PregnancyTest.status in {'active','completed'}\n                 and PregnancyTest.intent = 'order'\n                 and PregnancyTest.authoredOn during \"Measurement Period\"\n\n       )\n         union ( [\"ServiceRequest\": \"Pregnancy Test\"] PregnancyTestOrder\n             with [\"MedicationRequest\": \"Isotretinoin\"] AccutaneOrder\n               such that AccutaneOrder.authoredOn occurs 7 days or less on or after day of PregnancyTestOrder.authoredOn\n               and AccutaneOrder.status in {'active','completed'}\n               and AccutaneOrder.intent = 'order'\n               and PregnancyTestOrder.status in {'active','completed'}\n               and PregnancyTestOrder.intent = 'order'\n               and PregnancyTestOrder.authoredOn during \"Measurement Period\"\n         )"
     }, {
       "url": "displaySequence",
       "valueInteger": 18
@@ -831,7 +841,7 @@
   "title": "Chlamydia Screening for WomenFHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-07-14T14:25:14-06:00",
+  "date": "2021-07-19T15:58:16-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {

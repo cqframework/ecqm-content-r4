@@ -129,6 +129,7 @@
     "valueDataRequirement": {
       "type": "Procedure",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "mustSupport": [ "performed", "status" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.125.12.1002"
@@ -173,6 +174,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "url", "value", "url", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -185,6 +187,7 @@
     "valueDataRequirement": {
       "type": "Encounter",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "hospitalization.dischargeDisposition", "hospitalization", "hospitalization", "period", "status", "hospitalization.dischargeDisposition" ],
       "codeFilter": [ {
         "path": "type",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
@@ -273,6 +276,7 @@
     "valueDataRequirement": {
       "type": "ServiceRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "mustSupport": [ "intent", "authoredOn" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
@@ -396,6 +400,7 @@
     "valueDataRequirement": {
       "type": "Procedure",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "mustSupport": [ "status", "performed" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
@@ -441,6 +446,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "value", "url", "url", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -735,7 +741,7 @@
   "title": "Primary Caries Prevention Intervention as Offered by Primary Care Providers, including DentistsFHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-07-14T14:25:15-06:00",
+  "date": "2021-07-19T15:58:17-06:00",
   "publisher": "Centers for Medicare & Medicaid Services (CMS)",
   "contact": [ {
     "telecom": [ {

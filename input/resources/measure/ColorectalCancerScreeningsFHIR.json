@@ -93,6 +93,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "url", "value", "url", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -105,6 +106,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "value", "url", "url", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -383,7 +385,7 @@
   "title": "Colorectal Cancer ScreeningFHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-07-14T14:25:14-06:00",
+  "date": "2021-07-19T15:58:16-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {

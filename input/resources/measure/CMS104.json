@@ -121,6 +121,7 @@
       } ],
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "category", "status", "intent", "authoredOn", "intent.value" ],
       "codeFilter": [ {
         "path": "medication",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.201"
@@ -141,6 +142,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "url", "value", "url", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -153,6 +155,7 @@
     "valueDataRequirement": {
       "type": "ServiceRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "mustSupport": [ "intent" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45"
@@ -173,6 +176,7 @@
     "valueDataRequirement": {
       "type": "Procedure",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "mustSupport": [ "status" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45"
@@ -193,6 +197,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "value", "url", "url", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -601,7 +606,7 @@
   "title": "Discharged on Antithrombotic Therapy FHIR",
   "status": "active",
   "experimental": false,
-  "date": "2021-07-14T14:25:14-06:00",
+  "date": "2021-07-19T15:58:16-06:00",
   "publisher": "The Joint Commission",
   "contact": [ {
     "telecom": [ {

@@ -138,6 +138,7 @@
     "valueDataRequirement": {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "value", "status", "effective" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1573"
@@ -148,6 +149,7 @@
     "valueDataRequirement": {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "value", "status", "effective" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1573"
@@ -158,6 +160,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "url", "value", "url", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -170,6 +173,7 @@
     "valueDataRequirement": {
       "type": "Encounter",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "status", "period" ],
       "codeFilter": [ {
         "path": "type",
         "code": [ {
@@ -194,6 +198,7 @@
     "valueDataRequirement": {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "effective", "value", "status" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1573"
@@ -204,6 +209,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "value", "url", "url", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -684,7 +690,7 @@
   "title": "Statin Therapy for the Prevention and Treatment of Cardiovascular Disease FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-07-14T15:25:15-05:00",
+  "date": "2021-07-19T16:58:17-05:00",
   "publisher": "Mathematica",
   "contact": [ {
     "telecom": [ {

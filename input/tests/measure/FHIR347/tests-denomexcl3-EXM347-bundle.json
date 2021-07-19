@@ -57,8 +57,7 @@
       "subject": {
         "reference": "Patient/denomexcl3-EXM347"
       },
-      "onsetDateTime": "2018-06-01T08:30:00",
-      "abatementDateTime": "2019-12-31T08:30:00"
+      "onsetDateTime": "2019-06-01T08:30:00"
     },
     "request": {
       "method": "PUT",
