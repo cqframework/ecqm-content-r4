@@ -99,11 +99,6 @@
         "code": [ {
           "code": "order"
         } ]
-      }, {
-        "path": "intent.value",
-        "code": [ {
-          "code": "order"
-        } ]
       } ]
     }
   }, {
@@ -125,11 +120,6 @@
         "code": [ {
           "code": "order"
         } ]
-      }, {
-        "path": "intent",
-        "code": [ {
-          "code": "order"
-        } ]
       } ]
     }
   }, {
@@ -141,11 +131,6 @@
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45"
-      }, {
-        "path": "status",
-        "code": [ {
-          "code": "completed"
-        } ]
       }, {
         "path": "status",
         "code": [ {
@@ -439,7 +424,7 @@
   "title": "Discharged on Antithrombotic Therapy FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-07-19T15:58:17-06:00",
+  "date": "2021-07-20T09:28:52-06:00",
   "publisher": "The Joint Commission",
   "contact": [ {
     "telecom": [ {
