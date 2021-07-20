@@ -648,7 +648,7 @@
   "title": "Breast Cancer Screening FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-07-20T09:28:51-06:00",
+  "date": "2021-07-20T12:48:31-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
@@ -853,6 +853,7 @@
   },
   "guidance": "Patient self-report for procedures as well as diagnostic studies should be recorded in 'Procedure, Performed' template or 'Diagnostic Study, Performed' template in QRDA-1. \n\nThis measure evaluates primary screening. Do not count biopsies, breast ultrasounds, or MRIs because they are not appropriate methods for primary breast cancer screening.\n\nThis eCQM is a patient-based measure.",
   "group": [ {
+    "id": "group-1",
     "population": [ {
       "id": "3D2DD734-0712-484A-BE23-B1D2FF96D83A",
       "code": {

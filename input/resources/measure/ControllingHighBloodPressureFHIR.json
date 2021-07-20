@@ -1032,7 +1032,7 @@
   "title": "Controlling High Blood PressureFHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-07-20T10:28:51-05:00",
+  "date": "2021-07-20T13:48:31-05:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
@@ -1253,6 +1253,7 @@
   },
   "guidance": "In reference to the numerator element, only blood pressure readings performed by a clinician or a remote monitoring device are acceptable for numerator compliance with this measure. This includes blood pressures taken in person by a clinician and blood pressures measured remotely by electronic monitoring devices capable of transmitting the blood pressure data to the clinician. Blood pressure readings taken by a remote monitoring device and conveyed by the patient to the clinician are also acceptable. It is the clinician’s responsibility and discretion to confirm the remote monitoring device used to obtain the blood pressure is considered acceptable and reliable and whether the blood pressure reading is considered accurate before documenting it in the patient’s medical record.\n\nDo not include BP readings:\n-Taken during an acute inpatient stay or an ED visit\n-Taken on the same day as a diagnostic test or diagnostic or therapeutic procedure that requires a change in diet or change in medication on or one day before the day of the test or procedure, with the exception of fasting blood tests.\n-Taken by the patient using a non-digital device such as with a manual blood pressure cuff and a stethoscope.\n\nIf no blood pressure is recorded during the measurement period, the patient's blood pressure is assumed \"not controlled.\"\n\nIf there are multiple blood pressure readings on the same day, use the lowest systolic and the lowest diastolic reading as the most recent blood pressure reading.\n\nThis eCQM is a patient-based measure.\n\nThis version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource center (https://ecqi.healthit.gov/qdm) for more information on the QDM.",
   "group": [ {
+    "id": "group-1",
     "population": [ {
       "id": "8751E429-AC6B-4663-8FA8-99463D079359",
       "code": {

@@ -48195,7 +48195,7 @@
       "title": "Core Clinical Data Elements for the Hybrid Hospital-Wide Readmission (HWR) Measure with Claims and Electronic Health Record Data FHIR",
       "status": "draft",
       "experimental": false,
-      "date": "2021-07-20T10:28:52-05:00",
+      "date": "2021-07-20T13:48:32-05:00",
       "publisher": "Centers for Medicare & Medicaid Services (CMS)",
       "contact": [ {
         "telecom": [ {
@@ -48308,6 +48308,7 @@
       },
       "guidance": "These specifications are for use for data with discharges that occur between July 1, 2021 and June 30, 2022. The associated Hospital Specific Report (HSR) is anticipated to be released in Spring 2023.\n\nThis logic guides the user to extract the FIRST resulted HWR-specific core clinical data elements for all Medicare Fee-For-Service encounters for patients age 65 or older (Initial Population) directly admitted to the hospital or admitted to the same facility after being treated in another area such as the emergency department or hospital outpatient location. \n\nThe logic supports extraction of the FIRST set of HWR-specific core clinical data elements in two different ways depending on if the patient was a direct admission, meaning that the patient was admitted directly to an inpatient unit without first receiving care in the emergency department or other hospital outpatient locations within the same admitting facility: \n\n1. If the patient was a direct admission, the logic supports extraction of the FIRST resulted vital signs within 2 hours (120 minutes) after the start of the inpatient admission, and the FIRST resulted laboratory tests within 24 hours (1440 minutes) after the start of the inpatient admission. \n2. If the patient has values captured prior to admission, for example from the emergency department, pre-operative, or other outpatient area within the hospital, the logic supports extraction of the FIRST resulted vital signs and laboratory tests within 24 hours (1440 minutes) PRIOR to the start of the inpatient admission. All clinical systems used in inpatient and outpatient locations within the hospital facility should be queried when looking for core clinical data element values related to a patient who is subsequently admitted.\n\nValue sets for the laboratory tests represent the LOINC codes currently available for these tests. If the institution is using local codes to capture and store relevant laboratory test data, those sites should map that information to the LOINC code for reporting of the core clinical data elements.\n\nNOTE: Do not report ALL values on an encounter during their entire admission. Only report the FIRST resulted value for EACH core clinical data element collected in the appropriate timeframe, if available.\n\nFor each encounter please also submit the following Linking Variables: \nCMS Certification Number,\nHealth Insurance Claim Number (HICN) or Medicare Beneficiary Identifier (MBI),\nDate of Birth,\nSex,\nInpatient Admission Date, and\nDischarge Date.",
       "group": [ {
+        "id": "group-1",
         "population": [ {
           "id": "0220D875-F629-49B7-AFBD-15334ED6CBE4",
           "code": {

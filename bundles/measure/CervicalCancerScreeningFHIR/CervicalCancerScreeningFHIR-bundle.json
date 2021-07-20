@@ -49903,7 +49903,7 @@
       "title": "Cervical Cancer ScreeningFHIR",
       "status": "draft",
       "experimental": false,
-      "date": "2021-07-20T09:28:51-06:00",
+      "date": "2021-07-20T12:48:31-06:00",
       "publisher": "National Committee for Quality Assurance",
       "contact": [ {
         "telecom": [ {
@@ -50004,6 +50004,7 @@
       },
       "guidance": "To ensure the measure is only looking for a cervical cytology test only after a woman turns 21 years of age, the youngest age in the initial population is 23.\n\nPatient self-report for procedures as well as diagnostic studies should be recorded in 'Procedure, Performed' template or 'Diagnostic Study, Performed' template in QRDA-1.\n\nEvidence of hrHPV testing within the last 5 years also captures patients who had cotesting; therefore additional methods to identify cotesting are not necessary.\n\nThis eCQM is a patient-based measure.\n\nThis version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource center (https://ecqi.healthit.gov/qdm) for more information on the QDM.",
       "group": [ {
+        "id": "group-1",
         "population": [ {
           "id": "286DD418-E85A-4BAE-A2C0-0A28059EC471",
           "code": {

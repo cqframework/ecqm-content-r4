@@ -53597,7 +53597,7 @@
       "title": "Discharged on Antithrombotic Therapy FHIR",
       "status": "draft",
       "experimental": false,
-      "date": "2021-07-20T09:28:52-06:00",
+      "date": "2021-07-20T12:48:31-06:00",
       "publisher": "The Joint Commission",
       "contact": [ {
         "telecom": [ {
@@ -53726,6 +53726,7 @@
       },
       "guidance": "The \"Non-elective Inpatient Encounter\" value set intends to capture all non-scheduled hospitalizations. This value set is a subset of the \"Inpatient encounter\" value set, excluding concepts that specifically refer to elective hospital admissions. Non-elective admissions include emergency, urgent and unplanned admissions.\n\nThe \"Medication, Discharge\" datatype refers to the discharge medication list and is intended to express medications ordered for post-discharge use.\n\nThis eCQM is an episode-based measure.\n\nThis version of the eCQM uses FHIR version 4.1.0.  Please refer to the eCQI resource center (https://ecqi.healthit.gov/qdm) for more information on FHIR.",
       "group": [ {
+        "id": "group-1",
         "population": [ {
           "id": "3CE6B01B-E19E-4D76-98DE-C89B6E2CEAD3",
           "code": {
