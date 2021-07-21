@@ -9,7 +9,7 @@
   "verificationStatus": {
     "coding": [
       {
-        "system": "http://terminology.hl7.org/CodeSystem/condition-verification",
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
         "code": "confirmed"
       }
     ]
