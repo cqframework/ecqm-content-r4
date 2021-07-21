@@ -10,7 +10,9 @@ echo Checking internet connection...
 
 if [ $? -eq 0 ]; then
 	echo "Online"
-	fsoption="-fs http://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/"
+	fsoption=""
+	#Disabled temporarily due to error in CQF Tooling upload
+	#fsoption="-fs http://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/"
 else
 	echo "Offline"
 	fsoption=""
@@ -21,13 +23,13 @@ fsoption=""
 
 tooling=$input_cache_path/$tooling_jar
 if test -f "$tooling"; then
-	java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -t -d -p $fsoption -rp input/cql
+	java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -t -d -p $fsoption
 
 else
 	tooling=../$tooling_jar
 	echo $tooling
 	if test -f "$tooling"; then
-		java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -t -d -p $fsoption -rp input/cql
+		java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -t -d -p $fsoption
 	else
 		echo IG Refresh NOT FOUND in input-cache or parent folder.  Please run _updateCQFTooling.  Aborting...
 	fi

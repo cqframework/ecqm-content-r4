@@ -10,19 +10,21 @@ SET fsoption=
 GOTO igpublish
 
 :isonline
-ECHO We're online, setting publish to the Connectathon sandbox FHIR server
-SET fsoption=-fs http://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/
+ECHO We're online, setting publish to the Connectathon sandbox FHIR server (DISABLED TEMPORARILY)
+SET fsoption=
+REM Disabled temporarily due to an error in the CQF Tooling upload
+REM -fs http://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/
 
 :igpublish
 
 SET JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 
 IF EXIST "%input_cache_path%\%tooling_jar%" (
-	ECHO running: JAVA -jar "%input_cache_path%\%tooling_jar%" -RefreshIG -ini=%~dp0\ig.ini -t -d -p
-	JAVA -jar "%input_cache_path%\%tooling_jar%" -RefreshIG -ini=%~dp0\ig.ini -t -d -p %fsoption% -rp input\cql
+	ECHO running: JAVA -jar "%input_cache_path%\%tooling_jar%" -RefreshIG -ini=%~dp0ig.ini -t -d -p
+	JAVA -jar "%input_cache_path%\%tooling_jar%" -RefreshIG -ini=%~dp0ig.ini -t -d -p %fsoption%
 ) ELSE If exist "..\%tooling_jar%" (
-	ECHO running: JAVA -jar "..\%tooling_jar%" -RefreshIG -ini=%~dp0\ig.ini -t -d -p -rp input\cql
-	JAVA -jar "..\%tooling_jar%" -RefreshIG -ini=%~dp0\ig.ini -t -d -p %fsoption%
+	ECHO running: JAVA -jar "..\%tooling_jar%" -RefreshIG -ini=%~dp0ig.ini -t -d -p
+	JAVA -jar "..\%tooling_jar%" -RefreshIG -ini=%~dp0ig.ini -t -d -p %fsoption%
 ) ELSE (
 	ECHO IG Refresh NOT FOUND in input-cache or parent folder.  Please run _updateCQFTooling.  Aborting...
 )
