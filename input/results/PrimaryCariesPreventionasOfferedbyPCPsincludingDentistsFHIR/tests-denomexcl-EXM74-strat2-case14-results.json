@@ -1,0 +1,172 @@
+{
+  "resourceType": "MeasureReport",
+  "contained": [ {
+    "resourceType": "Observation",
+    "id": "78844489-5d02-480a-852e-7480602d9a88",
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+      "extension": [ {
+        "url": "measure",
+        "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/http://ecqi.healthit.gov/ecqms/Measure/PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+      }, {
+        "url": "populationId",
+        "valueString": "sde-race"
+      } ]
+    } ],
+    "status": "final",
+    "code": {
+      "text": "sde-race"
+    },
+    "valueCodeableConcept": {
+      "coding": [ {
+        "system": "urn:oid:2.16.840.1.113883.6.238",
+        "code": "2106-3",
+        "display": "White"
+      } ]
+    }
+  }, {
+    "resourceType": "Observation",
+    "id": "d118d78c-eecc-4325-a976-529131602963",
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+      "extension": [ {
+        "url": "measure",
+        "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/http://ecqi.healthit.gov/ecqms/Measure/PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+      }, {
+        "url": "populationId",
+        "valueString": "sde-ethnicity"
+      } ]
+    } ],
+    "status": "final",
+    "code": {
+      "text": "sde-ethnicity"
+    },
+    "valueCodeableConcept": {
+      "coding": [ {
+        "system": "urn:oid:2.16.840.1.113883.6.238",
+        "code": "2186-5",
+        "display": "Not Hispanic or Latino"
+      } ]
+    }
+  }, {
+    "resourceType": "Observation",
+    "id": "c99b9781-6ffd-4acf-8cd5-da7f78d25715",
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+      "extension": [ {
+        "url": "measure",
+        "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/http://ecqi.healthit.gov/ecqms/Measure/PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+      }, {
+        "url": "populationId",
+        "valueString": "sde-sex"
+      } ]
+    } ],
+    "status": "final",
+    "code": {
+      "text": "sde-sex"
+    },
+    "valueCodeableConcept": {
+      "coding": [ {
+        "code": "M"
+      } ]
+    }
+  } ],
+  "status": "complete",
+  "type": "individual",
+  "measure": "http://ecqi.healthit.gov/ecqms/Measure/PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR",
+  "subject": {
+    "reference": "Patient/denomexcl-EXM74-strat2-case14"
+  },
+  "period": {
+    "start": "2019-01-01T00:00:00-06:00",
+    "end": "2019-12-31T00:00:00-06:00"
+  },
+  "group": [ {
+    "population": [ {
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "initial-population",
+          "display": "Initial Population"
+        } ]
+      },
+      "count": 1
+    }, {
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "numerator",
+          "display": "Numerator"
+        } ]
+      },
+      "count": 0
+    }, {
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator",
+          "display": "Denominator"
+        } ]
+      },
+      "count": 0
+    }, {
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator-exclusion",
+          "display": "Denominator Exclusion"
+        } ]
+      },
+      "count": 1
+    } ]
+  } ],
+  "evaluatedResource": [ {
+    "reference": "#78844489-5d02-480a-852e-7480602d9a88"
+  }, {
+    "reference": "#d118d78c-eecc-4325-a976-529131602963"
+  }, {
+    "reference": "#c99b9781-6ffd-4acf-8cd5-da7f78d25715"
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+      "valueString": "initial-population"
+    }, {
+      "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+      "valueString": "denominator"
+    } ],
+    "reference": "Patient/denomexcl-EXM74-strat2-case14"
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+      "valueString": "initial-population"
+    }, {
+      "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+      "valueString": "denominator"
+    } ],
+    "reference": "Encounter/denomexcl-EXM74-strat2-case14-Encounter"
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+      "valueString": "initial-population"
+    }, {
+      "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+      "valueString": "denominator"
+    } ],
+    "reference": "Patient/denomexcl-EXM74-strat2-case14"
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+      "valueString": "denominator"
+    } ],
+    "reference": "Procedure/denomexcl-EXM74-strat2-case14-Procedure"
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+      "valueString": "initial-population"
+    }, {
+      "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+      "valueString": "denominator"
+    } ],
+    "reference": "Encounter/denomexcl-EXM74-strat2-case14-Encounter"
+  } ]
+}
