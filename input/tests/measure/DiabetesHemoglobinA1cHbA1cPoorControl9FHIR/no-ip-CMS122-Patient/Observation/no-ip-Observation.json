@@ -1,6 +1,6 @@
 {
   "resourceType" : "Observation",
-  "id" : "numer-CMS122-Observation",
+  "id" : "no-ip-CMS122-Observation",
   "status" : "final",
   "category" : [
     {
@@ -22,7 +22,7 @@
     ]
   },
   "subject" : {
-    "reference" : "Patient/numer-CMS122-Patient"
+    "reference" : "Patient/no-ip-CMS122-Patient"
   },
   "effectiveDateTime" : "2019-01-17T12:30:00",
 

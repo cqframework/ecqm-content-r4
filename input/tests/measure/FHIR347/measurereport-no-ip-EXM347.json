@@ -3,14 +3,14 @@
   "contained": [
     {
       "resourceType": "Observation",
-      "id": "24356ff5-fc08-40ae-a114-34f156c03472",
+      "id": "438ddf8f-b847-48af-a73d-a736128ba474",
       "extension": [
         {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
           "extension": [
             {
               "url": "measure",
-              "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/http://ecqi.healthit.gov/ecqms/Measure/FHIR347"
+              "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/FHIR347"
             },
             {
               "url": "populationId",
@@ -35,14 +35,14 @@
     },
     {
       "resourceType": "Observation",
-      "id": "28e7e40d-2b29-4ea3-89c6-a2c1190f33d9",
+      "id": "119b4542-cb22-49ca-8265-73ecc73fda0b",
       "extension": [
         {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
           "extension": [
             {
               "url": "measure",
-              "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/http://ecqi.healthit.gov/ecqms/Measure/FHIR347"
+              "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/FHIR347"
             },
             {
               "url": "populationId",
@@ -67,14 +67,14 @@
     },
     {
       "resourceType": "Observation",
-      "id": "57bac249-1363-4350-abe8-60508cf55f0e",
+      "id": "96e04cfb-1083-43da-b548-00741dfda5b1",
       "extension": [
         {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
           "extension": [
             {
               "url": "measure",
-              "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/http://ecqi.healthit.gov/ecqms/Measure/FHIR347"
+              "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/FHIR347"
             },
             {
               "url": "populationId",
@@ -100,7 +100,7 @@
   "type": "individual",
   "measure": "http://ecqi.healthit.gov/ecqms/Measure/FHIR347",
   "subject": {
-    "reference": "Patient/ip1-EXM347"
+    "reference": "Patient/no-ip-EXM347"
   },
   "period": {
     "start": "2019-01-01T00:00:00-07:00",
@@ -120,7 +120,7 @@
               }
             ]
           },
-          "count": 1
+          "count": 0
         },
         {
           "code": {
@@ -184,7 +184,7 @@
               }
             ]
           },
-          "count": 1
+          "count": 0
         },
         {
           "code": {
@@ -248,7 +248,7 @@
               }
             ]
           },
-          "count": 1
+          "count": 0
         },
         {
           "code": {
@@ -303,65 +303,31 @@
   ],
   "evaluatedResource": [
     {
-      "reference": "#24356ff5-fc08-40ae-a114-34f156c03472"
+      "reference": "#438ddf8f-b847-48af-a73d-a736128ba474"
     },
     {
-      "reference": "#28e7e40d-2b29-4ea3-89c6-a2c1190f33d9"
+      "reference": "#119b4542-cb22-49ca-8265-73ecc73fda0b"
     },
     {
-      "reference": "#57bac249-1363-4350-abe8-60508cf55f0e"
-    },
-    {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
-          "valueString": "initial-population"
-        },
-        {
-          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
-          "valueString": "denominator"
-        }
-      ],
-      "reference": "Encounter/ip1-EXM347-Encounter"
+      "reference": "#96e04cfb-1083-43da-b548-00741dfda5b1"
     },
     {
       "extension": [
         {
           "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
           "valueString": "initial-population"
-        },
-        {
-          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
-          "valueString": "denominator"
         }
       ],
-      "reference": "Patient/ip1-EXM347"
+      "reference": "Encounter/no-ip-EXM347-Encounter"
     },
     {
       "extension": [
         {
           "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
           "valueString": "initial-population"
-        },
-        {
-          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
-          "valueString": "denominator"
         }
       ],
-      "reference": "Encounter/ip1-EXM347-Encounter"
-    },
-    {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
-          "valueString": "initial-population"
-        },
-        {
-          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
-          "valueString": "denominator"
-        }
-      ],
-      "reference": "Patient/ip1-EXM347"
+      "reference": "Patient/no-ip-EXM347"
     }
   ]
 }

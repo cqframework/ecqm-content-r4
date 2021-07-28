@@ -1,6 +1,6 @@
 {
   "resourceType" : "Encounter",
-  "id": "numer-CMS122-Encounter",
+  "id": "no-ip-CMS122-Encounter",
   "text" : {
   "status" : "generated"
   },
@@ -18,7 +18,7 @@
   }
   ],
   "subject" : {
-  "reference" : "Patient/numer-CMS122-Patient"
+  "reference" : "Patient/no-ip-CMS122-Patient"
   },
   "period" : {
   "start" : "2019-01-16T08:30:00",
