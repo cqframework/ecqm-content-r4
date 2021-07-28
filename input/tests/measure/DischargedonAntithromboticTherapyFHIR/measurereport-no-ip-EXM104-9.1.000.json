@@ -1,0 +1,109 @@
+{
+  "resourceType": "MeasureReport",
+  "status": "complete",
+  "type": "individual",
+  "measure": "http://ecqi.healthit.gov/ecqms/Measure/DischargedonAntithromboticTherapyFHIR",
+  "subject": {
+    "reference": "Patient/no-ip-EXM104"
+  },
+  "period": {
+    "start": "2019-01-01T00:00:00-07:00",
+    "end": "2019-12-31T00:00:00-07:00"
+  },
+  "group": [
+    {
+      "id": "group-1",
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exception",
+                "display": "Denominator Exception"
+              }
+            ]
+          },
+          "count": 0
+        }
+      ]
+    }
+  ],
+  "evaluatedResource": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueString": "initial-population"
+        }
+      ],
+      "reference": "Condition/no-ip-EXM104-1"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueString": "initial-population"
+        }
+      ],
+      "reference": "Patient/no-ip-EXM104"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueString": "initial-population"
+        }
+      ],
+      "reference": "Encounter/no-ip-EXM104-2"
+    }
+  ]
+}
