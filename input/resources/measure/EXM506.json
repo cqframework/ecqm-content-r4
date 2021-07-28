@@ -102,7 +102,7 @@
     "valueDataRequirement": {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "authoredOn" ],
+      "mustSupport": [ "authoredOn", "medication" ],
       "codeFilter": [ {
         "path": "medication",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1125.2"
@@ -113,7 +113,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
-      "mustSupport": [ "extension", "url", "value", "url", "url" ],
+      "mustSupport": [ "extension", "value", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -124,24 +124,25 @@
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
     "valueDataRequirement": {
-      "type": "Condition",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.161"
-      } ]
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
-    "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
-      "mustSupport": [ "url", "value", "url", "extension", "url" ],
+      "mustSupport": [ "extension", "value", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
           "code": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
         } ]
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.161"
       } ]
     }
   }, {
@@ -163,7 +164,7 @@
   "title": "EXM506",
   "status": "draft",
   "experimental": false,
-  "date": "2021-07-22T11:15:13-06:00",
+  "date": "2021-07-28T14:40:43-06:00",
   "publisher": "Centers for Medicare & Medicaid Services (CMS)",
   "contact": [ {
     "telecom": [ {
@@ -190,14 +191,6 @@
     "type": "depends-on",
     "display": "Library Global",
     "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
-  }, {
-    "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
-  }, {
-    "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
     "display": "Code system MedicationRequestCategory",

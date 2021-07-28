@@ -111,7 +111,7 @@
     "valueDataRequirement": {
       "type": "Encounter",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
-      "mustSupport": [ "status", "period", "period" ],
+      "mustSupport": [ "period", "type", "status" ],
       "codeFilter": [ {
         "path": "type",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
@@ -155,7 +155,7 @@
     "valueDataRequirement": {
       "type": "Encounter",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
-      "mustSupport": [ "status", "period", "period" ],
+      "mustSupport": [ "period", "type", "status" ],
       "codeFilter": [ {
         "path": "type",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
@@ -199,7 +199,7 @@
     "valueDataRequirement": {
       "type": "Encounter",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
-      "mustSupport": [ "status", "period", "period" ],
+      "mustSupport": [ "period", "type", "status" ],
       "codeFilter": [ {
         "path": "type",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
@@ -243,7 +243,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
-      "mustSupport": [ "extension", "url", "value", "url", "url" ],
+      "mustSupport": [ "extension", "value", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -256,7 +256,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
-      "mustSupport": [ "url", "value", "url", "extension", "url" ],
+      "mustSupport": [ "extension", "value", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -276,7 +276,7 @@
   "title": "CMS 111",
   "status": "draft",
   "experimental": false,
-  "date": "2021-07-22T11:15:13-06:00",
+  "date": "2021-07-28T14:40:43-06:00",
   "publisher": "Centers for Medicare & Medicaid Services (CMS)",
   "contact": [ {
     "telecom": [ {
@@ -302,14 +302,6 @@
     "type": "depends-on",
     "display": "Library Global",
     "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
-  }, {
-    "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
-  }, {
-    "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
     "display": "Value set Encounter Inpatient",

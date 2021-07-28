@@ -138,18 +138,7 @@
     "valueDataRequirement": {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "value", "effective", "status" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1573"
-      } ]
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
-    "valueDataRequirement": {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "value", "effective", "status" ],
+      "mustSupport": [ "effective", "code", "value", "status" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1573"
@@ -160,7 +149,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
-      "mustSupport": [ "extension", "url", "value", "url", "url" ],
+      "mustSupport": [ "extension", "value", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -171,9 +160,22 @@
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
     "valueDataRequirement": {
+      "type": "Patient",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "value", "url" ],
+      "codeFilter": [ {
+        "path": "url",
+        "code": [ {
+          "code": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        } ]
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
       "type": "Encounter",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
-      "mustSupport": [ "status", "period" ],
+      "mustSupport": [ "period", "type", "status" ],
       "codeFilter": [ {
         "path": "type",
         "code": [ {
@@ -190,30 +192,6 @@
         "path": "status",
         "code": [ {
           "code": "finished"
-        } ]
-      } ]
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
-    "valueDataRequirement": {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "status", "effective", "value" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1573"
-      } ]
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
-    "valueDataRequirement": {
-      "type": "Patient",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
-      "mustSupport": [ "url", "value", "url", "extension", "url" ],
-      "codeFilter": [ {
-        "path": "url",
-        "code": [ {
-          "code": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
         } ]
       } ]
     }
@@ -240,7 +218,7 @@
   "title": "Statin Therapy for the Prevention and Treatment of Cardiovascular Disease FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-07-22T12:15:13-05:00",
+  "date": "2021-07-28T15:40:43-05:00",
   "publisher": "Mathematica",
   "contact": [ {
     "telecom": [ {
@@ -265,16 +243,8 @@
     "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
-  }, {
-    "type": "depends-on",
     "display": "Library Global",
     "resource": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
-  }, {
-    "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
     "display": "Code system ICD10CM",
