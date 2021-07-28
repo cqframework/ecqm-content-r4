@@ -427,6 +427,261 @@
       "code": "428371000124100",
       "display": "Discharge to healthcare facility for hospice care (procedure)"
     }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "SupplementalDataElementsFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "SDE Sex"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Sex\":\n  case\n      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }\n      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }\n      else null\n    end"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 0
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+    }, {
+      "url": "name",
+      "valueString": "SDE Sex"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Sex\":\n  SDE.\"SDE Sex\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 1
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Numerator"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Numerator\":\n  exists  [\"Procedure\": \"Fluoride Varnish Application for Children\"] FluorideApplication\n          where FluorideApplication.performed during \"Measurement Period\"\n            and FluorideApplication.status = 'completed'"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 2
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Stratification 3"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Stratification 3\":\n  exists [\"Patient\"] BirthDate\n    where AgeInYearsAt(start of \"Measurement Period\") between 12 and 20"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 3
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Stratification 2"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Stratification 2\":\n  exists [\"Patient\"] BirthDate\n    where AgeInYearsAt(start of \"Measurement Period\") between 5 and 11"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 4
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Stratification 1"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Stratification 1\":\n  exists ( [\"Patient\"] BirthDate\n    where AgeInMonthsAt(start of \"Measurement Period\") >= 6\n    and AgeInYearsAt(start of \"Measurement Period\") <= 4\n  )"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 5
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Qualifying Encounters"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Qualifying Encounters\":\n  ( [\"Encounter\": \"Office Visit\"]\n        union [\"Encounter\": \"Preventive Care - Established Office Visit, 0 to 17\"]\n        union [\"Encounter\": \"Preventive Care- Initial Office Visit, 0 to 17\"]\n        union [\"Encounter\": \"Preventive Care Services - Established Office Visit, 18 and Up\"]\n        union [\"Encounter\": \"Preventive Care Services-Initial Office Visit, 18 and Up\"]\n        union [\"Encounter\": \"Clinical Oral Evaluation\"] ) ValidEncounter\n        where Global.\"Normalize Interval\"(ValidEncounter.period) during \"Measurement Period\"\n          and ValidEncounter.status = 'finished'"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 6
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Initial Population"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Initial Population\":\n  exists ( [\"Patient\"] BirthDate\n    where AgeInMonthsAt(start of \"Measurement Period\") >= 6\n    and AgeInYearsAt(start of \"Measurement Period\") <= 20\n  )\n  and exists ( \"Qualifying Encounters\" )"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 7
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Denominator"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Denominator\":\n  \"Initial Population\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 8
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "SupplementalDataElementsFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "SDE Payer"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Payer\":\n  [Coverage: type in \"Payer\"] Payer\n        return {\n          code: Payer.type,\n          period: Payer.period\n        }"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 9
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+    }, {
+      "url": "name",
+      "valueString": "SDE Payer"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Payer\":\n  SDE.\"SDE Payer\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 10
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "SupplementalDataElementsFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "SDE Ethnicity"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 11
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+    }, {
+      "url": "name",
+      "valueString": "SDE Ethnicity"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Ethnicity\":\n  SDE.\"SDE Ethnicity\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 12
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "HospiceFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "Has Hospice"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Has Hospice\":\n  exists (\n      [Encounter: \"Encounter Inpatient\"] DischargeHospice\n  \t\t\twhere DischargeHospice.status = 'finished'\n  \t\t    and (\n  \t        DischargeHospice.hospitalization.dischargeDisposition ~ \"Discharge to home for hospice care (procedure)\"\n  \t\t\t\t    or DischargeHospice.hospitalization.dischargeDisposition ~ \"Discharge to healthcare facility for hospice care (procedure)\"\n  \t    \t)\n  \t\t\t\tand DischargeHospice.period ends during \"Measurement Period\"\n  \t)\n      or exists (\n        [ServiceRequest: \"Hospice care ambulatory\"] HospiceOrder\n          where HospiceOrder.intent = 'order'\n              and HospiceOrder.authoredOn in \"Measurement Period\"\n      )\n      or exists (\n        [Procedure: \"Hospice care ambulatory\"] HospicePerformed\n          where HospicePerformed.status = 'completed'\n            and Global.\"Normalize Interval\"(HospicePerformed.performed) overlaps \"Measurement Period\"\n      )"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 13
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+    }, {
+      "url": "name",
+      "valueString": "Denominator Exclusions"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Denominator Exclusions\":\n  Hospice.\"Has Hospice\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 14
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "SupplementalDataElementsFHIR4"
+    }, {
+      "url": "name",
+      "valueString": "SDE Race"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return FHIRHelpers.ToCode(E.value)"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 15
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR"
+    }, {
+      "url": "name",
+      "valueString": "SDE Race"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Race\":\n  SDE.\"SDE Race\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 16
+    } ]
   } ],
   "url": "http://ecqi.healthit.gov/ecqms/Measure/PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR",
   "identifier": [ {
@@ -443,7 +698,7 @@
   "title": "Primary Caries Prevention Intervention as Offered by Primary Care Providers, including DentistsFHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-07-28T14:40:43-06:00",
+  "date": "2021-07-28T15:17:23-06:00",
   "publisher": "Centers for Medicare & Medicaid Services (CMS)",
   "contact": [ {
     "telecom": [ {
