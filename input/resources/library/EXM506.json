@@ -197,39 +197,6 @@
     "codeFilter": [ {
       "path": "type",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
-    }, {
-      "path": "status",
-      "code": [ {
-        "code": "finished"
-      } ]
-    }, {
-      "path": "status",
-      "code": [ {
-        "code": "finished"
-      } ]
-    } ],
-    "dateFilter": [ {
-      "path": "period",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
-    }, {
-      "path": "period",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
     } ]
   }, {
     "type": "MedicationRequest",
@@ -238,11 +205,6 @@
     "codeFilter": [ {
       "path": "medication",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1125.2"
-    }, {
-      "path": "intent",
-      "code": [ {
-        "code": "plan"
-      } ]
     } ]
   }, {
     "type": "MedicationRequest",
@@ -251,32 +213,6 @@
     "codeFilter": [ {
       "path": "medication",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1125.1"
-    }, {
-      "path": "intent",
-      "code": [ {
-        "code": "plan"
-      } ]
-    } ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "authoredOn", "medication", "category", "intent" ],
-    "codeFilter": [ {
-      "path": "medication",
-      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1125.1"
-    }, {
-      "path": "intent",
-      "code": [ {
-        "code": "plan"
-      } ]
-    } ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "authoredOn", "medication", "category", "intent" ],
-    "codeFilter": [ {
-      "path": "medication",
-      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1125.2"
     } ]
   }, {
     "type": "Condition",
@@ -285,6 +221,38 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.161"
+    } ]
+  }, {
+    "type": "ServiceRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+    "mustSupport": [ "code" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.162"
+    } ]
+  }, {
+    "type": "ServiceRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+    "mustSupport": [ "code" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1004.20"
+    } ]
+  }, {
+    "type": "Procedure",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+    "mustSupport": [ "code" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.162"
+    } ]
+  }, {
+    "type": "Procedure",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+    "mustSupport": [ "code" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1004.20"
     } ]
   } ],
   "content": [ {

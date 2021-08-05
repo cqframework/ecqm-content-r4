@@ -345,8 +345,38 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.104.12.1011"
-    }, {
-      "path": "verificationStatus"
+    } ]
+  }, {
+    "type": "Condition",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+    "mustSupport": [ "code" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.378"
+    } ]
+  }, {
+    "type": "Condition",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+    "mustSupport": [ "code" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.353"
+    } ]
+  }, {
+    "type": "Condition",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+    "mustSupport": [ "code" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1029"
+    } ]
+  }, {
+    "type": "Condition",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+    "mustSupport": [ "code" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1002"
     } ]
   }, {
     "type": "Condition",
@@ -355,6 +385,46 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1074"
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
     } ]
   }, {
     "type": "Encounter",
@@ -371,62 +441,22 @@
     "codeFilter": [ {
       "path": "type",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
-    } ],
-    "dateFilter": [ {
-      "path": "period",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
-    }, {
-      "path": "period",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
-    }, {
-      "path": "period",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
-    }, {
-      "path": "period",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
-    }, {
-      "path": "period",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1014"
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1012"
     } ]
   }, {
     "type": "Encounter",
@@ -437,93 +467,60 @@
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088"
     } ]
   }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "code", "authoredOn", "intent" ],
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1087"
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1086"
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1085"
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1084"
+    } ]
+  }, {
+    "type": "Procedure",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+    "mustSupport": [ "code" ],
     "codeFilter": [ {
       "path": "code",
-      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
-    }, {
-      "path": "intent",
-      "code": [ {
-        "code": "order"
-      } ]
-    }, {
-      "path": "intent",
-      "code": [ {
-        "code": "order"
-      } ]
-    }, {
-      "path": "intent",
-      "code": [ {
-        "code": "order"
-      } ]
-    }, {
-      "path": "intent",
-      "code": [ {
-        "code": "order"
-      } ]
-    }, {
-      "path": "intent",
-      "code": [ {
-        "code": "order"
-      } ]
-    } ],
-    "dateFilter": [ {
-      "path": "authoredOn",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
-    }, {
-      "path": "authoredOn",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
-    }, {
-      "path": "authoredOn",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
-    }, {
-      "path": "authoredOn",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
-    }, {
-      "path": "authoredOn",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1011"
+    } ]
+  }, {
+    "type": "Procedure",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+    "mustSupport": [ "code" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1012"
+    } ]
+  }, {
+    "type": "Procedure",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+    "mustSupport": [ "code" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1013"
     } ]
   }, {
     "type": "Procedure",
@@ -532,31 +529,14 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
-    }, {
-      "path": "status",
-      "code": [ {
-        "code": "completed"
-      } ]
-    }, {
-      "path": "status",
-      "code": [ {
-        "code": "completed"
-      } ]
-    }, {
-      "path": "status",
-      "code": [ {
-        "code": "completed"
-      } ]
-    }, {
-      "path": "status",
-      "code": [ {
-        "code": "completed"
-      } ]
-    }, {
-      "path": "status",
-      "code": [ {
-        "code": "completed"
-      } ]
+    } ]
+  }, {
+    "type": "ServiceRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+    "mustSupport": [ "code", "authoredOn", "intent" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
     } ]
   }, {
     "type": "DeviceRequest",
@@ -565,51 +545,6 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
-    } ],
-    "dateFilter": [ {
-      "path": "authoredOn",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
-    }, {
-      "path": "authoredOn",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
-    }, {
-      "path": "authoredOn",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
-    }, {
-      "path": "authoredOn",
-      "_valueDateTime": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-          "valueExpression": {
-            "language": "text/cql-identifier",
-            "expression": "Measurement Period"
-          }
-        } ]
-      }
     } ]
   }, {
     "type": "Observation",
@@ -630,8 +565,6 @@
         "code": "85354-9",
         "display": "Blood pressure panel with all children optional"
       } ]
-    }, {
-      "path": "component.code"
     } ]
   }, {
     "type": "Observation",
@@ -644,8 +577,6 @@
         "code": "85354-9",
         "display": "Blood pressure panel with all children optional"
       } ]
-    }, {
-      "path": "component.code"
     } ]
   }, {
     "type": "Observation",
@@ -658,8 +589,6 @@
         "code": "85354-9",
         "display": "Blood pressure panel with all children optional"
       } ]
-    }, {
-      "path": "component.code"
     } ]
   }, {
     "type": "Observation",
@@ -672,8 +601,6 @@
         "code": "85354-9",
         "display": "Blood pressure panel with all children optional"
       } ]
-    }, {
-      "path": "component.code"
     } ]
   }, {
     "type": "Observation",
@@ -686,8 +613,6 @@
         "code": "85354-9",
         "display": "Blood pressure panel with all children optional"
       } ]
-    }, {
-      "path": "component.code"
     } ]
   }, {
     "type": "Observation",
@@ -700,8 +625,6 @@
         "code": "85354-9",
         "display": "Blood pressure panel with all children optional"
       } ]
-    }, {
-      "path": "component.code"
     } ]
   } ],
   "content": [ {
