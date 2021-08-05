@@ -82,6 +82,18 @@
     "codeFilter": [ {
       "path": "type",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
+    } ],
+    "dateFilter": [ {
+      "path": "period",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
     } ]
   }, {
     "type": "ServiceRequest",
@@ -90,6 +102,23 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
+    } ],
+    "dateFilter": [ {
+      "path": "authoredOn",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
     } ]
   }, {
     "type": "Procedure",
@@ -98,6 +127,11 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+    }, {
+      "path": "status",
+      "code": [ {
+        "code": "completed"
+      } ]
     } ]
   } ],
   "content": [ {

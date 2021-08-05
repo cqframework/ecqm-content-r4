@@ -166,6 +166,11 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45"
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
     } ]
   }, {
     "type": "Procedure",
@@ -174,6 +179,11 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45"
+    }, {
+      "path": "status",
+      "code": [ {
+        "code": "completed"
+      } ]
     } ]
   }, {
     "type": "Encounter",
@@ -182,6 +192,58 @@
     "codeFilter": [ {
       "path": "type",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.424"
+    } ],
+    "dateFilter": [ {
+      "path": "period",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "period", "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.424"
+    } ],
+    "dateFilter": [ {
+      "path": "period",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "period", "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.424"
+    } ],
+    "dateFilter": [ {
+      "path": "period",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
     } ]
   } ],
   "content": [ {

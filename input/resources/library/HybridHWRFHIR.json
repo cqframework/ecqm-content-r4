@@ -174,8 +174,27 @@
   } ],
   "dataRequirement": [ {
     "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+  }, {
+    "type": "Patient",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
-    "mustSupport": [ "extension", "value", "url" ]
+    "mustSupport": [ "extension", "value", "url" ],
+    "codeFilter": [ {
+      "path": "url",
+      "code": [ {
+        "code": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+      } ]
+    } ]
+  }, {
+    "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+    "mustSupport": [ "extension", "value", "url" ],
+    "codeFilter": [ {
+      "path": "url",
+      "code": [ {
+        "code": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+      } ]
+    } ]
   }, {
     "type": "Encounter",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
@@ -199,6 +218,18 @@
     "codeFilter": [ {
       "path": "type",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
+    } ],
+    "dateFilter": [ {
+      "path": "period",
+      "_valueDateTime": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Measurement Period"
+          }
+        } ]
+      }
     } ]
   }, {
     "type": "Coverage",

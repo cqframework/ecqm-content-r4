@@ -216,8 +216,27 @@
   } ],
   "dataRequirement": [ {
     "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+  }, {
+    "type": "Patient",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
-    "mustSupport": [ "extension", "value", "url" ]
+    "mustSupport": [ "extension", "value", "url" ],
+    "codeFilter": [ {
+      "path": "url",
+      "code": [ {
+        "code": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+      } ]
+    } ]
+  }, {
+    "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+    "mustSupport": [ "extension", "value", "url" ],
+    "codeFilter": [ {
+      "path": "url",
+      "code": [ {
+        "code": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+      } ]
+    } ]
   }, {
     "type": "ServiceRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
@@ -225,6 +244,11 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45"
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
     } ]
   }, {
     "type": "Procedure",
@@ -233,14 +257,73 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45"
+    }, {
+      "path": "status",
+      "code": [ {
+        "code": "completed"
+      } ]
     } ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "authoredOn", "intent.value", "medication", "reasonCode", "category", "doNotPerform", "intent", "status" ],
+    "mustSupport": [ "authoredOn", "intent.value", "medication", "category", "intent", "status" ],
     "codeFilter": [ {
       "path": "medication",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.201"
+    }, {
+      "path": "intent.value",
+      "code": [ {
+        "code": "order"
+      } ]
+    } ]
+  }, {
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "mustSupport": [ "authoredOn", "intent.value", "medication", "category", "intent", "status" ],
+    "codeFilter": [ {
+      "path": "medication",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.201"
+    }, {
+      "path": "intent.value",
+      "code": [ {
+        "code": "order"
+      } ]
+    } ]
+  }, {
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "mustSupport": [ "authoredOn", "medication", "reasonCode", "doNotPerform", "category", "intent", "status" ],
+    "codeFilter": [ {
+      "path": "medication",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.201"
+    }, {
+      "path": "status",
+      "code": [ {
+        "code": "completed"
+      } ]
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
+    } ]
+  }, {
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "mustSupport": [ "authoredOn", "medication", "reasonCode", "doNotPerform", "category", "intent", "status" ],
+    "codeFilter": [ {
+      "path": "medication",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.201"
+    }, {
+      "path": "status",
+      "code": [ {
+        "code": "completed"
+      } ]
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
     } ]
   }, {
     "type": "MedicationRequest",
@@ -249,6 +332,24 @@
     "codeFilter": [ {
       "path": "medication",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.52"
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
+    } ]
+  }, {
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "mustSupport": [ "authoredOn", "medication", "category", "intent", "status" ],
+    "codeFilter": [ {
+      "path": "medication",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.52"
+    }, {
+      "path": "intent",
+      "code": [ {
+        "code": "order"
+      } ]
     } ]
   } ],
   "content": [ {
