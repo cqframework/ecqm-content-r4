@@ -23,7 +23,7 @@
   }
   ],
   "subject" : {
-  "reference" : "Patient/denomexcl-EXM165-Patient"
+  "reference" : "Patient/denomexcl-EXM122-Patient"
   },
   "period" : {
   "start" : "2019-01-16T08:30:00",
