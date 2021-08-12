@@ -60,7 +60,7 @@
                 <encodeRequestUrl value="true"/>
                 <method value="get"/>
                 <origin value="1"/>
-                <params value="/BreastCancerScreeningFHIR/$evaluate-measure?patient=Patient/numer-EXM125&amp;periodStart=2019-01-01&amp;periodEnd=2019-12-31"/>
+                <params value="/ChlamydiaScreeningforWomenFHIR/$evaluate-measure?patient=Patient/numer-EXM153-strat2&amp;periodStart=2019-01-01&amp;periodEnd=2019-12-31"/>
                 <responseId value="searchResponse"/>
             </operation>
         </action>
@@ -186,7 +186,7 @@
                 <warningOnly value="false"/>
             </assert>
         </action>
-`        <action>
+        <action>
             <assert>
                 <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
                     <valueBoolean value="false"/>
@@ -199,7 +199,7 @@
                 <warningOnly value="false"/>
             </assert>
         </action>
-`        <action>
+        <action>
             <assert>
                 <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
                     <valueBoolean value="false"/>
@@ -208,7 +208,7 @@
                 <direction value="response"/>
                 <path value="MeasureReport.subject.reference"/>
                 <operator value="equals"/>
-                <value value="Patient/numer-EXM125"/>
+                <value value="Patient/numer-EXM153-strat2"/>
                 <warningOnly value="false"/>
             </assert>
         </action>

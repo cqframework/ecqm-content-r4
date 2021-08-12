@@ -60,7 +60,7 @@
                 <encodeRequestUrl value="true"/>
                 <method value="get"/>
                 <origin value="1"/>
-                <params value="/BreastCancerScreeningFHIR/$evaluate-measure?patient=Patient/denom-EXM125&amp;periodStart=2019-01-01&amp;periodEnd=2019-12-31"/>
+                <params value="/ChlamydiaScreeningforWomenFHIR/$evaluate-measure?patient=Patient/denom-EXM153&amp;periodStart=2019-01-01&amp;periodEnd=2019-12-31"/>
                 <responseId value="searchResponse"/>
             </operation>
         </action>
@@ -208,7 +208,7 @@
                 <direction value="response"/>
                 <path value="MeasureReport.subject.reference"/>
                 <operator value="equals"/>
-                <value value="Patient/denom-EXM125"/>
+                <value value="Patient/denom-EXM153"/>
                 <warningOnly value="false"/>
             </assert>
         </action>
