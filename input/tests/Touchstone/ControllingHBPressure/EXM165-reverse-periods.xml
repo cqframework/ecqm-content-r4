@@ -24,7 +24,7 @@
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="A Receiver uses $evaluate-measure to request the data and results for an Individual measure from a Reporter.  The Receiver receives a completed MeasureReport and verifies that it has the correct data and the calculated result is correct for the individual.  The request is for json format as a default.  Prequisite: appropriate measures data is loaded to the server under test and at least one patient is loaded. The values of the Measure Report will differ depending on which patients are loaded."/>
+    <description value="A Receiver uses $evaluate-measure to request the data and results for an Individual measure from a Reporter.  The Receiver receives a completed MeasureReport and verifies that it has the correct data and the calculated result is correct for the individual.  The request is for json format as a default.  Prequisite: appropriate measures data is loaded to the server under test."/>
     <copyright value="(c) AEGIS.net, Inc. 2021"/>
     <origin>
         <index value="1"/>
@@ -45,7 +45,7 @@
     </profile>
     <test id="Eval-Measure-Query">
         <name value="Eval-Measure-Query"/>
-        <description value="Query using $evaluate-measure, including a measure, and period start and end date, but no subject. Expected response is a 200 (OK). All patients will be used for the evaluation."/>
+        <description value="Query using $evaluate-measure, including a measure, subject, and period start and end dates. Expected response is a MeasureReport."/>
         <action>
             <operation>
                 <type>
@@ -60,7 +60,7 @@
                 <encodeRequestUrl value="true"/>
                 <method value="get"/>
                 <origin value="1"/>
-                <params value="/ColorectalCancerScreeningsFHIR/$evaluate-measure?periodStart=2020-01-01&amp;periodEnd=2020-12-31"/>
+                <params value="/ControllingHighBloodPressureFHIR/$evaluate-measure?patient=Patient/numer-EXM165-Patient&amp;periodStart=2019-12-31&amp;periodEnd=2019-01-01"/>
                 <responseId value="searchResponse"/>
             </operation>
         </action>
@@ -95,7 +95,7 @@
                 <description value="Confirm that the returned HTTP status is 500."/>
                 <direction value="response"/>
                 <operator value="in"/>
-                <responseCode value="200"/>
+                <responseCode value="500"/>
                 <warningOnly value="false"/>
             </assert>
         </action>
@@ -117,22 +117,11 @@
                 <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
                     <valueBoolean value="false"/>
                 </extension>
-                <description value="Confirm that the response body contains a MeasureReport resource"/>
+                <description value="Validate the response OperationOutcome for conformance."/>
                 <direction value="response"/>
-                <resource value="MeasureReport"/>
+                <resource value="OperationOutcome"/>
                 <warningOnly value="false"/>
             </assert>
         </action>
-        <action>
-            <assert>
-                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
-                    <valueBoolean value="false"/>
-                </extension>
-                <description value="Validate the response MeasureReport for conformance."/>
-                <direction value="response"/>
-                <validateProfileId value="MeasureReportProfile"/>
-                <warningOnly value="false"/>
-            </assert>
-        </action>
-   </test>
+    </test>
 </TestScript>
