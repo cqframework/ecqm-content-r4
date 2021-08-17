@@ -60,7 +60,7 @@
                 <encodeRequestUrl value="true"/>
                 <method value="get"/>
                 <origin value="1"/>
-                <params value="/CervicalCancerScreeningFHIR/$evaluate-measure?patient=Patient/numer-EXM124&amp;periodStart=2020-01-01"/>
+                <params value="/HybridHWRFHIR/$evaluate-measure?patient=Patient/ip-EXM529-case1&amp;periodStart=2020-01-01"/>
                 <responseId value="searchResponse"/>
             </operation>
         </action>

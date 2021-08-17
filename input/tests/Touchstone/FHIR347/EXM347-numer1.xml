@@ -60,7 +60,7 @@
                 <encodeRequestUrl value="true"/>
                 <method value="get"/>
                 <origin value="1"/>
-                <params value="/CervicalCancerScreeningFHIR/$evaluate-measure?patient=Patient/numer-EXM124&amp;periodStart=2019-01-01&amp;periodEnd=2019-12-31"/>
+                <params value="/FHIR347/$evaluate-measure?patient=Patient/numer1-EXM347&amp;periodStart=2019-01-01&amp;periodEnd=2019-12-31"/>
                 <responseId value="searchResponse"/>
             </operation>
         </action>
@@ -154,7 +154,7 @@
                 </extension>
                 <description value="Verify that the Initial Population Count is as expected in the response"/>
                 <direction value="response"/>
-                <expression value="MeasureReport.group.population.where(code.coding.code = 'initial-population').count"/>
+                <expression value="MeasureReport.group.population[0].where(code.coding.code = 'initial-population').count"/>
                 <operator value="equals"/>
                 <value value="1"/>
                 <warningOnly value="false"/>
@@ -167,7 +167,7 @@
                 </extension>
                 <description value="Verify that the Numerator Count is as expected in the response"/>
                 <direction value="response"/>
-                <expression value="MeasureReport.group.population.where(code.coding.code = 'numerator').count"/>
+                <expression value="MeasureReport.group.population[0].where(code.coding.code = 'numerator').count"/>
                 <operator value="equals"/>
                 <value value="1"/>
                 <warningOnly value="false"/>
@@ -180,7 +180,7 @@
                 </extension>
                 <description value="Verify that the Denominator Count is as expected in the response"/>
                 <direction value="response"/>
-                <expression value="MeasureReport.group.population.where(code.coding.code = 'denominator').count"/>
+                <expression value="MeasureReport.group.population[0].where(code.coding.code = 'denominator').count"/>
                 <operator value="equals"/>
                 <value value="1"/>
                 <warningOnly value="false"/>
@@ -208,7 +208,7 @@
                 <direction value="response"/>
                 <path value="MeasureReport.subject.reference"/>
                 <operator value="equals"/>
-                <value value="Patient/numer-EXM124"/>
+                <value value="Patient/numer1-EXM347"/>
                 <warningOnly value="false"/>
             </assert>
         </action>

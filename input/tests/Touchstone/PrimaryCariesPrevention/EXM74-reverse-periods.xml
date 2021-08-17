@@ -24,7 +24,7 @@
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="A Receiver uses $evaluate-measure to request the data and results for an Individual measure from a Reporter, but does not  include a start date.  The Receiver receives a server 500 error."/>
+    <description value="A Receiver uses $evaluate-measure to request the data and results for an Individual measure from a Reporter.  The Receiver receives a completed MeasureReport and verifies that it has the correct data and the calculated result is correct for the individual.  The request is for json format as a default.  Prequisite: appropriate measures data is loaded to the server under test."/>
     <copyright value="(c) AEGIS.net, Inc. 2021"/>
     <origin>
         <index value="1"/>
@@ -45,7 +45,7 @@
     </profile>
     <test id="Eval-Measure-Query">
         <name value="Eval-Measure-Query"/>
-        <description value="Query using $evaluate-measure, including a measure, subject, and end date. Expected response is a 500 error."/>
+        <description value="Query using $evaluate-measure, including a measure, subject, and period start and end dates. Expected response is a MeasureReport."/>
         <action>
             <operation>
                 <type>
@@ -60,7 +60,7 @@
                 <encodeRequestUrl value="true"/>
                 <method value="get"/>
                 <origin value="1"/>
-                <params value="/CervicalCancerScreeningFHIR/$evaluate-measure?patient=Patient/numer-EXM124&amp;periodEnd=2020-12-31"/>
+                <params value="/PrimaryCariesPreventionasOfferedbyPCPsincludingDentistsFHIR/$evaluate-measure?patient=Patient/numer-EXM74-strat1-case7&amp;periodStart=2019-12-31&amp;periodEnd=2019-01-01"/>
                 <responseId value="searchResponse"/>
             </operation>
         </action>
@@ -123,5 +123,5 @@
                 <warningOnly value="false"/>
             </assert>
         </action>
-     </test>
+    </test>
 </TestScript>
