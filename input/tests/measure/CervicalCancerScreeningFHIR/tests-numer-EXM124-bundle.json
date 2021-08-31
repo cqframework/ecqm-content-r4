@@ -1,11 +1,11 @@
 {
   "resourceType": "Bundle",
-  "id": "tests-denom-EXM124-bundle",
+  "id": "tests-numer-EXM124-bundle",
   "type": "transaction",
   "entry": [ {
     "resource": {
       "resourceType": "Encounter",
-      "id": "denom-EXM124-2",
+      "id": "numer-EXM124-2",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
       },
@@ -23,45 +23,21 @@
         } ]
       } ],
       "subject": {
-        "reference": "Patient/denom-EXM124"
+        "reference": "Patient/numer-EXM124"
       },
       "period": {
-        "start": "2019-01-01T01:00:00.0",
-        "end": "2019-01-02T01:00:00.0"
+        "start": "2019-01-01T00:00:00.0",
+        "end": "2019-01-02T00:00:00.0"
       }
     },
     "request": {
       "method": "PUT",
-      "url": "Encounter/denom-EXM124-2"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Observation",
-      "id": "denom-EXM124-3",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "10524-7",
-          "display": "Microscopic observation [Identifier] in Cervix by Cyto stain"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/denom-EXM124"
-      },
-      "effectiveDateTime": "2019-11-01T00:00:00"
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/denom-EXM124-3"
+      "url": "Encounter/numer-EXM124-2"
     }
   }, {
     "resource": {
       "resourceType": "Patient",
-      "id": "denom-EXM124",
+      "id": "numer-EXM124",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
       },
@@ -99,15 +75,40 @@
         "value": "999999995"
       } ],
       "name": [ {
-        "family": "Bertha",
-        "given": [ "Betty" ]
+        "family": "Brigand",
+        "given": [ "Melanie" ]
       } ],
       "gender": "female",
       "birthDate": "1995-01-01"
     },
     "request": {
       "method": "PUT",
-      "url": "Patient/denom-EXM124"
+      "url": "Patient/numer-EXM124"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "numer-EXM124-3",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "10524-7",
+          "display": "Microscopic observation [Identifier] in Cervix by Cyto stain"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer-EXM124"
+      },
+      "effectiveDateTime": "2019-11-01T00:00:00",
+      "valueBoolean": true
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/numer-EXM124-3"
     }
   } ]
 }
