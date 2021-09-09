@@ -1,0 +1,1 @@
+input-cache\tooling-1.3.1-SNAPSHOT-jar-with-dependencies.jar -PostmanCollection -ptbd="bundles\measure" -op="collections" -v=r4 -host=cqm-sandbox.alphora.com -path=cqf-ruler-r4/fhir/ -protocol=https -name="ecqm-content-r4-2020"
