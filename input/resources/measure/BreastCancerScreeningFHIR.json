@@ -14,7 +14,7 @@
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
-      "reference": "cqf-tooling"
+      "reference": "Device/cqf-tooling"
     }
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
@@ -638,7 +638,7 @@
   "title": "Breast Cancer Screening FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-08-05T17:09:12-06:00",
+  "date": "2021-09-08T21:19:50-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {

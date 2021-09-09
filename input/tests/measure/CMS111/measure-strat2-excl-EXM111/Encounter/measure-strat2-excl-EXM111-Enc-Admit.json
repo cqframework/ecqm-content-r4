@@ -45,7 +45,9 @@
   ],
   "location": [
     {
-      "reference": "Location/measure-strat2-excl-EXM111-Location",
+      "location": {
+        "reference": "Location/measure-strat2-excl-EXM111-Location"
+      },
       "status": "completed",
       "period": {
           "start": "2019-03-15T05:00:00-00:00",

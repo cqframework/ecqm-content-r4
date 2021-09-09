@@ -36,6 +36,31 @@
     }
   }, {
     "resource": {
+      "resourceType": "Observation",
+      "id": "numer-EXM124-3",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "10524-7",
+          "display": "Microscopic observation [Identifier] in Cervix by Cyto stain"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer-EXM124"
+      },
+      "effectiveDateTime": "2019-11-01T00:00:00",
+      "valueBoolean": true
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/numer-EXM124-3"
+    }
+  }, {
+    "resource": {
       "resourceType": "Patient",
       "id": "numer-EXM124",
       "meta": {
@@ -84,31 +109,6 @@
     "request": {
       "method": "PUT",
       "url": "Patient/numer-EXM124"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Observation",
-      "id": "numer-EXM124-3",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "10524-7",
-          "display": "Microscopic observation [Identifier] in Cervix by Cyto stain"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/numer-EXM124"
-      },
-      "effectiveDateTime": "2019-11-01T00:00:00",
-      "valueBoolean": true
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/numer-EXM124-3"
     }
   } ]
 }

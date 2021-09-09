@@ -3,7 +3,7 @@
   "id": "measure-strat1-EXM111-Location",
   "status": "active",
   "name": "Our Lady of Perpetual Guilt",
-  "type": {
+  "type": [ {
     "coding": [
       {
         "system": "http://snomed.info/sct",
@@ -11,6 +11,5 @@
         "display": "Emergency department patient visit (procedure)"
       }
     ]
-  }
-
+  } ]
 }
