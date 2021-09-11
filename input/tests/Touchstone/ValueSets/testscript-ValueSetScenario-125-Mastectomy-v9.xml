@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <TestScript xmlns="http://hl7.org/fhir">
-    <id value="Individual Report Scenario"/>
+    <id value="ValueSetScenario-125-Mastectomy-v9"/>
     <meta>
         <profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
     </meta>
     <text>
         <status value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
-            <p>QM Individual Report Scenario</p>
+            <p>QM ValueSet Scenario - Mastectomy v9</p>
         </div>
     </text>
-    <url value="http://wildfhir.aegis.net/fhir4-0-1/TestScript/Individual-Report-Scenario"/>
-    <name value="Individual-Report-Scenario"/>
+    <url value="http://wildfhir.aegis.net/fhir4-0-1/TestScript/ValueSetScenario-125-Mastectomy-v9"/>
+    <name value="ValueSetScenario_125_Mastectomy_v9"/>
     <status value="active"/>
     <date value="2021-07-15"/>
     <publisher value="AEGIS.net, Inc."/>
@@ -24,7 +24,7 @@
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="A Receiver uses $expand to request the data and results for an Individual measure from a Reporter, but does not  include an end date.  The Receiver receives a server 500 error."/>
+    <description value="A system uses $expand?url=[valueset]&amp;valueSetVersion=[version]&amp;system-version=[system-version] to request a version-specific valueset expansion from a terminology service"/>
     <copyright value="(c) AEGIS.net, Inc. 2021"/>
     <origin>
         <index value="1"/>
@@ -40,12 +40,9 @@
             <code value="FHIR-Server"/>
         </profile>
     </destination>
-    <profile id="MeasureReportProfile">
-        <reference value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
-    </profile>
-    <test id="Eval-Measure-Query">
-        <name value="Eval-Measure-Query"/>
-        <description value="Query using $expand, including a measure, subject, and period start and end dates. Expected response is a MeasureReport."/>
+    <test id="ValueSet-Expand">
+        <name value="ValueSetExpand"/>
+        <description value="Invoke ValueSet$expand using a ValueSet url, valueSetVersion, and system-version. Expected response is a ValueSet with an expansion element containing the expected codes"/>
         <action>
             <operation>
                 <type>
@@ -60,7 +57,7 @@
                 <encodeRequestUrl value="true"/>
                 <method value="get"/>
                 <origin value="1"/>
-                <params value="/2.16.840.1.113883.3.464.1003.108.12.1018/$expand?version=20210304"/>
+                <params value="/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005&amp;valueSetVersion=20190315&amp;system-version=http://snomed.info/sct/731000124108/version/20190901"/>
                 <responseId value="searchResponse"/>
             </operation>
         </action>
@@ -121,7 +118,7 @@
                 <direction value="response"/>
                 <operator value="equals"/>
                 <path value="version"/>
-                <value value="20210304"/>
+                <value value="20190315"/>
                 <warningOnly value="false"/>
             </assert>
         </action>
@@ -130,31 +127,20 @@
                 <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
                     <valueBoolean value="false"/>
                 </extension>
-                <description value="Validate the response does not contain code G0202: Screening mammography, bilateral (2-view study of each breast), including computer-aided detection (cad) when performed."/>
+                <description value="Validate the response does not contain code 836436008: Simple mastectomy of bilateral breasts using robotic assistance (procedure)."/>
                 <direction value="response"/>
-                <expression value="ValueSet.expansion.contains.where(code = 'G0202').exists().not()"/>
+                <expression value="ValueSet.expansion.contains.where(code = '836436008').exists().not()"/>
                 <warningOnly value="false"/>
             </assert>
-        </action>
-        <action>
-        <assert>
-            <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
-                <valueBoolean value="false"/>
-            </extension>
-            <description value="Validate the response does not contain code G0204: Diagnostic mammography, including computer-aided detection (cad) when performed; bilateral."/>
-            <direction value="response"/>
-            <expression value="ValueSet.expansion.contains.where(code = 'G0204').exists().not()"/>
-            <warningOnly value="false"/>
-        </assert>
         </action>
         <action>
             <assert>
                 <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
                     <valueBoolean value="false"/>
                 </extension>
-                <description value="Validate the response does not contain code G0206: Diagnostic mammography, including computer-aided detection (cad) when performed; unilateral."/>
+                <description value="Validate the response does not contain code 870629001: Bilateral mastectomy for female to male transsexual (procedure)."/>
                 <direction value="response"/>
-                <expression value="ValueSet.expansion.contains.where(code = 'G0206').exists().not()"/>
+                <expression value="ValueSet.expansion.contains.where(code = '870629001').exists().not()"/>
                 <warningOnly value="false"/>
             </assert>
         </action>

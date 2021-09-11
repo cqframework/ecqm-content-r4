@@ -1,0 +1,23 @@
+{
+  "resourceType": "ValueSet",
+  "id": "125-Mastectomy",
+  "url": "http://example.org/fhir/ValueSet/125-Mastectomy",
+  "version": "20190315",
+  "name": "BilateralMastectomy",
+  "title": "Bilateral Mastectomy",
+  "status": "active",
+  "experimental": true,
+  "description": "Bilateral Mastectomy",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          "property": "concept",
+          "op": "is-a",
+          "value": "27865001"
+        ]
+      }
+    ]
+  }
+}
