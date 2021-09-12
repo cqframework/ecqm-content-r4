@@ -57,7 +57,7 @@
                 <encodeRequestUrl value="true"/>
                 <method value="get"/>
                 <origin value="1"/>
-                <params value="/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005&amp;valueSetVersion=20190315&amp;system-version=http://snomed.info/sct/731000124108/version/20190901"/>
+                <params value="/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005&amp;valueSetVersion=20190315&amp;system-version=http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"/>
                 <responseId value="searchResponse"/>
             </operation>
         </action>
