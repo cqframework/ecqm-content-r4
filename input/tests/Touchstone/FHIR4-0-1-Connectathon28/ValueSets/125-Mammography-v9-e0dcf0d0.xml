@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TestScript xmlns="http://hl7.org/fhir">
+    <id value="Individual Report Scenario"/>
+    <meta>
+        <profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>QM Individual Report Scenario</p>
+        </div>
+    </text>
+    <url value="http://wildfhir.aegis.net/fhir4-0-1/TestScript/Individual-Report-Scenario"/>
+    <name value="Individual-Report-Scenario"/>
+    <status value="active"/>
+    <date value="2021-07-15"/>
+    <publisher value="AEGIS.net, Inc."/>
+    <contact>
+        <name value="Touchstone Support"/>
+        <telecom>
+            <system value="email"/>
+            <value value="Touchstone_Support@aegis.net"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="A Receiver uses $evaluate-measure to request the data and results for an Individual measure from a Reporter, but does not  include an end date.  The Receiver receives a server 500 error."/>
+    <copyright value="(c) AEGIS.net, Inc. 2021"/>
+    <origin>
+        <index value="1"/>
+        <profile>
+            <system value="http://hl7.org/fhir/testscript-profile-origin-types"/>
+            <code value="FHIR-Client"/>
+        </profile>
+    </origin>
+    <destination>
+        <index value="1"/>
+        <profile>
+            <system value="http://hl7.org/fhir/testscript-profile-destination-types"/>
+            <code value="FHIR-Server"/>
+        </profile>
+    </destination>
+    <profile id="MeasureReportProfile">
+        <reference value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
+    </profile>
+    <test id="Eval-Measure-Query">
+        <name value="Eval-Measure-Query"/>
+        <description value="Query using $evaluate-measure, including a measure, subject, and period start and end dates. Expected response is a MeasureReport."/>
+        <action>
+            <operation>
+                <type>
+                    <system value="http://touchstone.com/fhir/testscript-operation-codes-extended"/>
+                    <code value="expand"/>
+                </type>
+                <resource value="ValueSet"/>
+                <description value="Run the $evaluate-measure operation."/>
+                <accept value="json"/>
+                <contentType value="json"/>
+                <destination value="1"/>
+                <encodeRequestUrl value="true"/>
+                <method value="get"/>
+                <origin value="1"/>
+                <params value="/2.16.840.1.113883.3.464.1003.108.12.1018/$expand?version=20171222"/>
+                <responseId value="searchResponse"/>
+            </operation>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Confirm that the request HTTP Header Accept contains 'charset=utf-8'."/>
+                <direction value="request"/>
+                <headerField value="Accept"/>
+                <operator value="contains"/>
+                <value value="charset=utf-8"/>
+                <warningOnly value="true"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Confirm that the request HTTP Header Content-Type contains 'charset=utf-8'."/>
+                <direction value="request"/>
+                <headerField value="Content-Type"/>
+                <operator value="contains"/>
+                <value value="charset=utf-8"/>
+                <warningOnly value="true"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <description value="Confirm that the returned HTTP status is 200 (OK)."/>
+                <direction value="response"/>
+                <operator value="in"/>
+                <responseCode value="200"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Confirm that the response HTTP Header Content-Type contains 'charset=utf-8'."/>
+                <direction value="response"/>
+                <headerField value="Content-Type"/>
+                <operator value="contains"/>
+                <value value="charset=utf-8"/>
+                <warningOnly value="true"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Validate the response version matches the requested version."/>
+                <direction value="response"/>
+                <operator value="equals"/>
+                <path value="version"/>
+                <value value="20171222"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Validate the response contains code G0202: Screening mammography, bilateral (2-view study of each breast), including computer-aided detection (cad) when performed."/>
+                <direction value="response"/>
+                <expression value="ValueSet.expansion.contains.where(code = 'G0202').exists()"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Validate the response contains code G0204: Diagnostic mammography, including computer-aided detection (cad) when performed; bilateral."/>
+                <direction value="response"/>
+                <expression value="ValueSet.expansion.contains.where(code = 'G0204').exists()"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Validate the response contains code G0206: Diagnostic mammography, including computer-aided detection (cad) when performed; unilateral."/>
+                <direction value="response"/>
+                <expression value="ValueSet.expansion.contains.where(code = 'G0206').exists()"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+    </test>
+</TestScript>
