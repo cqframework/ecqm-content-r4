@@ -10,3 +10,7 @@ ports:
 
 image:
   file: .devcontainer/Dockerfile
+
+vscode:
+  extensions:
+    - cqframework.cql
