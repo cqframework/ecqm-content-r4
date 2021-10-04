@@ -167,7 +167,7 @@
                 </extension>
                 <description value="Verify that the Initial Population Count is as expected in the response"/>
                 <direction value="response"/>
-                <expression value="MeasureReport.group.population[0].where(code.coding.code = 'initial-population').count"/>
+                <expression value="MeasureReport.group.population.where(code.coding.code = 'initial-population').count[0]"/>
                 <operator value="equals"/>
                 <value value="1"/>
                 <warningOnly value="false"/>
@@ -180,7 +180,7 @@
                 </extension>
                 <description value="Verify that the Denominator Count is as expected in the response"/>
                 <direction value="response"/>
-                <expression value="MeasureReport.group.population[0].where(code.coding.code = 'denominator').count"/>
+                <expression value="MeasureReport.group.population.where(code.coding.code = 'denominator').count[0]"/>
                 <operator value="equals"/>
                 <value value="1"/>
                 <warningOnly value="false"/>
@@ -193,7 +193,7 @@
                 </extension>
                 <description value="Verify that the Denominator Exclusion Count is as expected in the response"/>
                 <direction value="response"/>
-                <expression value="MeasureReport.group.population[0].where(code.coding.code = 'denominator-exclusion').count"/>
+                <expression value="MeasureReport.group.population.where(code.coding.code = 'denominator-exclusion').count[0]"/>
                 <operator value="equals"/>
                 <value value="0"/>
                 <warningOnly value="false"/>
@@ -206,7 +206,7 @@
                 </extension>
                 <description value="Verify that the Denominator Exception Count is as expected in the response"/>
                 <direction value="response"/>
-                <expression value="MeasureReport.group.population[0].where(code.coding.code = 'denominator-exception').count"/>
+                <expression value="MeasureReport.group.population.where(code.coding.code = 'denominator-exception').count[0]"/>
                 <operator value="equals"/>
                 <value value="0"/>
                 <warningOnly value="false"/>
