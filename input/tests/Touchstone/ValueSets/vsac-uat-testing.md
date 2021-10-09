@@ -126,3 +126,7 @@ Response:
     ]
 }
 ```
+
+# Results with FederatedTerminologyClient:
+
+Running an $expand works, but the result is a Parameters
