@@ -18,9 +18,9 @@
   "code": {
     "coding": [
       {
-        "system": "http://snomed.info/sct",
-        "code": "13644009",
-        "display": "Hypercholesterolemia (disorder)"
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "I25.110",
+        "display": "Atherosclerotic heart disease of native coronary artery with unstable angina pectoris"
       }
     ]
   },
