@@ -154,8 +154,8 @@
                 </extension>
                 <description value="Verify that the Measure Score is as expected in the response"/>
                 <direction value="response"/>
-                <path value="MeasureReport.group.measureScore.value"/>
                 <operator value="equals"/>
+                <path value="MeasureReport.group.measureScore.value"/>
                 <value value="0.0"/>
                 <warningOnly value="false"/>
             </assert>
@@ -206,8 +206,8 @@
                 </extension>
                 <description value="When using a MeasureReport resource to represent the results of an individual calculation, the MeasureReport SHALL have a reference to the subject of the report"/>
                 <direction value="response"/>
-                <path value="MeasureReport.subject.reference"/>
                 <operator value="equals"/>
+                <path value="MeasureReport.subject.reference"/>
                 <value value="Patient/denom-EXM165-Patient"/>
                 <warningOnly value="false"/>
             </assert>
@@ -219,8 +219,8 @@
                 </extension>
                 <description value="When using a MeasureReport resource to represent the results of an individual calculation, the MeasureReport SHALL have a type-code of 'individual'"/>
                 <direction value="response"/>
-                <path value="MeasureReport.type"/>
                 <operator value="equals"/>
+                <path value="MeasureReport.type"/>
                 <value value="individual"/>
                 <warningOnly value="false"/>
             </assert>
