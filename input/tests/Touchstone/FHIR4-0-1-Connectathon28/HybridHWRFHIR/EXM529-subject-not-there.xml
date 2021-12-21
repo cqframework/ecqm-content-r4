@@ -167,8 +167,8 @@
                 </extension>
                 <description value="When using a MeasureReport resource to represent the results of an individual calculation, the MeasureReport SHALL have a type-code of 'individual'"/>
                 <direction value="response"/>
-                <path value="MeasureReport.type"/>
                 <operator value="equals"/>
+                <path value="MeasureReport.type"/>
                 <value value="individual"/>
                 <warningOnly value="false"/>
             </assert>
