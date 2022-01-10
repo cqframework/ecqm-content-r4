@@ -2,7 +2,7 @@
 #DO NOT EDIT WITH WINDOWS
 #exit 1
 
-r=snapshots
+r=releases
 g=org.opencds.cqf
 a=tooling
 v=1.4.0
