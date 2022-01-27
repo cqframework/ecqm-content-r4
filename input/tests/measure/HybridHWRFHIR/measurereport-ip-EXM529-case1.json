@@ -1,0 +1,166 @@
+{
+  "resourceType": "MeasureReport",
+  "contained": [
+    {
+      "resourceType": "Observation",
+      "id": "3f8ed65b-fcf1-4519-b4c4-1955294d8201",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [
+            {
+              "url": "measure",
+              "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/http://ecqi.healthit.gov/ecqms/Measure/HybridHWRFHIR"
+            },
+            {
+              "url": "populationId",
+              "valueString": "sde-race"
+            }
+          ]
+        }
+      ],
+      "status": "final",
+      "code": {
+        "text": "sde-race"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.cdc.gov/phin/resources/vocabulary/index.html",
+            "code": "1002-5",
+            "display": "American Indian or Alaska Native"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "99ecda7e-319c-42a0-b7f0-fafaa70319da",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [
+            {
+              "url": "measure",
+              "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/http://ecqi.healthit.gov/ecqms/Measure/HybridHWRFHIR"
+            },
+            {
+              "url": "populationId",
+              "valueString": "sde-ethnicity"
+            }
+          ]
+        }
+      ],
+      "status": "final",
+      "code": {
+        "text": "sde-ethnicity"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.cdc.gov/phin/resources/vocabulary/index.html",
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "65b03176-4c2e-43b2-a83f-f7539c4b49de",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [
+            {
+              "url": "measure",
+              "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/http://ecqi.healthit.gov/ecqms/Measure/HybridHWRFHIR"
+            },
+            {
+              "url": "populationId",
+              "valueString": "sde-sex"
+            }
+          ]
+        }
+      ],
+      "status": "final",
+      "code": {
+        "text": "sde-sex"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "F"
+          }
+        ]
+      }
+    }
+  ],
+  "status": "complete",
+  "type": "individual",
+  "measure": "http://ecqi.healthit.gov/ecqms/Measure/HybridHWRFHIR",
+  "subject": {
+    "reference": "Patient/ip-EXM529-case1"
+  },
+  "period": {
+    "start": "2019-01-01T00:00:00-07:00",
+    "end": "2019-12-31T00:00:00-07:00"
+  },
+  "group": [
+    {
+      "id": "group-1",
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "evaluatedResource": [
+    {
+      "reference": "#3f8ed65b-fcf1-4519-b4c4-1955294d8201"
+    },
+    {
+      "reference": "#99ecda7e-319c-42a0-b7f0-fafaa70319da"
+    },
+    {
+      "reference": "#65b03176-4c2e-43b2-a83f-f7539c4b49de"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueString": "initial-population"
+        }
+      ],
+      "reference": "Coverage/ip-EXM529-case1-Coverage"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueString": "initial-population"
+        }
+      ],
+      "reference": "Patient/ip-EXM529-case1"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueString": "initial-population"
+        }
+      ],
+      "reference": "Encounter/ip-EXM529-case1-Encounter"
+    }
+  ]
+}

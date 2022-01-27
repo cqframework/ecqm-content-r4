@@ -1,0 +1,148 @@
+{
+  "resourceType": "MeasureReport",
+  "contained": [
+    {
+      "resourceType": "Observation",
+      "id": "d309394b-ecca-4971-903c-83930d797374",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [
+            {
+              "url": "measure",
+              "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/HybridHWRFHIR"
+            },
+            {
+              "url": "populationId",
+              "valueString": "sde-race"
+            }
+          ]
+        }
+      ],
+      "status": "final",
+      "code": {
+        "text": "sde-race"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.cdc.gov/phin/resources/vocabulary/index.html",
+            "code": "1002-5",
+            "display": "American Indian or Alaska Native"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "44efbc8d-afe6-4950-8e1b-60bfa92383be",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [
+            {
+              "url": "measure",
+              "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/HybridHWRFHIR"
+            },
+            {
+              "url": "populationId",
+              "valueString": "sde-ethnicity"
+            }
+          ]
+        }
+      ],
+      "status": "final",
+      "code": {
+        "text": "sde-ethnicity"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.cdc.gov/phin/resources/vocabulary/index.html",
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "b6cc0f43-2eb1-4ea9-b200-ded22f962a11",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [
+            {
+              "url": "measure",
+              "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/HybridHWRFHIR"
+            },
+            {
+              "url": "populationId",
+              "valueString": "sde-sex"
+            }
+          ]
+        }
+      ],
+      "status": "final",
+      "code": {
+        "text": "sde-sex"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "M"
+          }
+        ]
+      }
+    }
+  ],
+  "status": "complete",
+  "type": "individual",
+  "measure": "http://ecqi.healthit.gov/ecqms/Measure/HybridHWRFHIR",
+  "subject": {
+    "reference": "Patient/ip-EXM529-case2"
+  },
+  "period": {
+    "start": "2019-01-01T00:00:00-07:00",
+    "end": "2019-12-31T00:00:00-07:00"
+  },
+  "group": [
+    {
+      "id": "group-1",
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 0
+        }
+      ]
+    }
+  ],
+  "evaluatedResource": [
+    {
+      "reference": "#d309394b-ecca-4971-903c-83930d797374"
+    },
+    {
+      "reference": "#44efbc8d-afe6-4950-8e1b-60bfa92383be"
+    },
+    {
+      "reference": "#b6cc0f43-2eb1-4ea9-b200-ded22f962a11"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-populationReference",
+          "valueString": "initial-population"
+        }
+      ],
+      "reference": "Encounter/ip-EXM529-case2-Encounter"
+    }
+  ]
+}

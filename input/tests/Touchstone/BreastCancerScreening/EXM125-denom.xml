@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TestScript xmlns="http://hl7.org/fhir">
+    <id value="Individual Report Scenario"/>
+    <meta>
+        <profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>QM Individual Report Scenario</p>
+        </div>
+    </text>
+    <url value="http://wildfhir.aegis.net/fhir4-0-1/TestScript/Individual-Report-Scenario"/>
+    <name value="Individual-Report-Scenario"/>
+    <status value="active"/>
+    <date value="2021-07-15"/>
+    <publisher value="AEGIS.net, Inc."/>
+    <contact>
+        <name value="Touchstone Support"/>
+        <telecom>
+            <system value="email"/>
+            <value value="Touchstone_Support@aegis.net"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="A Receiver uses $evaluate-measure to request the data and results for an Individual measure from a Reporter.  The Receiver receives a completed MeasureReport and verifies that it has the correct data and the calculated result is correct for the individual.  The request is for json format as a default.  Prequisite: appropriate measures data is loaded to the server under test."/>
+    <copyright value="(c) AEGIS.net, Inc. 2021"/>
+    <origin>
+        <index value="1"/>
+        <profile>
+            <system value="http://hl7.org/fhir/testscript-profile-origin-types"/>
+            <code value="FHIR-Client"/>
+        </profile>
+    </origin>
+    <destination>
+        <index value="1"/>
+        <profile>
+            <system value="http://hl7.org/fhir/testscript-profile-destination-types"/>
+            <code value="FHIR-Server"/>
+        </profile>
+    </destination>
+    <profile id="MeasureReportProfile">
+        <reference value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
+    </profile>
+    <test id="Eval-Measure-Query">
+        <name value="Eval-Measure-Query"/>
+        <description value="Query using $evaluate-measure, including a measure, subject, and period start and end dates. Expected response is a MeasureReport with a denom count of 1."/>
+        <action>
+            <operation>
+                <type>
+                    <system value="http://touchstone.com/fhir/testscript-operation-codes-extended"/>
+                    <code value="evaluate-measure"/>
+                </type>
+                <resource value="Measure"/>
+                <description value="Run the $evaluate-measure operation."/>
+                <accept value="json"/>
+                <contentType value="json"/>
+                <destination value="1"/>
+                <encodeRequestUrl value="true"/>
+                <method value="get"/>
+                <origin value="1"/>
+                <params value="/BreastCancerScreeningFHIR/$evaluate-measure?patient=Patient/denom-EXM125&amp;periodStart=2019-01-01&amp;periodEnd=2019-12-31"/>
+                <responseId value="searchResponse"/>
+            </operation>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Confirm that the request HTTP Header Accept contains 'charset=utf-8'."/>
+                <direction value="request"/>
+                <headerField value="Accept"/>
+                <operator value="contains"/>
+                <value value="charset=utf-8"/>
+                <warningOnly value="true"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Confirm that the request HTTP Header Content-Type contains 'charset=utf-8'."/>
+                <direction value="request"/>
+                <headerField value="Content-Type"/>
+                <operator value="contains"/>
+                <value value="charset=utf-8"/>
+                <warningOnly value="true"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <description value="Confirm that the returned HTTP status is 200(OK)."/>
+                <direction value="response"/>
+                <operator value="in"/>
+                <responseCode value="200"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Confirm that the response HTTP Header Content-Type contains 'charset=utf-8'."/>
+                <direction value="response"/>
+                <headerField value="Content-Type"/>
+                <operator value="contains"/>
+                <value value="charset=utf-8"/>
+                <warningOnly value="true"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Confirm that the response body contains a MeasureReport resource"/>
+                <direction value="response"/>
+                <resource value="MeasureReport"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Validate the response MeasureReport for conformance."/>
+                <direction value="response"/>
+                <validateProfileId value="MeasureReportProfile"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Verify that the Group is as expected in the response"/>
+                <direction value="response"/>
+                <expression value="MeasureReport.group.id"/>
+                <operator value="equals"/>
+                <value value="group-1"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Verify that the Measure Score is as expected in the response"/>
+                <direction value="response"/>
+                <path value="MeasureReport.group.measureScore.value"/>
+                <value value="0.0"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Verify that the Initial Population Count is as expected in the response"/>
+                <direction value="response"/>
+                <expression value="MeasureReport.group.population.where(code.coding.code = 'initial-population').count"/>
+                <operator value="equals"/>
+                <value value="1"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Verify that the Denominator Count is as expected in the response"/>
+                <direction value="response"/>
+                <expression value="MeasureReport.group.population.where(code.coding.code = 'denominator').count"/>
+                <operator value="equals"/>
+                <value value="1"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="Verify that the Denominator Exclusion Count is as expected in the response"/>
+                <direction value="response"/>
+                <expression value="MeasureReport.group.population.where(code.coding.code = 'denominator-exclusion').count"/>
+                <operator value="equals"/>
+                <value value="0"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="When using a MeasureReport resource to represent the results of an individual calculation, the MeasureReport SHALL have a reference to the subject of the report"/>
+                <direction value="response"/>
+                <operator value="equals"/>
+                <path value="MeasureReport.subject.reference"/>
+                <value value="Patient/denom-EXM125"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-stopTestOnFail">
+                    <valueBoolean value="false"/>
+                </extension>
+                <description value="When using a MeasureReport resource to represent the results of an individual calculation, the MeasureReport SHALL have a type-code of 'individual'"/>
+                <direction value="response"/>
+                <operator value="equals"/>
+                <path value="MeasureReport.type"/>
+                <value value="individual"/>
+                <warningOnly value="false"/>
+            </assert>
+        </action>
+    </test>
+</TestScript>

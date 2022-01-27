@@ -1,0 +1,29 @@
+{
+	"resourceType": "Coverage",
+	"id": "no-ip-EXM529-Coverage",
+	"status": "active",
+	"type": {
+		"coding": [
+			{
+				"system": "urn:oid:2.16.840.1.113883.3.221.5",
+				"code": "1",
+				"display": "MEDICARE"
+			}
+		]
+	},
+	"beneficiary": {
+		"reference": "Patient/no-ip-EXM529"
+	},
+	"period": {
+		"start": "2019-01-01T08:15:00",
+		"end": "2019-05-28T08:15:00"
+	},
+	"policyHolder": {
+		"reference": "Patient/no-ip-EXM529"
+	},
+	"payor": [
+    {
+			"reference": "Patient/no-ip-EXM529"
+		}
+	]
+}

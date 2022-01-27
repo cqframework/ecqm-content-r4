@@ -1,0 +1,27 @@
+{
+    "resourceType": "Observation",
+    "id": "no-ip-EXM529-ObsHR3",
+    "meta": {
+        "profile": [
+            "http://hl7.org/fhir/observation"
+        ]
+      },
+    "status": "final",
+    "code": {
+        "coding": [
+            {
+                "system": "http://loinc.org",
+                "code": "8867-6",
+                "display": "Heart rate"
+            }
+        ]
+    },
+    "subject": {
+      "reference": "Patient/no-ip-EXM529"
+    },
+    "valueQuantity": {
+      "value": "87",
+      "unit": "bpm"
+    },
+    "effectiveDateTime": "2019-06-21T09:00:00"
+}

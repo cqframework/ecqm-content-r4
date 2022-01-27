@@ -2,7 +2,7 @@ library AdvancedIllnessandFrailtyExclusionECQMFHIR4 version '5.12.000'
 
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.001' called FHIRHelpers
+include FHIRHelpers version '4.0.1' called FHIRHelpers
 include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 
 codesystem "LOINC": 'http://loinc.org'

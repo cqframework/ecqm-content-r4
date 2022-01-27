@@ -1,0 +1,143 @@
+{
+  "resourceType": "Bundle",
+  "id": "tests-numer-EXM74-strat2-case10-bundle",
+  "type": "transaction",
+  "entry": [ {
+    "resource": {
+      "resourceType": "Coverage",
+      "id": "numer-EXM74-strat2-case10-Coverage",
+      "status": "active",
+      "type": {
+        "coding": [ {
+          "system": "http://www.nlm.nih.gov/research/umls/sop",
+          "code": "32127",
+          "display": "Dental Care"
+        } ]
+      },
+      "beneficiary": {
+        "reference": "Patient/numer-EXM74-strat2-case10"
+      },
+      "period": {
+        "start": "2018-05-30T00:00:00-00:00",
+        "end": "2020-05-31T00:00:00-00:00"
+      },
+      "payor": [ {
+        "reference": "Patient/numer-EXM74-strat2-case10"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Coverage/numer-EXM74-strat2-case10-Coverage"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "numer-EXM74-strat2-case10-Encounter",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "IMP",
+        "display": "inpatient encounter"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/CD2",
+          "code": "D0150",
+          "display": "Comprehensive oral evaluation - new or established patient"
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/numer-EXM74-strat2-case10"
+      },
+      "period": {
+        "start": "2019-05-20T15:00:00",
+        "end": "2019-05-20T15:30:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/numer-EXM74-strat2-case10-Encounter"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "numer-EXM74-strat2-case10",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2106-3",
+            "display": "White"
+          }
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "usual",
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical Record Number"
+          } ]
+        },
+        "system": "http://hospital.smarthealthit.org",
+        "value": "9999999911"
+      } ],
+      "name": [ {
+        "family": "Jones",
+        "given": [ "Louise" ]
+      } ],
+      "gender": "male",
+      "birthDate": "2008-04-09"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/numer-EXM74-strat2-case10"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Procedure",
+      "id": "numer-EXM74-strat2-case10-Procedure",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" ]
+      },
+      "status": "completed",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "313042009",
+          "display": "Application of dental fluoride varnish (procedure)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer-EXM74-strat2-case10"
+      },
+      "performedPeriod": {
+        "start": "2019-05-20T15:15:00",
+        "end": "2019-05-20T15:19:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Procedure/numer-EXM74-strat2-case10-Procedure"
+    }
+  } ]
+}
