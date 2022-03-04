@@ -154,6 +154,7 @@
                 </extension>
                 <description value="Verify that the Measure Score is as expected in the response"/>
                 <direction value="response"/>
+                <operator value="equals"/>
                 <path value="MeasureReport.group.measureScore.value"/>
                 <value value="0.0"/>
                 <warningOnly value="false"/>

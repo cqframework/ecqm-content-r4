@@ -1,6 +1,6 @@
 #!/bin/bash
 #DO NOT EDIT WITH WINDOWS
-tooling_jar=tooling-1.3.1-SNAPSHOT-jar-with-dependencies.jar
+tooling_jar=tooling-1.4.0-jar-with-dependencies.jar
 input_cache_path=./input-cache
 ig_resource_path=./input/ecqm-content-r4.xml
 
@@ -10,9 +10,9 @@ echo Checking internet connection...
 
 if [ $? -eq 0 ]; then
 	echo "Online"
-	fsoption=""
+	#fsoption=""
 	#Disabled temporarily due to error in CQF Tooling upload
-	#fsoption="-fs http://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/"
+	fsoption="-fs https://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/"
 else
 	echo "Offline"
 	fsoption=""
