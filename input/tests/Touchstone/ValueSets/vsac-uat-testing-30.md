@@ -10,11 +10,15 @@ Bilateral Mastectomy: 2.16.840.1.113883.3.464.1003.198.12.1005 version 20190315
 Mammography: 2.16.840.1.113883.3.464.1003.108.12.1018 version 20171222 and 20210304
 Below Normal Medications: 2.16.840.1.113883.3.600.1.1499
 
+## Read
+
 Direct retrieval of the value sets using a GET works:
 
 https://uat-cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005 // Succeeded
 https://uat-cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1018 // Succeeded, returned version 20210304
 https://uat-cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1499 // Succeeded, returned version 20220217
+
+## Search by _id
 
 Search by _id works:
 
@@ -27,6 +31,8 @@ Search by _id and version succeeds:
 https://uat-cts.nlm.nih.gov/fhir/r4/ValueSet?_id=2.16.840.1.113883.3.464.1003.108.12.1018&version=20171222
 
 But only returns the metadata, not the full content of the resource.
+
+## Search by _url
 
 Search by url succeeds:
 
@@ -71,15 +77,19 @@ Note that it should still be possible to resolve the canonical URL to the latest
 
 https://uat-cts.nlm.nih.gov/fhir/r4/ValueSet?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1018&version=20171222&_summary=false
 
-4. Tracker to Vocab: How do you represent an extensional value set with 10s of 1000s of codes....
+4. Tracker to Vocab: How do you represent an extensional value set with 10s of 1000s of codes.... (Standards team to followup)
 
-5. Tracker to Vocab: How do you determine what expansion identifiers are available for a given value set URL?
+5. Tracker to Vocab: How do you determine what expansion identifiers are available for a given value set URL? (Standards team to followup)
 
-Propose an "availableExpansion" extension that specifies an expansion identifier:
+Can propose an "availableExpansion" extension that specifies an expansion identifier:
 
 availableExpansion 0..* uri
 
-6. Version-specific Expansion
+In the context of the Measure Terminology Service, the Expansion Identifiers can be appropriately provided as part of the Quality Program library
+
+## $expand
+
+Version-specific Expansion
 https://uat-cts.nlm.nih.gov/fhir/r4/ValueSet?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1499
 
 20220217
@@ -94,9 +104,9 @@ https://uat-cts.nlm.nih.gov/fhir/ValueSet/$expand?url=http://cts.nlm.nih.gov/fhi
 // Succeeded, returned 20220217 and used latest RxNorm version
 
 https://uat-cts.nlm.nih.gov/fhir/ValueSet/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1499&system-version=http://www.nlm.nih.gov/research/umls/rxnorm|10012018
-// Succeeded, but the contains does not include the system version (where it does if you don't ask for a specific system-version)
+1. Succeeded, but the contains does not include the system version (where it does if you don't ask for a specific system-version)
 
-If the system-version isn't recognized, an unhelpful error is provided:
+2. If the system-version isn't recognized, an unhelpful error is provided:
 https://uat-cts.nlm.nih.gov/fhir/ValueSet/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1499&system-version=http://www.nlm.nih.gov/research/umls/rxnorm|01062020
 
 ```
@@ -114,22 +124,25 @@ https://uat-cts.nlm.nih.gov/fhir/ValueSet/$expand?url=http://cts.nlm.nih.gov/fhi
 
 https://uat-cts.nlm.nih.gov/fhir/ValueSet/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1499&system-version=http://www.nlm.nih.gov/research/umls/rxnorm|01012020
 
-The published RxNorm files are 01062020, but the version that works 01012020
+3. The published RxNorm files are 01062020, but the version that works 01012020
 
 https://uat-cts.nlm.nih.gov/fhir/ValueSet/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1499&expansion=eCQM%20Update%2017-05-05
 
-// Fails, invalid parameter combintation, have to invoke at the instance level (on track to support)
+4. Fails, invalid parameter combintation, have to invoke at the instance level (on track to support)
 
 https://uat-cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1499/$expand?expansion=eCQM%20Update%202017-05-05
-// Expansion parameter succeeded
+
+5. Expansion parameter succeeded, the only issue is the "identifier" of the expansion doesn't match the expansion identifier passed. It seems to be correct, and the "manifest" parameter is great, it might need encoding (%20 vs ` `)
 
 ## CodeSystem
 
-1. CodeSystem search by url:
+CodeSystem search by url:
 
 https://uat-cts.nlm.nih.gov/fhir/CodeSystem?url=http://www.nlm.nih.gov/research/umls/rxnorm
 
 // Succeeds and provides the correct version string (steward-specified) for the code system version
+
+1. Has the same issue with logical ids as ValueSets, every returned resource has the same logical id. Propose the same approach as the ValueSet, append the version with a `-`.
 
 https://uat-cts.nlm.nih.gov/fhir/CodeSystem?url=http://snomed.info/sct
 

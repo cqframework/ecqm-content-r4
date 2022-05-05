@@ -160,6 +160,15 @@ Using POST: https://uat-cts.nlm.nih.gov/fhir/r4/ValueSet/$expand
 
 https://uat-cts.nlm.nih.gov/fhir/r4/ValueSet/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005&valueSetVersion=20190315&system-version=http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20200901
 
+### Outstanding Questions
+
+* Search by URL should return all versions with that URL, otherwise there is no way to get the list of versions for a given value set URL
+* If searches return a SUBSETTED resource by default, should the server should allow the _summary=false parameter to request full resources?
+* Given the `id` of a ValueSet is the OID, how can I retrieve specific versions of a ValueSet?
+* How can I retrieve a list of available expansions for a given ValueSet URL?
+* Can I use a GET to invoke $expand with both the url and valueSetVersion parameters? (Connectathon testing resulted in an error)
+
+
 
 # Server 2
 
