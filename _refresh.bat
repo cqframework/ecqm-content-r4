@@ -13,7 +13,7 @@ ECHO   -u  Unattended mode.  Defaults to false.
 GOTO exit0
 
 :refresh
-SET tooling_jar=tooling-1.4.1-SNAPSHOT-jar-with-dependencies.jar
+SET tooling_jar=tooling-2.4.0-SNAPSHOT-jar-with-dependencies.jar
 SET input_cache_path=%~dp0input-cache
 SET ig_resource_path=%~dp0input\ecqm-content-r4.xml
 SET unattended=false
