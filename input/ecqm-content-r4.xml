@@ -5,8 +5,8 @@
     <version value="2021"/>
     <name value="eCQMContentR4"/>
     <title value="eCQM FHIR R4 Content Implementation Guide"/>
-    <status value="draft"/>
-    <experimental value="false"/>
+    <status value="retired"/>
+    <experimental value="true"/>
     <date value="2020-06-29"/>
     <publisher value="cqframework"/>
     <contact>
