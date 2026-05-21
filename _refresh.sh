@@ -16,7 +16,7 @@ HELP_USAGE
 	exit 0
 }
 
-tooling_jar=tooling-1.4.1-SNAPSHOT-jar-with-dependencies.jar
+tooling_jar=tooling-2.4.0-jar-with-dependencies.jar
 input_cache_path=./input-cache
 ig_resource_path=./input/ecqm-content-r4.xml
 unattended=false

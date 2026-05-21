@@ -4,16 +4,16 @@
 
 r=releases
 g=org.opencds.cqf
-a=tooling
-v=1.4.0
+a=tooling-cli
+v=2.4.0
 c=jar-with-dependencies
 
-dlurl='https://oss.sonatype.org/service/local/artifact/maven/redirect?r='${r}'&g='${g}'&a='${a}'&v='${v}'&c='${c}''
+dlurl='https://oss.sonatype.org/service/local/artifact/maven/redirect?r='${r}'&g='${g}'&a='${a}'&v='${v}''
 
 echo ${dlurl}
 
 input_cache_path=./input-cache/
-tooling_jar=tooling-1.4.0-jar-with-dependencies.jar
+tooling_jar=tooling-2.4.0-jar-with-dependencies.jar
 
 set -e
 if ! type "curl" > /dev/null; then
